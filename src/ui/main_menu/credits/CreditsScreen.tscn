@@ -1,0 +1,354 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/ui/main_menu/credits/credits_screen.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/button_font_64.tres" type="DynamicFont" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/Piximisa.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 128
+font_data = SubResource( 1 )
+
+[node name="CreditsScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMargin" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -765.0
+margin_top = -440.0
+margin_right = 765.0
+margin_bottom = 440.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Elements" type="VBoxContainer" parent="MainMargin"]
+margin_right = 1530.0
+margin_bottom = 940.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TitleMargin" type="MarginContainer" parent="MainMargin/Elements"]
+margin_right = 1530.0
+margin_bottom = 132.0
+
+[node name="Title" type="CenterContainer" parent="MainMargin/Elements/TitleMargin"]
+margin_right = 1530.0
+margin_bottom = 132.0
+
+[node name="Label" type="Label" parent="MainMargin/Elements/TitleMargin/Title"]
+margin_left = 498.0
+margin_right = 1032.0
+margin_bottom = 132.0
+custom_fonts/font = SubResource( 2 )
+text = "A Game by"
+align = 1
+valign = 1
+
+[node name="PaddingMargin" type="MarginContainer" parent="MainMargin/Elements"]
+margin_top = 136.0
+margin_right = 1530.0
+margin_bottom = 236.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="CreditsMargin" type="MarginContainer" parent="MainMargin/Elements"]
+margin_top = 240.0
+margin_right = 1530.0
+margin_bottom = 940.0
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMargin/Elements/CreditsMargin"]
+margin_right = 1530.0
+margin_bottom = 700.0
+
+[node name="PaddingLeft" type="CenterContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer"]
+margin_right = 507.0
+margin_bottom = 700.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Credits" type="VBoxContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer"]
+margin_left = 511.0
+margin_right = 1018.0
+margin_bottom = 700.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Art" type="VBoxContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits"]
+margin_right = 507.0
+margin_bottom = 172.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Art"]
+margin_right = 507.0
+margin_bottom = 172.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Art/VSplitContainer"]
+margin_right = 507.0
+margin_bottom = 146.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Header" type="Label" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Art/VSplitContainer/VBoxContainer"]
+modulate = Color( 0.478431, 0.478431, 0.478431, 1 )
+margin_right = 507.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
+text = "Art"
+
+[node name="HSeparator" type="HSeparator" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Art/VSplitContainer/VBoxContainer"]
+margin_top = 71.0
+margin_right = 507.0
+margin_bottom = 75.0
+
+[node name="Name1" type="Label" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Art/VSplitContainer/VBoxContainer"]
+margin_top = 79.0
+margin_right = 507.0
+margin_bottom = 146.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
+text = "Name"
+
+[node name="Padding" type="CenterContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Art/VSplitContainer"]
+margin_top = 158.0
+margin_right = 507.0
+margin_bottom = 172.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Art/VSplitContainer/Padding"]
+margin_left = 253.0
+margin_right = 253.0
+margin_bottom = 14.0
+
+[node name="Code" type="VBoxContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits"]
+margin_top = 176.0
+margin_right = 507.0
+margin_bottom = 348.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Code"]
+margin_right = 507.0
+margin_bottom = 172.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Code/VSplitContainer"]
+margin_right = 507.0
+margin_bottom = 146.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Header" type="Label" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Code/VSplitContainer/VBoxContainer"]
+modulate = Color( 0.478431, 0.478431, 0.478431, 1 )
+margin_right = 507.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
+text = "Code"
+
+[node name="HSeparator" type="HSeparator" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Code/VSplitContainer/VBoxContainer"]
+margin_top = 71.0
+margin_right = 507.0
+margin_bottom = 75.0
+
+[node name="Name1" type="Label" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Code/VSplitContainer/VBoxContainer"]
+margin_top = 79.0
+margin_right = 507.0
+margin_bottom = 146.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
+text = "Name"
+
+[node name="Padding" type="CenterContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Code/VSplitContainer"]
+margin_top = 158.0
+margin_right = 507.0
+margin_bottom = 172.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Code/VSplitContainer/Padding"]
+margin_left = 253.0
+margin_right = 253.0
+margin_bottom = 14.0
+
+[node name="Music" type="VBoxContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits"]
+margin_top = 352.0
+margin_right = 507.0
+margin_bottom = 524.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Music"]
+margin_right = 507.0
+margin_bottom = 172.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Music/VSplitContainer"]
+margin_right = 507.0
+margin_bottom = 146.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Header" type="Label" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Music/VSplitContainer/VBoxContainer"]
+modulate = Color( 0.478431, 0.478431, 0.478431, 1 )
+margin_right = 507.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
+text = "Music"
+
+[node name="HSeparator" type="HSeparator" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Music/VSplitContainer/VBoxContainer"]
+margin_top = 71.0
+margin_right = 507.0
+margin_bottom = 75.0
+
+[node name="Name1" type="Label" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Music/VSplitContainer/VBoxContainer"]
+margin_top = 79.0
+margin_right = 507.0
+margin_bottom = 146.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
+text = "Name"
+
+[node name="Padding" type="CenterContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Music/VSplitContainer"]
+margin_top = 158.0
+margin_right = 507.0
+margin_bottom = 172.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Music/VSplitContainer/Padding"]
+margin_left = 253.0
+margin_right = 253.0
+margin_bottom = 14.0
+
+[node name="Sound" type="VBoxContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits"]
+margin_top = 528.0
+margin_right = 507.0
+margin_bottom = 700.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Sound"]
+margin_right = 507.0
+margin_bottom = 172.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Sound/VSplitContainer"]
+margin_right = 507.0
+margin_bottom = 146.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Header" type="Label" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Sound/VSplitContainer/VBoxContainer"]
+modulate = Color( 0.478431, 0.478431, 0.478431, 1 )
+margin_right = 507.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
+text = "Sound"
+
+[node name="HSeparator" type="HSeparator" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Sound/VSplitContainer/VBoxContainer"]
+margin_top = 71.0
+margin_right = 507.0
+margin_bottom = 75.0
+
+[node name="Name1" type="Label" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Sound/VSplitContainer/VBoxContainer"]
+margin_top = 79.0
+margin_right = 507.0
+margin_bottom = 146.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
+text = "Name"
+
+[node name="Padding" type="CenterContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Sound/VSplitContainer"]
+margin_top = 158.0
+margin_right = 507.0
+margin_bottom = 172.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/Credits/Sound/VSplitContainer/Padding"]
+margin_left = 253.0
+margin_right = 253.0
+margin_bottom = 14.0
+
+[node name="PaddingRight" type="GridContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer"]
+margin_left = 1022.0
+margin_right = 1530.0
+margin_bottom = 700.0
+size_flags_horizontal = 3
+columns = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/PaddingRight"]
+margin_right = 252.0
+margin_bottom = 230.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer2" type="CenterContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/PaddingRight"]
+margin_left = 256.0
+margin_right = 508.0
+margin_bottom = 230.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer3" type="CenterContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/PaddingRight"]
+margin_top = 234.0
+margin_right = 252.0
+margin_bottom = 464.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer4" type="CenterContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/PaddingRight"]
+margin_left = 256.0
+margin_top = 234.0
+margin_right = 508.0
+margin_bottom = 464.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer5" type="CenterContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/PaddingRight"]
+margin_top = 468.0
+margin_right = 252.0
+margin_bottom = 698.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/PaddingRight"]
+margin_left = 256.0
+margin_top = 468.0
+margin_right = 508.0
+margin_bottom = 698.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/PaddingRight/VBoxContainer"]
+margin_right = 252.0
+margin_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer2" type="CenterContainer" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/PaddingRight/VBoxContainer"]
+margin_top = 117.0
+margin_right = 252.0
+margin_bottom = 230.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="MainMargin/Elements/CreditsMargin/HBoxContainer/PaddingRight/VBoxContainer/CenterContainer2"]
+margin_left = 56.0
+margin_top = 20.0
+margin_right = 195.0
+margin_bottom = 93.0
+custom_fonts/font = ExtResource( 2 )
+text = "Back"
