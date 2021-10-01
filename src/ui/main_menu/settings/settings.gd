@@ -15,6 +15,7 @@ var MUSIC_VOLUME = 10 setget set_MUSIC_VOLUME
 var SCREEN_SHAKE = 10 setget set_SCREEN_SHAKE
 
 # TODO - change this to the user:// version, NOT res://
+# https://docs.godotengine.org/en/stable/tutorials/io/data_paths.html
 var config_file = "res://src/ui/main_menu/settings.cfg"
 
 
