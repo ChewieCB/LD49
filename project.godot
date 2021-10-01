@@ -16,7 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-LocalSettings="*res://src/ui/main_menu/settings/settings.gd"
+LocalSettings="res://src/ui/main_menu/settings/settings.gd"
 
 [display]
 
