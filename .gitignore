@@ -1,6 +1,7 @@
 
 # Godot-specific ignores
 .import/
+src/ui/main_menu/settings/settings.cfg
 export.cfg
 export_presets.cfg
 
