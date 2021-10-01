@@ -14,7 +14,7 @@ var SFX_VOLUME = 10 setget set_SFX_VOLUME
 var MUSIC_VOLUME = 10 setget set_MUSIC_VOLUME
 var SCREEN_SHAKE = 10 setget set_SCREEN_SHAKE
 
-var config_file = "res://src/main_menu/settings.cfg"
+var config_file = "res://src/ui/main_menu/settings.cfg"
 
 
 func _ready():
@@ -37,6 +37,7 @@ func read_local_settings():
 		set_SFX_VOLUME(file.get_var())
 		set_MUSIC_VOLUME(file.get_var())
 		set_SCREEN_SHAKE(file.get_var())
+		file.close()
 	else:
 		print("No config file found.")
 	
