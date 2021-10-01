@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/ui/main_menu/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/main_menu/main/MainScreen.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/audio/sfx/confirm.wav" type="AudioStream" id=7]
 [ext_resource path="res://src/ui/main_menu/credits/CreditsScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/ui/main_menu/test_scene/LevelPreview.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/ui/fadeout/Fadeout.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "credits_to_main"
@@ -312,6 +313,8 @@ margin_right = -1920.0
 [node name="Elements" parent="GUI/CreditsScreen/MainMargin" index="0"]
 margin_bottom = 880.0
 
+[node name="Fadeout" parent="GUI" instance=ExtResource( 10 )]
+
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 script = ExtResource( 4 )
 cursor_sfx = ExtResource( 6 )
@@ -327,6 +330,7 @@ anims/settings_to_main = SubResource( 5 )
 
 [node name="LevelPreview" parent="." instance=ExtResource( 9 )]
 
+[connection signal="pressed" from="GUI/MainScreen/MainMargin/HBoxContainer/Elements/Buttons/PlayButton/Button" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="GUI/MainScreen/MainMargin/HBoxContainer/Elements/Buttons/SettingsButton/Button" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="GUI/MainScreen/MainMargin/HBoxContainer/Elements/Buttons/CreditsButton/Button" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="GUI/MainScreen/MainMargin/HBoxContainer/Elements/Buttons/QuitButton/Button" to="." method="_on_QuitButton_pressed"]

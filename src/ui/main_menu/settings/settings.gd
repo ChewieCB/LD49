@@ -14,10 +14,17 @@ var SFX_VOLUME = 10 setget set_SFX_VOLUME
 var MUSIC_VOLUME = 10 setget set_MUSIC_VOLUME
 var SCREEN_SHAKE = 10 setget set_SCREEN_SHAKE
 
-var config_file = "res://src/main_menu/settings.cfg"
+# TODO - change this to the user:// version, NOT res://
+# https://docs.godotengine.org/en/stable/tutorials/io/data_paths.html
+var config_file = "res://src/ui/main_menu/settings.cfg"
 
 
 func _ready():
+	if "res://" in config_file:
+		push_warning(
+			"Searching for config file in project resources, for non-debug " +
+			"builds use the user:// resource path."
+		)
 	yield(read_local_settings(), "completed")
 	
 	var root = get_tree().get_root()
@@ -37,6 +44,7 @@ func read_local_settings():
 		set_SFX_VOLUME(file.get_var())
 		set_MUSIC_VOLUME(file.get_var())
 		set_SCREEN_SHAKE(file.get_var())
+		file.close()
 	else:
 		print("No config file found.")
 	

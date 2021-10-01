@@ -8,6 +8,8 @@ onready var main_screen = $GUI/MainScreen
 onready var settings_screen = $GUI/SettingsScreen
 onready var credits_screen = $GUI/CreditsScreen
 
+onready var fadeout = $GUI/Fadeout
+
 var current_menu setget set_current_menu
 var current_element
 
@@ -15,10 +17,10 @@ var current_element
 func _ready():
 	get_tree().paused = false
 	
+	fadeout.fade_in(0.5)
 	animation_player.play("default")
 	set_current_menu(main_screen)
 	
-# warning-ignore:return_value_discarded
 	Input.connect("joy_connection_changed", self, "controller_ui_focus")
 
 
@@ -125,6 +127,9 @@ func set_current_menu(menu_screen):
 # MAIN SCREEN SIGNALS
 
 func _on_PlayButton_pressed():
+	fadeout.fade_out(0.5)
+	yield(get_tree().create_timer(0.5), "timeout")
+	fadeout.fade_in(0.5)
 	pass # Replace with function body.
 
 
@@ -155,6 +160,8 @@ func _on_CreditsButton_pressed():
 
 
 func _on_QuitButton_pressed():
+	fadeout.fade_out(0.5)
+	yield(get_tree().create_timer(0.5), "timeout")
 	get_tree().quit()
 
 
