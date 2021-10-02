@@ -73,8 +73,10 @@ func calculate_movement_direction(input_direction, delta):
 	
 	# We calculate a move direction vector relative to the camera,
 	# the basis stores the (right, up, -forwards) vectors of our camera.
-	forwards = input_direction.z * _actor.camera.global_transform.basis.z
-	right = input_direction.x * _actor.camera.global_transform.basis.x
+	#
+	# FIXME - ugh these alignments are a MESS
+	forwards = input_direction.z * _actor.transform.basis.x
+	right = input_direction.x * - _actor.transform.basis.z
 	move_direction = forwards + right
 	
 	if move_direction.length() > 1.0:
@@ -101,7 +103,7 @@ func calculate_movement_direction(input_direction, delta):
 	return move_direction 
 
 
-func calculate_velocity(velocity_current: Vector3, _move_direction: Vector3, delta: float):
+func calculate_velocity(velocity_current: Vector3, move_direction: Vector3, delta: float):
 	var velocity_new = move_direction * (move_speed * move_speed_modifier)
 	if velocity_new.length() > max_speed:
 		velocity_new = velocity_new.normalized() * max_speed
