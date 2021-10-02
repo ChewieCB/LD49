@@ -6,6 +6,7 @@ extends State
 func enter(_msg: Dictionary = {}):
 	_parent.velocity = Vector3.ZERO
 	_parent.enter()
+	_actor.has_jumped = false
 	#
 #	skin.transition_to(skin.States.IDLE)
 #	yield(audio_player.audio_player, "finished")

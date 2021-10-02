@@ -8,6 +8,8 @@ func enter(msg: Dictionary = {}):
 	GlobalFlags.PLAYER_CONTROLS_ACTIVE = false
 	GlobalFlags.CAMERA_CONTROLS_ACTIVE = false
 	_actor.is_dead = true
+	_actor.has_jumped = false
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#
 	_parent.enter()

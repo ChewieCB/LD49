@@ -79,15 +79,15 @@ depth = 38.0
 [node name="CSGCombiner" type="CSGCombiner" parent="Environment/Room1/CSGCombiner"]
 
 [node name="CSGBox" type="CSGBox" parent="Environment/Room1/CSGCombiner/CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1315, 41, -142.425 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1315, 41, -150.425 )
 use_collision = true
 invert_faces = true
 width = 170.978
 height = 244.0
-depth = 108.0
+depth = 124.0
 
 [node name="CSGCombiner" type="CSGCombiner" parent="Environment/Room1/CSGCombiner/CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1315, 41, -146.425 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1315, 41, -175.425 )
 
 [node name="CSGBox" type="CSGBox" parent="Environment/Room1/CSGCombiner/CSGCombiner/CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -55 )
@@ -154,6 +154,13 @@ width = 52.0
 height = 10.0
 depth = 24.0
 
+[node name="CSGBox2" type="CSGBox" parent="Environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 21, -207.5 )
+use_collision = true
+width = 20.0
+height = 10.0
+depth = 10.0
+
 [node name="CSGCylinder" type="CSGCylinder" parent="Environment"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -70, -125 )
 use_collision = true
@@ -173,18 +180,15 @@ radius = 4.0
 height = 108.0
 
 [node name="Water" type="CSGBox" parent="Environment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -58, -144 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -58, -159 )
 width = 174.0
-depth = 120.0
+depth = 208.0
 material = SubResource( 3 )
 
 [node name="Pickups" type="Spatial" parent="."]
 
 [node name="RepairPickup" parent="Pickups" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 35, -205 )
-
-[node name="RepairPickup2" parent="Pickups" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 35, -100 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 5 )
@@ -212,4 +216,4 @@ omni_range = 50.0
 transform = Transform( 8, 0, 0, 0, 10.8, 0, 0, 0, 5.82, -181, 36, 3 )
 
 [node name="KillZone" parent="." instance=ExtResource( 7 )]
-transform = Transform( 104.375, 0, 0, 0, -15, 0, 0, 0, 61.048, 11, -73, -144 )
+transform = Transform( 104.375, 0, 0, 0, -15, 0, 0, 0, 219.773, 11, -73, -144 )

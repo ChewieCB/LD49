@@ -35,6 +35,7 @@ var goal_quaternion
 onready var state_machine = $StateMachine
 onready var death_state = $StateMachine/Movement/Dead
 var is_dead = false
+var has_jumped = false
 
 onready var durability_state_machine = $DurabilityStateMachine
 onready var state_label = $StatusLabels
@@ -56,6 +57,7 @@ func _ready():
 	GlobalFlags.PLAYER_CONTROLS_ACTIVE = true
 	GlobalFlags.CAMERA_CONTROLS_ACTIVE = true
 	is_dead = false
+	has_jumped = false
 
 
 func _process(_delta):

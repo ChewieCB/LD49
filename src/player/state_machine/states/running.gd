@@ -12,6 +12,8 @@ func enter(_msg: Dictionary = {}):
 	_parent.max_speed = max_speed
 	_parent.move_speed = move_speed
 	_parent.jump_impulse = jump_impulse
+	
+	_actor.has_jumped = false
 	#
 #	audio_player.transition_to(audio_player.States.WALK)
 #	skin.transition_to(skin.States.WALK)
