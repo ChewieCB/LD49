@@ -23,24 +23,6 @@ func unhandled_input(event: InputEvent):
 	_parent.unhandled_input(event)
 
 
-func physics_process(delta: float):
-	_parent.physics_process(delta)
-	if _actor.is_on_floor():
-		# Stationary Jumping
-		if Input.is_action_pressed("p1_jump"):
-			_state_machine.transition_to("Movement/Jumping")
-		if _parent.input_direction != Vector3.ZERO:
-			# Walking
-			for _input in ["p1_move_forwards", "p1_move_left", "p1_move_backwards", "p1_move_right"]:
-				if Input.is_action_pressed(_input):
-					_state_machine.transition_to("Movement/Running")
-		elif _parent.velocity.y < -0.1:
-			_state_machine.transition_to(
-				"Movement/Falling",
-				{"was_on_floor": _actor.is_on_floor()}
-			)
-
-
 func exit():
 	GlobalFlags.PLAYER_CONTROLS_ACTIVE = true
 	
@@ -57,11 +39,11 @@ func climb():
 	
 	var climb_direction = get_climb_direction()
 	
-	var vertical_movement = _actor.global_transform.origin + Vector3(0, 3, 0)
+	var vertical_movement = _actor.global_transform.origin + Vector3(0, 2.8, 0)
 	tween.interpolate_property(
 		_actor, 
 		"global_transform:origin", 
-		null, 
+		_actor.global_transform.origin, 
 		vertical_movement,
 		vertical_move_time, 
 		Tween.TRANS_CUBIC, 
@@ -74,10 +56,11 @@ func climb():
 	tween.interpolate_property(
 		_actor, 
 		"global_transform:origin", 
-		null, 
+		_actor.global_transform.origin, 
 		forward_movement,
 		horizontal_move_time, 
-		Tween.TRANS_LINEAR
+		Tween.TRANS_CUBIC,
+		Tween.EASE_OUT
 	)
 	tween.start()
 	yield(tween, "tween_all_completed")
