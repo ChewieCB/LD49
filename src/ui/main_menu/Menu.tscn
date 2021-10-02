@@ -294,6 +294,7 @@ tracks/3/keys = {
 
 [node name="Menu" type="Node"]
 script = ExtResource( 1 )
+game_start_path = "res://src/levels/test_level/TestLevel.tscn"
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

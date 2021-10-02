@@ -3,7 +3,7 @@ extends Node
 onready var audio_player = $AudioPlayer
 onready var animation_player = $AnimationPlayer
 
-export (NodePath) var game_start_path
+export (String) var game_start_path
 onready var main_screen = $GUI/MainScreen
 onready var settings_screen = $GUI/SettingsScreen
 onready var credits_screen = $GUI/CreditsScreen
@@ -128,9 +128,8 @@ func set_current_menu(menu_screen):
 
 func _on_PlayButton_pressed():
 	fadeout.fade_out(0.5)
-	yield(get_tree().create_timer(0.5), "timeout")
+	get_tree().change_scene(game_start_path)
 	fadeout.fade_in(0.5)
-	pass # Replace with function body.
 
 
 func _on_SettingsButton_pressed():
