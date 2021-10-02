@@ -34,6 +34,8 @@ var goal_quaternion
 
 onready var state_machine = $StateMachine
 onready var death_state = $StateMachine/Movement/Dead
+var is_dead = false
+
 onready var durability_state_machine = $DurabilityStateMachine
 onready var state_label = $StatusLabels
 onready var movement_state = $StateMachine/Movement
@@ -47,6 +49,7 @@ var debug_trajectory_meshes = []
 func _ready():
 	GlobalFlags.PLAYER_CONTROLS_ACTIVE = true
 	GlobalFlags.CAMERA_CONTROLS_ACTIVE = true
+	is_dead = false
 
 
 func can_mantle():
