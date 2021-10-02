@@ -63,10 +63,10 @@ func _process(delta):
 			) * 10
 			
 		# Camera inversions
-		if not LocalSettings.CAMERA_INVERT_X:
-			mouse_delta.x *= -1
-		if LocalSettings.CAMERA_INVERT_Y:
-			mouse_delta.y *= -1
+#		if not LocalSettings.CAMERA_INVERT_X:
+#		mouse_delta.x *= -1
+#		if LocalSettings.CAMERA_INVERT_Y:
+		mouse_delta.y *= -1
 		
 		#
 		var yaw_dir = mouse_delta.x
@@ -74,15 +74,11 @@ func _process(delta):
 		
 		#
 		var is_player_moving_camera = (mouse_delta != Vector2.ZERO)
-		
-		# Let the player input override the charge cam tween when the tween
-		# is still active but the player is not charging
-		if is_player_moving_camera and tween.is_active() and not current_target.is_charging:
-			tween.stop_all()
 	
 		# Rotate the camera pivot accordingly
-		camera_rotation = Vector3(0, yaw_dir, pitch_dir) * LocalSettings.LOOK_SENSITIVITY * delta
+		camera_rotation = Vector3(0, yaw_dir, pitch_dir) * 10.0 * delta #LocalSettings.LOOK_SENSITIVITY
 		rotation_degrees.y += camera_rotation.y
+		current_target.rotation.y = rotation.y
 
 		rotation_degrees.z += camera_rotation.z
 		rotation_degrees.z = clamp(rotation_degrees.z, min_look_angle, max_look_angle)

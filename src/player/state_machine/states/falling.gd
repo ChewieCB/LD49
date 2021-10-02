@@ -42,6 +42,8 @@ func physics_process(delta: float):
 			# Walking
 			_state_machine.transition_to("Movement/Running")
 	else:
+		if Input.is_action_just_pressed("p1_jump") and _actor.can_mantle():
+			_state_machine.transition_to("Movement/Climbing")
 		# Coyote Time jumping
 		if Input.is_action_pressed("p1_jump") and not coyote_time.is_stopped():
 			coyote_time.stop()

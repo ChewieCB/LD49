@@ -4,6 +4,11 @@ class_name PlayerController
 #onready var fadeout = $UI/Fadeout
 
 onready var default_collider = $CollisionShape
+
+# Climbing raycasts
+onready var body_rays = $ClimbingRayCasts/BodyRays
+onready var head_rays = $ClimbingRayCasts/HeadRays
+onready var foot_ray = $ClimbingRayCasts/FootRayCast
 #onready var slope_raycast = $SlopeRayCast
 #onready var impassable_raycast = $Collision/ImpassableRayCast
 #onready var knockback_raycasts = $Collision/KnockbackRayCasts.get_children()
@@ -35,6 +40,20 @@ const SNAP_LENGTH = 32
 
 var debug_trajectory_meshes = []
 
+
+func can_mantle():
+	var body_ray_count = 0
+	for _ray in body_rays.get_children():
+		if _ray.is_colliding():
+			body_ray_count += 1
+	if body_ray_count == 0:
+		return false
+	
+	for _ray in head_rays.get_children():
+		if _ray.is_colliding():
+			return false
+	
+	return true
 
 
 func generate_debug_trajectory(trajectory_points, size):
