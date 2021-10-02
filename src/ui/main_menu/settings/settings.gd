@@ -2,6 +2,8 @@ extends Node
 
 signal FOV_CHANGED
 signal LOOK_SENSITIVITY_CHANGED
+signal CAMERA_INVERT_X_CHANGED
+signal CAMERA_INVERT_Y_CHANGED
 signal SFX_VOLUME_CHANGED
 signal MUSIC_VOLUME_CHANGED
 signal SCREEN_SHAKE_CHANGED
@@ -10,6 +12,8 @@ var FULLSCREEN = true setget set_FULLSCREEN
 var SCREEN_SIZE = Vector2(1920, 1080) setget set_SCREEN_SIZE
 var FOV = 90 setget set_FOV
 var LOOK_SENSITIVITY = 15 setget set_LOOK_SENSITIVITY
+var CAMERA_INVERT_X = false setget set_CAMERA_INVERT_X
+var CAMERA_INVERT_Y = false setget set_CAMERA_INVERT_Y
 var SFX_VOLUME = 10 setget set_SFX_VOLUME
 var MUSIC_VOLUME = 10 setget set_MUSIC_VOLUME
 var SCREEN_SHAKE = 10 setget set_SCREEN_SHAKE
@@ -41,6 +45,8 @@ func read_local_settings():
 		set_SCREEN_SIZE(file.get_var())
 		set_FOV(file.get_var())
 		set_LOOK_SENSITIVITY(file.get_var())
+		set_CAMERA_INVERT_X(file.get_var())
+		set_CAMERA_INVERT_Y(file.get_var())
 		set_SFX_VOLUME(file.get_var())
 		set_MUSIC_VOLUME(file.get_var())
 		set_SCREEN_SHAKE(file.get_var())
@@ -61,6 +67,8 @@ func write_local_settings():
 	file.store_var(SCREEN_SIZE)
 	file.store_var(FOV)
 	file.store_var(LOOK_SENSITIVITY)
+	file.store_var(CAMERA_INVERT_X)
+	file.store_var(CAMERA_INVERT_Y)
 	file.store_var(SFX_VOLUME)
 	file.store_var(MUSIC_VOLUME)
 	file.store_var(SCREEN_SHAKE)
@@ -93,6 +101,18 @@ func set_FOV(value):
 func set_LOOK_SENSITIVITY(value):
 	LOOK_SENSITIVITY = value
 	emit_signal("LOOK_SENSITIVITY_CHANGED")
+	write_local_settings()
+
+
+func set_CAMERA_INVERT_X(value):
+	CAMERA_INVERT_X = value
+	emit_signal("CAMERA_INVERT_X_CHANGED")
+	write_local_settings()
+
+
+func set_CAMERA_INVERT_Y(value):
+	CAMERA_INVERT_Y = value
+	emit_signal("CAMERA_INVERT_Y_CHANGED")
 	write_local_settings()
 
 
