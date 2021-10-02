@@ -24,7 +24,7 @@ func enter(msg: Dictionary = {}):
 	# Add coyote timer if falling off a ledge
 	if was_on_floor:
 		coyote_time.one_shot = true
-		coyote_time.wait_time = 0.2
+		coyote_time.wait_time = 1.6
 		if not coyote_time.is_connected("timeout", self, "_on_coyote_time_timeout"):
 			coyote_time.connect("timeout", self, "_on_coyote_time_timeout")
 		if not coyote_time in get_children():
@@ -42,15 +42,17 @@ func physics_process(delta: float):
 			# Walking
 			_state_machine.transition_to("Movement/Running")
 	else:
-		if Input.is_action_just_pressed("p1_jump") and _actor.can_mantle():
-			_state_machine.transition_to("Movement/Climbing")
-		# Coyote Time jumping
-		if Input.is_action_pressed("p1_jump") and not coyote_time.is_stopped():
-			coyote_time.stop()
-			_state_machine.transition_to(
-				"Movement/Jumping",
-				{"was_on_floor": _actor.is_on_floor()}
-			)
+		if Input.is_action_just_pressed("p1_jump"):
+			if _actor.can_mantle():
+				_state_machine.transition_to("Movement/Climbing")
+			# Coyote Time jumping
+			elif not coyote_time.is_stopped():
+				coyote_time.stop()
+				_state_machine.transition_to(
+					"Movement/Jumping",
+					{"was_on_floor": _actor.is_on_floor()}
+				)
+			
 
 
 func exit():

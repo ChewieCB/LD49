@@ -64,7 +64,7 @@ func climb():
 	)
 	tween.start()
 	yield(tween, "tween_all_completed")
-	_state_machine.transition_to("Movement/Idle")
+	_state_machine.transition_to("Movement/Falling", {"was_on_floor": false})
 
 
 func get_climb_direction():
