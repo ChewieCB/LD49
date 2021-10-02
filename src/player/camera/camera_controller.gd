@@ -63,10 +63,10 @@ func _process(delta):
 			) * 10
 			
 		# Camera inversions
-#		if not LocalSettings.CAMERA_INVERT_X:
-#		mouse_delta.x *= -1
-#		if LocalSettings.CAMERA_INVERT_Y:
-		mouse_delta.y *= -1
+		if not LocalSettings.CAMERA_INVERT_X:
+			mouse_delta.x *= -1
+		if LocalSettings.CAMERA_INVERT_Y:
+			mouse_delta.y *= -1
 		
 		#
 		var yaw_dir = mouse_delta.x
