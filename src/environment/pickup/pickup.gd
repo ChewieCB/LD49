@@ -2,6 +2,12 @@ extends Area
 
 signal pickup_collected
 
+onready var animation_player = $AnimationPlayer
+
+
+func _ready():
+	animation_player.play("float")
+
 
 func _physics_process(delta):
 	self.rotate_y(PI/32)
