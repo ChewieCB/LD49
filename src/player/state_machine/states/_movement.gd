@@ -9,10 +9,11 @@ extends State
 #       to better separate movement vars.
 export var max_speed = 100
 export var move_speed = 20
-export var gravity = -80.0
+export var gravity = -95.0
 export var jump_impulse = 35
 
 var move_speed_modifier = 1.0
+var climb_speed_modifier = 1.0
 var jump_impulse_modifier = 1.0
 var gravity_modifier = 1.0
 
