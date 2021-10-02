@@ -62,11 +62,11 @@ func _process(delta):
 				Input.get_action_strength("p1_camera_up") - Input.get_action_strength("p1_camera_down")
 			) * 10
 			
-			# Camera inversions
-			if not GlobalFlags.CAMERA_INVERT_X:
-				mouse_delta.x *= -1
-			if GlobalFlags.CAMERA_INVERT_Y:
-				mouse_delta.y *= -1
+		# Camera inversions
+		if not LocalSettings.CAMERA_INVERT_X:
+			mouse_delta.x *= -1
+		if LocalSettings.CAMERA_INVERT_Y:
+			mouse_delta.y *= -1
 		
 		#
 		var yaw_dir = mouse_delta.x

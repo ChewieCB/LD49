@@ -14,6 +14,12 @@ onready var _actor = _state_machine.actor
 # Using the same class, i.e. State as a type hint causes a memory leak in Godot 3.2
 var _parent = null
 
+# Asset import drop in here
+# TODO - replace this type hint with a more specific class_name one when the 
+# script is written.
+export (Resource) var skin = null
+export (Resource) var audio_player = null
+
 
 func _ready():
 	yield(owner, "ready")

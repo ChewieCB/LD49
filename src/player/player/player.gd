@@ -3,7 +3,7 @@ class_name PlayerController
 
 #onready var fadeout = $UI/Fadeout
 
-onready var default_collider = $DefaultCollisionShape
+onready var default_collider = $CollisionShape
 #onready var slope_raycast = $SlopeRayCast
 #onready var impassable_raycast = $Collision/ImpassableRayCast
 #onready var knockback_raycasts = $Collision/KnockbackRayCasts.get_children()

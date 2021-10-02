@@ -11,7 +11,7 @@ signal SCREEN_SHAKE_CHANGED
 var FULLSCREEN = true setget set_FULLSCREEN
 var SCREEN_SIZE = Vector2(1920, 1080) setget set_SCREEN_SIZE
 var FOV = 90 setget set_FOV
-var LOOK_SENSITIVITY = 15 setget set_LOOK_SENSITIVITY
+var LOOK_SENSITIVITY = 20 setget set_LOOK_SENSITIVITY
 var CAMERA_INVERT_X = false setget set_CAMERA_INVERT_X
 var CAMERA_INVERT_Y = false setget set_CAMERA_INVERT_Y
 var SFX_VOLUME = 10 setget set_SFX_VOLUME
