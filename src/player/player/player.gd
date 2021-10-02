@@ -5,6 +5,8 @@ class_name PlayerController
 
 onready var default_collider = $CollisionShape
 
+onready var debug_mesh = $DEBUG_MESH
+
 # Climbing raycasts
 onready var body_rays = $ClimbingRayCasts/BodyRays
 onready var head_rays = $ClimbingRayCasts/HeadRays
