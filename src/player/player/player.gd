@@ -45,11 +45,21 @@ const SNAP_LENGTH = 32
 
 var debug_trajectory_meshes = []
 
+# UI
+onready var ui = $GUI/PlayerUI
+onready var pickup_counter = ui.get_node("MarginContainer/GridContainer/HBoxContainer/CenterContainer3/PickupCounter")
+
+var pickup_count =  0 setget set_pickup_counter
+
 
 func _ready():
 	GlobalFlags.PLAYER_CONTROLS_ACTIVE = true
 	GlobalFlags.CAMERA_CONTROLS_ACTIVE = true
 	is_dead = false
+
+
+func _process(_delta):
+	pickup_count = pickup_counter.pickup_count
 
 
 func can_mantle():
@@ -101,3 +111,7 @@ func clear_debug_trajectory():
 		mesh.queue_free()
 	debug_trajectory_meshes = []
 
+
+func set_pickup_counter(value):
+	pickup_count = value
+	pickup_counter.set_pickup_count(pickup_count)
