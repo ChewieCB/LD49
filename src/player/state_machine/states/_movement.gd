@@ -86,6 +86,11 @@ func calculate_movement_direction(input_direction, delta):
 		# Get the angle in the y-axis via atan2
 		var movement_angle = atan2(move_direction.x, move_direction.z) + PI
 		# lerp_angle prevents the flip-flopping between 0 and 360 degrees
+		_actor.rotation.y = lerp_angle(
+			_actor.rotation.y,
+			movement_angle,
+			0.2
+		)
 #		for element in _actor.rotateable:
 #			element.rotation.y = lerp_angle(
 #				element.rotation.y,
