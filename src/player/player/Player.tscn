@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/player/player/player.gd" type="Script" id=1]
 [ext_resource path="res://src/player/StatusLabels.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://src/player/state_machine/durability_states/eroded.gd" type="Script" id=13]
 [ext_resource path="res://src/player/state_machine/states/dead.gd" type="Script" id=14]
 [ext_resource path="res://src/ui/hud/PlayerUI.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/player/player/double_jumping.gd" type="Script" id=16]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.0
@@ -58,6 +59,9 @@ script = ExtResource( 6 )
 
 [node name="Jumping" type="Node" parent="StateMachine/Movement"]
 script = ExtResource( 7 )
+
+[node name="DoubleJumping" type="Node" parent="StateMachine/Movement"]
+script = ExtResource( 16 )
 
 [node name="Falling" type="Node" parent="StateMachine/Movement"]
 script = ExtResource( 8 )
