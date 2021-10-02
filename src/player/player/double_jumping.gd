@@ -1,7 +1,7 @@
 extends State
 # State for when the player is jumping
 
-export var jump_velocity = 35
+export var jump_velocity = 25
 
 
 func enter(_msg: Dictionary = {}):
@@ -11,6 +11,8 @@ func enter(_msg: Dictionary = {}):
 	# Zero out any fall velocity before we apply the jump so we get the full height
 	_parent.velocity.y = 0
 	_parent.velocity += Vector3(0, jump_velocity * _parent.jump_impulse_modifier, 0)
+	
+	_actor.has_jumped = false
 	
 	#
 #	audio_player.transition_to(audio_player.States.JUMP)
