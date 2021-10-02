@@ -12,7 +12,7 @@ onready var tween = $Tween
 
 var is_using_controller = false
 
-var min_look_angle = -5.0
+var min_look_angle = 0.0
 var max_look_angle = 75.0
 
 var camera_rotation = Vector3.ZERO
