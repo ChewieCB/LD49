@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/player/PlayerRig.tscn" type="PackedScene" id=1]
+
+[node name="TestLevel" type="Spatial"]
+
+[node name="Environment" type="Spatial" parent="."]
+
+[node name="CSGBox" type="CSGBox" parent="Environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.43856, 0 )
+use_collision = true
+width = 57.6602
+height = 2.13236
+depth = 56.1533
+
+[node name="PlayerRig" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0592337, 0 )

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/player/camera/camera_controller.gd" type="Script" id=1]
+
+[sub_resource type="SphereShape" id=1]
+
+[node name="CameraPivot" type="Spatial"]
+transform = Transform( -3.78552e-08, 2.18557e-08, 1, 0.5, 0.866025, 0, -0.866025, 0.5, -4.37114e-08, 0, 2, -1 )
+script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 0 )
+current = true
+near = 0.01
+far = 1000.0
+
+[node name="Area" type="Area" parent="Camera"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Camera/Area"]
+shape = SubResource( 1 )
+
+[node name="MinRayCast" type="RayCast" parent="."]
+cast_to = Vector3( 5, 0, 0 )
+
+[node name="MaxRayCast" type="RayCast" parent="."]
+cast_to = Vector3( 16, 0, 0 )
+
+[node name="Tween" type="Tween" parent="."]

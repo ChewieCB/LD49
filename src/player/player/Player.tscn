@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/player/player/player.gd" type="Script" id=1]
+[ext_resource path="res://src/player/StatusLabels.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/player/state_machine/state_machine.gd" type="Script" id=3]
+[ext_resource path="res://src/player/state_machine/states/_movement.gd" type="Script" id=4]
+[ext_resource path="res://src/player/state_machine/states/idle.gd" type="Script" id=5]
+[ext_resource path="res://src/player/state_machine/states/running.gd" type="Script" id=6]
+[ext_resource path="res://src/player/state_machine/states/jumping.gd" type="Script" id=7]
+[ext_resource path="res://src/player/state_machine/states/falling.gd" type="Script" id=8]
+
+[sub_resource type="CapsuleShape" id=1]
+height = 2.0
+
+[sub_resource type="CapsuleMesh" id=2]
+mid_height = 2.0
+
+[node name="Player" type="KinematicBody"]
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0 )
+shape = SubResource( 1 )
+
+[node name="DEBUG_MESH" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 3 )
+initial_state_path = NodePath("Movement/Idle")
+
+[node name="Movement" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )
+
+[node name="Idle" type="Node" parent="StateMachine/Movement"]
+script = ExtResource( 5 )
+
+[node name="Running" type="Node" parent="StateMachine/Movement"]
+script = ExtResource( 6 )
+
+[node name="Jumping" type="Node" parent="StateMachine/Movement"]
+script = ExtResource( 7 )
+
+[node name="Falling" type="Node" parent="StateMachine/Movement"]
+script = ExtResource( 8 )
+
+[node name="DurabilityStateMachine" type="Node" parent="."]
+
+[node name="DurabilityParent" type="Node" parent="DurabilityStateMachine"]
+
+[node name="Solid" type="Node" parent="DurabilityStateMachine/DurabilityParent"]
+
+[node name="Damaged" type="Node" parent="DurabilityStateMachine/DurabilityParent"]
+
+[node name="Eroded" type="Node" parent="DurabilityStateMachine/DurabilityParent"]
+
+[node name="AudioPlayer" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioPlayer"]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="StatusLabels" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.59903, 0 )
