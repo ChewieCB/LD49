@@ -33,6 +33,7 @@ onready var camera = get_node("../CameraPivot/Camera")
 var goal_quaternion
 
 onready var state_machine = $StateMachine
+onready var death_state = $StateMachine/Movement/Dead
 onready var durability_state_machine = $DurabilityStateMachine
 onready var state_label = $StatusLabels
 onready var movement_state = $StateMachine/Movement
@@ -41,6 +42,11 @@ const SNAP_DIRECTION = Vector3.DOWN
 const SNAP_LENGTH = 32
 
 var debug_trajectory_meshes = []
+
+
+func _ready():
+	GlobalFlags.PLAYER_CONTROLS_ACTIVE = true
+	GlobalFlags.CAMERA_CONTROLS_ACTIVE = true
 
 
 func can_mantle():

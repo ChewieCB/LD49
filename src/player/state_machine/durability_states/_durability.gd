@@ -25,14 +25,16 @@ func enter(_msg: Dictionary = {}):
 	
 	# Reset the durability timer
 	decay_timer.stop()
-	decay_timer.wait_time = 30.0
+	decay_timer.wait_time = 5.0
 	decay_timer.start()
 
 
 func _reduce_durability():
 	var new_state_index = _state_machine.state.get_index() + 1
 	if new_state_index > 2:
-		# TODO - add death state callback here
+		# Death
+		_actor.state_machine.transition_to("Movement/Dead")
+		decay_timer.stop()
 		return
 	
 	var new_state_name
@@ -48,10 +50,6 @@ func _reduce_durability():
 	
 	print("Changing to %s" % [new_state_name])
 	_state_machine.transition_to(new_state_name)
-
-
-func apply_durability_modifiers():
-	pass
 
 
 func set_state_colour(value: Color):
