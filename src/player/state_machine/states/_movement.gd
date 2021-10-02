@@ -39,10 +39,8 @@ func enter(_msg: Dictionary = {}):
 func physics_process(delta: float):
 	# Debug Reset
 	if Input.is_action_pressed("reset"):
-		if GlobalFlags.PLAYER_CONTROLS_ACTIVE == true:
-			get_tree().reload_current_scene()
+		get_tree().reload_current_scene()
 	elif Input.is_action_pressed("quit"):
-		GlobalFlags.PLAYER_CONTROLS_ACTIVE = true
 		get_tree().quit()
 	
 	# Movement
