@@ -15,14 +15,14 @@ func _ready():
 	#
 	for _pickup in pickups:
 		if not _pickup.is_connected(
-			"pickup_collected", 
-			player.durability_state_machine.get_child(0),
-			"_increase_durability"
+			"pickup_collected",
+			player.pickup_counter,
+			"_increase_pickup_counter"
 		):
 			_pickup.connect(
-				"pickup_collected", 
-				player.durability_state_machine.get_child(0), 
-				"_increase_durability"
+				"pickup_collected",
+				player.pickup_counter,
+				"_increase_pickup_counter"
 			)
 			
 

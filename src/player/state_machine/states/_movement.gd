@@ -43,8 +43,12 @@ func physics_process(delta: float):
 	elif Input.is_action_pressed("quit"):
 		get_tree().quit()
 	
+	if Input.is_action_just_pressed("p1_repair"):
+		if _actor.pickup_count > 0:
+			_actor.pickup_count -= 1
+			_actor.durability_state_machine.get_child(0)._increase_durability()
+	
 	# Movement
-	#
 	if GlobalFlags.PLAYER_CONTROLS_ACTIVE:
 		input_direction = get_input_direction()
 	else:
