@@ -25,7 +25,7 @@ func enter(_msg: Dictionary = {}):
 	
 	# Reset the durability timer
 	decay_timer.stop()
-	decay_timer.wait_time = 15.0
+	decay_timer.wait_time = 10.0
 	decay_timer.start()
 
 
@@ -35,6 +35,29 @@ func _reduce_durability():
 		# Death
 		_actor.state_machine.transition_to("Movement/Dead")
 		decay_timer.stop()
+		return
+	
+	var new_state_name
+	match new_state_index:
+		0:
+			new_state_name = "DurabilityParent/Solid"
+		1:
+			new_state_name = "DurabilityParent/Damaged"
+		2:
+			new_state_name = "DurabilityParent/Eroded"
+		_:
+			push_error("Invalid durability state!")
+	
+	print("Changing to %s" % [new_state_name])
+	_state_machine.transition_to(new_state_name)
+
+
+func _increase_durability():
+	var new_state_index = _state_machine.state.get_index() - 1
+	if new_state_index < 0:
+		decay_timer.stop()
+		decay_timer.wait_time = 10.0
+		decay_timer.start()
 		return
 	
 	var new_state_name
