@@ -34,7 +34,7 @@ var goal_quaternion
 
 onready var state_machine = $StateMachine
 onready var durability_state_machine = $DurabilityStateMachine
-onready var state_label = $StatusLabels/Viewport/StateLabel
+onready var state_label = $StatusLabels
 onready var movement_state = $StateMachine/Movement
 
 const SNAP_DIRECTION = Vector3.DOWN

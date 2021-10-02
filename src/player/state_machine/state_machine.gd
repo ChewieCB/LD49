@@ -21,7 +21,11 @@ func _init():
 func _ready():
 	yield(owner, "ready")
 	state.enter()
-	actor.state_label.text = str(_state_name)
+	
+	if state.get_parent().name == "DurabilityParent":
+		actor.state_label.durability_state = str(_state_name)
+	else:
+		actor.state_label.movement_state = str(_state_name)
 
 
 func _unhandled_input(event: InputEvent):
@@ -54,4 +58,8 @@ func transition_to(target_state_path: String, msg: Dictionary = {}):
 func set_state(value: State):
 	state = value
 	_state_name = state.name
-	actor.state_label.text = str(_state_name)
+	
+	if state.get_parent().name == "DurabilityParent":
+		actor.state_label.durability_state = str(_state_name)
+	else:
+		actor.state_label.movement_state = str(_state_name)

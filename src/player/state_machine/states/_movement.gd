@@ -7,14 +7,27 @@ extends State
 # These should be fallback defaults
 # TODO: Make these null and raise an exception to indicate bad State extension
 #       to better separate movement vars.
-export var max_speed = 0
+export var max_speed = 100
 export var move_speed = 20
 export var gravity = -80.0
 export var jump_impulse = 35
 
+var move_speed_modifier = 1.0
+var jump_impulse_modifier = 1.0
+var gravity_modifier = 1.0
+
 var velocity := Vector3.ZERO
 var input_direction = Vector3.ZERO
 var move_direction = Vector3.ZERO
+
+
+func _ready():
+	yield(owner, "ready")
+	_actor.durability_state_machine.connect(
+		"transitioned",
+		self,
+		"_apply_movement_modifiers"
+	)
 
 
 func enter(_msg: Dictionary = {}):
@@ -84,10 +97,19 @@ func calculate_movement_direction(input_direction, delta):
 
 
 func calculate_velocity(velocity_current: Vector3, _move_direction: Vector3, delta: float):
-	var velocity_new = move_direction * move_speed
+	var velocity_new = move_direction * (move_speed * move_speed_modifier)
 	if velocity_new.length() > max_speed:
 		velocity_new = velocity_new.normalized() * max_speed
-	velocity_new.y = velocity_current.y + gravity * delta
+	velocity_new.y = velocity_current.y + (gravity * gravity_modifier) * delta
 	
 	return velocity_new
+
+
+func _apply_movement_modifiers(new_state):
+	# Apply movement modifiers from the player's durability state
+	var current_durability_state = _actor.durability_state_machine.state
+	
+	move_speed_modifier = current_durability_state.move_speed_modifier
+	jump_impulse_modifier = current_durability_state.jump_impulse_modifier
+	gravity_modifier = current_durability_state.gravity_modifier
 

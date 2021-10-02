@@ -8,7 +8,7 @@ func enter(_msg: Dictionary = {}):
 	_parent.enter()
 #	_parent.velocity.x *= 2
 #	_parent.velocity.z *= 2
-	_parent.velocity += Vector3(0, jump_velocity, 0)
+	_parent.velocity += Vector3(0, jump_velocity * _parent.jump_impulse_modifier, 0)
 	
 	#
 #	audio_player.transition_to(audio_player.States.JUMP)

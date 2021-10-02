@@ -76,7 +76,7 @@ script = ExtResource( 12 )
 script = ExtResource( 13 )
 
 [node name="DecayTimer" type="Timer" parent="DurabilityStateMachine"]
-wait_time = 10.0
+wait_time = 3.0
 autostart = true
 
 [node name="AudioPlayer" type="Node" parent="."]

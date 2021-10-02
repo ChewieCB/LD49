@@ -1,14 +1,14 @@
 extends State
 
 #
-export var move_speed_modifier = 1.0
-export var climb_speed_modifier = 1.0
+var move_speed_modifier = null
+var climb_speed_modifier = null
 #
-export var weight = 3
-export var jump_impulse_modifier = 1.0
-export var gravity_modifier = 1.0
+var weight = null
+var jump_impulse_modifier = null
+var gravity_modifier = null
 #
-export var health = 3
+var health = null
 
 var state_colour = Color.white setget set_state_colour
 onready var decay_timer = $"../DecayTimer"
@@ -25,7 +25,7 @@ func enter(_msg: Dictionary = {}):
 	
 	# Reset the durability timer
 	decay_timer.stop()
-	decay_timer.wait_time = 10.0
+	decay_timer.wait_time = 5.0
 	decay_timer.start()
 
 

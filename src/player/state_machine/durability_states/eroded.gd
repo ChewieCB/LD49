@@ -5,8 +5,8 @@ export var move_speed_modifier = 2.3
 export var climb_speed_modifier = 2.3
 #
 export var weight = 0
-export var jump_impulse_modifier = 1.8
-export var gravity_modifier = 0.6
+export var jump_impulse_modifier = 1.6
+export var gravity_modifier = 0.8
 
 var state_colour = Color.red
 export var health = 2

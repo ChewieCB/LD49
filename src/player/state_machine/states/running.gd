@@ -1,7 +1,7 @@
 extends State
 # Basic state when the player is moving around until jumping or lack of input
 
-export var max_speed = 20.0
+export var max_speed = 100.0
 export var move_speed = 20.0
 export var gravity = -80.0
 export var jump_impulse = 30

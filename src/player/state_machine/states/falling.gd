@@ -4,7 +4,7 @@ extends State
 onready var coyote_time = Timer.new()
 onready var was_on_floor = false
 
-export var max_speed = 20.0
+export var max_speed = 100.0
 export var move_speed = 20.0
 export var gravity = -80.0
 export var jump_impulse = 30
