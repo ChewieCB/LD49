@@ -96,43 +96,48 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.37179, 0 )
 
 [node name="HeadRayCast1" type="RayCast" parent="ClimbingRayCasts/HeadRays"]
 enabled = true
-cast_to = Vector3( 0, 1.4, 2 )
+cast_to = Vector3( 0, 2, 3 )
 
 [node name="HeadRayCast2" type="RayCast" parent="ClimbingRayCasts/HeadRays"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
 enabled = true
-cast_to = Vector3( 0, 1.4, 2 )
+cast_to = Vector3( 0, 2, 3 )
 
 [node name="HeadRayCast3" type="RayCast" parent="ClimbingRayCasts/HeadRays"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
 enabled = true
-cast_to = Vector3( 0, 1.4, 2 )
+cast_to = Vector3( 0, 2, 3 )
 
 [node name="HeadRayCast4" type="RayCast" parent="ClimbingRayCasts/HeadRays"]
 enabled = true
-cast_to = Vector3( 0, 0, 2 )
+cast_to = Vector3( 0, 0, 3 )
 
 [node name="HeadRayCast5" type="RayCast" parent="ClimbingRayCasts/HeadRays"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
 enabled = true
-cast_to = Vector3( 0, 0, 2 )
+cast_to = Vector3( 0, 0, 3 )
 
 [node name="HeadRayCast6" type="RayCast" parent="ClimbingRayCasts/HeadRays"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
 enabled = true
-cast_to = Vector3( 0, 0, 2 )
+cast_to = Vector3( 0, 0, 3 )
 
 [node name="BodyRays" type="Spatial" parent="ClimbingRayCasts"]
 
 [node name="BodyRayCast1" type="RayCast" parent="ClimbingRayCasts/BodyRays"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1413, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7413, 0 )
 enabled = true
-cast_to = Vector3( 0, 0, 1.4 )
+cast_to = Vector3( 0, 0, 2 )
 
 [node name="BodyRayCast2" type="RayCast" parent="ClimbingRayCasts/BodyRays"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1413, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8413, 0 )
 enabled = true
-cast_to = Vector3( 0, 0, 1.4 )
+cast_to = Vector3( 0, 0, 2 )
+
+[node name="BodyRayCast3" type="RayCast" parent="ClimbingRayCasts/BodyRays"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8413, 0 )
+enabled = true
+cast_to = Vector3( 0, 0, 2 )
 
 [node name="FootRayCast" type="RayCast" parent="ClimbingRayCasts"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0413, 0 )
