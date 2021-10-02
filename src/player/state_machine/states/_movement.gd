@@ -7,14 +7,28 @@ extends State
 # These should be fallback defaults
 # TODO: Make these null and raise an exception to indicate bad State extension
 #       to better separate movement vars.
-export var max_speed = 0
+export var max_speed = 100
 export var move_speed = 20
-export var gravity = -80.0
+export var gravity = -95.0
 export var jump_impulse = 35
+
+var move_speed_modifier = 1.0
+var climb_speed_modifier = 1.0
+var jump_impulse_modifier = 1.0
+var gravity_modifier = 1.0
 
 var velocity := Vector3.ZERO
 var input_direction = Vector3.ZERO
 var move_direction = Vector3.ZERO
+
+
+func _ready():
+	yield(owner, "ready")
+	_actor.durability_state_machine.connect(
+		"transitioned",
+		self,
+		"_apply_movement_modifiers"
+	)
 
 
 func enter(_msg: Dictionary = {}):
@@ -60,8 +74,10 @@ func calculate_movement_direction(input_direction, delta):
 	
 	# We calculate a move direction vector relative to the camera,
 	# the basis stores the (right, up, -forwards) vectors of our camera.
-	forwards = input_direction.z * _actor.camera.global_transform.basis.z
-	right = input_direction.x * _actor.camera.global_transform.basis.x
+	#
+	# FIXME - ugh these alignments are a MESS
+	forwards = input_direction.z * _actor.transform.basis.x
+	right = input_direction.x * - _actor.transform.basis.z
 	move_direction = forwards + right
 	
 	if move_direction.length() > 1.0:
@@ -73,6 +89,11 @@ func calculate_movement_direction(input_direction, delta):
 		# Get the angle in the y-axis via atan2
 		var movement_angle = atan2(move_direction.x, move_direction.z) + PI
 		# lerp_angle prevents the flip-flopping between 0 and 360 degrees
+		_actor.rotation.y = lerp_angle(
+			_actor.rotation.y,
+			movement_angle,
+			0.2
+		)
 #		for element in _actor.rotateable:
 #			element.rotation.y = lerp_angle(
 #				element.rotation.y,
@@ -83,11 +104,20 @@ func calculate_movement_direction(input_direction, delta):
 	return move_direction 
 
 
-func calculate_velocity(velocity_current: Vector3, _move_direction: Vector3, delta: float):
-	var velocity_new = move_direction * move_speed
+func calculate_velocity(velocity_current: Vector3, move_direction: Vector3, delta: float):
+	var velocity_new = move_direction * (move_speed * move_speed_modifier)
 	if velocity_new.length() > max_speed:
 		velocity_new = velocity_new.normalized() * max_speed
-	velocity_new.y = velocity_current.y + gravity * delta
+	velocity_new.y = velocity_current.y + (gravity * gravity_modifier) * delta
 	
 	return velocity_new
+
+
+func _apply_movement_modifiers(new_state):
+	# Apply movement modifiers from the player's durability state
+	var current_durability_state = _actor.durability_state_machine.state
+	
+	move_speed_modifier = current_durability_state.move_speed_modifier
+	jump_impulse_modifier = current_durability_state.jump_impulse_modifier
+	gravity_modifier = current_durability_state.gravity_modifier
 

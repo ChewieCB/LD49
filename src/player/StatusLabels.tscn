@@ -10,14 +10,15 @@ viewport_path = NodePath("Viewport")
 script = ExtResource( 2 )
 
 [node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 320, 100 )
+size = Vector2( 500, 200 )
 transparent_bg = true
 
 [node name="StateLabel" type="Label" parent="Viewport"]
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = ExtResource( 1 )
-text = "TEMP LABEL"
+text = "MOVEMENT TEMP
+DURABILITY TEMP"
 align = 1
 valign = 1
 

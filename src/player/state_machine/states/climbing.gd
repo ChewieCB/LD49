@@ -1,8 +1,8 @@
 extends State
 
 #export var gravity = -80.0
-export (float) var vertical_move_time = 0.4
-export (float) var horizontal_move_time = 0.2
+export (float) var vertical_move_time = 0.6
+export (float) var horizontal_move_time = 0.4
 
 
 func enter(_msg: Dictionary = {}):
@@ -45,7 +45,7 @@ func climb():
 		"global_transform:origin", 
 		_actor.global_transform.origin, 
 		vertical_movement,
-		vertical_move_time, 
+		vertical_move_time * _parent.climb_speed_modifier, 
 		Tween.TRANS_CUBIC, 
 		Tween.EASE_IN
 	)
@@ -58,7 +58,7 @@ func climb():
 		"global_transform:origin", 
 		_actor.global_transform.origin, 
 		forward_movement,
-		horizontal_move_time, 
+		horizontal_move_time * _parent.climb_speed_modifier, 
 		Tween.TRANS_CUBIC,
 		Tween.EASE_OUT
 	)

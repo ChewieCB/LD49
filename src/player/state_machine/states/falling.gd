@@ -4,9 +4,9 @@ extends State
 onready var coyote_time = Timer.new()
 onready var was_on_floor = false
 
-export var max_speed = 20.0
+export var max_speed = 100.0
 export var move_speed = 20.0
-export var gravity = -80.0
+export var gravity = -120.0
 export var jump_impulse = 30
 
 
@@ -42,11 +42,12 @@ func physics_process(delta: float):
 			# Walking
 			_state_machine.transition_to("Movement/Running")
 	else:
-		if Input.is_action_just_pressed("p1_jump"):
+		if Input.is_action_pressed("p1_jump"):
 			if _actor.can_mantle():
 				_state_machine.transition_to("Movement/Climbing")
+		if Input.is_action_just_pressed("p1_jump"):
 			# Coyote Time jumping
-			elif not coyote_time.is_stopped():
+			if not coyote_time.is_stopped():
 				coyote_time.stop()
 				_state_machine.transition_to(
 					"Movement/Jumping",
