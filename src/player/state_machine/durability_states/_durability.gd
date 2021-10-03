@@ -25,7 +25,7 @@ func enter(_msg: Dictionary = {}):
 	
 	# Reset the durability timer
 	decay_timer.stop()
-	decay_timer.wait_time = 20.0
+	decay_timer.wait_time = 15.0
 	decay_timer.start()
 
 

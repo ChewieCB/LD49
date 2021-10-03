@@ -19,6 +19,9 @@ func enter(msg: Dictionary = {}):
 	
 	# Prevent the player from double dashing
 	_actor.has_dashed = true
+	
+	# Let the player dash through grate objects
+	_actor.set_collision_mask_bit(3, false)
 
 	# Yeet the player forwards in the direction the camera is facing	
 	dash_velocity = -_actor.camera.global_transform.basis.z
@@ -58,6 +61,7 @@ func handle_rotation():
 		)
 
 func exit():
+	_actor.set_collision_mask_bit(3, true)
 	_parent.exit()
 
 
