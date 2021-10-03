@@ -9,3 +9,5 @@ export_presets.cfg
 .mono/
 
 src/ui/main_menu/settings.cfg
+
+dist/
