@@ -35,7 +35,6 @@ func enter(_msg: Dictionary = {}):
 func _process(_delta):
 	if is_timer_active:
 		# Set the ui fill
-		var test0 = (decay_timer.time_left / max_wait_time) * 100
 		_actor.durability_ui.durability = (decay_timer.time_left / max_wait_time) * 100
 
 

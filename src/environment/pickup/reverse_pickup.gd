@@ -1,5 +1,5 @@
 extends Area
-class_name Pickup
+class_name ReversePickup
 
 signal pickup_collected
 

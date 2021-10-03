@@ -47,6 +47,10 @@ func physics_process(delta: float):
 		if _actor.pickup_count > 0:
 			_actor.pickup_count -= 1
 			_actor.durability_state_machine.get_child(0)._increase_durability()
+	elif Input.is_action_just_pressed("p1_unrepair"):
+		if _actor.reverse_pickup_count > 0:
+			_actor.reverse_pickup_count -= 1
+			_actor.durability_state_machine.get_child(0)._reduce_durability()
 	
 	# Movement
 	if GlobalFlags.PLAYER_CONTROLS_ACTIVE:

@@ -1,7 +1,7 @@
 extends State
 # State for when the player is jumping
 
-export var jump_velocity = 80
+export var jump_velocity = 100
 export var gravity = 0.0
 
 onready var dash_timer = $DashTimer

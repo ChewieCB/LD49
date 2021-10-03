@@ -54,10 +54,12 @@ var debug_trajectory_meshes = []
 # UI
 onready var ui = $GUI/PlayerUI
 onready var pickup_counter = ui.get_node("MarginContainer/GridContainer/HBoxContainer/CenterContainer3/PickupCounter")
+onready var reverse_pickup_counter = ui.get_node("MarginContainer/GridContainer/HBoxContainer/CenterContainer2/ReversePickupCounter")
 #
 onready var durability_ui = $DurabilityUI/Viewport/DurabilityMeter
 
 var pickup_count =  0 setget set_pickup_counter
+var reverse_pickup_count =  0 setget set_reverse_pickup_counter
 
 
 func _ready():
@@ -70,6 +72,7 @@ func _ready():
 
 func _process(_delta):
 	pickup_count = pickup_counter.pickup_count
+	reverse_pickup_count = reverse_pickup_counter.pickup_count
 
 
 func can_mantle():
@@ -90,3 +93,8 @@ func can_mantle():
 func set_pickup_counter(value):
 	pickup_count = value
 	pickup_counter.set_pickup_count(pickup_count)
+
+
+func set_reverse_pickup_counter(value):
+	reverse_pickup_count = value
+	reverse_pickup_counter.set_pickup_count(reverse_pickup_count)
