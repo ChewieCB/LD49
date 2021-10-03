@@ -12,6 +12,8 @@ onready var tween = $Tween
 
 var is_using_controller = false
 
+var is_aiming = false
+
 var min_look_angle = 0.0
 var max_look_angle = 75.0
 
@@ -41,6 +43,14 @@ func _unhandled_input(event):
 func _physics_process(_delta):
 	if not current_target.is_dead:
 		self.global_transform.origin = current_target.global_transform.origin
+	
+	if is_aiming:
+		min_look_angle = -45.0
+		max_look_angle = 90.0
+	else:
+		min_look_angle = 0.0
+		max_look_angle = 75.0
+	
 	if far_camera_collider.is_colliding():
 		if near_camera_collider.is_colliding():
 			camera.translation = near_camera_collider.cast_to

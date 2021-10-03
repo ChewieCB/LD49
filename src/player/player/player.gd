@@ -36,6 +36,7 @@ onready var state_machine = $StateMachine
 onready var death_state = $StateMachine/Movement/Dead
 var is_dead = false
 var has_jumped = false
+var has_dashed = false
 
 onready var durability_state_machine = $DurabilityStateMachine
 onready var state_label = $StatusLabels
@@ -77,41 +78,6 @@ func can_mantle():
 			return false
 	
 	return true
-
-
-func generate_debug_trajectory(trajectory_points, size):
-	if not GlobalFlags.SHOW_DEBUG_TRAJECTORIES:
-		return
-	
-	clear_debug_trajectory()
-	# Get scene root
-	var scene_root = get_tree().root.get_children()[0]
-	for _point in trajectory_points:
-		# Create sphere with low detail of size.
-		var sphere = SphereMesh.new()
-		sphere.radial_segments = 8
-		sphere.rings = 8
-		sphere.radius = size
-		sphere.height = size * 2
-		# Bright red material (unshaded).
-		var material = SpatialMaterial.new()
-		material.albedo_color = Color(1, 0, 0)
-		material.flags_unshaded = true
-		sphere.surface_set_material(0, material)
-		
-		# Add to meshinstance in the right place.
-		var node = MeshInstance.new()
-		node.mesh = sphere
-		if node.is_inside_tree():
-			node.global_transform.origin = _point
-		scene_root.add_child(node)
-		debug_trajectory_meshes.append(node)
-
-
-func clear_debug_trajectory():
-	for mesh in debug_trajectory_meshes:
-		mesh.queue_free()
-	debug_trajectory_meshes = []
 
 
 func set_pickup_counter(value):

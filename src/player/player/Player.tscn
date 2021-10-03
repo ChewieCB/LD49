@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/player/player/player.gd" type="Script" id=1]
 [ext_resource path="res://src/player/StatusLabels.tscn" type="PackedScene" id=2]
@@ -15,7 +15,9 @@
 [ext_resource path="res://src/player/state_machine/durability_states/eroded.gd" type="Script" id=13]
 [ext_resource path="res://src/player/state_machine/states/dead.gd" type="Script" id=14]
 [ext_resource path="res://src/ui/hud/PlayerUI.tscn" type="PackedScene" id=15]
-[ext_resource path="res://src/player/player/double_jumping.gd" type="Script" id=16]
+[ext_resource path="res://src/player/state_machine/states/double_jumping.gd" type="Script" id=16]
+[ext_resource path="res://src/player/state_machine/states/air_dashing.gd" type="Script" id=17]
+[ext_resource path="res://src/player/state_machine/states/air_dashing_aiming.gd" type="Script" id=18]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.0
@@ -63,6 +65,15 @@ script = ExtResource( 7 )
 [node name="DoubleJumping" type="Node" parent="StateMachine/Movement"]
 script = ExtResource( 16 )
 
+[node name="AirDashingAiming" type="Node" parent="StateMachine/Movement"]
+script = ExtResource( 18 )
+
+[node name="AirDashing" type="Node" parent="StateMachine/Movement"]
+script = ExtResource( 17 )
+
+[node name="DashTimer" type="Timer" parent="StateMachine/Movement/AirDashing"]
+one_shot = true
+
 [node name="Falling" type="Node" parent="StateMachine/Movement"]
 script = ExtResource( 8 )
 
@@ -74,7 +85,7 @@ script = ExtResource( 14 )
 
 [node name="DurabilityStateMachine" type="Node" parent="."]
 script = ExtResource( 3 )
-initial_state_path = NodePath("DurabilityParent/Solid")
+initial_state_path = NodePath("DurabilityParent/Damaged")
 
 [node name="DurabilityParent" type="Node" parent="DurabilityStateMachine"]
 script = ExtResource( 10 )
@@ -156,3 +167,5 @@ cast_to = Vector3( 0, 0, 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0413, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, 1.4 )
+
+[connection signal="timeout" from="StateMachine/Movement/AirDashing/DashTimer" to="StateMachine/Movement/AirDashing" method="_on_DashTimer_timeout"]
