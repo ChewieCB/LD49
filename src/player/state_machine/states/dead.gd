@@ -9,6 +9,7 @@ func enter(msg: Dictionary = {}):
 	GlobalFlags.CAMERA_CONTROLS_ACTIVE = false
 	_actor.is_dead = true
 	_actor.has_jumped = false
+	_actor.has_dashed = false
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#

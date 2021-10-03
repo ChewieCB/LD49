@@ -12,8 +12,6 @@ func enter(_msg: Dictionary = {}):
 	
 	# Zero out any fall velocity before we apply the jump so we get the full height
 	_parent.velocity = Vector3.ZERO
-	# Prevent the player from double dashing
-	_actor.has_dashed = true
 	# Allow wider aim range
 	_actor.camera_pivot.is_aiming = true
 	# Increase camera FOV
@@ -22,7 +20,7 @@ func enter(_msg: Dictionary = {}):
 		_actor.camera,
 		"fov",
 		_actor.camera.fov,
-		_actor.camera.fov - 20,
+		_actor.camera.fov - 10,
 		0.2,
 		Tween.TRANS_EXPO,
 		Tween.EASE_IN_OUT
@@ -73,7 +71,7 @@ func exit():
 		_actor.camera,
 		"fov",
 		_actor.camera.fov,
-		_actor.camera.fov + 20,
+		_actor.camera.fov + 10,
 		0.2,
 		Tween.TRANS_EXPO,
 		Tween.EASE_IN_OUT

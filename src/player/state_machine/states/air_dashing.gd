@@ -16,6 +16,9 @@ func enter(msg: Dictionary = {}):
 	
 	dash_timer.wait_time = dash_time
 	dash_timer.start()
+	
+	# Prevent the player from double dashing
+	_actor.has_dashed = true
 
 	# Yeet the player forwards in the direction the camera is facing	
 	dash_velocity = -_actor.camera.global_transform.basis.z

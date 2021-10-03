@@ -59,6 +59,7 @@ func _ready():
 	GlobalFlags.CAMERA_CONTROLS_ACTIVE = true
 	is_dead = false
 	has_jumped = false
+	has_dashed = false
 
 
 func _process(_delta):

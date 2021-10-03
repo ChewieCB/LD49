@@ -1,12 +1,12 @@
 extends State
 # State for when there is no movement input
 # Supports triggering jump after the player has started to fall
-export var move_speed_modifier = 2.2
+export var move_speed_modifier = 2.0
 export var climb_speed_modifier = 0.05
 #
 export var weight = 0
-export var jump_impulse_modifier = 1.4
-export var gravity_modifier = 0.8
+export var jump_impulse_modifier = 1.2
+export var gravity_modifier = 0.9
 
 var state_colour = Color.red
 export var health = 2
