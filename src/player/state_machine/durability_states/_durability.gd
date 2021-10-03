@@ -19,6 +19,7 @@ export (bool) var is_timer_active = true setget set_is_timer_active
 func _ready():
 #	_state_machine.connect("transitioned", self, "apply_durability_modifiers")
 	decay_timer.connect("timeout", self, "_reduce_durability")
+	DynamicMusicManager.animation_player.queue("solid")
 
 
 func enter(_msg: Dictionary = {}):
@@ -50,10 +51,13 @@ func _reduce_durability():
 	match new_state_index:
 		0:
 			new_state_name = "DurabilityParent/Solid"
+			DynamicMusicManager.animation_player.queue("solid")
 		1:
 			new_state_name = "DurabilityParent/Damaged"
+			DynamicMusicManager.animation_player.queue("solid_to_damaged")
 		2:
 			new_state_name = "DurabilityParent/Eroded"
+			DynamicMusicManager.animation_player.queue("damaged_to_eroded")
 		_:
 			push_error("Invalid durability state!")
 	
@@ -74,10 +78,13 @@ func _increase_durability():
 	match new_state_index:
 		0:
 			new_state_name = "DurabilityParent/Solid"
+			DynamicMusicManager.animation_player.queue("damaged_to_solid")
 		1:
 			new_state_name = "DurabilityParent/Damaged"
+			DynamicMusicManager.animation_player.queue("eroded_to_damaged")
 		2:
 			new_state_name = "DurabilityParent/Eroded"
+			# Shouldn't happen unless we revive from death??
 		_:
 			push_error("Invalid durability state!")
 	
