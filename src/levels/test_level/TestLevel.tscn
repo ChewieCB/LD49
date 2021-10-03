@@ -249,7 +249,7 @@ depth = 16.0
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 97.1315, -5, -328.325 )
 use_collision = true
 width = 48.0
-height = 16.0
+height = 14.0
 depth = 16.0
 
 [node name="Platform5" type="CSGBox" parent="Environment"]
