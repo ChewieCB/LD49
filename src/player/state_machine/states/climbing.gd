@@ -18,6 +18,16 @@ func enter(_msg: Dictionary = {}):
 #	yield(audio_player.audio_player, "finished")
 #	audio_player.stop_audio()
 
+func physics_process(_delta):
+	if Input.is_action_just_pressed("p1_repair"):
+		if _actor.pickup_count > 0:
+			_actor.pickup_count -= 1
+			_actor.durability_state_machine.get_child(0)._increase_durability()
+	elif Input.is_action_just_pressed("p1_unrepair"):
+		if _actor.reverse_pickup_count > 0:
+			_actor.reverse_pickup_count -= 1
+			_actor.durability_state_machine.get_child(0)._reduce_durability()
+
 
 func unhandled_input(event: InputEvent):
 	_parent.unhandled_input(event)
