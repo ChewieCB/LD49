@@ -69,9 +69,6 @@ func assign_audio_streams():
 
 
 func reset_playback():
-	animation_player.play("solid_fade_out")
-	yield(animation_player, "animation_finished")
-	
 	solid_player.seek(0)
 	damaged_player.seek(0)
 	eroded_player.seek(0)
@@ -82,7 +79,14 @@ func advance_level():
 
 
 func set_level_id(value):
+	# Loop around the main level themes
+	if value > 3:
+		value = 1
+	
 	level_id = value
+	
+	animation_player.play("solid_fade_out")
+	yield(animation_player, "animation_finished")
 	assign_audio_streams()
 	reset_playback()
 	

@@ -1,13 +1,20 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/global/dynamic_music_manager/dynamic_music_manager.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/music/level_1/LEVEL 1 DAMAGED.wav" type="AudioStream" id=2]
 [ext_resource path="res://assets/audio/music/level_1/LEVEL 1 DECREPIT.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/audio/music/level_1/LEVEL 1 SOLID.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/audio/music/main_menu/mainmenu.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/music/level_2/LEVEL 2 DAMAGED.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/audio/music/level_2/LEVEL 2 SOLID.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/audio/music/level_3/LEVEL 3 DAMAGED.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/audio/music/level_3/LEVEL 3 DECREPIT.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/audio/music/level_3/LEVEL 3 SOLID.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/audio/music/level_2/LEVEL 2 DECREPIT.wav" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=7]
 resource_name = "damaged_fade_out"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BGM_2:volume_db")
 tracks/0/interp = 1
@@ -15,7 +22,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 2.54912, 1 ),
 "update": 0,
 "values": [ 0.0, -80.0 ]
@@ -79,6 +86,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=10]
 resource_name = "eroded_fade_out"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BGM_3:volume_db")
 tracks/0/interp = 1
@@ -86,7 +94,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 2.54, 1 ),
 "update": 0,
 "values": [ 0.0, -80.0 ]
@@ -228,6 +236,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "solid_fade_out"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BGM_1:volume_db")
 tracks/0/interp = 1
@@ -235,7 +244,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 2.54, 1 ),
 "update": 0,
 "values": [ 0.0, -80.0 ]
@@ -274,14 +283,18 @@ main_menu_bgm = ExtResource( 5 )
 level_1_solid_bgm = ExtResource( 4 )
 level_1_damaged_bgm = ExtResource( 2 )
 level_1_eroded_bgm = ExtResource( 3 )
+level_2_solid_bgm = ExtResource( 7 )
+level_2_damaged_bgm = ExtResource( 6 )
+level_2_eroded_bgm = ExtResource( 11 )
+level_3_solid_bgm = ExtResource( 10 )
+level_3_damaged_bgm = ExtResource( 8 )
+level_3_eroded_bgm = ExtResource( 9 )
 
 [node name="BGM_1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -80.0
 
 [node name="BGM_2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = -80.0
 
 [node name="BGM_3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

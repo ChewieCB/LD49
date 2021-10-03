@@ -354,7 +354,8 @@ height = 266.0
 sides = 12
 
 [node name="CSGCylinder4" type="CSGCylinder" parent="Environment"]
-transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 11.4918, -1, -316.658 )
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 11.4918, -7, -316.658 )
+use_collision = true
 radius = 25.0
 height = 20.0
 sides = 12
@@ -375,7 +376,7 @@ height = 50.0
 depth = 20.0
 
 [node name="DoorWay3" type="CSGBox" parent="Environment"]
-transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 477.328, 38, -145.474 )
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 478.328, 38, -147.206 )
 operation = 2
 use_collision = true
 width = 48.0
@@ -409,7 +410,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, -7, -292.351 )
 [node name="ReversePickups" type="Spatial" parent="."]
 
 [node name="ReversePickup" parent="ReversePickups" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 14, -314 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6, -314 )
 
 [node name="ReversePickup3" parent="ReversePickups" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66, -5, -368 )
@@ -458,7 +459,7 @@ light_indirect_energy = 4.0
 omni_range = 150.0
 
 [node name="WinZone" parent="." instance=ExtResource( 5 )]
-transform = Transform( 8, 0, 0, 0, 10.8, 0, 0, 0, 5.82, -181, 36, 3 )
+transform = Transform( 31.8697, 0, -52.671, 0, 66.96, 0, 18.4, 0, 91.2289, 644.866, 36, -117.644 )
 
 [node name="KillZone" parent="." instance=ExtResource( 7 )]
 transform = Transform( 104.375, 0, 0, 0, -15, 0, 0, 0, 219.773, 14, -73, -143 )
