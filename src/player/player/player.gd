@@ -11,6 +11,9 @@ onready var debug_mesh = $DEBUG_MESH
 onready var body_rays = $ClimbingRayCasts/BodyRays
 onready var head_rays = $ClimbingRayCasts/HeadRays
 onready var foot_ray = $ClimbingRayCasts/FootRayCast
+
+# Triggerable raycast
+onready var trigger_ray = $TriggerRaycast
 #onready var slope_raycast = $SlopeRayCast
 #onready var impassable_raycast = $Collision/ImpassableRayCast
 #onready var knockback_raycasts = $Collision/KnockbackRayCasts.get_children()
