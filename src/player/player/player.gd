@@ -54,6 +54,8 @@ var debug_trajectory_meshes = []
 # UI
 onready var ui = $GUI/PlayerUI
 onready var pickup_counter = ui.get_node("MarginContainer/GridContainer/HBoxContainer/CenterContainer3/PickupCounter")
+#
+onready var durability_ui = $DurabilityUI/Viewport/DurabilityMeter
 
 var pickup_count =  0 setget set_pickup_counter
 

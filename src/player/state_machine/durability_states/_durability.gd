@@ -12,6 +12,7 @@ var health = null
 
 var state_colour = Color.white setget set_state_colour
 onready var decay_timer = $"../DecayTimer"
+export (float) var max_wait_time = 15.0
 export (bool) var is_timer_active = true setget set_is_timer_active
 
 
@@ -27,8 +28,14 @@ func enter(_msg: Dictionary = {}):
 	# Reset the durability timer
 	if is_timer_active:
 		decay_timer.stop()
-		decay_timer.wait_time = 15.0
+		decay_timer.wait_time = max_wait_time
 		decay_timer.start()
+
+
+#func _process(_delta):
+#	if is_timer_active:
+#		# Set the ui fill
+#		_actor.durability_ui.durability = (decay_timer.wait_time / max_wait_time) * 100
 
 
 func _reduce_durability():
@@ -101,3 +108,9 @@ func set_state_colour(value: Color):
 	var material = _actor.debug_mesh.get_surface_material(0)
 	material.set_albedo(state_colour)
 	_actor.debug_mesh.set_surface_material(0, material)
+	
+	# Set the ui colour
+#	_actor.durability_ui.color = state_colour
+	
+
+	
