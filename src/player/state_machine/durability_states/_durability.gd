@@ -12,7 +12,7 @@ var health = null
 
 var state_colour = Color.white setget set_state_colour
 onready var decay_timer = $"../DecayTimer"
-export (float) var max_wait_time = 10.0
+export (float) var max_wait_time = 12.0
 export (bool) var is_timer_active = true setget set_is_timer_active
 
 

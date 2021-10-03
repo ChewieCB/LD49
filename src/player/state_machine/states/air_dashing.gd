@@ -34,8 +34,12 @@ func physics_process(delta: float):
 	
 	handle_rotation()
 	
+	if Input.is_action_just_pressed("p1_jump") and _actor.can_mantle():
+		_state_machine.transition_to("Movement/Climbing")
+	
 	dash_velocity.y += delta * gravity
 	_actor.move_and_slide(dash_velocity, Vector3.UP, false, 4, 0.785398, false)
+	
 
 
 func handle_rotation():
