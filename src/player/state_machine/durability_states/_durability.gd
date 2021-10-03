@@ -12,7 +12,7 @@ var health = null
 
 var state_colour = Color.white setget set_state_colour
 onready var decay_timer = $"../DecayTimer"
-export (float) var max_wait_time = 15.0
+export (float) var max_wait_time = 10.0
 export (bool) var is_timer_active = true setget set_is_timer_active
 
 
@@ -89,11 +89,14 @@ func _increase_durability():
 func _start_decay_timer():
 	# Reset the durability timer
 	decay_timer.wait_time = 15.0
+	_actor.durability_ui.animation_player.play("fade_in")
+	yield(_actor.durability_ui.animation_player, "animation_finished")
 	decay_timer.start()
 
 
 func _stop_decay_timer():
 	decay_timer.stop()
+	_actor.durability_ui.animation_player.play("fade_out")
 
 
 func set_is_timer_active(value):

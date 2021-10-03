@@ -9,6 +9,13 @@ var max_angle = 4.7
 
 var color = Color.white
 
+onready var animation_player = $AnimationPlayer
+
+
+func _ready():
+	animation_player.play("default")
+
+
 func _draw():
 	draw_durability_meter(
 		get_viewport_rect().end / 2,
