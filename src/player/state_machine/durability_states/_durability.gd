@@ -32,10 +32,11 @@ func enter(_msg: Dictionary = {}):
 		decay_timer.start()
 
 
-#func _process(_delta):
-#	if is_timer_active:
-#		# Set the ui fill
-#		_actor.durability_ui.durability = (decay_timer.wait_time / max_wait_time) * 100
+func _process(_delta):
+	if is_timer_active:
+		# Set the ui fill
+		var test0 = (decay_timer.time_left / max_wait_time) * 100
+		_actor.durability_ui.durability = (decay_timer.time_left / max_wait_time) * 100
 
 
 func _reduce_durability():
@@ -110,7 +111,7 @@ func set_state_colour(value: Color):
 	_actor.debug_mesh.set_surface_material(0, material)
 	
 	# Set the ui colour
-#	_actor.durability_ui.color = state_colour
+	_actor.durability_ui.color = state_colour
 	
 
 	
