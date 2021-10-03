@@ -126,6 +126,15 @@ width = 48.0
 height = 56.0
 depth = 112.0
 
+[node name="CSGCombiner" type="CSGCombiner" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner"]
+
+[node name="Room4" type="CSGBox" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner"]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 360, 55, -133.9 )
+invert_faces = true
+width = 236.0
+height = 172.0
+depth = 314.0
+
 [node name="Platform1" type="CSGBox" parent="Environment"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.78922, 19.4712 )
 use_collision = true
@@ -261,6 +270,29 @@ width = 48.0
 height = 74.0
 depth = 60.0
 
+[node name="Platform6" type="CSGBox" parent="Environment"]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -88.8685, 10, -334.325 )
+use_collision = true
+width = 38.0
+height = 58.0
+depth = 46.0
+
+[node name="GratedWallSolid" type="CSGBox" parent="Environment"]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 352.148, 95, -289.191 )
+operation = 2
+use_collision = true
+width = 10.0
+height = 190.0
+depth = 236.0
+
+[node name="GratedWallSolid2" type="CSGBox" parent="Environment/GratedWallSolid"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -52, 0 )
+operation = 2
+use_collision = true
+width = 10.0
+height = 66.0
+depth = 118.0
+
 [node name="DoorWay" type="CSGBox" parent="Environment"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 122.132, 38, -328.325 )
 operation = 2
@@ -295,6 +327,11 @@ light_color = Color( 0.72549, 0.427451, 0, 1 )
 light_indirect_energy = 2.0
 omni_range = 100.0
 
+[node name="OmniLight2" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 36.6627, -82 )
+light_color = Color( 0.364706, 0.886275, 0.101961, 1 )
+omni_range = 50.0
+
 [node name="OmniLight3" type="OmniLight" parent="Lights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 44.6627, -268 )
 light_color = Color( 0.72549, 0.427451, 0, 1 )
@@ -307,10 +344,12 @@ light_color = Color( 0, 0.0784314, 0.72549, 1 )
 light_indirect_energy = 2.0
 omni_range = 100.0
 
-[node name="OmniLight2" type="OmniLight" parent="Lights"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 36.6627, -82 )
-light_color = Color( 0.364706, 0.886275, 0.101961, 1 )
-omni_range = 50.0
+[node name="OmniLight5" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 439, 88.6627, -227 )
+light_color = Color( 0.72549, 0.152941, 0, 1 )
+light_energy = 2.0
+light_indirect_energy = 4.0
+omni_range = 250.0
 
 [node name="WinZone" parent="." instance=ExtResource( 5 )]
 transform = Transform( 8, 0, 0, 0, 10.8, 0, 0, 0, 5.82, -181, 36, 3 )
