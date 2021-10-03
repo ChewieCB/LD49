@@ -42,6 +42,7 @@ var has_jumped = false
 var has_dashed = false
 
 onready var durability_state_machine = $DurabilityStateMachine
+onready var durability_parent = $DurabilityStateMachine/DurabilityParent
 onready var state_label = $StatusLabels
 onready var movement_state = $StateMachine/Movement
 

@@ -3,6 +3,9 @@ extends StaticBody
 signal activated
 signal deactivated
 
+# How heavy the player has to be to trigger the pressure plate:
+# 2 = SOLID, 1 = DAMAGED, 0 = ERODED
+export (int) var weight_required = 2
 var is_activated = false
 
 onready var animation_player = $AnimationPlayer
@@ -26,7 +29,7 @@ func deactivate():
 
 func _on_Area_body_entered(body):
 	if body is PlayerController:
-		if not is_activated:
+		if not is_activated and body.durability_parent.weight >= weight_required:
 			activate()
 
 
