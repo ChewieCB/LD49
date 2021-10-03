@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/player/PlayerRig.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/ui/game_over/GameOverScreen.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://src/environment/dev/win_zone/WinZone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/environment/pickup/Pickup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/environment/dev/kill_zone/KillZone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/environment/doors/slide_door/SlidingDoor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/environment/pressure_plate/PressurePlate.tscn" type="PackedScene" id=9]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
@@ -51,7 +53,7 @@ script = ExtResource( 4 )
 [node name="Fadeout" parent="GUI" instance=ExtResource( 3 )]
 
 [node name="PlayerRig" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -281 )
 
 [node name="Environment" type="Spatial" parent="."]
 
@@ -259,6 +261,21 @@ width = 48.0
 height = 74.0
 depth = 60.0
 
+[node name="DoorWay" type="CSGBox" parent="Environment"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 122.132, 38, -328.325 )
+operation = 2
+use_collision = true
+width = 48.0
+height = 56.0
+depth = 12.0
+
+[node name="DoorCut" type="CSGBox" parent="Environment/DoorWay"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.674988, -5, -1.868 )
+operation = 2
+width = 30.0
+height = 50.0
+depth = 20.0
+
 [node name="Pickups" type="Spatial" parent="."]
 
 [node name="RepairPickup" parent="Pickups" instance=ExtResource( 6 )]
@@ -284,6 +301,12 @@ light_color = Color( 0.72549, 0.427451, 0, 1 )
 light_indirect_energy = 2.0
 omni_range = 200.0
 
+[node name="OmniLight4" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 50.6627, -325 )
+light_color = Color( 0, 0.0784314, 0.72549, 1 )
+light_indirect_energy = 2.0
+omni_range = 100.0
+
 [node name="OmniLight2" type="OmniLight" parent="Lights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 36.6627, -82 )
 light_color = Color( 0.364706, 0.886275, 0.101961, 1 )
@@ -294,3 +317,10 @@ transform = Transform( 8, 0, 0, 0, 10.8, 0, 0, 0, 5.82, -181, 36, 3 )
 
 [node name="KillZone" parent="." instance=ExtResource( 7 )]
 transform = Transform( 104.375, 0, 0, 0, -15, 0, 0, 0, 219.773, 11, -73, -144 )
+
+[node name="SlidingDoor" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 123, 35, -329 )
+trigger_path = NodePath("../PressurePlate")
+
+[node name="PressurePlate" parent="." instance=ExtResource( 9 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 6, -7, -330 )

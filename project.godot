@@ -141,6 +141,8 @@ p1_dash={
 
 3d_physics/layer_1="Environment"
 3d_physics/layer_2="Player"
+3d_physics/layer_3="Triggerable"
+3d_physics/layer_4="Grate"
 
 [physics]
 
