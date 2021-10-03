@@ -12,6 +12,7 @@ var health = null
 
 var state_colour = Color.white setget set_state_colour
 onready var decay_timer = $"../DecayTimer"
+export (bool) var is_timer_active = true setget set_is_timer_active
 
 
 func _ready():
@@ -24,9 +25,10 @@ func enter(_msg: Dictionary = {}):
 	skin = null #_actor.skin
 	
 	# Reset the durability timer
-	decay_timer.stop()
-	decay_timer.wait_time = 15.0
-	decay_timer.start()
+	if is_timer_active:
+		decay_timer.stop()
+		decay_timer.wait_time = 15.0
+		decay_timer.start()
 
 
 func _reduce_durability():
@@ -55,9 +57,10 @@ func _reduce_durability():
 func _increase_durability():
 	var new_state_index = _state_machine.state.get_index() - 1
 	if new_state_index < 0:
-		decay_timer.stop()
-		decay_timer.wait_time = 10.0
-		decay_timer.start()
+		if is_timer_active:
+			decay_timer.stop()
+			decay_timer.wait_time = 10.0
+			decay_timer.start()
 		return
 	
 	var new_state_name
@@ -73,6 +76,24 @@ func _increase_durability():
 	
 	print("Changing to %s" % [new_state_name])
 	_state_machine.transition_to(new_state_name)
+
+
+func _start_decay_timer():
+	# Reset the durability timer
+	decay_timer.wait_time = 15.0
+	decay_timer.start()
+
+
+func _stop_decay_timer():
+	decay_timer.stop()
+
+
+func set_is_timer_active(value):
+	is_timer_active = value
+	if is_timer_active:
+		_start_decay_timer()
+	else:
+		_stop_decay_timer()
 
 
 func set_state_colour(value: Color):
