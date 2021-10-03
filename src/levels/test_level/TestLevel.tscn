@@ -353,6 +353,12 @@ radius = 16.0
 height = 266.0
 sides = 12
 
+[node name="CSGCylinder4" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 11.4918, -1, -316.658 )
+radius = 25.0
+height = 20.0
+sides = 12
+
 [node name="DoorWay2" type="CSGBox" parent="Environment"]
 transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 541.328, 38, -256.325 )
 operation = 2
@@ -403,7 +409,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, -7, -292.351 )
 [node name="ReversePickups" type="Spatial" parent="."]
 
 [node name="ReversePickup" parent="ReversePickups" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, -314 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 14, -314 )
 
 [node name="ReversePickup3" parent="ReversePickups" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66, -5, -368 )
