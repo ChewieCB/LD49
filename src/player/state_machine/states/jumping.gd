@@ -28,6 +28,11 @@ func physics_process(delta: float):
 		elif _actor.durability_state_machine.state.get_index() > 0:
 			_state_machine.transition_to("Movement/DoubleJumping")
 	
+	elif Input.is_action_pressed("p1_dash") and not _actor.has_dashed:
+		# We only want air dashing available at lower durability
+		if _actor.durability_state_machine.state.get_index() > 1:
+			_state_machine.transition_to("Movement/AirDashingAiming")
+	
 	# Transition to Falling at peak of jump
 	if _parent.velocity.y <= 0:
 		_state_machine.transition_to(

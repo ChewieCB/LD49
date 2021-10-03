@@ -3,7 +3,7 @@ extends State
 
 export var max_speed = 100.0
 export var move_speed = 20.0
-export var gravity = -80.0
+export var gravity = -100.0
 export var jump_impulse = 30
 
 
@@ -14,6 +14,7 @@ func enter(_msg: Dictionary = {}):
 	_parent.jump_impulse = jump_impulse
 	
 	_actor.has_jumped = false
+	_actor.has_dashed = false
 	#
 #	audio_player.transition_to(audio_player.States.WALK)
 #	skin.transition_to(skin.States.WALK)
