@@ -58,7 +58,7 @@ func physics_process(delta: float):
 				)
 		elif Input.is_action_pressed("p1_dash") and not _actor.has_dashed:
 			# We only want air dashing available at lower durability
-			if _actor.durability_state_machine.state.get_index() > 0:
+			if _actor.durability_state_machine.state.get_index() > 1:
 				_state_machine.transition_to("Movement/AirDashingAiming")
 
 
