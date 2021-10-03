@@ -1,7 +1,7 @@
 extends State
 # State for when there is no movement input
 # Supports triggering jump after the player has started to fall
-export var move_speed_modifier = 2.0
+export var move_speed_modifier = 1.6
 export var climb_speed_modifier = 0.05
 #
 export var weight = 0
