@@ -6,15 +6,13 @@ onready var current_target = get_node(camera_target)
 
 onready var camera = $Camera
 onready var far_camera_collider = $MaxRayCast
-onready var near_camera_collider = $MaxRayCast
-onready var camera_collision_sphere = $Camera/Area
 onready var tween = $Tween
 
 var is_using_controller = false
 
 var is_aiming = false
 
-var min_look_angle = 0.0
+var min_look_angle = 1.0
 var max_look_angle = 75.0
 
 var camera_rotation = Vector3.ZERO
@@ -41,6 +39,9 @@ func _unhandled_input(event):
 
 
 func _physics_process(_delta):
+	if far_camera_collider.is_colliding():
+		camera.global_transform.origin = far_camera_collider.get_collision_point()
+		
 	if not current_target.is_dead:
 		self.global_transform.origin = current_target.global_transform.origin
 	
@@ -48,16 +49,11 @@ func _physics_process(_delta):
 		min_look_angle = -45.0
 		max_look_angle = 90.0
 	else:
-		min_look_angle = 0.0
+		min_look_angle = 1.0
 		max_look_angle = 75.0
 	
-	if far_camera_collider.is_colliding():
-		if near_camera_collider.is_colliding():
-			camera.translation = near_camera_collider.cast_to
-		else:
-			camera.global_transform.origin = far_camera_collider.get_collision_point()
-	else:
-		camera.translation = far_camera_collider.cast_to
+#	elif near_camera_collider.is_colliding():
+#		camera.global_transform.origin = near_camera_collider.get_collision_point()
 
 
 func _process(delta):
@@ -91,23 +87,4 @@ func _process(delta):
 		rotation_degrees.z = clamp(rotation_degrees.z, min_look_angle, max_look_angle)
 		
 		mouse_delta = Vector2.ZERO
-
-
-func rotate_camera(goal_point, time):
-	# Get the current state of the camera rotation as a Quat
-	var current_quaternion = self.global_transform.basis.get_rotation_quat()
-	var goal_quaternion = goal_point.get_rotation_quat()
-	var midpoint = current_quaternion.slerp(goal_quaternion, 1.0)
-	
-	# Tween Basis rotation
-	tween.interpolate_property(
-		self,
-		"global_transform:basis",
-		self.global_transform.basis,
-		Basis(midpoint),
-		time,
-		Tween.TRANS_SINE,
-		Tween.EASE_IN
-	)
-	tween.start()
 
