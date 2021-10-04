@@ -34,6 +34,8 @@ onready var camera_pivot = get_node("../CameraPivot")
 onready var camera = get_node("../CameraPivot/Camera")
 var goal_quaternion
 
+onready var skin = $PlayerSkin
+
 onready var state_machine = $StateMachine
 onready var death_state = $StateMachine/Movement/Dead
 var is_dead = false

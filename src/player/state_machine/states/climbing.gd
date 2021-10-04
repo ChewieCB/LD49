@@ -15,6 +15,9 @@ func enter(_msg: Dictionary = {}):
 	climb()
 	#
 	audio_manager.transition_to(audio_manager.States.CLIMB)
+	
+#	var skin = _actor.skin
+#	skin.transition_to(skin.States.CLIMB)
 #	skin.transition_to(skin.States.IDLE)
 
 
