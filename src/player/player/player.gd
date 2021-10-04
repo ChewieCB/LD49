@@ -1,7 +1,8 @@
 extends KinematicBody
 class_name PlayerController
 
-#onready var fadeout = $UI/Fadeout
+# FIXME - this is the hackiest hack ever, but it'll hold for the jam
+onready var fadeout = $"../../GUI/Fadeout"
 
 onready var default_collider = $CollisionShape
 
@@ -63,6 +64,7 @@ var reverse_pickup_count =  0 setget set_reverse_pickup_counter
 
 
 func _ready():
+	yield(fadeout.animation_player, "animation_finished")
 	GlobalFlags.PLAYER_CONTROLS_ACTIVE = true
 	GlobalFlags.CAMERA_CONTROLS_ACTIVE = true
 	is_dead = false

@@ -48,6 +48,7 @@ func unhandled_input(event: InputEvent):
 
 func physics_process(delta: float):
 	_parent.physics_process(delta)
+	
 	# Idle
 	if _parent.input_direction == Vector3.ZERO:
 		_state_machine.transition_to("Movement/Idle")

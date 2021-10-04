@@ -31,6 +31,10 @@ func _ready():
 	)
 
 
+func enter(_msg: Dictionary = {}):
+	yield(_actor.fadeout.animation_player, "animation_finished")
+
+
 func physics_process(delta: float):
 	# Debug Reset
 	if Input.is_action_pressed("reset"):

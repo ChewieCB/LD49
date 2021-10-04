@@ -21,6 +21,7 @@ func enter(_msg: Dictionary = {}):
 
 func physics_process(delta: float):
 	_parent.physics_process(delta)
+	
 	if _actor.is_on_ceiling():
 		_parent.velocity.y = 0
 	
