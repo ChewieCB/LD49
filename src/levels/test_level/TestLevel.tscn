@@ -336,10 +336,40 @@ height = 56.0
 depth = 12.0
 
 [node name="DoorCut" type="CSGBox" parent="Environment/DoorWay"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.674988, -5, -1.868 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.674988, -18.4, -1.868 )
 operation = 2
-width = 30.0
-height = 50.0
+width = 22.0
+height = 42.0
+depth = 20.0
+
+[node name="DoorWay2" type="CSGBox" parent="Environment"]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 540.73, 38, -256.27 )
+operation = 2
+use_collision = true
+width = 48.0
+height = 56.0
+depth = 12.0
+
+[node name="DoorCut" type="CSGBox" parent="Environment/DoorWay2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.674988, -18.4, -1.868 )
+operation = 2
+width = 22.0
+height = 42.0
+depth = 20.0
+
+[node name="DoorWay3" type="CSGBox" parent="Environment"]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 477.23, 38, -146.285 )
+operation = 2
+use_collision = true
+width = 48.0
+height = 56.0
+depth = 12.0
+
+[node name="DoorCut" type="CSGBox" parent="Environment/DoorWay3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.674988, -18.4, -1.868 )
+operation = 2
+width = 22.0
+height = 42.0
 depth = 20.0
 
 [node name="CSGCylinder" type="CSGCylinder" parent="Environment"]
@@ -366,36 +396,6 @@ use_collision = true
 radius = 25.0
 height = 20.0
 sides = 12
-
-[node name="DoorWay2" type="CSGBox" parent="Environment"]
-transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 541.328, 38, -256.325 )
-operation = 2
-use_collision = true
-width = 48.0
-height = 56.0
-depth = 12.0
-
-[node name="DoorCut" type="CSGBox" parent="Environment/DoorWay2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.674988, -5, -1.868 )
-operation = 2
-width = 30.0
-height = 50.0
-depth = 20.0
-
-[node name="DoorWay3" type="CSGBox" parent="Environment"]
-transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 478.328, 38, -147.206 )
-operation = 2
-use_collision = true
-width = 48.0
-height = 56.0
-depth = 12.0
-
-[node name="DoorCut" type="CSGBox" parent="Environment/DoorWay3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.674988, -5, -1.868 )
-operation = 2
-width = 30.0
-height = 50.0
-depth = 20.0
 
 [node name="Pickups" type="Spatial" parent="."]
 
@@ -506,15 +506,15 @@ transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 6, 66, -410 )
 transform = Transform( 2, 0, -3.4641, 0, 4, 0, 3.4641, 0, 2, 419, 48.8, -257 )
 
 [node name="SlidingDoor" parent="." instance=ExtResource( 8 )]
-transform = Transform( -4.37114e-08, 8.74228e-08, 1, 0, -1, 8.74228e-08, 1, 3.82137e-15, 4.37114e-08, 124, 83, -329 )
+transform = Transform( 4.37114e-08, 8.74228e-08, -1, -8.74228e-08, -1, -8.74228e-08, -1, 8.74228e-08, -4.37114e-08, 124, 85.2, -329 )
 trigger_path = NodePath("../PressurePlate")
 
 [node name="SlidingDoor2" parent="." instance=ExtResource( 8 )]
-transform = Transform( -0.5, 1.0321e-07, 0.866025, -1.50996e-07, -1, 3.1999e-08, 0.866025, -1.14767e-07, 0.5, 544.062, 85, -256.5 )
+transform = Transform( 0.5, 1.0321e-07, -0.866025, 1.50996e-07, -1, -3.19989e-08, -0.866025, -1.14767e-07, -0.5, 544.062, 85.2, -256.5 )
 trigger_path = NodePath("../PressurePlate2")
 
 [node name="SlidingDoor3" parent="." instance=ExtResource( 8 )]
-transform = Transform( -0.5, 1.0321e-07, 0.866025, -1.50996e-07, -1, 3.1999e-08, 0.866025, -1.14767e-07, 0.5, 479.562, 85, -144.783 )
+transform = Transform( 0.5, 1.0321e-07, -0.866025, 1.50996e-07, -1, -3.19989e-08, -0.866025, -1.14767e-07, -0.5, 479.562, 85.2, -144.783 )
 trigger_path = NodePath("../PressurePlate2")
 
 [node name="Grate" parent="." instance=ExtResource( 10 )]
