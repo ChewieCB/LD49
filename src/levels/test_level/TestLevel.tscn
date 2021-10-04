@@ -1,0 +1,486 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://src/player/PlayerRig.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/ui/game_over/GameOverScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/ui/fadeout/Fadeout.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/levels/test_level/test_level.gd" type="Script" id=4]
+[ext_resource path="res://src/environment/dev/win_zone/WinZone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/environment/pickup/Pickup.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/environment/dev/kill_zone/KillZone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/environment/doors/slide_door/SlidingDoor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/environment/pressure_plate/PressurePlate.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/environment/grates/Grate.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/environment/pickup/ReversePickup.tscn" type="PackedScene" id=11]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+[sub_resource type="NoiseTexture" id=2]
+seamless = true
+as_normalmap = true
+bump_strength = 30.0
+noise = SubResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0, 0.764706, 1, 1 )
+roughness = 0.85
+ao_enabled = true
+ao_light_affect = 0.58
+ao_on_uv2 = false
+ao_texture_channel = 0
+depth_enabled = true
+depth_scale = 1.55
+depth_deep_parallax = false
+depth_flip_tangent = false
+depth_flip_binormal = false
+depth_texture = SubResource( 2 )
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 1.0
+
+[sub_resource type="ProceduralSky" id=4]
+
+[sub_resource type="Environment" id=5]
+background_mode = 2
+background_sky = SubResource( 4 )
+ambient_light_color = Color( 1, 0.992157, 0.898039, 1 )
+ambient_light_energy = 0.0
+glow_enabled = true
+
+[node name="TestLevel" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="GameOver" parent="GUI" instance=ExtResource( 2 )]
+
+[node name="Fadeout" parent="GUI" instance=ExtResource( 3 )]
+
+[node name="PlayerRig" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 0, 0 )
+
+[node name="Environment" type="Spatial" parent="."]
+
+[node name="Tomb" type="CSGCombiner" parent="Environment"]
+operation = 2
+use_collision = true
+
+[node name="EntryHallway" type="CSGBox" parent="Environment/Tomb"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 81.1, 13.4023, 0 )
+invert_faces = true
+width = 56.0
+height = 28.0
+depth = 30.0
+
+[node name="Room1" type="CSGCombiner" parent="Environment/Tomb"]
+use_collision = true
+
+[node name="Room1" type="CSGBox" parent="Environment/Tomb/Room1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.4167, 0 )
+use_collision = true
+invert_faces = true
+width = 107.944
+height = 66.0
+depth = 106.468
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Environment/Tomb/Room1"]
+
+[node name="Room1Hallway" type="CSGBox" parent="Environment/Tomb/Room1/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 36.8, -70 )
+invert_faces = true
+width = 16.0
+height = 14.0
+depth = 38.0
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Environment/Tomb/Room1/CSGCombiner"]
+
+[node name="Chasm" type="CSGBox" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1315, 41, -134.425 )
+use_collision = true
+invert_faces = true
+width = 170.978
+height = 244.0
+depth = 92.0
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1315, 41, -143.425 )
+
+[node name="Room2Entryway" type="CSGBox" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -55 )
+invert_faces = true
+width = 40.0
+height = 30.0
+depth = 36.0
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner/CSGCombiner"]
+
+[node name="Room2" type="CSGBox" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 28, -181.9 )
+invert_faces = true
+width = 220.0
+height = 156.0
+depth = 218.0
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner"]
+
+[node name="Room3" type="CSGBox" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 165, -3, -184.9 )
+invert_faces = true
+width = 48.0
+height = 56.0
+depth = 112.0
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner"]
+
+[node name="Room4" type="CSGBox" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner"]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 360, 55, -133.9 )
+invert_faces = true
+width = 236.0
+height = 172.0
+depth = 314.0
+
+[node name="CSGCombiner2" type="CSGCombiner" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner"]
+
+[node name="Room3" type="CSGBox" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner2"]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 613.909, -3, -64.4359 )
+invert_faces = true
+width = 48.0
+height = 56.0
+depth = 196.0
+
+[node name="CSGCombiner3" type="CSGCombiner" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner"]
+
+[node name="Room3" type="CSGBox" parent="Environment/Tomb/Room1/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner/CSGCombiner3"]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 550.409, -3, 45.5493 )
+invert_faces = true
+width = 48.0
+height = 56.0
+depth = 196.0
+
+[node name="Platform1" type="CSGBox" parent="Environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.78922, 19.4712 )
+use_collision = true
+width = 24.2823
+height = 8.98912
+depth = 17.8043
+
+[node name="Platform2" type="CSGBox" parent="Environment"]
+transform = Transform( 0.503261, 0, 0.864134, 0, 1, 0, -0.864134, 0, 0.503261, -13.3005, 6.78922, 16.4712 )
+use_collision = true
+width = 24.2823
+height = 18.0
+depth = 17.8043
+
+[node name="Platform3" type="CSGBox" parent="Environment"]
+transform = Transform( 0.999993, 0, -0.00377002, 0, 1, 0, 0.00377002, 0, 0.999993, -31.3005, 8.78922, -17.5288 )
+use_collision = true
+width = 46.0
+height = 28.0
+depth = 17.8043
+
+[node name="Platform4" type="CSGBox" parent="Environment"]
+transform = Transform( 0.00376996, 0, 0.999993, 0, 1, 0, -0.999993, 0, 0.00376996, 20.6995, 12.7892, -42.5288 )
+use_collision = true
+width = 22.0
+height = 34.0
+depth = 46.0
+
+[node name="ChasmEdge1" type="CSGBox" parent="Environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 24.7828, -100.42 )
+use_collision = true
+width = 52.0
+height = 10.0
+depth = 24.0
+
+[node name="ChasmEdge2" type="CSGBox" parent="Environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9871, 20.9611, -168.633 )
+use_collision = true
+width = 52.0
+height = 10.0
+depth = 23.5958
+
+[node name="ChasmPillar1" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 33.8113, -70, -127.944 )
+use_collision = true
+radius = 4.0
+height = 108.0
+
+[node name="ChasmPillar2" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 2.23412, -70, -133.722 )
+use_collision = true
+radius = 4.0
+height = 108.0
+
+[node name="ChasmPillar3" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 37.2341, -70, -152.722 )
+use_collision = true
+radius = 4.0
+height = 108.0
+
+[node name="ChasmPillar4" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -60.7659, -70, -139.722 )
+use_collision = true
+radius = 4.0
+height = 108.0
+
+[node name="ChasmPillar5" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -38.7659, -70, -172.722 )
+use_collision = true
+radius = 4.0
+height = 108.0
+
+[node name="ChasmPillar6" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -49.7659, -70, -96.7218 )
+use_collision = true
+radius = 4.0
+height = 108.0
+
+[node name="ChasmPillar7" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 65.2341, -70, -175.722 )
+use_collision = true
+radius = 4.0
+height = 108.0
+
+[node name="ChasmPillar8" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 65.2341, -70, -175.722 )
+use_collision = true
+radius = 4.0
+height = 108.0
+
+[node name="ChasmPillar9" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -8.61513, -70, -159.056 )
+use_collision = true
+radius = 4.0
+height = 108.0
+
+[node name="ChasmPillar10" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 75.3849, -70, -144.056 )
+use_collision = true
+radius = 4.0
+height = 108.0
+
+[node name="ChasmPillar11" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 58.3849, -70, -105.056 )
+use_collision = true
+radius = 4.0
+height = 108.0
+
+[node name="ChasmWater" type="CSGBox" parent="Environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -58, -135 )
+width = 174.0
+depth = 158.0
+material = SubResource( 3 )
+
+[node name="Room2DoorStep" type="CSGBox" parent="Environment"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 113.132, 0, -328.325 )
+use_collision = true
+width = 48.0
+height = 20.0
+depth = 16.0
+
+[node name="Room2DoorStep2" type="CSGBox" parent="Environment"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 97.1315, -5, -328.325 )
+use_collision = true
+width = 48.0
+height = 14.0
+depth = 16.0
+
+[node name="Platform5" type="CSGBox" parent="Environment"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.1315, 28, -409.325 )
+use_collision = true
+width = 48.0
+height = 74.0
+depth = 60.0
+
+[node name="Platform6" type="CSGBox" parent="Environment"]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -88.8685, -8, -334.325 )
+use_collision = true
+width = 38.0
+height = 58.0
+depth = 46.0
+
+[node name="Platform7" type="CSGBox" parent="Environment"]
+transform = Transform( 0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, 0.5, -76.8685, 8, -423.325 )
+use_collision = true
+width = 38.0
+height = 58.0
+depth = 46.0
+
+[node name="GratedWallSolid" type="CSGBox" parent="Environment"]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 352.148, 95, -289.191 )
+operation = 2
+use_collision = true
+width = 10.0
+height = 190.0
+depth = 236.0
+
+[node name="GratedWallSolid2" type="CSGBox" parent="Environment/GratedWallSolid"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -29, 0 )
+operation = 2
+use_collision = true
+width = 10.0
+height = 66.0
+depth = 118.0
+
+[node name="DoorWay" type="CSGBox" parent="Environment"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 122.132, 38, -328.325 )
+operation = 2
+use_collision = true
+width = 48.0
+height = 56.0
+depth = 12.0
+
+[node name="DoorCut" type="CSGBox" parent="Environment/DoorWay"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.674988, -5, -1.868 )
+operation = 2
+width = 30.0
+height = 50.0
+depth = 20.0
+
+[node name="CSGCylinder" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 453.912, 86, -312.952 )
+radius = 16.0
+height = 266.0
+sides = 12
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 464.177, 86, -222.732 )
+radius = 16.0
+height = 266.0
+sides = 12
+
+[node name="CSGCylinder3" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 378.849, 86, -196.94 )
+radius = 16.0
+height = 266.0
+sides = 12
+
+[node name="CSGCylinder4" type="CSGCylinder" parent="Environment"]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 11.4918, -7, -316.658 )
+use_collision = true
+radius = 25.0
+height = 20.0
+sides = 12
+
+[node name="DoorWay2" type="CSGBox" parent="Environment"]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 541.328, 38, -256.325 )
+operation = 2
+use_collision = true
+width = 48.0
+height = 56.0
+depth = 12.0
+
+[node name="DoorCut" type="CSGBox" parent="Environment/DoorWay2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.674988, -5, -1.868 )
+operation = 2
+width = 30.0
+height = 50.0
+depth = 20.0
+
+[node name="DoorWay3" type="CSGBox" parent="Environment"]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 478.328, 38, -147.206 )
+operation = 2
+use_collision = true
+width = 48.0
+height = 56.0
+depth = 12.0
+
+[node name="DoorCut" type="CSGBox" parent="Environment/DoorWay3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.674988, -5, -1.868 )
+operation = 2
+width = 30.0
+height = 50.0
+depth = 20.0
+
+[node name="Pickups" type="Spatial" parent="."]
+
+[node name="RepairPickup" parent="Pickups" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 29, -188.351 )
+
+[node name="RepairPickup2" parent="Pickups" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 73, -410.351 )
+
+[node name="RepairPickup3" parent="Pickups" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 420, 21, -256.351 )
+
+[node name="RepairPickup4" parent="Pickups" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -66, -7, -292.351 )
+
+[node name="RepairPickup5" parent="Pickups" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, -7, -292.351 )
+
+[node name="ReversePickups" type="Spatial" parent="."]
+
+[node name="ReversePickup" parent="ReversePickups" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6, -314 )
+
+[node name="ReversePickup3" parent="ReversePickups" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66, -5, -368 )
+
+[node name="ReversePickup2" parent="ReversePickups" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 282, 12, -319 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
+
+[node name="Lights" type="Spatial" parent="."]
+
+[node name="OmniLight" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.6627, 0 )
+light_color = Color( 0.72549, 0.427451, 0, 1 )
+light_indirect_energy = 2.0
+omni_range = 100.0
+
+[node name="OmniLight2" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 36.6627, -82 )
+light_color = Color( 0.364706, 0.886275, 0.101961, 1 )
+omni_range = 50.0
+
+[node name="OmniLight3" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 44.6627, -268 )
+light_color = Color( 0.72549, 0.427451, 0, 1 )
+light_indirect_energy = 2.0
+omni_range = 200.0
+
+[node name="OmniLight4" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 139, 50.6627, -325 )
+light_color = Color( 0, 0.0784314, 0.72549, 1 )
+light_indirect_energy = 2.0
+omni_range = 150.0
+
+[node name="OmniLight5" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 439, 88.6627, -227 )
+light_color = Color( 0.996078, 0.847059, 0.807843, 1 )
+light_indirect_energy = 4.0
+omni_range = 250.0
+
+[node name="OmniLight6" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 302, 88.6627, -340 )
+light_color = Color( 0.996078, 0.847059, 0.807843, 1 )
+light_indirect_energy = 4.0
+omni_range = 150.0
+
+[node name="WinZone" parent="." instance=ExtResource( 5 )]
+transform = Transform( 31.8697, 0, -52.671, 0, 66.96, 0, 18.4, 0, 91.2289, 644.866, 36, -117.644 )
+
+[node name="KillZone" parent="." instance=ExtResource( 7 )]
+transform = Transform( 104.375, 0, 0, 0, -15, 0, 0, 0, 219.773, 14, -73, -143 )
+
+[node name="PressurePlate" parent="." instance=ExtResource( 9 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 6, 67, -410 )
+
+[node name="PressurePlate2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 2, 0, -3.4641, 0, 4, 0, 3.4641, 0, 2, 419, 12, -257 )
+
+[node name="SlidingDoor" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 8.74228e-08, 1, 0, -1, 8.74228e-08, 1, 3.82137e-15, 4.37114e-08, 124, 83, -329 )
+trigger_path = NodePath("../PressurePlate")
+
+[node name="SlidingDoor2" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.5, 1.0321e-07, 0.866025, -1.50996e-07, -1, 3.1999e-08, 0.866025, -1.14767e-07, 0.5, 544.062, 85, -256.5 )
+trigger_path = NodePath("../PressurePlate2")
+
+[node name="SlidingDoor3" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.5, 1.0321e-07, 0.866025, -1.50996e-07, -1, 3.1999e-08, 0.866025, -1.14767e-07, 0.5, 479.562, 85, -144.783 )
+trigger_path = NodePath("../PressurePlate2")
+
+[node name="Grate" parent="." instance=ExtResource( 10 )]
+transform = Transform( 0.866025, 0, -32.25, 0, 42.432, 0, 0.5, 0, 55.8586, 351.464, 62, -287 )

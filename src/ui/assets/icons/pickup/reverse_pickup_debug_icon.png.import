@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex"
+path="res://.import/reverse_pickup_debug_icon.png-c9aa964aeb05beaca50da38ffffaf6f4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.png"
-dest_files=[ "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex" ]
+source_file="res://src/ui/assets/icons/pickup/reverse_pickup_debug_icon.png"
+dest_files=[ "res://.import/reverse_pickup_debug_icon.png-c9aa964aeb05beaca50da38ffffaf6f4.stex" ]
 
 [params]
 
@@ -31,4 +31,4 @@ process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true
-svg/scale=2.0
+svg/scale=1.0
