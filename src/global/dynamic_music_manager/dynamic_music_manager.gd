@@ -81,6 +81,10 @@ func advance_level():
 	set_level_id(level_id + 1)
 
 
+func main_menu():
+	set_level_id(0)
+
+
 func set_level_id(value):
 	# Loop around the main level themes
 	if value > 3:

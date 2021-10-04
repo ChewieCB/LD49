@@ -1,5 +1,7 @@
 extends Control
 
+signal main_menu
+
 var main_menu_path = "res://src/ui/main_menu/Menu.tscn"
 
 onready var animation_player = $AnimationPlayer
@@ -9,6 +11,7 @@ onready var player = get_node("../../PlayerRig/Player")
 
 
 func _ready():
+	self.connect("main_menu", DynamicMusicManager, "main_menu")
 	animation_player.play("default")
 
 
@@ -39,5 +42,7 @@ func _on_RetryButton_pressed():
 func _on_QuitButton_pressed():
 	fadeout.fade_out(0.5)
 	yield(fadeout.animation_player, "animation_finished")
+	emit_signal("main_menu")
+	yield(DynamicMusicManager, "bgm_changed")
 	get_tree().change_scene(main_menu_path)
 
