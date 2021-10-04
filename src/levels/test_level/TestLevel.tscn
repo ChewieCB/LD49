@@ -55,7 +55,7 @@ script = ExtResource( 4 )
 [node name="Fadeout" parent="GUI" instance=ExtResource( 3 )]
 
 [node name="PlayerRig" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 67, -403 )
 
 [node name="Environment" type="Spatial" parent="."]
 
