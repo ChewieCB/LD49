@@ -55,7 +55,7 @@ script = ExtResource( 4 )
 [node name="Fadeout" parent="GUI" instance=ExtResource( 3 )]
 
 [node name="PlayerRig" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 66, -403 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -0.5977, 0 )
 
 [node name="Environment" type="Spatial" parent="."]
 
@@ -400,30 +400,30 @@ sides = 12
 [node name="Pickups" type="Spatial" parent="."]
 
 [node name="RepairPickup" parent="Pickups" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 29, -188.351 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 26.7, -188.351 )
 
 [node name="RepairPickup2" parent="Pickups" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 73, -410.051 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 69.9403, -410.051 )
 
 [node name="RepairPickup3" parent="Pickups" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 420, 60, -256.351 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 420, 52.74, -256.351 )
 
 [node name="RepairPickup4" parent="Pickups" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -66, -7, -292.351 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -66, -8.3, -292.351 )
 
 [node name="RepairPickup5" parent="Pickups" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, -7, -292.351 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, -8.3, -292.351 )
 
 [node name="ReversePickups" type="Spatial" parent="."]
 
 [node name="ReversePickup" parent="ReversePickups" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6, -314 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3.2, -314 )
 
 [node name="ReversePickup3" parent="ReversePickups" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66, -5, -368 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66, -8.8, -368 )
 
 [node name="ReversePickup2" parent="ReversePickups" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 282, 12, -319 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 282, 10.2, -319 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 5 )
