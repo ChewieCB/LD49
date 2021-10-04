@@ -12,6 +12,7 @@ export (AudioStreamSample) var land_sfx
 export (AudioStreamSample) var climb_sfx
 export (AudioStreamSample) var air_dash_aim_sfx
 export (AudioStreamSample) var air_dash_sfx
+export (AudioStreamSample) var air_dash_sandy_sfx
 export (AudioStreamSample) var decay_sfx
 export (AudioStreamSample) var die_sfx
 # Pickup SFX samples
@@ -25,7 +26,7 @@ enum States {
 	IDLE,
 	# Player SFX States
 	MOVE_SLOW, MOVE_MEDIUM, MOVE_FAST, JUMP, DOUBLE_JUMP, LAND, CLIMB, 
-	AIR_DASH_AIM, AIR_DASH, DECAY, DIE,
+	AIR_DASH_AIM, AIR_DASH, AIR_DASH_SANDY, DECAY, DIE,
 	# Powerup SFX States
 	COLLECTED, USE_ADD, USE_REMOVE, EMPTY
 	}
@@ -69,6 +70,8 @@ func play_audio(state, sfx_player=0):
 			audio_player.stream = air_dash_aim_sfx
 		States.AIR_DASH:
 			audio_player.stream = air_dash_sfx
+		States.AIR_DASH_SANDY:
+			audio_player.stream = air_dash_sandy_sfx
 		States.DECAY:
 			audio_player.stream = decay_sfx
 		States.DIE:

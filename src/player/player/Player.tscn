@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://src/player/player/player.gd" type="Script" id=1]
 [ext_resource path="res://src/player/StatusLabels.tscn" type="PackedScene" id=2]
@@ -34,6 +34,8 @@
 [ext_resource path="res://assets/audio/sfx/player/pickup/empty.wav" type="AudioStream" id=32]
 [ext_resource path="res://assets/audio/sfx/player/pickup/powerDOWN.wav" type="AudioStream" id=33]
 [ext_resource path="res://assets/audio/sfx/player/pickup/powerUP.wav" type="AudioStream" id=34]
+[ext_resource path="res://assets/audio/sfx/player/dash/dash1_sandy.wav" type="AudioStream" id=35]
+[ext_resource path="res://assets/audio/sfx/player/decay.wav" type="AudioStream" id=36]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.0
@@ -140,6 +142,8 @@ land_sfx = ExtResource( 24 )
 climb_sfx = ExtResource( 26 )
 air_dash_aim_sfx = ExtResource( 29 )
 air_dash_sfx = ExtResource( 27 )
+air_dash_sandy_sfx = ExtResource( 35 )
+decay_sfx = ExtResource( 36 )
 die_sfx = ExtResource( 30 )
 collected_sfx = ExtResource( 31 )
 use_add_sfx = ExtResource( 34 )
@@ -147,15 +151,15 @@ use_remove_sfx = ExtResource( 33 )
 empty_sfx = ExtResource( 32 )
 
 [node name="PlayerAudio" type="AudioStreamPlayer" parent="AudioManager"]
-volume_db = -5.0
+volume_db = -8.0
 bus = "SFX"
 
 [node name="AuxAudio" type="AudioStreamPlayer" parent="AudioManager"]
-volume_db = -5.0
+volume_db = -8.0
 bus = "SFX"
 
 [node name="PowerupAudio" type="AudioStreamPlayer" parent="AudioManager"]
-volume_db = -3.0
+volume_db = -5.0
 bus = "SFX"
 
 [node name="Tween" type="Tween" parent="."]

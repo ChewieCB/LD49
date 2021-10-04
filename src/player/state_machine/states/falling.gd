@@ -16,7 +16,7 @@ func enter(msg: Dictionary = {}):
 	_parent.move_speed = move_speed
 	_parent.jump_impulse = jump_impulse
 	#
-#	audio_player.transition_to(audio_player.States.FALL)
+	audio_manager.transition_to(audio_manager.States.IDLE)
 	
 	match msg:
 		{"was_on_floor": var _was_on_floor}:

@@ -173,25 +173,23 @@ script = ExtResource( 2 )
 door_open_sfx = ExtResource( 3 )
 door_close_sfx = ExtResource( 4 )
 
-[node name="ClosePlayer" type="AudioStreamPlayer3D" parent="AudioManager"]
-unit_db = -4.0
-unit_size = 100.0
+[node name="ClosePlayer" type="AudioStreamPlayer" parent="AudioManager"]
+volume_db = -7.0
 bus = "SFX"
 
-[node name="HitPlayer" type="AudioStreamPlayer3D" parent="AudioManager"]
+[node name="HitPlayer" type="AudioStreamPlayer" parent="AudioManager"]
 stream = ExtResource( 5 )
-unit_size = 100.0
+volume_db = -7.0
 pitch_scale = 0.7
 bus = "SFX"
 
-[node name="RumblePlayer" type="AudioStreamPlayer3D" parent="AudioManager"]
+[node name="RumblePlayer" type="AudioStreamPlayer" parent="AudioManager"]
 stream = ExtResource( 6 )
-unit_size = 100.0
+volume_db = -7.0
 pitch_scale = 0.6
 bus = "SFX"
 
-[node name="OpenPlayer" type="AudioStreamPlayer3D" parent="AudioManager"]
-unit_db = -4.0
-unit_size = 100.0
+[node name="OpenPlayer" type="AudioStreamPlayer" parent="AudioManager"]
+volume_db = -7.0
 pitch_scale = 0.7
 bus = "SFX"
