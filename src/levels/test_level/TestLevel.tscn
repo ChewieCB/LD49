@@ -55,7 +55,7 @@ script = ExtResource( 4 )
 [node name="Fadeout" parent="GUI" instance=ExtResource( 3 )]
 
 [node name="PlayerRig" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 66, -403 )
 
 [node name="Environment" type="Spatial" parent="."]
 
@@ -403,7 +403,7 @@ depth = 20.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 29, -188.351 )
 
 [node name="RepairPickup2" parent="Pickups" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 73, -410.351 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 73, -410.051 )
 
 [node name="RepairPickup3" parent="Pickups" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 420, 60, -256.351 )
@@ -449,6 +449,7 @@ omni_range = 200.0
 
 [node name="OmniLight7" type="OmniLight" parent="Lights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 100.663, -411 )
+visible = false
 light_color = Color( 0.0784314, 1, 0, 1 )
 light_indirect_energy = 2.0
 omni_range = 80.0
@@ -499,10 +500,10 @@ transform = Transform( 31.8697, 0, -52.671, 0, 66.96, 0, 18.4, 0, 91.2289, 644.8
 transform = Transform( 104.375, 0, 0, 0, -15, 0, 0, 0, 219.773, 14, -73, -143 )
 
 [node name="PressurePlate" parent="." instance=ExtResource( 9 )]
-transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 6, 67, -410 )
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 6, 66, -410 )
 
 [node name="PressurePlate2" parent="." instance=ExtResource( 9 )]
-transform = Transform( 2, 0, -3.4641, 0, 4, 0, 3.4641, 0, 2, 419, 51, -257 )
+transform = Transform( 2, 0, -3.4641, 0, 4, 0, 3.4641, 0, 2, 419, 48.8, -257 )
 
 [node name="SlidingDoor" parent="." instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 8.74228e-08, 1, 0, -1, 8.74228e-08, 1, 3.82137e-15, 4.37114e-08, 124, 83, -329 )

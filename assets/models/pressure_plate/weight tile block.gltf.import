@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/pressure-plate_deactivated.gltf-b5305f65c2adac0e60def9098f0d7bea.scn"
+path="res://.import/weight tile block.gltf-ed0d77915ba8bf812fa160c264922930.scn"
 
 [deps]
 
-source_file="res://assets/models/pressure_plate/pressure-plate_deactivated.gltf"
-dest_files=[ "res://.import/pressure-plate_deactivated.gltf-b5305f65c2adac0e60def9098f0d7bea.scn" ]
+source_file="res://assets/models/pressure_plate/weight tile block.gltf"
+dest_files=[ "res://.import/weight tile block.gltf-ed0d77915ba8bf812fa160c264922930.scn" ]
 
 [params]
 

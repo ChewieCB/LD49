@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/models/red gems.material" type="Material" id=1]
-[ext_resource path="res://assets/models/red gems center.material" type="Material" id=2]
-[ext_resource path="res://assets/models/ground  var 1 darker.material" type="Material" id=3]
-[ext_resource path="res://assets/models/ground  var 1.material" type="Material" id=4]
-[ext_resource path="res://assets/models/ground darkest.material" type="Material" id=5]
-[ext_resource path="res://assets/models/ground dark.material" type="Material" id=6]
+[ext_resource path="res://assets/models/pressure_plate/ground  var 1.material" type="Material" id=1]
+[ext_resource path="res://assets/models/pressure_plate/ground  var 1 darker.material" type="Material" id=2]
+[ext_resource path="res://assets/models/pressure_plate/ground dark.material" type="Material" id=3]
+[ext_resource path="res://assets/models/pressure_plate/blue gems center.material" type="Material" id=4]
+[ext_resource path="res://assets/models/pressure_plate/blue gems.material" type="Material" id=5]
+[ext_resource path="res://assets/models/pressure_plate/ground darkest.material" type="Material" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "weight tile"
@@ -16,7 +16,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 3000,
-"material": ExtResource( 5 ),
+"material": ExtResource( 6 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 1602
@@ -28,7 +28,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 1032,
-"material": ExtResource( 6 ),
+"material": ExtResource( 3 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 384
@@ -40,7 +40,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 192,
-"material": ExtResource( 3 ),
+"material": ExtResource( 2 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 108
@@ -52,7 +52,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 1560,
-"material": ExtResource( 4 ),
+"material": ExtResource( 1 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 871
@@ -64,7 +64,7 @@ surfaces/4 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 336,
-"material": ExtResource( 1 ),
+"material": ExtResource( 5 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 224
@@ -76,13 +76,15 @@ surfaces/5 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 48,
-"material": ExtResource( 2 ),
+"material": ExtResource( 4 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 23
 }
 
-[node name="pressure_plate_active" type="MeshInstance"]
+[node name="pressure_plate_activated" type="Spatial"]
+
+[node name="weight tile" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.696896, 0 )
 mesh = SubResource( 1 )
 material/0 = null
