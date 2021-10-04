@@ -410,16 +410,16 @@ sides = 12
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 26.7, -188.351 )
 
 [node name="RepairPickup2" parent="Pickups" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9, 67.7, -391.051 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9, 65.5, -391.051 )
 
 [node name="RepairPickup3" parent="Pickups" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 50.7, -259.351 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 48.5, -259.351 )
 
 [node name="RepairPickup6" parent="Pickups" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 246, 12.7, -345.351 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 246, 10.5, -345.351 )
 
 [node name="RepairPickup4" parent="Pickups" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -8.3, -284.351 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -8.5, -284.351 )
 
 [node name="RepairPickup5" parent="Pickups" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55, -8.3, -281.351 )
@@ -430,7 +430,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55, -8.3, -281.351 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3.2, -317 )
 
 [node name="ReversePickup3" parent="ReversePickups" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66, -8.8, -368 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 85, -8.8, -357 )
 
 [node name="ReversePickup2" parent="ReversePickups" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 221, 10.2, -301 )
@@ -478,14 +478,14 @@ omni_range = 150.0
 
 [node name="OmniLight5" type="OmniLight" parent="Lights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 439, 87.6627, -227 )
-light_color = Color( 0.996078, 0.847059, 0.807843, 1 )
+light_color = Color( 0.72549, 0.427451, 0, 1 )
 light_energy = 0.1
 light_indirect_energy = 4.0
 omni_range = 250.0
 
 [node name="OmniLight6" type="OmniLight" parent="Lights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 302, 88.6627, -340 )
-light_color = Color( 0.996078, 0.847059, 0.807843, 1 )
+light_color = Color( 0.72549, 0.427451, 0, 1 )
 light_indirect_energy = 4.0
 omni_range = 150.0
 
