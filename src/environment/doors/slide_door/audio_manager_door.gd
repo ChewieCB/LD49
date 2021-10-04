@@ -1,3 +1,4 @@
+tool
 extends Node
 
 signal transitioned
@@ -14,7 +15,10 @@ enum States {
 }
 
 onready var close_player = $ClosePlayer
+onready var hit_player = $HitPlayer
+onready var rumble_player = $RumblePlayer
 onready var open_player = $OpenPlayer
+
 onready var audio_player = open_player
 
 
@@ -24,6 +28,14 @@ func _open():
 
 func _close():
 	transition_to(States.CLOSE)
+
+
+func _hit():
+	hit_player.play()
+
+
+func _rumble():
+	rumble_player.play()
 
 
 func play_audio(state):

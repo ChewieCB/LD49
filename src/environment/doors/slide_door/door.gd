@@ -21,6 +21,14 @@ func _ready():
 	trigger.connect("deactivated", self, "_close_door")
 
 
+func _input(event):
+	if event is InputEventKey:
+		if event.scancode == KEY_1:
+			_open_door()
+		elif event.scancode == KEY_2:
+			_close_door()
+
+
 func _open_door():
 	animation_player.play("open")
 	yield(animation_player, "animation_finished")
