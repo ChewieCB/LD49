@@ -23,9 +23,6 @@ func _ready():
 
 
 func enter(_msg: Dictionary = {}):
-	audio_player = null #_actor.audio_player
-	skin = null #_actor.skin
-	
 	# Reset the durability timer
 	if is_timer_active:
 		decay_timer.stop()

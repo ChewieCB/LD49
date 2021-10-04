@@ -13,3 +13,5 @@ src/ui/main_menu/settings.cfg
 dist/
 
 assets/audio/music/
+
+assets/audio/

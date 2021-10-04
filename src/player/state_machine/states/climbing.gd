@@ -14,9 +14,9 @@ func enter(_msg: Dictionary = {}):
 	
 	climb()
 	#
+	audio_manager.transition_to(audio_manager.States.CLIMB)
 #	skin.transition_to(skin.States.IDLE)
-#	yield(audio_player.audio_player, "finished")
-#	audio_player.stop_audio()
+
 
 func physics_process(_delta):
 	if Input.is_action_just_pressed("p1_repair"):

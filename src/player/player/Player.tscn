@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://src/player/player/player.gd" type="Script" id=1]
 [ext_resource path="res://src/player/StatusLabels.tscn" type="PackedScene" id=2]
@@ -20,6 +20,16 @@
 [ext_resource path="res://src/player/state_machine/states/air_dashing_aiming.gd" type="Script" id=18]
 [ext_resource path="res://src/ui/hud/durability_meter/DurabilityMeter.tscn" type="PackedScene" id=19]
 [ext_resource path="res://src/player/player/audio_manager/audio_manager.gd" type="Script" id=20]
+[ext_resource path="res://assets/audio/sfx/player/run/slow.wav" type="AudioStream" id=21]
+[ext_resource path="res://assets/audio/sfx/player/run/medium.wav" type="AudioStream" id=22]
+[ext_resource path="res://assets/audio/sfx/player/run/fast.wav" type="AudioStream" id=23]
+[ext_resource path="res://assets/audio/sfx/player/jump/land_impact.wav" type="AudioStream" id=24]
+[ext_resource path="res://assets/audio/sfx/player/jump/jump1.wav" type="AudioStream" id=25]
+[ext_resource path="res://assets/audio/sfx/player/climb/mantle.wav" type="AudioStream" id=26]
+[ext_resource path="res://assets/audio/sfx/player/dash/dash1.wav" type="AudioStream" id=27]
+[ext_resource path="res://assets/audio/sfx/player/jump/jump2.wav" type="AudioStream" id=28]
+[ext_resource path="res://assets/audio/sfx/player/dash/air_dash_aim.wav" type="AudioStream" id=29]
+[ext_resource path="res://assets/audio/sfx/player/die/shatter.wav" type="AudioStream" id=30]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.0
@@ -118,10 +128,28 @@ autostart = true
 
 [node name="AudioManager" type="Node" parent="."]
 script = ExtResource( 20 )
+move_slow_sfx = ExtResource( 21 )
+move_medium_sfx = ExtResource( 22 )
+move_fast_sfx = ExtResource( 23 )
+jump_sfx = ExtResource( 25 )
+double_jump_sfx = ExtResource( 28 )
+land_sfx = ExtResource( 24 )
+climb_sfx = ExtResource( 26 )
+air_dash_aim_sfx = ExtResource( 29 )
+air_dash_sfx = ExtResource( 27 )
+die_sfx = ExtResource( 30 )
 
 [node name="PlayerAudio" type="AudioStreamPlayer" parent="AudioManager"]
+volume_db = -3.0
+bus = "SFX"
+
+[node name="AuxAudio" type="AudioStreamPlayer" parent="AudioManager"]
+volume_db = -3.0
+bus = "SFX"
 
 [node name="PowerupAudio" type="AudioStreamPlayer" parent="AudioManager"]
+volume_db = -3.0
+bus = "SFX"
 
 [node name="Tween" type="Tween" parent="."]
 

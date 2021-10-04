@@ -31,11 +31,6 @@ func _ready():
 	)
 
 
-func enter(_msg: Dictionary = {}):
-	audio_player = null #_actor.audio_player
-	skin = null #_actor.skin
-
-
 func physics_process(delta: float):
 	# Debug Reset
 	if Input.is_action_pressed("reset"):

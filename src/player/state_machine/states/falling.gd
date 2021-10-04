@@ -37,9 +37,11 @@ func physics_process(delta: float):
 	if _actor.is_on_floor():
 		if _parent.input_direction == Vector3.ZERO:
 			# Idle
+			audio_manager.transition_to(audio_manager.States.LAND, 1)
 			_state_machine.transition_to("Movement/Idle")
 		else:
 			# Walking
+			audio_manager.transition_to(audio_manager.States.LAND, 1)
 			_state_machine.transition_to("Movement/Running")
 	else:
 		if Input.is_action_pressed("p1_jump"):

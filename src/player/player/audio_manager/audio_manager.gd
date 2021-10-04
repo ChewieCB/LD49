@@ -20,6 +20,8 @@ export (AudioStreamSample) var use_remove_sfx
 export (AudioStreamSample) var empty_sfx
 
 enum States { 
+	# Null state to stop looping samples
+	IDLE,
 	# Player SFX States
 	MOVE_SLOW, MOVE_MEDIUM, MOVE_FAST, JUMP, DOUBLE_JUMP, LAND, CLIMB, 
 	AIR_DASH_AIM, AIR_DASH, DIE,
@@ -28,20 +30,26 @@ enum States {
 	}
 
 onready var player_audio = $PlayerAudio
+onready var aux_audio = $AuxAudio
 onready var powerup_audio = $PowerupAudio
-var audio_player = null
+
+onready var audio_player = player_audio
 
 
-func play_audio(state, is_player_sfx=true):
+func play_audio(state, sfx_player=0):
 	# Check which player we're using
-	match is_player_sfx:
-		true:
+	match sfx_player:
+		0:
 			audio_player = player_audio
-		false:
+		1:
+			audio_player = aux_audio
+		2:
 			audio_player = powerup_audio
 	
 	# Match the state to the sample
 	match state:
+		States.IDLE:
+			audio_player.stream = null
 		States.MOVE_SLOW:
 			audio_player.stream = move_slow_sfx
 		States.MOVE_MEDIUM:
@@ -83,7 +91,7 @@ func stop_audio():
 	audio_player.stream = null
 
 
-func transition_to(state):
+func transition_to(state, sfx_player=0):
 	stop_audio()
-	play_audio(state)
+	play_audio(state, sfx_player)
 	emit_signal("transitioned", state)

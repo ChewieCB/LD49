@@ -12,7 +12,7 @@ func enter(_msg: Dictionary = {}):
 	_actor.has_jumped = true
 	
 	#
-#	audio_player.transition_to(audio_player.States.JUMP)
+	audio_manager.transition_to(audio_manager.States.JUMP)
 #	skin.transition_to(skin.States.JUMP)
 
 
