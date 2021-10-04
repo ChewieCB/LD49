@@ -156,7 +156,9 @@ door_open_sfx = ExtResource( 3 )
 door_close_sfx = ExtResource( 4 )
 
 [node name="ClosePlayer" type="AudioStreamPlayer" parent="AudioManager"]
+pitch_scale = 0.2
 bus = "SFX"
 
 [node name="OpenPlayer" type="AudioStreamPlayer" parent="AudioManager"]
+pitch_scale = 0.2
 bus = "SFX"
