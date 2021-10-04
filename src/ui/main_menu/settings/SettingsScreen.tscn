@@ -217,6 +217,7 @@ split_offset = 25
 dragger_visibility = 1
 
 [node name="Label" type="Label" parent="MainMargin/NinePatchRect/MarginContainer/HSplitContainer/VBoxContainer/Controls/ControlMapping"]
+modulate = Color( 1, 1, 1, 0.294118 )
 margin_right = 269.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 1 )
@@ -229,6 +230,7 @@ margin_bottom = 34.0
 focus_neighbour_right = NodePath("../../../../../../MarginContainer2/Back/Button")
 size_flags_horizontal = 0
 custom_fonts/font = SubResource( 2 )
+disabled = true
 text = "        Edit        "
 expand_icon = true
 
@@ -363,6 +365,7 @@ split_offset = 69
 dragger_visibility = 1
 
 [node name="Label" type="Label" parent="MainMargin/NinePatchRect/MarginContainer/HSplitContainer/VBoxContainer/Effects/ScreenShake"]
+modulate = Color( 1, 1, 1, 0.462745 )
 margin_right = 252.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 1 )
@@ -376,6 +379,7 @@ focus_neighbour_right = NodePath("../../../../../../MarginContainer2/Back/Button
 size_flags_horizontal = 3
 size_flags_vertical = 3
 max_value = 10.0
+editable = false
 tick_count = 9
 ticks_on_borders = true
 
