@@ -1,16 +1,19 @@
-extends Spatial
+tool
+extends StaticBody
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export (bool) var has_lock = true
+export (bool) var has_frame = true
+
+onready var frame = $Frame
+onready var lock = $Lock
+onready var bars = $GrateBars
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	yield(owner, "ready")
+	lock.visible = has_lock
+	frame.visible = has_frame
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
