@@ -38,22 +38,27 @@ func physics_process(delta: float):
 	elif Input.is_action_pressed("quit"):
 		get_tree().quit()
 	
-	if Input.is_action_just_pressed("p1_repair"):
-		if _actor.pickup_count > 0:
-			if _actor.durability_state_machine.state.get_index() > 0:
-				_actor.pickup_count -= 1
-				_actor.durability_state_machine.get_child(0)._increase_durability()
-			else:
-				# Play invalid repair sound here
-				pass
-	elif Input.is_action_just_pressed("p1_unrepair"):
-		if _actor.reverse_pickup_count > 0:
-			if _actor.durability_state_machine.state.get_index() < 2:
-				_actor.reverse_pickup_count -= 1
-				_actor.durability_state_machine.get_child(0)._reduce_durability()
-			else:
-				# Play invalid repair sound here
-				pass
+	if GlobalFlags.PLAYER_CONTROLS_ACTIVE:
+		if Input.is_action_just_pressed("p1_repair"):
+			if _actor.pickup_count > 0:
+				if _actor.durability_state_machine.state.get_index() > 0:
+					_actor.pickup_count -= 1
+					_actor.durability_state_machine.get_child(0)._increase_durability()
+					#
+					audio_manager.transition_to(audio_manager.States.USE_ADD)
+				else:
+					# Play invalid repair sound here
+					audio_manager.transition_to(audio_manager.States.EMPTY)
+		elif Input.is_action_just_pressed("p1_unrepair"):
+			if _actor.reverse_pickup_count > 0:
+				if _actor.durability_state_machine.state.get_index() < 2:
+					_actor.reverse_pickup_count -= 1
+					_actor.durability_state_machine.get_child(0)._reduce_durability()
+					#
+					audio_manager.transition_to(audio_manager.States.USE_REMOVE)
+				else:
+					# Play invalid repair sound here
+					audio_manager.transition_to(audio_manager.States.EMPTY)
 	
 	# Movement
 	if GlobalFlags.PLAYER_CONTROLS_ACTIVE:

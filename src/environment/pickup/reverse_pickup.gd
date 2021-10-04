@@ -17,5 +17,6 @@ func _physics_process(delta):
 func _on_RepairPickup_body_entered(body):
 	if body is PlayerController:
 		emit_signal("pickup_collected")
+		body.audio_manager.transition_to(body.audio_manager.States.COLLECTED)
 		self.queue_free()
 

@@ -17,6 +17,15 @@ func enter(_msg: Dictionary = {}):
 	_actor.has_dashed = false
 	
 	# AUDIO
+	
+	var walk_sfx = get_walk_sfx()
+	audio_manager.transition_to(walk_sfx)
+	
+	# MESH
+#	skin.transition_to(skin.States.WALK)
+
+
+func get_walk_sfx():
 	var walk_sfx_state
 	# FIXME - this really needs to be an actor level variable
 	match _actor.durability_parent._state_machine.state.get_index():
@@ -30,10 +39,7 @@ func enter(_msg: Dictionary = {}):
 		2:
 			walk_sfx_state = audio_manager.States.MOVE_FAST
 	
-	audio_manager.transition_to(walk_sfx_state)
-	
-	# MESH
-#	skin.transition_to(skin.States.WALK)
+	return walk_sfx_state
 
 
 func unhandled_input(event: InputEvent):

@@ -12,6 +12,7 @@ export (AudioStreamSample) var land_sfx
 export (AudioStreamSample) var climb_sfx
 export (AudioStreamSample) var air_dash_aim_sfx
 export (AudioStreamSample) var air_dash_sfx
+export (AudioStreamSample) var decay_sfx
 export (AudioStreamSample) var die_sfx
 # Pickup SFX samples
 export (AudioStreamSample) var collected_sfx
@@ -24,7 +25,7 @@ enum States {
 	IDLE,
 	# Player SFX States
 	MOVE_SLOW, MOVE_MEDIUM, MOVE_FAST, JUMP, DOUBLE_JUMP, LAND, CLIMB, 
-	AIR_DASH_AIM, AIR_DASH, DIE,
+	AIR_DASH_AIM, AIR_DASH, DECAY, DIE,
 	# Powerup SFX States
 	COLLECTED, USE_ADD, USE_REMOVE, EMPTY
 	}
@@ -68,6 +69,8 @@ func play_audio(state, sfx_player=0):
 			audio_player.stream = air_dash_aim_sfx
 		States.AIR_DASH:
 			audio_player.stream = air_dash_sfx
+		States.DECAY:
+			audio_player.stream = decay_sfx
 		States.DIE:
 			audio_player.stream = die_sfx
 		
@@ -84,6 +87,16 @@ func play_audio(state, sfx_player=0):
 	# Play the audio
 	if audio_player.stream:
 		audio_player.play()
+
+
+func transition_walking_sfx(speed):
+	match speed:
+		0:
+			transition_to(States.MOVE_SLOW)
+		1:
+			transition_to(States.MOVE_MEDIUM)
+		2:
+			transition_to(States.MOVE_FAST)
 
 
 func stop_audio():
