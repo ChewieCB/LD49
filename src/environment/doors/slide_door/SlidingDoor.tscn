@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/environment/doors/slide_door/door.gd" type="Script" id=1]
 [ext_resource path="res://src/environment/doors/slide_door/audio_manager_door.gd" type="Script" id=2]
@@ -6,51 +6,20 @@
 [ext_resource path="res://assets/audio/sfx/world/stonedoor3.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/audio/sfx/player/jump/land.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/audio/sfx/world/platform_crumble2.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/models/door/door_all_gems.tscn" type="PackedScene" id=7]
 
-[sub_resource type="SpatialMaterial" id=1]
-albedo_color = Color( 0, 0.0627451, 1, 1 )
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 5.6, 7.6, 0.9 )
 
-[sub_resource type="CubeMesh" id=2]
-material = SubResource( 1 )
-size = Vector3( 30, 50, 2 )
-
-[sub_resource type="ConcavePolygonShape" id=3]
-data = PoolVector3Array( -15, 25, 1, 15, 25, 1, -15, -25, 1, 15, 25, 1, 15, -25, 1, -15, -25, 1, 15, 25, -1, -15, 25, -1, 15, -25, -1, -15, 25, -1, -15, -25, -1, 15, -25, -1, 15, 25, 1, 15, 25, -1, 15, -25, 1, 15, 25, -1, 15, -25, -1, 15, -25, 1, -15, 25, -1, -15, 25, 1, -15, -25, -1, -15, 25, 1, -15, -25, 1, -15, -25, -1, 15, 25, 1, -15, 25, 1, 15, 25, -1, -15, 25, 1, -15, 25, -1, 15, 25, -1, -15, -25, 1, 15, -25, 1, -15, -25, -1, 15, -25, 1, 15, -25, -1, -15, -25, -1 )
-
-[sub_resource type="Animation" id=4]
-resource_name = "close"
+[sub_resource type="Animation" id=5]
 length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("MeshInstance:transform")
+tracks/0/type = "method"
+tracks/0/path = NodePath("AudioManager")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 3.86, 1 ),
-"update": 0,
-"values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("MeshInstance/StaticBody:collision_layer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("AudioManager")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -61,11 +30,23 @@ tracks/2/keys = {
 "method": "_hit"
 } ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("DoorAllGems:transform")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 3.86, 1 ),
+"update": 0,
+"values": [ Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 10.5013, -2.18557e-07 ), Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 60.501, 0 ) ]
+}
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("MeshInstance:transform")
+tracks/0/path = NodePath("DoorAllGems:transform")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -74,10 +55,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0 ) ]
+"values": [ Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 60.501, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MeshInstance/StaticBody:collision_layer")
+tracks/1/path = NodePath("DoorAllGems/StaticBody:collision_layer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -89,11 +70,10 @@ tracks/1/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "default_open"
+[sub_resource type="Animation" id=7]
 length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("MeshInstance:transform")
+tracks/0/path = NodePath("DoorAllGems:transform")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -102,22 +82,36 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 ) ]
+"values": [ Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 10.5013, -2.18557e-07 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DoorAllGems/StaticBody:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 3.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("MeshInstance:transform")
+tracks/0/type = "method"
+tracks/0/path = NodePath("AudioManager")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3 ),
-"transitions": PoolRealArray( 0.420057, 2.46 ),
-"update": 0,
-"values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_open"
+} ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("AudioManager")
@@ -130,43 +124,70 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "_open"
+"method": "_rumble"
 } ]
 }
-tracks/2/type = "method"
-tracks/2/path = NodePath("AudioManager")
+tracks/2/type = "value"
+tracks/2/path = NodePath("DoorAllGems:transform")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 0.42, 1 ),
+"update": 0,
+"values": [ Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 60.501, 0 ), Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 10.5, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("DoorAllGems/StaticBody:collision_layer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "_rumble"
-} ]
+"update": 1,
+"values": [ 0 ]
 }
 
 [node name="SlidingDoor" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 50, 0 )
 script = ExtResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-mesh = SubResource( 2 )
-material/0 = null
+[node name="DoorAllGems" parent="." instance=ExtResource( 7 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 60.501, 0 )
 
-[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
-collision_mask = 3
+[node name="StaticBody" type="StaticBody" parent="DoorAllGems"]
 
-[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
-shape = SubResource( 3 )
+[node name="CollisionShape" type="CollisionShape" parent="DoorAllGems/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.2 )
+shape = SubResource( 1 )
+
+[node name="Lights" type="Spatial" parent="DoorAllGems"]
+
+[node name="BlueLight" type="OmniLight" parent="DoorAllGems/Lights"]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 4.37114e-08, 0, -4.37114e-08, -0.5, 0, -4.15, 0.8 )
+light_color = Color( 0.333333, 0.694118, 0.905882, 1 )
+light_indirect_energy = 4.0
+omni_range = 8.0
+
+[node name="CenterLight" type="OmniLight" parent="DoorAllGems/Lights"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.35, 1.8 )
+light_color = Color( 1, 0.517647, 0.0392157, 1 )
+omni_range = 20.0
+
+[node name="RedLight" type="OmniLight" parent="DoorAllGems/Lights"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 5.05, 0.799999 )
+light_color = Color( 1, 0.231373, 0.156863, 1 )
+omni_range = 8.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/close = SubResource( 4 )
-anims/default_closed = SubResource( 5 )
-anims/default_open = SubResource( 6 )
-anims/open = SubResource( 7 )
+anims/close = SubResource( 5 )
+anims/default_closed = SubResource( 6 )
+anims/default_open = SubResource( 7 )
+anims/open = SubResource( 8 )
 
 [node name="AudioManager" type="Node" parent="."]
 script = ExtResource( 2 )
