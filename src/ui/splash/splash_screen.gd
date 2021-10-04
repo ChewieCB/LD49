@@ -9,6 +9,7 @@ onready var main_menu = "res://src/ui/main_menu/Menu.tscn"
 
 
 func _ready():
+#	DynamicMusicManager.level_id = 0
 	fadeout.fade_in(splash_time_in)
 	yield(fadeout.animation_player, "animation_finished")
 	

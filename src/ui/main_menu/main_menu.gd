@@ -1,5 +1,7 @@
 extends Node
 
+signal next_level
+
 onready var audio_player = $AudioPlayer
 onready var animation_player = $AnimationPlayer
 
@@ -16,6 +18,8 @@ var current_element
 
 func _ready():
 	get_tree().paused = false
+	
+	self.connect("next_level", DynamicMusicManager, "advance_level")
 	
 	fadeout.fade_in(0.5)
 	animation_player.play("default")
@@ -73,7 +77,6 @@ func controller_ui_focus(_device, connected):
 
 
 func transition_to_game():
-# warning-ignore:return_value_discarded
 	get_tree().change_scene(game_start_path)
 
 
@@ -128,6 +131,8 @@ func set_current_menu(menu_screen):
 
 func _on_PlayButton_pressed():
 	fadeout.fade_out(0.5)
+	emit_signal("next_level")
+	yield(DynamicMusicManager, "bgm_changed")
 	get_tree().change_scene(game_start_path)
 	fadeout.fade_in(0.5)
 

@@ -34,6 +34,28 @@ func physics_process(delta: float):
 	
 	handle_rotation()
 	
+	if Input.is_action_just_pressed("p1_repair"):
+		if _actor.pickup_count > 0:
+			if _actor.durability_state_machine.state.get_index() > 0:
+				_actor.pickup_count -= 1
+				_actor.durability_state_machine.get_child(0)._increase_durability()
+				#
+				_state_machine.transition_to(
+					"Movement/Falling",
+					{"was_on_floor": false}
+				)
+			else:
+				# Play invalid repair sound here
+				pass
+	elif Input.is_action_just_pressed("p1_unrepair"):
+		if _actor.reverse_pickup_count > 0:
+			if _actor.durability_state_machine.state.get_index() < 2:
+				_actor.reverse_pickup_count -= 1
+				_actor.durability_state_machine.get_child(0)._reduce_durability()
+			else:
+				# Play invalid repair sound here
+				pass
+	
 	# Let go of the dash button to execute it
 	if Input.is_action_just_released("p1_dash"):
 		# FIXME - temp, replace this with the dash code

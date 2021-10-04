@@ -12,6 +12,7 @@ func enter(msg: Dictionary = {}):
 	_actor.has_dashed = false
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	#
 	_parent.enter()
 	_parent.input_direction = Vector3.ZERO

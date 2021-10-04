@@ -7,8 +7,8 @@ onready var pickups = $Pickups.get_children()
 onready var reverse_pickups = $ReversePickups.get_children()
 
 
-
 func _ready():
+	yield(DynamicMusicManager.animation_player, "animation_finished")
 	player.death_state.connect("dead", game_over, "fade_in")
 	fadeout.fade_in(0.8)
 	yield(fadeout.animation_player, "animation_finished")
@@ -37,4 +37,3 @@ func _ready():
 				player.reverse_pickup_counter,
 				"_increase_pickup_counter"
 			)
-

@@ -11,6 +11,9 @@ func finish_level():
 	# Fadeout
 	fadeout.fade_out(1.0)
 	yield(fadeout.animation_player, "animation_finished")
+	
+	DynamicMusicManager.advance_level()
+	
 	# Load next level
 	if next_level_path:
 		get_tree().change_scene(next_level_path)

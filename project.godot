@@ -52,6 +52,7 @@ config/icon="res://icon.png"
 
 GlobalFlags="*res://src/global/global_flags.gd"
 LocalSettings="*res://src/ui/main_menu/settings/settings.gd"
+DynamicMusicManager="*res://src/global/dynamic_music_manager/DynamicMusicManager.tscn"
 
 [display]
 
