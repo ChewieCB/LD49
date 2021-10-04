@@ -49,7 +49,9 @@ onready var movement_state = $StateMachine/Movement
 const SNAP_DIRECTION = Vector3.DOWN
 const SNAP_LENGTH = 32
 
-var debug_trajectory_meshes = []
+# Audio
+onready var audio_manager = $AudioManager
+
 
 # UI
 onready var ui = $GUI/PlayerUI

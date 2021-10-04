@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/player/player/player.gd" type="Script" id=1]
 [ext_resource path="res://src/player/StatusLabels.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://src/player/state_machine/states/air_dashing.gd" type="Script" id=17]
 [ext_resource path="res://src/player/state_machine/states/air_dashing_aiming.gd" type="Script" id=18]
 [ext_resource path="res://src/ui/hud/durability_meter/DurabilityMeter.tscn" type="PackedScene" id=19]
+[ext_resource path="res://src/player/player/audio_manager/audio_manager.gd" type="Script" id=20]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.0
@@ -115,9 +116,12 @@ script = ExtResource( 13 )
 wait_time = 3.0
 autostart = true
 
-[node name="AudioPlayer" type="Node" parent="."]
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource( 20 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioPlayer"]
+[node name="PlayerAudio" type="AudioStreamPlayer" parent="AudioManager"]
+
+[node name="PowerupAudio" type="AudioStreamPlayer" parent="AudioManager"]
 
 [node name="Tween" type="Tween" parent="."]
 
