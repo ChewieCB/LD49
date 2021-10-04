@@ -118,12 +118,19 @@ func set_CAMERA_INVERT_Y(value):
 
 func set_SFX_VOLUME(value):
 	SFX_VOLUME = value
+	AudioServer.set_bus_volume_db(
+		AudioServer.get_bus_index("SFX"), linear2db(value)
+	)
 	emit_signal("SFX_VOLUME_CHANGED")
 	write_local_settings()
 
 
 func set_MUSIC_VOLUME(value):
 	MUSIC_VOLUME = value
+	var test0 = linear2db(value)
+	AudioServer.set_bus_volume_db(
+		AudioServer.get_bus_index("Music"), linear2db(value)
+	)
 	emit_signal("MUSIC_VOLUME_CHANGED")
 	write_local_settings()
 

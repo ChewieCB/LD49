@@ -12,7 +12,7 @@
 [ext_resource path="res://assets/audio/music/level_3/LEVEL 3 SOLID.wav" type="AudioStream" id=10]
 [ext_resource path="res://assets/audio/music/level_2/LEVEL 2 DECREPIT.wav" type="AudioStream" id=11]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=1]
 resource_name = "damaged_fade_out"
 length = 0.5
 tracks/0/type = "value"
@@ -40,7 +40,7 @@ tracks/1/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=2]
 resource_name = "damaged_to_eroded"
 length = 3.0
 tracks/0/type = "value"
@@ -80,7 +80,7 @@ tracks/2/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=3]
 resource_name = "damaged_to_solid"
 length = 3.0
 tracks/0/type = "value"
@@ -120,7 +120,7 @@ tracks/2/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=4]
 resource_name = "eroded_fade_out"
 length = 0.5
 tracks/0/type = "value"
@@ -148,8 +148,7 @@ tracks/1/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "eroded_to_damaged"
+[sub_resource type="Animation" id=5]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BGM_2:volume_db")
@@ -188,7 +187,7 @@ tracks/2/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=6]
 resource_name = "eroded_to_solid"
 length = 3.0
 tracks/0/type = "value"
@@ -228,7 +227,7 @@ tracks/2/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("BGM_1:volume_db")
 tracks/0/interp = 1
@@ -278,7 +277,7 @@ tracks/3/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=8]
 resource_name = "solid_fade_in"
 length = 2.0
 tracks/0/type = "value"
@@ -330,8 +329,7 @@ tracks/3/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "solid_fade_out"
+[sub_resource type="Animation" id=9]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BGM_1:volume_db")
@@ -358,7 +356,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=10]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BGM_1:volume_db")
@@ -413,23 +411,26 @@ level_3_eroded_bgm = ExtResource( 9 )
 
 [node name="BGM_1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+bus = "Music"
 
 [node name="BGM_2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = -80.0
+bus = "Music"
 
 [node name="BGM_3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -80.0
+bus = "Music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/damaged_fade_out = SubResource( 7 )
-anims/damaged_to_eroded = SubResource( 8 )
-anims/damaged_to_solid = SubResource( 9 )
-anims/eroded_fade_out = SubResource( 10 )
-anims/eroded_to_damaged = SubResource( 3 )
-anims/eroded_to_solid = SubResource( 12 )
-anims/solid = SubResource( 4 )
-anims/solid_fade_in = SubResource( 11 )
-anims/solid_fade_out = SubResource( 6 )
-anims/solid_to_damaged = SubResource( 5 )
+anims/damaged_fade_out = SubResource( 1 )
+anims/damaged_to_eroded = SubResource( 2 )
+anims/damaged_to_solid = SubResource( 3 )
+anims/eroded_fade_out = SubResource( 4 )
+anims/eroded_to_damaged = SubResource( 5 )
+anims/eroded_to_solid = SubResource( 6 )
+anims/solid = SubResource( 7 )
+anims/solid_fade_in = SubResource( 8 )
+anims/solid_fade_out = SubResource( 9 )
+anims/solid_to_damaged = SubResource( 10 )
