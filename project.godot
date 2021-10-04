@@ -9,17 +9,17 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Area",
+"base": "Spatial",
 "class": "Pickup",
 "language": "GDScript",
-"path": "res://src/environment/pickup/pickup.gd"
+"path": "res://src/environment/pickup/pickup_parent.gd"
 }, {
 "base": "KinematicBody",
 "class": "PlayerController",
 "language": "GDScript",
 "path": "res://src/player/player/player.gd"
 }, {
-"base": "Area",
+"base": "Spatial",
 "class": "ReversePickup",
 "language": "GDScript",
 "path": "res://src/environment/pickup/reverse_pickup.gd"
