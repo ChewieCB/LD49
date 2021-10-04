@@ -39,8 +39,8 @@ func _unhandled_input(event):
 
 
 func _physics_process(_delta):
-	if far_camera_collider.is_colliding():
-		camera.global_transform.origin = far_camera_collider.get_collision_point()
+#	if far_camera_collider.is_colliding():
+#		camera.global_transform.origin = far_camera_collider.get_collision_point()
 		
 	if not current_target.is_dead:
 		self.global_transform.origin = current_target.global_transform.origin
