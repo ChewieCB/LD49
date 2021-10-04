@@ -23,11 +23,13 @@ func _ready():
 
 
 func enter(_msg: Dictionary = {}):
+	# FIXME - SOOOOOO MANY HACKJOBS
+	yield(_actor.fadeout.animation_player, "animation_finished")
+#	if is_timer_active:
+#		_start_decay_timer()
 	# Reset the durability timer
 	if is_timer_active:
-		decay_timer.stop()
-		decay_timer.wait_time = max_wait_time
-		decay_timer.start()
+		reset_timer()
 
 
 func _process(_delta):
@@ -41,7 +43,7 @@ func _reduce_durability():
 	if new_state_index > 2:
 		# Death
 		_actor.state_machine.transition_to("Movement/Dead")
-		decay_timer.stop()
+		_stop_decay_timer()
 		return
 	
 	var new_state_name
@@ -58,17 +60,20 @@ func _reduce_durability():
 		_:
 			push_error("Invalid durability state!")
 	
-	print("Changing to %s" % [new_state_name])
+	audio_manager.transition_to(audio_manager.States.DECAY)
+	# If the player is running we want to swap the sounds out
+	if _actor.state_machine.state.get_index() == 1:
+		audio_manager.transition_walking_sfx(new_state_index)
+	
+	if is_timer_active:
+		reset_timer()
+	
 	_state_machine.transition_to(new_state_name)
 
 
 func _increase_durability():
 	var new_state_index = _state_machine.state.get_index() - 1
 	if new_state_index < 0:
-		if is_timer_active:
-			decay_timer.stop()
-			decay_timer.wait_time = 10.0
-			decay_timer.start()
 		return
 	
 	var new_state_name
@@ -85,13 +90,19 @@ func _increase_durability():
 		_:
 			push_error("Invalid durability state!")
 	
-	print("Changing to %s" % [new_state_name])
+	if is_timer_active:
+		reset_timer()
+	
 	_state_machine.transition_to(new_state_name)
 
 
+func reset_timer():
+	decay_timer.wait_time = max_wait_time
+	decay_timer.start()
+
 func _start_decay_timer():
 	# Reset the durability timer
-	decay_timer.wait_time = 15.0
+	decay_timer.wait_time = max_wait_time
 	_actor.durability_ui.animation_player.play("fade_in")
 	yield(_actor.durability_ui.animation_player, "animation_finished")
 	decay_timer.start()
