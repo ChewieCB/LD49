@@ -4,6 +4,8 @@ extends State
 # Child states can override this states's functions or change its properties
 # This keeps the logic grouped in one location
 
+signal main_menu
+
 # These should be fallback defaults
 # TODO: Make these null and raise an exception to indicate bad State extension
 #       to better separate movement vars.
@@ -29,6 +31,7 @@ func _ready():
 		self,
 		"_apply_movement_modifiers"
 	)
+	self.connect("main_menu", DynamicMusicManager, "main_menu")
 
 
 func enter(_msg: Dictionary = {}):
@@ -36,6 +39,16 @@ func enter(_msg: Dictionary = {}):
 
 
 func physics_process(delta: float):
+	if Input.is_action_just_pressed("ui_cancel"):
+		_actor.fadeout.fade_out(0.5)
+		yield(_actor.fadeout.animation_player, "animation_finished")
+		emit_signal("main_menu")
+		yield(DynamicMusicManager, "bgm_changed")
+		
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		var main_menu_path = "res://src/ui/main_menu/Menu.tscn"
+		get_tree().change_scene(main_menu_path)
+	
 	# Debug Reset
 	if Input.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
