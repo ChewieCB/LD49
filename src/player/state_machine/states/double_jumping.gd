@@ -15,12 +15,13 @@ func enter(_msg: Dictionary = {}):
 	_actor.has_jumped = false
 	
 	#
-#	audio_player.transition_to(audio_player.States.JUMP)
+	audio_manager.transition_to(audio_manager.States.DOUBLE_JUMP)
 #	skin.transition_to(skin.States.JUMP)
 
 
 func physics_process(delta: float):
 	_parent.physics_process(delta)
+	
 	if _actor.is_on_ceiling():
 		_parent.velocity.y = 0
 	

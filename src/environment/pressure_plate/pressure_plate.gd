@@ -18,12 +18,14 @@ func _ready():
 func activate():
 	is_activated = true
 	animation_player.play("activate")
+	yield(animation_player, "animation_finished")
 	emit_signal("activated")
 
 
 func deactivate():
 	is_activated = false
 	animation_player.play("deactivate")
+	yield(animation_player, "animation_finished")
 	emit_signal("deactivated")
 
 

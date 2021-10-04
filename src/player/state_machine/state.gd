@@ -17,8 +17,8 @@ var _parent = null
 # Asset import drop in here
 # TODO - replace this type hint with a more specific class_name one when the 
 # script is written.
-export (Resource) var skin = null
-export (Resource) var audio_player = null
+export (Resource) var skin = null #_actor.skin
+var audio_manager
 
 
 func _ready():
@@ -27,6 +27,8 @@ func _ready():
 	_actor = _state_machine.actor
 	if not parent.is_in_group("state_machine"):
 		_parent = parent
+	
+	audio_manager = _actor.audio_manager
 
 
 func unhandled_input(_event: InputEvent):

@@ -7,6 +7,7 @@ var dash_vector
 
 
 func enter(_msg: Dictionary = {}):
+	audio_manager.transition_to(audio_manager.States.AIR_DASH_AIM)
 	#	audio_player.transition_to(audio_player.States.JUMP)
 	#	skin.transition_to(skin.States.JUMP)
 	

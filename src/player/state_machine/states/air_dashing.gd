@@ -11,7 +11,7 @@ var dash_velocity
 
 
 func enter(msg: Dictionary = {}):
-	#	audio_player.transition_to(audio_player.States.JUMP)
+	audio_manager.transition_to(audio_manager.States.AIR_DASH)
 	#	skin.transition_to(skin.States.JUMP)
 	
 	dash_timer.wait_time = dash_time

@@ -15,9 +15,31 @@ func enter(_msg: Dictionary = {}):
 	
 	_actor.has_jumped = false
 	_actor.has_dashed = false
-	#
-#	audio_player.transition_to(audio_player.States.WALK)
+	
+	# AUDIO
+	
+	var walk_sfx = get_walk_sfx()
+	audio_manager.transition_to(walk_sfx)
+	
+	# MESH
 #	skin.transition_to(skin.States.WALK)
+
+
+func get_walk_sfx():
+	var walk_sfx_state
+	# FIXME - this really needs to be an actor level variable
+	match _actor.durability_parent._state_machine.state.get_index():
+		# Solid - slowest
+		0:
+			walk_sfx_state = audio_manager.States.MOVE_SLOW
+		# Damaged - medium
+		1:
+			walk_sfx_state = audio_manager.States.MOVE_MEDIUM
+		# Eroded - fastest
+		2:
+			walk_sfx_state = audio_manager.States.MOVE_FAST
+	
+	return walk_sfx_state
 
 
 func unhandled_input(event: InputEvent):
@@ -26,6 +48,7 @@ func unhandled_input(event: InputEvent):
 
 func physics_process(delta: float):
 	_parent.physics_process(delta)
+	
 	# Idle
 	if _parent.input_direction == Vector3.ZERO:
 		_state_machine.transition_to("Movement/Idle")
@@ -44,5 +67,4 @@ func physics_process(delta: float):
 
 
 func exit():
-#	audio_player.stop_audio()
 	_parent.exit()

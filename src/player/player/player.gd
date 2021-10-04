@@ -1,7 +1,8 @@
 extends KinematicBody
 class_name PlayerController
 
-#onready var fadeout = $UI/Fadeout
+# FIXME - this is the hackiest hack ever, but it'll hold for the jam
+onready var fadeout = $"../../GUI/Fadeout"
 
 onready var default_collider = $CollisionShape
 
@@ -20,8 +21,6 @@ onready var trigger_ray = $TriggerRaycast
 
 #onready var skin = $Collision/LlamaSkin
 onready var tween = $Tween
-
-onready var audio_player = $AudioPlayer
 
 # Array of all things that should rotate
 #onready var rotateable = [
@@ -49,7 +48,9 @@ onready var movement_state = $StateMachine/Movement
 const SNAP_DIRECTION = Vector3.DOWN
 const SNAP_LENGTH = 32
 
-var debug_trajectory_meshes = []
+# Audio
+onready var audio_manager = $AudioManager
+
 
 # UI
 onready var ui = $GUI/PlayerUI
@@ -63,6 +64,7 @@ var reverse_pickup_count =  0 setget set_reverse_pickup_counter
 
 
 func _ready():
+	yield(fadeout.animation_player, "animation_finished")
 	GlobalFlags.PLAYER_CONTROLS_ACTIVE = true
 	GlobalFlags.CAMERA_CONTROLS_ACTIVE = true
 	is_dead = false

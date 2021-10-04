@@ -10,8 +10,7 @@ func enter(_msg: Dictionary = {}):
 	_actor.has_dashed = false
 	#
 #	skin.transition_to(skin.States.IDLE)
-#	yield(audio_player.audio_player, "finished")
-#	audio_player.stop_audio()
+	audio_manager.transition_to(audio_manager.States.IDLE)
 
 
 func unhandled_input(event: InputEvent):
