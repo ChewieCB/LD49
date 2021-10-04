@@ -27,6 +27,7 @@ onready var actor = get_parent().get_node("Player")
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	self.rotation_degrees.y = current_target.rotation_degrees.y
+	camera.fov = clamp(LocalSettings.FOV, 70, 100)
 
 
 func _unhandled_input(event):
