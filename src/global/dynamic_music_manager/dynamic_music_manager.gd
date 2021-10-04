@@ -1,6 +1,9 @@
 extends Node
 
+signal bgm_changed
+
 export (int) var level_id setget set_level_id
+export (int) var current_state = 0
 
 # Main Menu
 export (AudioStream) var main_menu_bgm
@@ -85,10 +88,24 @@ func set_level_id(value):
 	
 	level_id = value
 	
-	animation_player.play("solid_fade_out")
+	match current_state:
+		0:
+			animation_player.queue("solid_fade_out")
+		1:
+			animation_player.queue("damaged_fade_out")
+		2:
+			animation_player.queue("eroded_fade_out")
+	
 	yield(animation_player, "animation_finished")
+	
+	solid_player.stop()
+	damaged_player.stop()
+	eroded_player.stop()
+	
 	assign_audio_streams()
 	reset_playback()
+	
+	emit_signal("bgm_changed")
 	
 	solid_player.play()
 	damaged_player.play()

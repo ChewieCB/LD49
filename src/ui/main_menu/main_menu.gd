@@ -132,6 +132,7 @@ func set_current_menu(menu_screen):
 func _on_PlayButton_pressed():
 	fadeout.fade_out(0.5)
 	emit_signal("next_level")
+	yield(DynamicMusicManager, "bgm_changed")
 	get_tree().change_scene(game_start_path)
 	fadeout.fade_in(0.5)
 

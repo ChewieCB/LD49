@@ -27,6 +27,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, -80.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:current_state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "damaged_to_eroded"
@@ -54,6 +66,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 0.143, 1 ),
 "update": 0,
 "values": [ -80.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:current_state")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -83,6 +107,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ -80.0, 0.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:current_state")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 
 [sub_resource type="Animation" id=10]
 resource_name = "eroded_fade_out"
@@ -98,6 +134,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 2.54, 1 ),
 "update": 0,
 "values": [ 0.0, -80.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:current_state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -127,6 +175,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0.0, -80.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:current_state")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
 
 [sub_resource type="Animation" id=12]
 resource_name = "eroded_to_solid"
@@ -154,6 +214,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 0.143, 1 ),
 "update": 0,
 "values": [ -80.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:current_state")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -192,6 +264,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ -80.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:current_state")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -233,6 +317,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ -80.0 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:current_state")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "solid_fade_out"
@@ -248,6 +344,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 2.54, 1 ),
 "update": 0,
 "values": [ 0.0, -80.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:current_state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -276,9 +384,22 @@ tracks/1/keys = {
 "update": 0,
 "values": [ -80.0, 0.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:current_state")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
 
 [node name="DynamicMusicManager" type="Node"]
 script = ExtResource( 1 )
+current_state = 1
 main_menu_bgm = ExtResource( 5 )
 level_1_solid_bgm = ExtResource( 4 )
 level_1_damaged_bgm = ExtResource( 2 )
@@ -295,9 +416,11 @@ stream = ExtResource( 4 )
 
 [node name="BGM_2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+volume_db = -80.0
 
 [node name="BGM_3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -80.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/damaged_fade_out = SubResource( 7 )
