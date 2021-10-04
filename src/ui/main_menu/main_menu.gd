@@ -176,7 +176,9 @@ func _on_Fullscreen_pressed():
 
 
 func _on_FOV_value_changed(value):
-	LocalSettings.set_FOV(value)
+	var max_fov = 40
+	var new_fov_value = max_fov * value
+	LocalSettings.set_FOV(new_fov_value)
 
 
 func _on_LookSensitivity_value_changed(value):
