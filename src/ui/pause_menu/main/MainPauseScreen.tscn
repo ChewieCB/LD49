@@ -1,0 +1,169 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/button_font_128.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/button_font_64.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/ui/pause_menu/main/main_pause_screen.gd" type="Script" id=3]
+
+[node name="MainPauseScreen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMargin" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -260.0
+margin_top = -440.0
+margin_right = 260.0
+margin_bottom = 440.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MainMargin"]
+modulate = Color( 1, 1, 1, 0.823529 )
+margin_right = 520.0
+margin_bottom = 880.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMargin"]
+margin_right = 520.0
+margin_bottom = 880.0
+
+[node name="Elements" type="VBoxContainer" parent="MainMargin/HBoxContainer"]
+margin_right = 520.0
+margin_bottom = 880.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements"]
+margin_right = 520.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="MainMargin/HBoxContainer/Elements/CenterContainer"]
+margin_left = 260.0
+margin_right = 260.0
+margin_bottom = 14.0
+
+[node name="TitleMargin" type="MarginContainer" parent="MainMargin/HBoxContainer/Elements"]
+margin_top = 18.0
+margin_right = 520.0
+margin_bottom = 150.0
+
+[node name="Title" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements/TitleMargin"]
+margin_right = 520.0
+margin_bottom = 132.0
+
+[node name="Label" type="Label" parent="MainMargin/HBoxContainer/Elements/TitleMargin/Title"]
+margin_left = 71.0
+margin_right = 449.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 1 )
+text = "Paused"
+align = 1
+valign = 1
+
+[node name="Padding1" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements"]
+margin_top = 154.0
+margin_right = 520.0
+margin_bottom = 219.0
+
+[node name="Label" type="Label" parent="MainMargin/HBoxContainer/Elements/Padding1"]
+margin_left = 260.0
+margin_right = 260.0
+margin_bottom = 65.0
+text = "
+
+
+"
+
+[node name="Buttons" type="VBoxContainer" parent="MainMargin/HBoxContainer/Elements"]
+margin_top = 223.0
+margin_right = 520.0
+margin_bottom = 709.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ResumeButton" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements/Buttons"]
+margin_right = 520.0
+margin_bottom = 118.0
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MainMargin/HBoxContainer/Elements/Buttons/ResumeButton"]
+margin_left = 152.0
+margin_top = 22.0
+margin_right = 367.0
+margin_bottom = 95.0
+custom_fonts/font = ExtResource( 2 )
+text = "Resume"
+flat = true
+
+[node name="SettingsButton" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements/Buttons"]
+margin_top = 122.0
+margin_right = 520.0
+margin_bottom = 241.0
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MainMargin/HBoxContainer/Elements/Buttons/SettingsButton"]
+margin_left = 137.0
+margin_top = 23.0
+margin_right = 382.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 2 )
+text = "Settings"
+flat = true
+
+[node name="MainMenuButton" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements/Buttons"]
+margin_top = 245.0
+margin_right = 520.0
+margin_bottom = 363.0
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MainMargin/HBoxContainer/Elements/Buttons/MainMenuButton"]
+margin_left = 111.0
+margin_top = 22.0
+margin_right = 409.0
+margin_bottom = 95.0
+custom_fonts/font = ExtResource( 2 )
+text = "Main Menu"
+flat = true
+
+[node name="QuitButton" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements/Buttons"]
+margin_top = 367.0
+margin_right = 520.0
+margin_bottom = 486.0
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MainMargin/HBoxContainer/Elements/Buttons/QuitButton"]
+margin_left = 196.0
+margin_top = 23.0
+margin_right = 324.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 2 )
+text = "Quit"
+flat = true
+
+[node name="Padding2" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements"]
+margin_top = 713.0
+margin_right = 520.0
+margin_bottom = 880.0
+
+[node name="Label" type="Label" parent="MainMargin/HBoxContainer/Elements/Padding2"]
+margin_left = 260.0
+margin_right = 260.0
+margin_bottom = 167.0
+text = "
+
+
+
+
+
+
+
+
+"

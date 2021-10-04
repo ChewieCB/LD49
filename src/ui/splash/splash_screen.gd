@@ -5,7 +5,7 @@ export (float) var splash_time_hold = 1.0
 export (float) var splash_time_out = 0.5
 
 onready var fadeout = $GUI/Fadeout
-onready var main_menu = "res://src/ui/main_menu/Menu.tscn"
+var main_menu = "res://src/ui/main_menu/Menu.tscn"
 
 
 func _ready():

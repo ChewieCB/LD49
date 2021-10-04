@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/ui/pause_menu/settings/SettingsUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fonts/button_font_64.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/ui/pause_menu/settings/settings_pause_screen.gd" type="Script" id=3]
+
+[node name="SettingsPauseScreen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -0.00158691
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMargin" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -410.0
+margin_top = -441.0
+margin_right = 410.0
+margin_bottom = 441.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MainMargin"]
+modulate = Color( 1, 1, 1, 0.823529 )
+margin_right = 820.0
+margin_bottom = 882.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMargin"]
+margin_right = 820.0
+margin_bottom = 882.0
+
+[node name="Elements" type="VBoxContainer" parent="MainMargin/HBoxContainer"]
+margin_right = 820.0
+margin_bottom = 882.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VPadding1" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements"]
+margin_right = 820.0
+margin_bottom = 65.0
+
+[node name="Label" type="Label" parent="MainMargin/HBoxContainer/Elements/VPadding1"]
+margin_left = 410.0
+margin_right = 410.0
+margin_bottom = 65.0
+text = "
+
+
+"
+
+[node name="Buttons" type="VBoxContainer" parent="MainMargin/HBoxContainer/Elements"]
+margin_top = 69.0
+margin_right = 820.0
+margin_bottom = 882.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMargin/HBoxContainer/Elements/Buttons"]
+margin_right = 820.0
+margin_bottom = 671.0
+
+[node name="Padding1" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer"]
+margin_right = 48.0
+margin_bottom = 671.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/Padding1"]
+margin_top = 328.0
+margin_right = 48.0
+margin_bottom = 342.0
+text = "            "
+
+[node name="SettingsUI" parent="MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 52.0
+margin_right = 768.0
+
+[node name="Padding2" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer"]
+margin_left = 772.0
+margin_right = 820.0
+margin_bottom = 671.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/Padding2"]
+margin_top = 328.0
+margin_right = 48.0
+margin_bottom = 342.0
+text = "            "
+
+[node name="BackButton" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements/Buttons"]
+margin_top = 675.0
+margin_right = 820.0
+margin_bottom = 748.0
+
+[node name="Button" type="Button" parent="MainMargin/HBoxContainer/Elements/Buttons/BackButton"]
+margin_left = 340.0
+margin_right = 479.0
+margin_bottom = 73.0
+custom_fonts/font = ExtResource( 2 )
+text = "Back"
+flat = true

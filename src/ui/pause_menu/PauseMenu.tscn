@@ -1,0 +1,365 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://src/ui/pause_menu/pause_menu.gd" type="Script" id=1]
+[ext_resource path="res://src/ui/pause_menu/settings/SettingsPauseScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/ui/main_menu/audio_manager.gd" type="Script" id=4]
+[ext_resource path="res://assets/audio/sfx/cancel.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/sfx/cursor.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/audio/sfx/confirm.wav" type="AudioStream" id=7]
+[ext_resource path="res://src/ui/pause_menu/main/MainPauseScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/ui/fadeout/Fadeout.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "credits_to_main"
+length = 0.3
+
+[sub_resource type="Animation" id=2]
+length = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainPauseScreen:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SettingsPauseScreen:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "main_to_credits"
+length = 0.3
+
+[sub_resource type="Animation" id=4]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("MainPauseScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SettingsPauseScreen:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "pause"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("MainPauseScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 0.392157 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SettingsPauseScreen:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "settings_to_main"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("MainPauseScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SettingsPauseScreen:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "unpause"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("MainPauseScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.392157 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SettingsPauseScreen:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+pause_mode = 2
+modulate = Color( 0, 0, 0, 0.392157 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainPauseScreen" parent="." instance=ExtResource( 9 )]
+
+[node name="SettingsPauseScreen" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="Display" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI" index="0"]
+margin_right = 716.0
+
+[node name="DisplayHeader" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Display" index="0"]
+margin_right = 716.0
+
+[node name="Label" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Display/DisplayHeader" index="0"]
+margin_right = 716.0
+
+[node name="HSeparator" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Display/DisplayHeader" index="1"]
+margin_right = 716.0
+
+[node name="Fullscreen" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Display" index="1"]
+margin_right = 716.0
+
+[node name="FOV" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Display" index="2"]
+margin_right = 716.0
+
+[node name="HSlider" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Display/FOV" index="1"]
+margin_right = 716.0
+
+[node name="Padding" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Display" index="3"]
+margin_right = 716.0
+
+[node name="Label" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Display/Padding" index="0"]
+margin_left = 358.0
+margin_right = 358.0
+
+[node name="Controls" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI" index="1"]
+margin_right = 716.0
+
+[node name="ControlsHeader" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Controls" index="0"]
+margin_right = 716.0
+
+[node name="Label" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Controls/ControlsHeader" index="0"]
+margin_right = 716.0
+
+[node name="HSeparator" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Controls/ControlsHeader" index="1"]
+margin_right = 716.0
+
+[node name="LookSensitivity" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Controls" index="1"]
+margin_right = 716.0
+
+[node name="HSlider" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Controls/LookSensitivity" index="1"]
+margin_right = 716.0
+
+[node name="ControlMapping" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Controls" index="2"]
+margin_right = 716.0
+
+[node name="Padding" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Controls" index="3"]
+margin_right = 716.0
+
+[node name="Label" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Controls/Padding" index="0"]
+margin_left = 358.0
+margin_right = 358.0
+
+[node name="Audio" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI" index="2"]
+margin_right = 716.0
+
+[node name="AudioHeader" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Audio" index="0"]
+margin_right = 716.0
+
+[node name="Label" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Audio/AudioHeader" index="0"]
+margin_right = 716.0
+
+[node name="HSeparator" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Audio/AudioHeader" index="1"]
+margin_right = 716.0
+
+[node name="SFXVolume" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Audio" index="1"]
+margin_right = 716.0
+
+[node name="HSlider" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Audio/SFXVolume" index="1"]
+margin_right = 716.0
+
+[node name="MusicVolume" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Audio" index="2"]
+margin_right = 716.0
+
+[node name="HSlider" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Audio/MusicVolume" index="1"]
+margin_right = 716.0
+
+[node name="Padding" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Audio" index="3"]
+margin_right = 716.0
+
+[node name="Label" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Audio/Padding" index="0"]
+margin_left = 358.0
+margin_right = 358.0
+
+[node name="Effects" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI" index="3"]
+margin_right = 716.0
+
+[node name="EffectsHeader" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Effects" index="0"]
+margin_right = 716.0
+
+[node name="Label" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Effects/EffectsHeader" index="0"]
+margin_right = 716.0
+
+[node name="HSeparator" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Effects/EffectsHeader" index="1"]
+margin_right = 716.0
+
+[node name="ScreenShake" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Effects" index="1"]
+margin_right = 716.0
+
+[node name="HSlider" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Effects/ScreenShake" index="1"]
+margin_right = 716.0
+
+[node name="Padding" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Effects" index="2"]
+margin_right = 716.0
+
+[node name="Label" parent="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Effects/Padding" index="0"]
+margin_left = 358.0
+margin_right = 358.0
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource( 4 )
+cursor_sfx = ExtResource( 6 )
+confirm_sfx = ExtResource( 7 )
+cancel_sfx = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/credits_to_main = SubResource( 1 )
+anims/default = SubResource( 2 )
+anims/main_to_credits = SubResource( 3 )
+anims/main_to_settings = SubResource( 4 )
+anims/pause = SubResource( 5 )
+anims/settings_to_main = SubResource( 6 )
+anims/unpause = SubResource( 7 )
+
+[node name="Fadeout" parent="." instance=ExtResource( 10 )]
+pause_mode = 2
+visible = false
+
+[connection signal="pressed" from="MainPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/ResumeButton/Button" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="MainPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/SettingsButton/Button" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="MainPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/MainMenuButton/Button" to="." method="_on_MainMenuButton_pressed"]
+[connection signal="pressed" from="MainPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/QuitButton/Button" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Display/Fullscreen/CheckBox" to="." method="_on_Fullscreen_pressed"]
+[connection signal="value_changed" from="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Display/FOV/HSlider" to="." method="_on_FOV_value_changed"]
+[connection signal="value_changed" from="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Controls/LookSensitivity/HSlider" to="." method="_on_LookSensitivity_value_changed"]
+[connection signal="pressed" from="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Controls/ControlMapping/Button" to="." method="_on_ControlMapping_pressed"]
+[connection signal="value_changed" from="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Audio/SFXVolume/HSlider" to="." method="_on_SFXVolume_value_changed"]
+[connection signal="value_changed" from="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Audio/MusicVolume/HSlider" to="." method="_on_MusicVolume_value_changed"]
+[connection signal="value_changed" from="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI/Effects/ScreenShake/HSlider" to="." method="_on_ScreenShake_value_changed"]
+[connection signal="pressed" from="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/BackButton/Button" to="." method="_on_SettingsBackButton_pressed"]
+
+[editable path="MainPauseScreen"]
+[editable path="SettingsPauseScreen"]
+[editable path="SettingsPauseScreen/MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI"]

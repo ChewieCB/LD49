@@ -1,6 +1,6 @@
 extends Control
 
-onready var settings_ui = $MainMargin/NinePatchRect/MarginContainer/HSplitContainer/SettingsUI
+onready var settings_ui = $MainMargin/HBoxContainer/Elements/Buttons/HBoxContainer/SettingsUI
 onready var buttons = [
 	settings_ui.get_node("Display/Fullscreen/CheckBox"),
 	settings_ui.get_node("Display/FOV/HSlider"),
@@ -9,7 +9,7 @@ onready var buttons = [
 	settings_ui.get_node("Audio/SFXVolume/HSlider"),
 	settings_ui.get_node("Audio/MusicVolume/HSlider"),
 	settings_ui.get_node("Effects/ScreenShake/HSlider"),
-	$MainMargin/NinePatchRect/MarginContainer2/Back/Button
+	$MainMargin/HBoxContainer/Elements/Buttons/BackButton/Button
 ]
 
 
