@@ -1,16 +1,16 @@
 [gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/global/dynamic_music_manager/dynamic_music_manager.gd" type="Script" id=1]
-[ext_resource path="res://assets/audio/music/level_1/LEVEL 1 DAMAGED.wav" type="AudioStream" id=2]
-[ext_resource path="res://assets/audio/music/level_1/LEVEL 1 DECREPIT.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/audio/music/level_1/LEVEL 1 SOLID.wav" type="AudioStream" id=4]
-[ext_resource path="res://assets/audio/music/main_menu/mainmenu.wav" type="AudioStream" id=5]
-[ext_resource path="res://assets/audio/music/level_2/LEVEL 2 DAMAGED.wav" type="AudioStream" id=6]
-[ext_resource path="res://assets/audio/music/level_2/LEVEL 2 SOLID.wav" type="AudioStream" id=7]
-[ext_resource path="res://assets/audio/music/level_3/LEVEL 3 DAMAGED.wav" type="AudioStream" id=8]
-[ext_resource path="res://assets/audio/music/level_3/LEVEL 3 DECREPIT.wav" type="AudioStream" id=9]
-[ext_resource path="res://assets/audio/music/level_3/LEVEL 3 SOLID.wav" type="AudioStream" id=10]
-[ext_resource path="res://assets/audio/music/level_2/LEVEL 2 DECREPIT.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/audio/music/level_3/LEVEL3_DAMAGED_FINAL_MASTERD 1.mp3" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/music/main_menu/MAINMENU_FINAL_MASTERED 1.mp3" type="AudioStream" id=6]
+[ext_resource path="res://assets/audio/music/level_3/LEVEL3_DECREPIT_FINAL_MASTERD 1.mp3" type="AudioStream" id=7]
+[ext_resource path="res://assets/audio/music/level_1/LEVEL1_DECREPIT_FINAL_MASTERD 1.mp3" type="AudioStream" id=8]
+[ext_resource path="res://assets/audio/music/level_3/LEVEL3_SOLID_FINAL_MASTERD 1.mp3" type="AudioStream" id=9]
+[ext_resource path="res://assets/audio/music/level_2/LEVEL2_SOLID_FINAL_MASTERD 1.mp3" type="AudioStream" id=10]
+[ext_resource path="res://assets/audio/music/level_2/LEVEL2_DECREPIT_FINAL_MASTERD 1.mp3" type="AudioStream" id=11]
+[ext_resource path="res://assets/audio/music/level_1/LEVEL1_SOLID_FINAL_MASTERD 1.mp3" type="AudioStream" id=12]
+[ext_resource path="res://assets/audio/music/level_2/LEVEL2_DAMAGED_FINAL_MASTERD 1.mp3" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/music/level_1/LEVEL1_DAMAGED_FINAL_MASTERD 1.mp3" type="AudioStream" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "damaged_fade_out"
@@ -398,28 +398,28 @@ tracks/2/keys = {
 [node name="DynamicMusicManager" type="Node"]
 script = ExtResource( 1 )
 current_state = 1
-main_menu_bgm = ExtResource( 5 )
-level_1_solid_bgm = ExtResource( 4 )
-level_1_damaged_bgm = ExtResource( 2 )
-level_1_eroded_bgm = ExtResource( 3 )
-level_2_solid_bgm = ExtResource( 7 )
-level_2_damaged_bgm = ExtResource( 6 )
+main_menu_bgm = ExtResource( 6 )
+level_1_solid_bgm = ExtResource( 12 )
+level_1_damaged_bgm = ExtResource( 14 )
+level_1_eroded_bgm = ExtResource( 8 )
+level_2_solid_bgm = ExtResource( 10 )
+level_2_damaged_bgm = ExtResource( 13 )
 level_2_eroded_bgm = ExtResource( 11 )
-level_3_solid_bgm = ExtResource( 10 )
-level_3_damaged_bgm = ExtResource( 8 )
-level_3_eroded_bgm = ExtResource( 9 )
+level_3_solid_bgm = ExtResource( 9 )
+level_3_damaged_bgm = ExtResource( 5 )
+level_3_eroded_bgm = ExtResource( 7 )
 
 [node name="BGM_1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 12 )
 bus = "Music"
 
 [node name="BGM_2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
+stream = ExtResource( 14 )
 volume_db = -80.0
 bus = "Music"
 
 [node name="BGM_3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 8 )
 volume_db = -80.0
 bus = "Music"
 
