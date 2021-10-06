@@ -27,6 +27,7 @@ onready var actor = get_parent().get_node("Player")
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	self.rotation_degrees.y = current_target.rotation_degrees.y
+	camera.fov = clamp(LocalSettings.FOV, 70, 100)
 
 
 func _unhandled_input(event):
@@ -78,7 +79,7 @@ func _process(delta):
 		var is_player_moving_camera = (mouse_delta != Vector2.ZERO)
 	
 		# Rotate the camera pivot accordingly
-		camera_rotation = Vector3(0, yaw_dir, pitch_dir) * 10.0 * delta #LocalSettings.LOOK_SENSITIVITY
+		camera_rotation = Vector3(0, yaw_dir, pitch_dir) * delta * LocalSettings.LOOK_SENSITIVITY
 		rotation_degrees.y += camera_rotation.y
 		if GlobalFlags.PLAYER_CONTROLS_ACTIVE:
 			current_target.rotation.y = rotation.y

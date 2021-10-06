@@ -176,11 +176,16 @@ func _on_Fullscreen_pressed():
 
 
 func _on_FOV_value_changed(value):
-	LocalSettings.set_FOV(value)
+	var max_fov = 100
+	var new_fov_value = max_fov * value
+	LocalSettings.set_FOV(new_fov_value)
 
 
 func _on_LookSensitivity_value_changed(value):
-	LocalSettings.set_LOOK_SENSITIVITY(value)
+	var max_sensitivity = 20.0
+	var new_sensitivity_value = max_sensitivity * value
+	new_sensitivity_value = clamp(new_sensitivity_value, 5.0, 20.0)
+	LocalSettings.set_LOOK_SENSITIVITY(new_sensitivity_value)
 
 
 func _on_ControlMapping_pressed():

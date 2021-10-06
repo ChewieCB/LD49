@@ -4,8 +4,8 @@
 [ext_resource path="res://src/ui/main_menu/main/MainScreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/ui/main_menu/settings/SettingsScreen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/ui/main_menu/audio_manager.gd" type="Script" id=4]
+[ext_resource path="res://src/ui/main_menu/test_scene/MenuLevel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/ui/main_menu/credits/CreditsScreen.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/ui/main_menu/test_scene/LevelPreview.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/ui/fadeout/Fadeout.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
@@ -323,7 +323,7 @@ anims/main_to_credits = SubResource( 3 )
 anims/main_to_settings = SubResource( 4 )
 anims/settings_to_main = SubResource( 5 )
 
-[node name="LevelPreview" parent="." instance=ExtResource( 9 )]
+[node name="MenuLevel" parent="." instance=ExtResource( 5 )]
 
 [connection signal="pressed" from="GUI/MainScreen/MainMargin/HBoxContainer/Elements/Buttons/PlayButton/Button" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="GUI/MainScreen/MainMargin/HBoxContainer/Elements/Buttons/SettingsButton/Button" to="." method="_on_SettingsButton_pressed"]

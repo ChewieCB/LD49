@@ -64,6 +64,10 @@ onready var durability_ui = $DurabilityUI/Viewport/DurabilityMeter
 var pickup_count =  0 setget set_pickup_counter
 var reverse_pickup_count =  0 setget set_reverse_pickup_counter
 
+onready var solid_mesh = $DamageMeshes/Solid
+onready var damaged_mesh = $DamageMeshes/Damaged
+onready var eroded_mesh = $DamageMeshes/Eroded
+
 
 func _ready():
 	yield(fadeout.animation_player, "animation_finished")
@@ -77,6 +81,22 @@ func _ready():
 func _process(_delta):
 	pickup_count = pickup_counter.pickup_count
 	reverse_pickup_count = reverse_pickup_counter.pickup_count
+
+
+func switch_mesh(mesh_id):
+	match mesh_id:
+		0:
+			solid_mesh.visible = true
+			damaged_mesh.visible = false
+			eroded_mesh.visible = false
+		1:
+			solid_mesh.visible = false
+			damaged_mesh.visible = true
+			eroded_mesh.visible = false
+		2:
+			solid_mesh.visible = false
+			damaged_mesh.visible = false
+			eroded_mesh.visible = true
 
 
 func can_mantle():

@@ -1,6 +1,6 @@
 extends Camera
 
-export var rotation_speed = 0.1
+export var rotation_speed = -0.05
 
 
 func _process(delta):

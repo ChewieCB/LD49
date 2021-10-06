@@ -9,7 +9,7 @@ signal MUSIC_VOLUME_CHANGED
 signal SCREEN_SHAKE_CHANGED
 
 var FULLSCREEN = false setget set_FULLSCREEN
-var SCREEN_SIZE = Vector2(1920, 1080) setget set_SCREEN_SIZE
+#var SCREEN_SIZE = Vector2(1920, 1080) setget set_SCREEN_SIZE
 var FOV = 90 setget set_FOV
 var LOOK_SENSITIVITY = 12 setget set_LOOK_SENSITIVITY
 var CAMERA_INVERT_X = false setget set_CAMERA_INVERT_X
@@ -31,9 +31,9 @@ func _ready():
 		)
 	yield(read_local_settings(), "completed")
 	
-	var root = get_tree().get_root()
-	if not root.is_connected("size_changed", self, "update_screen_size"):
-		root.connect("size_changed", self, "update_screen_size")
+#	var root = get_tree().get_root()
+#	if not root.is_connected("size_changed", self, "update_screen_size"):
+#		root.connect("size_changed", self, "update_screen_size")
 
 
 func read_local_settings():
@@ -42,7 +42,7 @@ func read_local_settings():
 	if file.file_exists(config_file):
 		file.open(config_file, File.READ)
 		set_FULLSCREEN(file.get_var())
-		set_SCREEN_SIZE(file.get_var())
+#		set_SCREEN_SIZE(file.get_var())
 		set_FOV(file.get_var())
 		set_LOOK_SENSITIVITY(file.get_var())
 #		set_CAMERA_INVERT_X(file.get_var())
@@ -64,7 +64,7 @@ func write_local_settings():
 	file.open(config_file, File.WRITE)
 	
 	file.store_var(FULLSCREEN)
-	file.store_var(SCREEN_SIZE)
+#	file.store_var(SCREEN_SIZE)
 	file.store_var(FOV)
 	file.store_var(LOOK_SENSITIVITY)
 #	file.store_var(CAMERA_INVERT_X)
@@ -76,8 +76,8 @@ func write_local_settings():
 	file.close()
 
 
-func update_screen_size():
-	set_SCREEN_SIZE(get_viewport().size)
+#func update_screen_size():
+#	set_SCREEN_SIZE(get_viewport().size)
 
 
 func set_FULLSCREEN(value):
@@ -86,10 +86,10 @@ func set_FULLSCREEN(value):
 	write_local_settings()
 
 
-func set_SCREEN_SIZE(value):
-	SCREEN_SIZE = value
-	OS.set_window_size(SCREEN_SIZE)
-	write_local_settings()
+#func set_SCREEN_SIZE(value):
+#	SCREEN_SIZE = value
+#	OS.set_window_size(SCREEN_SIZE)
+#	write_local_settings()
 
 
 func set_FOV(value):
