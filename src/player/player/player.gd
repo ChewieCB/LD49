@@ -2,7 +2,7 @@ extends KinematicBody
 class_name PlayerController
 
 # FIXME - this is the hackiest hack ever, but it'll hold for the jam
-onready var fadeout = $"../../GUI/Fadeout"
+#onready var fadeout = $"../../GUI/Fadeout"
 
 onready var default_collider = $CollisionShape
 
@@ -70,7 +70,7 @@ onready var eroded_mesh = $DamageMeshes/Eroded
 
 
 func _ready():
-	yield(fadeout.animation_player, "animation_finished")
+#	yield(fadeout.animation_player, "animation_finished")
 	GlobalFlags.PLAYER_CONTROLS_ACTIVE = true
 	GlobalFlags.CAMERA_CONTROLS_ACTIVE = true
 	is_dead = false

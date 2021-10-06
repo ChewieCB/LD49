@@ -24,7 +24,7 @@ func _ready():
 
 func enter(_msg: Dictionary = {}):
 	# FIXME - SOOOOOO MANY HACKJOBS
-	yield(_actor.fadeout.animation_player, "animation_finished")
+#	yield(_actor.fadeout.animation_player, "animation_finished")
 #	if is_timer_active:
 #		_start_decay_timer()
 	# Reset the durability timer
@@ -121,7 +121,7 @@ func set_is_timer_active(value):
 	is_timer_active = value
 	if is_timer_active:
 		_start_decay_timer()
-	else:
+	elif decay_timer:
 		_stop_decay_timer()
 
 

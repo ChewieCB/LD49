@@ -123,6 +123,7 @@ initial_state_path = NodePath("DurabilityParent/Solid")
 
 [node name="DurabilityParent" type="Node" parent="DurabilityStateMachine"]
 script = ExtResource( 10 )
+is_timer_active = false
 
 [node name="Solid" type="Node" parent="DurabilityStateMachine/DurabilityParent"]
 script = ExtResource( 11 )
