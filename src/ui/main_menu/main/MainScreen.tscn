@@ -40,43 +40,43 @@ margin_right = 1720.0
 margin_bottom = 880.0
 
 [node name="Elements" type="VBoxContainer" parent="MainMargin/HBoxContainer"]
-margin_right = 1136.0
+margin_right = 861.0
 margin_bottom = 880.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TitleMargin" type="MarginContainer" parent="MainMargin/HBoxContainer/Elements"]
-margin_right = 1136.0
+margin_right = 861.0
 margin_bottom = 263.0
 
 [node name="Title" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements/TitleMargin"]
-margin_right = 1136.0
+margin_right = 861.0
 margin_bottom = 263.0
 
 [node name="Label" type="Label" parent="MainMargin/HBoxContainer/Elements/TitleMargin/Title"]
-margin_right = 1136.0
+margin_right = 861.0
 margin_bottom = 263.0
 custom_fonts/font = ExtResource( 3 )
-text = "Main Menu	"
+text = "Erosion"
 align = 1
 valign = 1
 
 [node name="Buttons" type="VBoxContainer" parent="MainMargin/HBoxContainer/Elements"]
 margin_top = 267.0
-margin_right = 1136.0
+margin_right = 861.0
 margin_bottom = 880.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="PlayButton" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements/Buttons"]
-margin_right = 1136.0
+margin_right = 861.0
 margin_bottom = 150.0
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="MainMargin/HBoxContainer/Elements/Buttons/PlayButton"]
-margin_left = 498.0
+margin_left = 361.0
 margin_top = 38.0
-margin_right = 637.0
+margin_right = 500.0
 margin_bottom = 111.0
 custom_fonts/font = ExtResource( 2 )
 text = "Play"
@@ -84,14 +84,14 @@ flat = true
 
 [node name="SettingsButton" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements/Buttons"]
 margin_top = 154.0
-margin_right = 1136.0
+margin_right = 861.0
 margin_bottom = 304.0
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="MainMargin/HBoxContainer/Elements/Buttons/SettingsButton"]
-margin_left = 445.0
+margin_left = 308.0
 margin_top = 38.0
-margin_right = 690.0
+margin_right = 553.0
 margin_bottom = 111.0
 custom_fonts/font = ExtResource( 2 )
 text = "Settings"
@@ -99,14 +99,14 @@ flat = true
 
 [node name="CreditsButton" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements/Buttons"]
 margin_top = 308.0
-margin_right = 1136.0
+margin_right = 861.0
 margin_bottom = 458.0
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="MainMargin/HBoxContainer/Elements/Buttons/CreditsButton"]
-margin_left = 463.0
+margin_left = 326.0
 margin_top = 38.0
-margin_right = 672.0
+margin_right = 535.0
 margin_bottom = 111.0
 custom_fonts/font = ExtResource( 2 )
 text = "Credits"
@@ -114,21 +114,21 @@ flat = true
 
 [node name="QuitButton" type="CenterContainer" parent="MainMargin/HBoxContainer/Elements/Buttons"]
 margin_top = 462.0
-margin_right = 1136.0
+margin_right = 861.0
 margin_bottom = 613.0
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="MainMargin/HBoxContainer/Elements/Buttons/QuitButton"]
-margin_left = 504.0
+margin_left = 366.0
 margin_top = 39.0
-margin_right = 632.0
+margin_right = 494.0
 margin_bottom = 112.0
 custom_fonts/font = ExtResource( 2 )
 text = "Quit"
 flat = true
 
 [node name="CenterContainer" type="CenterContainer" parent="MainMargin/HBoxContainer"]
-margin_left = 1140.0
+margin_left = 865.0
 margin_right = 1720.0
 margin_bottom = 880.0
 size_flags_horizontal = 3
