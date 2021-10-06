@@ -46,22 +46,19 @@ func _reduce_durability():
 		_stop_decay_timer()
 		return
 	
-	_actor.skin.switch_mesh(new_state_index)
+	_actor.switch_mesh(new_state_index)
 	
 	var new_state_name
 	match new_state_index:
 		0:
 			new_state_name = "DurabilityParent/Solid"
 			DynamicMusicManager.animation_player.queue("solid")
-			_actor.switch_mesh(0)
 		1:
 			new_state_name = "DurabilityParent/Damaged"
 			DynamicMusicManager.animation_player.queue("solid_to_damaged")
-			_actor.switch_mesh(1)
 		2:
 			new_state_name = "DurabilityParent/Eroded"
 			DynamicMusicManager.animation_player.queue("damaged_to_eroded")
-			_actor.switch_mesh(2)
 		_:
 			push_error("Invalid durability state!")
 	
@@ -81,18 +78,16 @@ func _increase_durability():
 	if new_state_index < 0:
 		return
 		
-	_actor.skin.switch_mesh(new_state_index)
+	_actor.switch_mesh(new_state_index)
 	
 	var new_state_name
 	match new_state_index:
 		0:
 			new_state_name = "DurabilityParent/Solid"
 			DynamicMusicManager.animation_player.queue("damaged_to_solid")
-			_actor.switch_mesh(0)
 		1:
 			new_state_name = "DurabilityParent/Damaged"
 			DynamicMusicManager.animation_player.queue("eroded_to_damaged")
-			_actor.switch_mesh(1)
 		2:
 			new_state_name = "DurabilityParent/Eroded"
 			# Shouldn't happen unless we revive from death??
