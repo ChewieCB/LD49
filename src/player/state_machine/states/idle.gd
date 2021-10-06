@@ -8,6 +8,8 @@ func enter(_msg: Dictionary = {}):
 	_parent.enter()
 	_actor.has_jumped = false
 	_actor.has_dashed = false
+	
+	var skin = _actor.skin
 	#
 #	skin.transition_to(skin.States.IDLE)
 	audio_manager.transition_to(audio_manager.States.IDLE)

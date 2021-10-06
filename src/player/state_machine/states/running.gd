@@ -22,6 +22,8 @@ func enter(_msg: Dictionary = {}):
 	audio_manager.transition_to(walk_sfx)
 	
 	# MESH
+#	var skin = _actor.skin
+#	skin.transition_to(skin.States.MOVE)
 #	skin.transition_to(skin.States.WALK)
 
 

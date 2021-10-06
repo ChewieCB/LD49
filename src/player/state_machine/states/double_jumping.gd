@@ -16,6 +16,9 @@ func enter(_msg: Dictionary = {}):
 	
 	#
 	audio_manager.transition_to(audio_manager.States.DOUBLE_JUMP)
+	
+#	var skin = _actor.skin
+#	skin.transition_to(skin.States.DOUBLE_JUMP)
 #	skin.transition_to(skin.States.JUMP)
 
 
