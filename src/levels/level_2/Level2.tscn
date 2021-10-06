@@ -20,7 +20,7 @@ background_sky = SubResource( 1 )
 ambient_light_energy = 0.0
 glow_enabled = true
 
-[node name="TestLevel" type="Spatial"]
+[node name="Level 2" type="Spatial"]
 script = ExtResource( 4 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
@@ -300,6 +300,7 @@ omni_range = 200.0
 [node name="WinZone" parent="." instance=ExtResource( 5 )]
 transform = Transform( 68.448, -9.05975e-06, -1.94707e-05, -1.03354e-05, -60, 0, 2.66546e-05, -3.528e-12, 50, -307.762, 109, -4.43493 )
 visible = false
+next_level_path = "res://src/levels/test_level/TestLevel.tscn"
 
 [node name="KillZone" parent="." instance=ExtResource( 7 )]
 transform = Transform( 104.375, 0, 0, 0, -15, 0, 0, 0, 219.773, 14, -73, -143 )
