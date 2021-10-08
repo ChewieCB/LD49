@@ -83,22 +83,6 @@ func _process(_delta):
 	reverse_pickup_count = reverse_pickup_counter.pickup_count
 
 
-func switch_mesh(mesh_id):
-	match mesh_id:
-		0:
-			solid_mesh.visible = true
-			damaged_mesh.visible = false
-			eroded_mesh.visible = false
-		1:
-			solid_mesh.visible = false
-			damaged_mesh.visible = true
-			eroded_mesh.visible = false
-		2:
-			solid_mesh.visible = false
-			damaged_mesh.visible = false
-			eroded_mesh.visible = true
-
-
 func can_mantle():
 	var body_ray_count = 0
 	for _ray in body_rays.get_children():

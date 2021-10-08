@@ -46,7 +46,7 @@ func _reduce_durability():
 		_stop_decay_timer()
 		return
 	
-	_actor.switch_mesh(new_state_index)
+	_actor.skin._switch_player_mesh(new_state_index)
 	
 	var new_state_name
 	match new_state_index:
@@ -78,7 +78,7 @@ func _increase_durability():
 	if new_state_index < 0:
 		return
 		
-	_actor.switch_mesh(new_state_index)
+	_actor.skin._switch_player_mesh(new_state_index)
 	
 	var new_state_name
 	match new_state_index:

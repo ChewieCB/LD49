@@ -52,7 +52,7 @@ func climb():
 	
 	var climb_direction = get_climb_direction()
 	
-	var vertical_movement = _actor.global_transform.origin + Vector3(0, 2.8, 0)
+	var vertical_movement = _actor.global_transform.origin + Vector3(0, 3.8, 0)
 	tween.interpolate_property(
 		_actor, 
 		"global_transform:origin", 
