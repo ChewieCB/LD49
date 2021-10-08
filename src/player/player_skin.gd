@@ -5,7 +5,7 @@ onready var mesh_normal = $Armature/Skeleton/player_mesh_normal
 onready var mesh_eroded = $Armature/Skeleton/player_mesh_eroded
 onready var meshes = [mesh_glass, mesh_normal, mesh_eroded]
 
-enum States { IDLE, RUN, JUMP, DOUBLE_JUMP, DASH_AIM, DASH, DIE }
+enum States { IDLE, RUN, JUMP, DOUBLE_JUMP, CLIMB, DASH_AIM, DASH, DIE }
 
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var animation_tree: AnimationTree = $AnimationTree
@@ -17,7 +17,7 @@ func _ready():
 	
 	animation_tree.active = true
 	_playback = animation_tree["parameters/playback"]
-	_playback.start("idle")
+	_playback.start("01_idle")
 	
 	# Start with normal mesh
 	_switch_player_mesh(1)
@@ -26,19 +26,22 @@ func _ready():
 func transition_to(state_id: int):
 	match state_id:
 		States.IDLE:
-			_playback.travel("idle")
+			_playback.travel("01_idle")
 		States.RUN:
-			_playback.travel("run")
+			_playback.travel("02_running")
 		States.JUMP:
-			_playback.travel("jump")
+			_playback.travel("03_jumping")
 		States.DOUBLE_JUMP:
-			_playback.travel("double_jump")
+			_playback.travel("04_double_jumping")
+		States.CLIMB:
+			_playback.travel("05_climbing")
 		States.DASH_AIM:
-			_playback.travel("dash_aim")
+			_playback.travel("06_air_dash")
 		States.DASH:
-			_playback.travel("dash")
+			_playback.travel("06_air_dash")
 		States.DIE:
-			_playback.travel("die")
+			# TODO - add ragdoll
+			_playback.travel("t_pose")
 		_:
 			_playback.travel("t_pose")
 

@@ -13,6 +13,11 @@ func enter(_msg: Dictionary = {}):
 	_parent.enter()
 	
 	climb()
+	
+	# MESH
+	var skin = _actor.skin
+	skin.transition_to(skin.States.CLIMB)
+
 	#
 	audio_manager.transition_to(audio_manager.States.CLIMB)
 	
