@@ -99,6 +99,8 @@ func set_level_id(value):
 			animation_player.queue("damaged_fade_out")
 		2:
 			animation_player.queue("eroded_fade_out")
+		_:
+			pass
 	
 	yield(animation_player, "animation_finished")
 	
