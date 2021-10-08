@@ -8,6 +8,7 @@ onready var orb = $RepairPickup
 
 
 func _ready():
+	self.add_to_group("Pickups")
 	animation_player.play("float")
 
 

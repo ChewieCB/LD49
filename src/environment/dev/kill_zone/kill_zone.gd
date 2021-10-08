@@ -1,13 +1,19 @@
 extends Spatial
 
 onready var fadeout = $"../GUI/Fadeout"
-onready var player = $"../PlayerRig/Player"
+export (NodePath) var player_path
+var player
 
 export (String) var next_level_path
 
+func _ready():
+	if player_path:
+		player = get_node(player_path)
+
 
 func kill_player():
-	player.state_machine.transition_to("Movement/Dead")
+	if player:
+		player.state_machine.transition_to("Movement/Dead")
 
 
 func _on_Area_body_entered(body):

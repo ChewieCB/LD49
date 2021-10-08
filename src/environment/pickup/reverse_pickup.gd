@@ -8,6 +8,7 @@ onready var orb = $ReversePickup
 
 
 func _ready():
+	self.add_to_group("pickups")
 	animation_player.play("float")
 
 
