@@ -11,12 +11,13 @@ func enter(_msg: Dictionary = {}):
 	_parent.velocity += Vector3(0, jump_velocity * _parent.jump_impulse_modifier, 0)
 	_actor.has_jumped = true
 	
+	# MESH
+	var skin = _actor.skin
+	skin.transition_to(skin.States.JUMP)
 	#
 	audio_manager.transition_to(audio_manager.States.JUMP)
 	
-#	var skin = _actor.skin
-#	skin.transition_to(skin.States.JUMP)
-#	skin.transition_to(skin.States.JUMP)
+	_actor.climbing_rays.transform.origin = _actor.climb_ray_pos_jump
 
 
 func physics_process(delta: float):

@@ -24,7 +24,7 @@ func _ready():
 
 func enter(_msg: Dictionary = {}):
 	# FIXME - SOOOOOO MANY HACKJOBS
-	yield(_actor.fadeout.animation_player, "animation_finished")
+#	yield(_actor.fadeout.animation_player, "animation_finished")
 #	if is_timer_active:
 #		_start_decay_timer()
 	# Reset the durability timer
@@ -46,7 +46,7 @@ func _reduce_durability():
 		_stop_decay_timer()
 		return
 	
-	_actor.switch_mesh(new_state_index)
+	_actor.skin._switch_player_mesh(new_state_index)
 	
 	var new_state_name
 	match new_state_index:
@@ -78,7 +78,7 @@ func _increase_durability():
 	if new_state_index < 0:
 		return
 		
-	_actor.switch_mesh(new_state_index)
+	_actor.skin._switch_player_mesh(new_state_index)
 	
 	var new_state_name
 	match new_state_index:
@@ -121,15 +121,15 @@ func set_is_timer_active(value):
 	is_timer_active = value
 	if is_timer_active:
 		_start_decay_timer()
-	else:
+	elif decay_timer:
 		_stop_decay_timer()
 
 
 func set_state_colour(value: Color):
 	state_colour = value
-	var material = _actor.debug_mesh.get_surface_material(0)
-	material.set_albedo(state_colour)
-	_actor.debug_mesh.set_surface_material(0, material)
+#	var material = _actor.debug_mesh.get_surface_material(0)
+#	material.set_albedo(state_colour)
+#	_actor.debug_mesh.set_surface_material(0, material)
 	
 	# Set the ui colour
 	_actor.durability_ui.color = state_colour

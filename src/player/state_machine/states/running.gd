@@ -22,9 +22,10 @@ func enter(_msg: Dictionary = {}):
 	audio_manager.transition_to(walk_sfx)
 	
 	# MESH
-#	var skin = _actor.skin
-#	skin.transition_to(skin.States.MOVE)
-#	skin.transition_to(skin.States.WALK)
+	var skin = _actor.skin
+	skin.transition_to(skin.States.RUN)
+	
+	_actor.climbing_rays.transform.origin = _actor.climb_ray_pos_normal
 
 
 func get_walk_sfx():

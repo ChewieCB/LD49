@@ -1,0 +1,1542 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/player/PlayerRig.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/environment/doors/slide_door/SlidingDoor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/ui/game_over/GameOverScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/environment/pressure_plate/PressurePlate.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/environment/pickup/Pickup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/environment/grates/Grate.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/environment/temp/sliding_platform/sliding_platform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/levels/tutorial_level/tutorial_level.gd" type="Script" id=11]
+[ext_resource path="res://src/environment/pickup/ReversePickup.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Environment" id=1]
+background_mode = 2
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 8.0
+glow_bloom = 0.4
+
+[node name="TutorialLevel" type="Spatial"]
+script = ExtResource( 11 )
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="GameOver" parent="GUI" instance=ExtResource( 3 )]
+
+[node name="Environment" type="Spatial" parent="."]
+
+[node name="RoomOutlines" type="CSGCombiner" parent="Environment"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -44, 0, 50 )
+operation = 2
+use_collision = true
+
+[node name="01_entry_corridor" type="CSGBox" parent="Environment/RoomOutlines"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28882e-05, 10, 43 )
+invert_faces = true
+width = 22.0
+height = 20.0
+depth = 50.0
+
+[node name="02_entry_room" type="CSGBox" parent="Environment/RoomOutlines"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 30, -35 )
+invert_faces = true
+width = 110.0
+height = 60.0
+depth = 106.0
+
+[node name="01_cloister_1" type="CSGBox" parent="Environment/RoomOutlines/02_entry_room"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67, 12, -0.000152588 )
+invert_faces = true
+width = 24.0
+height = 36.0
+depth = 106.0
+
+[node name="01_cloister_2" type="CSGBox" parent="Environment/RoomOutlines/02_entry_room"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 12, -65.8 )
+invert_faces = true
+width = 26.0
+height = 36.0
+depth = 134.1
+
+[node name="02_room_additions" type="CSGCombiner" parent="Environment/RoomOutlines"]
+
+[node name="01_sky_hole" type="CSGCylinder" parent="Environment/RoomOutlines/02_room_additions"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0447426, 125, -35.4635 )
+invert_faces = true
+radius = 20.0
+height = 100.0
+sides = 12
+
+[node name="01_sky_hole_base" type="CSGCylinder" parent="Environment/RoomOutlines/02_room_additions"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0447426, 90, -35.4635 )
+invert_faces = true
+radius = 35.0
+height = 60.0
+sides = 12
+cone = true
+
+[node name="03_passway_corridor3" type="CSGBox" parent="Environment/RoomOutlines/02_room_additions"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 314, 49, -65 )
+invert_faces = true
+width = 22.0
+height = 34.0
+depth = 70.0
+
+[node name="03_passway_corridor5" type="CSGBox" parent="Environment/RoomOutlines/02_room_additions"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 334, 49, -152 )
+invert_faces = true
+width = 22.0
+height = 34.0
+depth = 30.0
+
+[node name="03_passway_corridor6" type="CSGBox" parent="Environment/RoomOutlines/02_room_additions"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 299, 65, -152 )
+invert_faces = true
+width = 22.0
+height = 34.0
+depth = 40.0
+
+[node name="03_passway_corridor7" type="CSGBox" parent="Environment/RoomOutlines/02_room_additions"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 259.1, 72, -152 )
+invert_faces = true
+width = 22.0
+height = 34.0
+depth = 40.0
+
+[node name="03_passway_corridor9" type="CSGBox" parent="Environment/RoomOutlines/02_room_additions"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 220.1, 79, -152 )
+invert_faces = true
+width = 22.0
+height = 34.0
+depth = 40.0
+
+[node name="03_passway_corridor4" type="CSGBox" parent="Environment/RoomOutlines/02_room_additions"]
+transform = Transform( 1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 354.1, 49, -108.7 )
+invert_faces = true
+width = 22.0
+height = 34.0
+depth = 77.0
+
+[node name="03_passway_corner1" type="CSGCylinder" parent="Environment/RoomOutlines/02_room_additions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 349.1, 50, -70 )
+invert_faces = true
+radius = 16.0
+height = 50.0
+sides = 12
+
+[node name="03_passway_corner2" type="CSGCylinder" parent="Environment/RoomOutlines/02_room_additions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 349.1, 50, -147 )
+invert_faces = true
+radius = 16.0
+height = 50.0
+sides = 12
+
+[node name="04_passway" type="CSGBox" parent="Environment/RoomOutlines/02_room_additions"]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 136, 79, -244 )
+invert_faces = true
+width = 22.0
+height = 34.0
+depth = 70.0
+
+[node name="03_passway_corridor" type="CSGBox" parent="Environment/RoomOutlines"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 84, 15.2, -36 )
+invert_faces = true
+width = 22.0
+height = 30.6
+depth = 46.0
+
+[node name="03_blocked_corridor" type="CSGBox" parent="Environment/RoomOutlines"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -95.6, 39.3, -36 )
+invert_faces = true
+width = 22.0
+height = 30.6
+depth = 46.0
+
+[node name="03_passway_corridor2" type="CSGBox" parent="Environment/RoomOutlines"]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 3.99994, 39.3, -151.8 )
+invert_faces = true
+width = 22.0
+height = 30.6
+depth = 76.0
+
+[node name="04_mantle_room" type="CSGBox" parent="Environment/RoomOutlines"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 161.7, 99.9, -35 )
+invert_faces = true
+width = 110.0
+height = 200.0
+depth = 150.0
+
+[node name="04_mantle_room_alcove_01" type="CSGBox" parent="Environment/RoomOutlines"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 230, 62, -35 )
+invert_faces = true
+width = 100.0
+height = 60.0
+depth = 100.0
+
+[node name="04_mantle_room_alcove_02" type="CSGBox" parent="Environment/RoomOutlines"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 162, 102, -160 )
+invert_faces = true
+width = 100.0
+height = 80.0
+depth = 90.0
+
+[node name="04_mantle_room_alcove_05" type="CSGBox" parent="Environment/RoomOutlines"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 162, 102, -308 )
+invert_faces = true
+width = 100.0
+height = 80.0
+depth = 90.0
+
+[node name="04_mantle_room_alcove_06" type="CSGBox" parent="Environment/RoomOutlines"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 191, 124.6, -232 )
+invert_faces = true
+width = 60.0
+height = 35.0
+depth = 32.0
+
+[node name="04_mantle_room_alcove_03" type="CSGBox" parent="Environment/RoomOutlines"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 162, 121, 89 )
+invert_faces = true
+width = 100.0
+height = 60.0
+depth = 90.0
+
+[node name="pit_tube" type="CSGCylinder" parent="Environment/RoomOutlines/04_mantle_room_alcove_03"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -75.1, -3 )
+invert_faces = true
+radius = 20.0
+height = 92.0
+sides = 12
+
+[node name="pit_corridor" type="CSGBox" parent="Environment/RoomOutlines/04_mantle_room_alcove_03"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -106.1, -3 )
+invert_faces = true
+width = 50.0
+height = 30.0
+depth = 34.0
+
+[node name="04_mantle_room_alcove_04" type="CSGBox" parent="Environment/RoomOutlines"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 156, -35 )
+invert_faces = true
+width = 200.0
+height = 60.0
+depth = 100.0
+
+[node name="01_entry_room_dec" type="Spatial" parent="Environment"]
+
+[node name="CentralPillar" type="CSGCylinder" parent="Environment/01_entry_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.4635, 12, 50.0447 )
+use_collision = true
+radius = 16.0
+height = 24.0
+sides = 12
+
+[node name="PillarBridge1" type="CSGBox" parent="Environment/01_entry_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 22, 81 )
+use_collision = true
+width = 14.0
+height = 4.0
+depth = 36.0
+
+[node name="PillarBridge2" type="CSGBox" parent="Environment/01_entry_room_dec"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -126.9, 22, 46 )
+use_collision = true
+width = 22.0
+height = 4.0
+depth = 10.0
+
+[node name="Step1" type="CSGBox" parent="Environment/01_entry_room_dec"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -66.4645, 2, 37.2929 )
+use_collision = true
+width = 6.0
+height = 4.0
+depth = 8.0
+
+[node name="Step2" type="CSGBox" parent="Environment/01_entry_room_dec"]
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -74.6291, 4, 32.2118 )
+use_collision = true
+width = 6.0
+height = 8.0
+depth = 8.0
+
+[node name="Step3" type="CSGBox" parent="Environment/01_entry_room_dec"]
+transform = Transform( -0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -84.2265, 6, 32.4354 )
+use_collision = true
+width = 6.0
+height = 12.0
+depth = 8.0
+
+[node name="Step4" type="CSGBox" parent="Environment/01_entry_room_dec"]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -92.709, 8, 37.0969 )
+use_collision = true
+width = 6.0
+height = 16.0
+depth = 8.0
+
+[node name="Step5" type="CSGBox" parent="Environment/01_entry_room_dec"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -97.3482, 10, 45.2337 )
+use_collision = true
+width = 6.0
+height = 20.0
+depth = 8.0
+
+[node name="01_cloister_dec" type="Spatial" parent="Environment/01_entry_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 6, -99 )
+
+[node name="low_wall_01" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -49.1, 21, 100 )
+use_collision = true
+height = 6.0
+depth = 46.6
+
+[node name="low_wall_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -108.7, 21, 100 )
+use_collision = true
+height = 6.0
+depth = 45.4
+
+[node name="high_wall_03" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -77.1, 51, 100 )
+use_collision = true
+height = 6.0
+depth = 102.0
+
+[node name="arch_01" type="CSGCombiner" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0 )
+operation = 2
+use_collision = true
+
+[node name="high_wall_01" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec/arch_01"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -36, 41, 100 )
+height = 14.0
+depth = 20.0
+
+[node name="arch_cut_01" type="CSGCylinder" parent="Environment/01_entry_room_dec/01_cloister_dec/arch_01"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -36, 34, 100 )
+operation = 2
+radius = 7.0
+height = 2.0
+sides = 12
+
+[node name="arch_02" type="CSGCombiner" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 0 )
+operation = 2
+use_collision = true
+
+[node name="high_wall_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec/arch_02"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -36, 41, 100 )
+height = 14.0
+depth = 20.0
+
+[node name="arch_cut_02" type="CSGCylinder" parent="Environment/01_entry_room_dec/01_cloister_dec/arch_02"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -36, 34, 100 )
+operation = 2
+radius = 7.0
+height = 2.0
+sides = 12
+
+[node name="arch_05" type="CSGCombiner" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43, 0, 0 )
+operation = 2
+use_collision = true
+
+[node name="high_wall_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec/arch_05"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -36, 41, 100 )
+height = 14.0
+depth = 20.0
+
+[node name="arch_cut_02" type="CSGCylinder" parent="Environment/01_entry_room_dec/01_cloister_dec/arch_05"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -36, 34, 100 )
+operation = 2
+radius = 7.0
+height = 2.0
+sides = 12
+
+[node name="low_wall_arch_wall_01" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5, 29, 100 )
+use_collision = true
+width = 3.0
+height = 10.0
+
+[node name="low_wall_arch_wall_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, 29, 100 )
+use_collision = true
+width = 3.0
+height = 10.0
+
+[node name="low_wall_arch_wall_03" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -66.5, 29, 100 )
+use_collision = true
+width = 3.0
+height = 10.0
+
+[node name="cloister_entry_side_01" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70.2, 36, 100 )
+use_collision = true
+width = 4.4
+height = 24.0
+
+[node name="cloister_entry_side_05" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6, 36, 100 )
+use_collision = true
+width = 5.8
+height = 24.0
+
+[node name="cloister_entry_side_04" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70.2, 36, 100 )
+use_collision = true
+width = 4.4
+height = 24.0
+
+[node name="cloister_entry_side_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88.2, 36, 100 )
+use_collision = true
+width = 4.4
+height = 24.0
+
+[node name="cloister_entry_side_03" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -129.4, 36, 100 )
+use_collision = true
+width = 4.8
+height = 24.0
+
+[node name="arch_03" type="CSGCombiner" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, 0 )
+operation = 2
+use_collision = true
+
+[node name="high_wall_03" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec/arch_03"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -36, 41, 100 )
+height = 14.0
+depth = 20.0
+
+[node name="arch_cut_03" type="CSGCylinder" parent="Environment/01_entry_room_dec/01_cloister_dec/arch_03"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -36, 34, 100 )
+operation = 2
+radius = 7.0
+height = 2.0
+sides = 12
+
+[node name="arch_04" type="CSGCombiner" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 0, 0 )
+operation = 2
+use_collision = true
+
+[node name="high_wall_04" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec/arch_04"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -36, 41, 100 )
+height = 14.0
+depth = 20.0
+
+[node name="arch_cut_04" type="CSGCylinder" parent="Environment/01_entry_room_dec/01_cloister_dec/arch_04"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -36, 34, 100 )
+operation = 2
+radius = 7.0
+height = 2.0
+sides = 12
+
+[node name="low_wall_arch_wall_04" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -91.5, 29, 100 )
+use_collision = true
+width = 3.0
+height = 10.0
+
+[node name="low_wall_arch_wall_05" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.5, 29, 100 )
+use_collision = true
+width = 3.0
+height = 10.0
+
+[node name="low_wall_arch_wall_06" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -125.5, 29, 100 )
+use_collision = true
+width = 3.0
+height = 10.0
+
+[node name="cloister_corner_01" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -132, 24, 99 )
+use_collision = true
+width = 8.0
+height = 60.0
+depth = 8.0
+
+[node name="cloister_corner_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -26, 24, 99 )
+use_collision = true
+width = 8.0
+height = 60.0
+depth = 8.0
+
+[node name="01_cloister_dec2" type="Spatial" parent="Environment/01_entry_room_dec"]
+transform = Transform( -4.37114e-08, 0, -2, 0, 1, 0, 1, 0, -8.74228e-08, 66, 6, 125 )
+
+[node name="low_wall_01" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -49.1, 21, 100 )
+use_collision = true
+height = 6.0
+depth = 46.6
+
+[node name="low_wall_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -108.7, 21, 100 )
+use_collision = true
+height = 6.0
+depth = 45.4
+
+[node name="high_wall_03" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -77.1, 51, 100 )
+use_collision = true
+height = 6.0
+depth = 102.0
+
+[node name="arch_01" type="CSGCombiner" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0 )
+operation = 2
+use_collision = true
+
+[node name="high_wall_01" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2/arch_01"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -36, 41, 100 )
+height = 14.0
+depth = 20.0
+
+[node name="arch_cut_01" type="CSGCylinder" parent="Environment/01_entry_room_dec/01_cloister_dec2/arch_01"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -36, 34, 100 )
+operation = 2
+radius = 7.0
+height = 2.0
+sides = 12
+
+[node name="arch_02" type="CSGCombiner" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 0 )
+operation = 2
+use_collision = true
+
+[node name="high_wall_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2/arch_02"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -36, 41, 100 )
+height = 14.0
+depth = 20.0
+
+[node name="arch_cut_02" type="CSGCylinder" parent="Environment/01_entry_room_dec/01_cloister_dec2/arch_02"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -36, 34, 100 )
+operation = 2
+radius = 7.0
+height = 2.0
+sides = 12
+
+[node name="arch_05" type="CSGCombiner" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43, 0, 0 )
+operation = 2
+use_collision = true
+
+[node name="high_wall_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2/arch_05"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -36, 41, 100 )
+height = 14.0
+depth = 20.0
+
+[node name="arch_cut_02" type="CSGCylinder" parent="Environment/01_entry_room_dec/01_cloister_dec2/arch_05"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -36, 34, 100 )
+operation = 2
+radius = 7.0
+height = 2.0
+sides = 12
+
+[node name="low_wall_arch_wall_01" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5, 29, 100 )
+use_collision = true
+width = 3.0
+height = 10.0
+
+[node name="low_wall_arch_wall_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, 29, 100 )
+use_collision = true
+width = 3.0
+height = 10.0
+
+[node name="low_wall_arch_wall_03" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -66.5, 29, 100 )
+use_collision = true
+width = 3.0
+height = 10.0
+
+[node name="cloister_entry_side_01" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70.2, 36, 100 )
+use_collision = true
+width = 4.4
+height = 24.0
+
+[node name="cloister_entry_side_05" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6, 36, 100 )
+use_collision = true
+width = 5.8
+height = 24.0
+
+[node name="cloister_entry_side_04" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70.2, 36, 100 )
+use_collision = true
+width = 4.4
+height = 24.0
+
+[node name="cloister_entry_side_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88.2, 36, 100 )
+use_collision = true
+width = 4.4
+height = 24.0
+
+[node name="cloister_entry_side_03" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -129.4, 36, 100 )
+use_collision = true
+width = 4.8
+height = 24.0
+
+[node name="arch_03" type="CSGCombiner" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, 0 )
+operation = 2
+use_collision = true
+
+[node name="high_wall_03" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2/arch_03"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -36, 41, 100 )
+height = 14.0
+depth = 20.0
+
+[node name="arch_cut_03" type="CSGCylinder" parent="Environment/01_entry_room_dec/01_cloister_dec2/arch_03"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -36, 34, 100 )
+operation = 2
+radius = 7.0
+height = 2.0
+sides = 12
+
+[node name="arch_04" type="CSGCombiner" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 0, 0 )
+operation = 2
+use_collision = true
+
+[node name="high_wall_04" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2/arch_04"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -36, 41, 100 )
+height = 14.0
+depth = 20.0
+
+[node name="arch_cut_04" type="CSGCylinder" parent="Environment/01_entry_room_dec/01_cloister_dec2/arch_04"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -36, 34, 100 )
+operation = 2
+radius = 7.0
+height = 2.0
+sides = 12
+
+[node name="low_wall_arch_wall_04" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -91.5, 29, 100 )
+use_collision = true
+width = 3.0
+height = 10.0
+
+[node name="low_wall_arch_wall_05" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.5, 29, 100 )
+use_collision = true
+width = 3.0
+height = 10.0
+
+[node name="low_wall_arch_wall_06" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -125.5, 29, 100 )
+use_collision = true
+width = 3.0
+height = 10.0
+
+[node name="cloister_corner_03" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -132, 24, 99 )
+use_collision = true
+width = 8.0
+height = 60.0
+depth = 8.0
+
+[node name="cloister_corner_04" type="CSGBox" parent="Environment/01_entry_room_dec/01_cloister_dec2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -132, 24, 48 )
+use_collision = true
+width = 8.0
+height = 60.0
+depth = 8.0
+
+[node name="01_rubble_01" type="Spatial" parent="Environment/01_entry_room_dec"]
+
+[node name="rock_01" type="CSGSphere" parent="Environment/01_entry_room_dec/01_rubble_01"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -80, 30, 138 )
+use_collision = true
+radius = 8.0
+radial_segments = 6
+rings = 4
+
+[node name="rock_02" type="CSGSphere" parent="Environment/01_entry_room_dec/01_rubble_01"]
+transform = Transform( -0.232937, -0.482963, 0.669213, 0, 0.866025, 0.4, -0.869333, 0.12941, -0.179315, -73.4973, 30, 135.222 )
+use_collision = true
+radius = 8.0
+radial_segments = 6
+rings = 4
+
+[node name="rock_03" type="CSGSphere" parent="Environment/01_entry_room_dec/01_rubble_01"]
+transform = Transform( -0.232937, -2.16886e-08, 0.927289, 0, 0.78, 2.76354e-08, -0.869333, 5.81145e-09, -0.248466, -74.2917, 38.6603, 140.38 )
+use_collision = true
+radius = 8.0
+radial_segments = 6
+rings = 4
+
+[node name="rock_04" type="CSGSphere" parent="Environment/01_entry_room_dec/01_rubble_01"]
+transform = Transform( -0.7875, -0.026125, 0.463644, -0.434666, 0.100939, -0.831384, -0.0301443, -0.773, -0.124233, -85.1874, 37.0473, 144.889 )
+use_collision = true
+radius = 8.0
+radial_segments = 6
+rings = 4
+
+[node name="rock_06" type="CSGSphere" parent="Environment/01_entry_room_dec/01_rubble_01"]
+transform = Transform( 0.0764463, -0.356371, -0.850042, 0.832558, 0.285738, -0.0962711, 0.333171, -0.632261, 0.435614, -73.1874, 42.0473, 144.889 )
+use_collision = true
+radius = 8.0
+radial_segments = 6
+rings = 4
+
+[node name="rock_07" type="CSGSphere" parent="Environment/01_entry_room_dec/01_rubble_01"]
+transform = Transform( -0.250311, 0.369368, -0.802274, 0.617158, 0.0476725, -0.185837, 0.0515345, -0.59489, -0.433178, -80.1874, 46.0473, 148.889 )
+use_collision = true
+radius = 8.0
+radial_segments = 6
+rings = 4
+
+[node name="rock_05" type="CSGSphere" parent="Environment/01_entry_room_dec/01_rubble_01"]
+transform = Transform( -0.399024, -0.0305663, -0.84, 0.71551, 0.118099, -0.463644, 0.106918, -0.90441, -0.0321539, -85.4736, 27.5618, 138.162 )
+use_collision = true
+radius = 8.0
+radial_segments = 6
+rings = 4
+
+[node name="rock_collider" type="CSGBox" parent="Environment/01_entry_room_dec/01_rubble_01"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 40, 142 )
+use_collision = true
+invert_faces = true
+width = 22.0
+height = 34.0
+depth = 26.0
+
+[node name="01_sky_grate" type="Spatial" parent="Environment/01_entry_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+
+[node name="grate_01" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -79.5, 61, 50 )
+has_lock = false
+has_frame = false
+
+[node name="grate_02" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -68.5, 61, 50 )
+has_lock = false
+has_frame = false
+
+[node name="grate_03" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -57.5, 61, 50 )
+has_lock = false
+has_frame = false
+
+[node name="grate_04" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -90.5, 61, 50 )
+has_lock = false
+has_frame = false
+
+[node name="grate_05" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -101.5, 61, 50 )
+has_lock = false
+has_frame = false
+
+[node name="grate_06" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -112.5, 61, 50 )
+has_lock = false
+has_frame = false
+
+[node name="grate_07" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -46.5, 61, 50 )
+has_lock = false
+has_frame = false
+
+[node name="grate_08" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -79.5, 61, 39 )
+has_lock = false
+has_frame = false
+
+[node name="grate_09" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -68.5, 61, 39 )
+has_lock = false
+has_frame = false
+
+[node name="grate_10" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -57.5, 61, 39 )
+has_lock = false
+has_frame = false
+
+[node name="grate_11" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -90.5, 61, 39 )
+has_lock = false
+has_frame = false
+
+[node name="grate_12" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -101.5, 61, 39 )
+has_lock = false
+has_frame = false
+
+[node name="grate_13" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -112.5, 61, 39 )
+has_lock = false
+has_frame = false
+
+[node name="grate_42" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -112.5, 61, 28 )
+has_lock = false
+has_frame = false
+
+[node name="grate_14" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -46.5, 61, 39 )
+has_lock = false
+has_frame = false
+
+[node name="grate_15" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -79.5, 61, 61 )
+has_lock = false
+has_frame = false
+
+[node name="grate_16" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -68.5, 61, 61 )
+has_lock = false
+has_frame = false
+
+[node name="grate_17" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -57.5, 61, 61 )
+has_lock = false
+has_frame = false
+
+[node name="grate_18" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -90.5, 61, 61 )
+has_lock = false
+has_frame = false
+
+[node name="grate_19" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -101.5, 61, 61 )
+has_lock = false
+has_frame = false
+
+[node name="grate_20" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -112.5, 61, 61 )
+has_lock = false
+has_frame = false
+
+[node name="grate_21" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -46.5, 61, 61 )
+has_lock = false
+has_frame = false
+
+[node name="grate_45" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -46.5, 61, 72 )
+has_lock = false
+has_frame = false
+
+[node name="grate_29" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -79.5, 61, 28 )
+has_lock = false
+has_frame = false
+
+[node name="grate_31" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -68.5, 61, 28 )
+has_lock = false
+has_frame = false
+
+[node name="grate_32" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -57.5, 61, 28 )
+has_lock = false
+has_frame = false
+
+[node name="grate_33" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -90.5, 61, 28 )
+has_lock = false
+has_frame = false
+
+[node name="grate_34" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -101.5, 61, 28 )
+has_lock = false
+has_frame = false
+
+[node name="grate_36" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -46.5, 61, 28 )
+has_lock = false
+has_frame = false
+
+[node name="grate_37" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -79.5, 61, 17 )
+has_lock = false
+has_frame = false
+
+[node name="grate_38" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -68.5, 61, 17 )
+has_lock = false
+has_frame = false
+
+[node name="grate_39" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -57.5, 61, 17 )
+has_lock = false
+has_frame = false
+
+[node name="grate_40" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -90.5, 61, 17 )
+has_lock = false
+has_frame = false
+
+[node name="grate_41" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -101.5, 61, 17 )
+has_lock = false
+has_frame = false
+
+[node name="grate_22" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -79.5, 61, 72 )
+has_lock = false
+has_frame = false
+
+[node name="grate_23" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -68.5, 61, 72 )
+has_lock = false
+has_frame = false
+
+[node name="grate_24" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -57.5, 61, 72 )
+has_lock = false
+has_frame = false
+
+[node name="grate_25" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -90.5, 61, 72 )
+has_lock = false
+has_frame = false
+
+[node name="grate_26" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -101.5, 61, 72 )
+has_lock = false
+has_frame = false
+
+[node name="grate_44" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -112.5, 61, 72 )
+has_lock = false
+has_frame = false
+
+[node name="grate_35" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -101.5, 61, 83 )
+has_lock = false
+has_frame = false
+
+[node name="grate_27" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -79.5, 61, 83 )
+has_lock = false
+has_frame = false
+
+[node name="grate_28" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -68.5, 61, 83 )
+has_lock = false
+has_frame = false
+
+[node name="grate_43" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -57.5, 61, 83 )
+has_lock = false
+has_frame = false
+
+[node name="grate_30" parent="Environment/01_entry_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -90.5, 61, 83 )
+has_lock = false
+has_frame = false
+
+[node name="01_door_frame2" type="Spatial" parent="Environment/01_entry_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 24, 120 )
+
+[node name="frame_top" type="CSGBox" parent="Environment/01_entry_room_dec/01_door_frame2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33, 2 )
+use_collision = true
+width = 16.8
+height = 6.0
+depth = 4.0
+
+[node name="frame_side_01" type="CSGBox" parent="Environment/01_entry_room_dec/01_door_frame2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4, 18, 2 )
+use_collision = true
+width = 6.0
+height = 36.0
+depth = 4.0
+
+[node name="frame_side_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_door_frame2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4, 18, 2 )
+use_collision = true
+width = 6.0
+height = 36.0
+depth = 4.0
+
+[node name="01_door_frame3" type="Spatial" parent="Environment/01_entry_room_dec"]
+transform = Transform( -1.07285e-07, 0, -1, 0, 1, 0, 1, 0, -1.07285e-07, -154, 24, 46 )
+
+[node name="frame_top" type="CSGBox" parent="Environment/01_entry_room_dec/01_door_frame3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.6, 2 )
+use_collision = true
+width = 23.0
+height = 6.0
+depth = 4.0
+
+[node name="frame_side_01" type="CSGBox" parent="Environment/01_entry_room_dec/01_door_frame3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 18, 2 )
+use_collision = true
+width = 6.0
+height = 36.0
+depth = 4.0
+
+[node name="frame_side_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_door_frame3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 18, 2 )
+use_collision = true
+width = 6.0
+height = 36.0
+depth = 4.0
+
+[node name="01_door_frame" type="Spatial" parent="Environment/01_entry_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -11 )
+
+[node name="frame_top" type="CSGBox" parent="Environment/01_entry_room_dec/01_door_frame"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33, 2 )
+use_collision = true
+width = 16.8
+height = 6.0
+depth = 4.0
+
+[node name="frame_side_01" type="CSGBox" parent="Environment/01_entry_room_dec/01_door_frame"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4, 18, 2 )
+use_collision = true
+width = 6.0
+height = 36.0
+depth = 4.0
+
+[node name="frame_side_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_door_frame"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4, 18, 2 )
+use_collision = true
+width = 6.0
+height = 36.0
+depth = 4.0
+
+[node name="01_entry_room_interactibles" type="Spatial" parent="Environment"]
+
+[node name="SlidingDoor_01" parent="Environment/01_entry_room_interactibles" instance=ExtResource( 2 )]
+transform = Transform( -1, 8.74228e-08, -8.74228e-08, -8.74228e-08, -1, -8.74228e-08, -8.74228e-08, -8.74228e-08, 1, -80, 75, -22 )
+trigger_path = NodePath("../PressurePlate_01")
+
+[node name="SlidingDoor_02" parent="Environment/01_entry_room_interactibles" instance=ExtResource( 2 )]
+transform = Transform( -7.54979e-08, 8.74228e-08, 1, -1.50996e-07, -1, 8.74228e-08, 1, -1.50996e-07, 7.54979e-08, -161, 99, 46 )
+trigger_path = NodePath("../../04_mantle_room_dec/PressurePlate_06")
+
+[node name="PressurePlate_01" parent="Environment/01_entry_room_interactibles" instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -79.5, 0.200001, 9.8 )
+weight_required = 1
+
+[node name="repair_pickups" type="Spatial" parent="Environment/01_entry_room_interactibles"]
+
+[node name="AddDurabilityPickup_01" parent="Environment/01_entry_room_interactibles/repair_pickups" groups=[
+"pickups",
+] instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 24.5, 50 )
+
+[node name="01_entry_room_lighting" type="Spatial" parent="Environment"]
+
+[node name="SkyLight" type="SpotLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -79.5, 153.867, 50 )
+light_color = Color( 1, 0.835294, 0.521569, 1 )
+spot_range = 200.0
+spot_angle = 15.0
+
+[node name="OmniLight" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 36, 50 )
+light_color = Color( 1, 0.764706, 0.356863, 1 )
+light_energy = 0.2
+omni_range = 100.0
+
+[node name="OmniLight2" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 32, -106 )
+light_color = Color( 1, 0.764706, 0.356863, 1 )
+light_energy = 0.2
+omni_range = 150.0
+
+[node name="OmniLight5" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 60, -201 )
+light_color = Color( 0.356863, 0.760784, 1, 1 )
+light_energy = 0.2
+omni_range = 100.0
+
+[node name="OmniLight8" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -112.5, 52, -298 )
+light_color = Color( 0.356863, 0.760784, 1, 1 )
+light_energy = 0.2
+omni_range = 100.0
+
+[node name="OmniLight9" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -191.5, 52, -298 )
+light_color = Color( 0.356863, 0.760784, 1, 1 )
+light_energy = 0.2
+omni_range = 100.0
+
+[node name="OmniLight6" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -210.5, 90, -115 )
+light_color = Color( 0.917647, 0.498039, 0.0509804, 1 )
+light_energy = 0.5
+omni_range = 100.0
+
+[node name="OmniLight11" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -347.5, 109, -103 )
+light_color = Color( 0.917647, 0.498039, 0.0509804, 1 )
+light_energy = 0.5
+omni_range = 100.0
+
+[node name="OmniLight10" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -195.5, 61, -218 )
+light_color = Color( 0.917647, 0.498039, 0.0509804, 1 )
+light_energy = 0.5
+omni_range = 100.0
+
+[node name="OmniLight7" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.5, 129, -115 )
+light_color = Color( 0.968627, 0.0745098, 0.0745098, 1 )
+light_energy = 0.3
+omni_range = 100.0
+
+[node name="OmniLight13" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -274.5, 129, -141 )
+light_color = Color( 0.968627, 0.0745098, 0.0745098, 1 )
+light_energy = 0.3
+omni_range = 75.0
+
+[node name="OmniLight12" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.5, 15, -115 )
+light_color = Color( 0.968627, 0.0745098, 0.0745098, 1 )
+light_energy = 0.3
+omni_range = 100.0
+
+[node name="OmniLight4" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 154, -106 )
+light_color = Color( 1, 0.764706, 0.356863, 1 )
+light_energy = 0.2
+omni_range = 150.0
+
+[node name="OmniLight14" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 168, 47 )
+light_color = Color( 0.556863, 1, 0.356863, 1 )
+light_energy = 0.2
+omni_range = 150.0
+
+[node name="OmniLight3" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 161, 50 )
+light_color = Color( 1, 0.764706, 0.356863, 1 )
+light_energy = 0.2
+omni_range = 150.0
+
+[node name="04_mantle_room_interactibles" type="Spatial" parent="Environment"]
+
+[node name="repair_pickups" type="Spatial" parent="Environment/04_mantle_room_interactibles"]
+
+[node name="disrepair_pickups" type="Spatial" parent="Environment/04_mantle_room_interactibles"]
+
+[node name="RemoveDurabilityPickup_01" parent="Environment/04_mantle_room_interactibles/disrepair_pickups" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -192, 25, -299 )
+
+[node name="RemoveDurabilityPickup_02" parent="Environment/04_mantle_room_interactibles/disrepair_pickups" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 89.3, 98, -113.7 )
+
+[node name="04_mantle_room_dec" type="Spatial" parent="Environment"]
+
+[node name="platform_01" type="CSGBox" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 4, -146.7 )
+use_collision = true
+width = 40.0
+height = 8.0
+depth = 40.0
+
+[node name="platform_02" type="CSGBox" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -78, 8, -146.7 )
+use_collision = true
+width = 40.0
+height = 16.0
+depth = 40.0
+
+[node name="platform_03" type="CSGBox" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -118, 12, -146.7 )
+use_collision = true
+width = 40.0
+height = 24.0
+depth = 40.0
+
+[node name="platform_04" type="CSGBox" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -390, 71, -114.7 )
+use_collision = true
+width = 24.0
+height = 18.0
+depth = 60.0
+
+[node name="platform_07" type="CSGBox" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -346.804, 77, -121.896 )
+use_collision = true
+width = 24.0
+height = 32.0
+depth = 24.0
+
+[node name="platform_05" type="CSGBox" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -331.804, 80.1, -151.028 )
+use_collision = true
+width = 12.0
+height = 38.0
+depth = 12.0
+
+[node name="platform_06" type="CSGBox" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -319.804, 103.1, -151.028 )
+use_collision = true
+width = 36.0
+height = 8.0
+depth = 12.0
+
+[node name="statue_plinth_01" type="Spatial" parent="Environment/04_mantle_room_dec"]
+
+[node name="Plinth" type="CSGCylinder" parent="Environment/04_mantle_room_dec/statue_plinth_01"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 36, -226 )
+use_collision = true
+radius = 12.0
+height = 8.0
+
+[node name="statue_plinth_02" type="Spatial" parent="Environment/04_mantle_room_dec"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24, 28, -206 )
+
+[node name="Plinth" type="CSGCylinder" parent="Environment/04_mantle_room_dec/statue_plinth_02"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 36, -226 )
+use_collision = true
+radius = 12.0
+height = 8.0
+
+[node name="statue_plinth_03" type="Spatial" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -135, 58, -34 )
+
+[node name="Plinth" type="CSGCylinder" parent="Environment/04_mantle_room_dec/statue_plinth_03"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 36, -226 )
+use_collision = true
+radius = 12.0
+height = 8.0
+
+[node name="SlidingPlatform_02" parent="Environment/04_mantle_room_dec" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -79.6, 110, -166 )
+trigger_path = NodePath("../PressurePlate_05")
+
+[node name="SlidingPlatform_03" parent="Environment/04_mantle_room_dec" instance=ExtResource( 8 )]
+transform = Transform( 7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -79.6, 74, -57 )
+trigger_path = NodePath("../PressurePlate_04")
+
+[node name="01_door_frame4" type="Spatial" parent="Environment/04_mantle_room_dec"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -250, 62, -87 )
+
+[node name="frame_top" type="CSGBox" parent="Environment/04_mantle_room_dec/01_door_frame4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.399994, 33, 2 )
+use_collision = true
+width = 21.0
+height = 6.0
+depth = 4.0
+
+[node name="frame_side_01" type="CSGBox" parent="Environment/04_mantle_room_dec/01_door_frame4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6, 18, 2 )
+use_collision = true
+width = 6.0
+height = 36.0
+depth = 4.0
+
+[node name="frame_side_02" type="CSGBox" parent="Environment/04_mantle_room_dec/01_door_frame4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8, 18, 2 )
+use_collision = true
+width = 6.0
+height = 36.0
+depth = 4.0
+
+[node name="01_door_frame6" type="Spatial" parent="Environment/04_mantle_room_dec"]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -197, 62, -153 )
+
+[node name="frame_top" type="CSGBox" parent="Environment/04_mantle_room_dec/01_door_frame6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33, 2 )
+use_collision = true
+width = 16.8
+height = 6.0
+depth = 4.0
+
+[node name="frame_side_01" type="CSGBox" parent="Environment/04_mantle_room_dec/01_door_frame6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4, 18, 2 )
+use_collision = true
+width = 6.0
+height = 36.0
+depth = 4.0
+
+[node name="frame_side_02" type="CSGBox" parent="Environment/04_mantle_room_dec/01_door_frame6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4, 18, 2 )
+use_collision = true
+width = 6.0
+height = 36.0
+depth = 4.0
+
+[node name="01_door_frame5" type="Spatial" parent="Environment/04_mantle_room_dec"]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -109, 32, -226 )
+
+[node name="frame_top" type="CSGBox" parent="Environment/04_mantle_room_dec/01_door_frame5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33, 2 )
+use_collision = true
+width = 23.0
+height = 6.0
+depth = 4.0
+
+[node name="frame_side_01" type="CSGBox" parent="Environment/04_mantle_room_dec/01_door_frame5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 18, 2 )
+use_collision = true
+width = 6.0
+height = 36.0
+depth = 4.0
+
+[node name="frame_side_02" type="CSGBox" parent="Environment/04_mantle_room_dec/01_door_frame5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9, 18, 2 )
+use_collision = true
+width = 6.0
+height = 36.0
+depth = 4.0
+
+[node name="SlidingDoor_02" parent="Environment/04_mantle_room_dec" instance=ExtResource( 2 )]
+transform = Transform( -1.94707e-07, 8.74228e-08, 1, -1.50996e-07, -1, 8.74228e-08, 1, -1.50996e-07, 1.94707e-07, -257, 137, -87 )
+trigger_path = NodePath("../PressurePlate_03")
+
+[node name="SlidingDoor_03" parent="Environment/04_mantle_room_dec" instance=ExtResource( 2 )]
+transform = Transform( -1, 1.50996e-07, -2.38418e-07, -1.50996e-07, -1, -1.50996e-07, -2.38418e-07, -1.50996e-07, 1, -109, 107, -233 )
+trigger_path = NodePath("../PressurePlate_02")
+
+[node name="PressurePlate_02" parent="Environment/04_mantle_room_dec" instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -79.5, 33.2, -193.2 )
+weight_required = 1
+
+[node name="PressurePlate_03" parent="Environment/04_mantle_room_dec" instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -195.5, 63.2, -110.2 )
+weight_required = 1
+
+[node name="PressurePlate_06" parent="Environment/04_mantle_room_dec" instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -79.5, 127.2, 108.8 )
+weight_required = 0
+
+[node name="PressurePlate_04" parent="Environment/04_mantle_room_dec" instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -267.5, 108.2, -141.2 )
+weight_required = 1
+
+[node name="PressurePlate_05" parent="Environment/04_mantle_room_dec" instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 18.1, 0.200001, -114.6 )
+weight_required = 0
+
+[node name="01_sky_grate" type="Spatial" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 7, -162 )
+
+[node name="grate_01" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5, 76, 53 )
+has_lock = false
+has_frame = false
+
+[node name="grate_02" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -74.5, 76, 53 )
+has_lock = false
+has_frame = false
+
+[node name="grate_03" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -63.5, 76, 53 )
+has_lock = false
+has_frame = false
+
+[node name="grate_04" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -96.5, 76, 53 )
+has_lock = false
+has_frame = false
+
+[node name="grate_08" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5, 76, 42 )
+has_lock = false
+has_frame = false
+
+[node name="grate_09" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -74.5, 76, 42 )
+has_lock = false
+has_frame = false
+
+[node name="grate_10" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -63.5, 76, 42 )
+has_lock = false
+has_frame = false
+
+[node name="grate_11" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -96.5, 76, 42 )
+has_lock = false
+has_frame = false
+
+[node name="grate_15" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5, 76, 64 )
+has_lock = false
+has_frame = false
+
+[node name="grate_18" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -96.5, 76, 64 )
+has_lock = false
+has_frame = false
+
+[node name="grate_16" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -74.5, 76, 64 )
+has_lock = false
+has_frame = false
+
+[node name="grate_17" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -63.5, 76, 64 )
+has_lock = false
+has_frame = false
+
+[node name="grate_29" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5, 76, 31 )
+has_lock = false
+has_frame = false
+
+[node name="grate_31" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -74.5, 76, 31 )
+has_lock = false
+has_frame = false
+
+[node name="grate_32" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -63.5, 76, 31 )
+has_lock = false
+has_frame = false
+
+[node name="grate_33" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -96.5, 76, 31 )
+has_lock = false
+has_frame = false
+
+[node name="01_sky_grate2" type="Spatial" parent="Environment/04_mantle_room_dec"]
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 76, 56, -35 )
+
+[node name="grate_01" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5, 76, 53 )
+has_lock = false
+has_frame = false
+
+[node name="grate_02" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -74.5, 76, 53 )
+has_lock = false
+has_frame = false
+
+[node name="grate_03" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -63.5, 76, 53 )
+has_lock = false
+has_frame = false
+
+[node name="grate_04" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -96.5, 76, 53 )
+has_lock = false
+has_frame = false
+
+[node name="grate_08" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5, 76, 42 )
+has_lock = false
+has_frame = false
+
+[node name="grate_09" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -74.5, 76, 42 )
+has_lock = false
+has_frame = false
+
+[node name="grate_10" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -63.5, 76, 42 )
+has_lock = false
+has_frame = false
+
+[node name="grate_11" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -96.5, 76, 42 )
+has_lock = false
+has_frame = false
+
+[node name="grate_15" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5, 76, 64 )
+has_lock = false
+has_frame = false
+
+[node name="grate_18" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -96.5, 76, 64 )
+has_lock = false
+has_frame = false
+
+[node name="grate_16" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -74.5, 76, 64 )
+has_lock = false
+has_frame = false
+
+[node name="grate_17" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -63.5, 76, 64 )
+has_lock = false
+has_frame = false
+
+[node name="grate_29" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5, 76, 31 )
+has_lock = false
+has_frame = false
+
+[node name="grate_31" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -74.5, 76, 31 )
+has_lock = false
+has_frame = false
+
+[node name="grate_32" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -63.5, 76, 31 )
+has_lock = false
+has_frame = false
+
+[node name="grate_33" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -96.5, 76, 31 )
+has_lock = false
+has_frame = false
+
+[node name="01_sky_grate3" type="Spatial" parent="Environment/04_mantle_room_dec"]
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -179, 172, -62 )
+
+[node name="grate_01" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -89.9, 76, 47.7003 )
+has_lock = false
+has_frame = false
+
+[node name="grate_02" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -78.9, 76, 47.7003 )
+has_frame = false
+
+[node name="grate_03" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -67.9, 76, 47.7003 )
+has_lock = false
+has_frame = false
+
+[node name="grate_08" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -89.9, 76, 36.7 )
+has_lock = false
+has_frame = false
+
+[node name="grate_09" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -78.9, 76, 36.7 )
+has_lock = false
+has_frame = false
+
+[node name="grate_10" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -67.9, 76, 36.7 )
+has_lock = false
+has_frame = false
+
+[node name="grate_15" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -89.9, 76, 58.7003 )
+has_lock = false
+has_frame = false
+
+[node name="grate_16" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -78.9, 76, 58.7003 )
+has_lock = false
+has_frame = false
+
+[node name="grate_17" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -67.9, 76, 58.7003 )
+has_lock = false
+has_frame = false
+
+[node name="PlayerRig" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 50 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )

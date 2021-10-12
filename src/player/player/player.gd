@@ -2,16 +2,21 @@ extends KinematicBody
 class_name PlayerController
 
 # FIXME - this is the hackiest hack ever, but it'll hold for the jam
-onready var fadeout = $"../../GUI/Fadeout"
+#onready var fadeout = $"../../GUI/Fadeout"
 
 onready var default_collider = $CollisionShape
 
 onready var debug_mesh = $DEBUG_MESH
 
 # Climbing raycasts
+onready var climbing_rays = $ClimbingRayCasts
 onready var body_rays = $ClimbingRayCasts/BodyRays
 onready var head_rays = $ClimbingRayCasts/HeadRays
 onready var foot_ray = $ClimbingRayCasts/FootRayCast
+#
+export (Vector3) var climb_ray_pos_normal = Vector3(0, 3.3, 0)
+export (Vector3) var climb_ray_pos_jump = Vector3(0, 4.8, 0)
+export (Vector3) var climb_ray_pos_double_jump = Vector3(0, 7.3, 0)
 
 # Triggerable raycast
 onready var trigger_ray = $TriggerRaycast
@@ -70,7 +75,7 @@ onready var eroded_mesh = $DamageMeshes/Eroded
 
 
 func _ready():
-	yield(fadeout.animation_player, "animation_finished")
+#	yield(fadeout.animation_player, "animation_finished")
 	GlobalFlags.PLAYER_CONTROLS_ACTIVE = true
 	GlobalFlags.CAMERA_CONTROLS_ACTIVE = true
 	is_dead = false
@@ -81,22 +86,6 @@ func _ready():
 func _process(_delta):
 	pickup_count = pickup_counter.pickup_count
 	reverse_pickup_count = reverse_pickup_counter.pickup_count
-
-
-func switch_mesh(mesh_id):
-	match mesh_id:
-		0:
-			solid_mesh.visible = true
-			damaged_mesh.visible = false
-			eroded_mesh.visible = false
-		1:
-			solid_mesh.visible = false
-			damaged_mesh.visible = true
-			eroded_mesh.visible = false
-		2:
-			solid_mesh.visible = false
-			damaged_mesh.visible = false
-			eroded_mesh.visible = true
 
 
 func can_mantle():

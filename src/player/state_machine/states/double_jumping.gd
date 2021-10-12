@@ -14,12 +14,13 @@ func enter(_msg: Dictionary = {}):
 	
 	_actor.has_jumped = false
 	
+	# MESH
+	var skin = _actor.skin
+	skin.transition_to(skin.States.DOUBLE_JUMP)
 	#
 	audio_manager.transition_to(audio_manager.States.DOUBLE_JUMP)
 	
-#	var skin = _actor.skin
-#	skin.transition_to(skin.States.DOUBLE_JUMP)
-#	skin.transition_to(skin.States.JUMP)
+	_actor.climbing_rays.transform.origin = _actor.climb_ray_pos_double_jump
 
 
 func physics_process(delta: float):

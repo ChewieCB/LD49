@@ -397,7 +397,6 @@ tracks/2/keys = {
 
 [node name="DynamicMusicManager" type="Node"]
 script = ExtResource( 1 )
-current_state = 1
 main_menu_bgm = ExtResource( 6 )
 level_1_solid_bgm = ExtResource( 12 )
 level_1_damaged_bgm = ExtResource( 14 )

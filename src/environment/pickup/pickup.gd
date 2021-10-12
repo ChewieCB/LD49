@@ -7,6 +7,7 @@ onready var animation_player = $AnimationPlayer
 
 
 func _ready():
+	self.add_to_group("pickups")
 	animation_player.play("float")
 
 

@@ -34,14 +34,14 @@ func _ready():
 	self.connect("main_menu", DynamicMusicManager, "main_menu")
 
 
-func enter(_msg: Dictionary = {}):
-	yield(_actor.fadeout.animation_player, "animation_finished")
+#func enter(_msg: Dictionary = {}):
+#	yield(_actor.fadeout.animation_player, "animation_finished")
 
 
 func physics_process(delta: float):
 	if Input.is_action_just_pressed("ui_cancel"):
-		_actor.fadeout.fade_out(0.5)
-		yield(_actor.fadeout.animation_player, "animation_finished")
+#		_actor.fadeout.fade_out(0.5)
+#		yield(_actor.fadeout.animation_player, "animation_finished")
 		emit_signal("main_menu")
 		yield(DynamicMusicManager, "bgm_changed")
 		

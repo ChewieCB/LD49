@@ -127,7 +127,6 @@ func set_SFX_VOLUME(value):
 
 func set_MUSIC_VOLUME(value):
 	MUSIC_VOLUME = value
-	var test0 = linear2db(value)
 	AudioServer.set_bus_volume_db(
 		AudioServer.get_bus_index("Music"), linear2db(value)
 	)

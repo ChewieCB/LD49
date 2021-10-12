@@ -9,10 +9,13 @@ func enter(_msg: Dictionary = {}):
 	_actor.has_jumped = false
 	_actor.has_dashed = false
 	
+	# MESH
 	var skin = _actor.skin
-	#
-#	skin.transition_to(skin.States.IDLE)
+	skin.transition_to(skin.States.IDLE)
+	
 	audio_manager.transition_to(audio_manager.States.IDLE)
+	
+	_actor.climbing_rays.transform.origin = _actor.climb_ray_pos_normal
 
 
 func unhandled_input(event: InputEvent):
