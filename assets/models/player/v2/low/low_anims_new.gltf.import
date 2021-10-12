@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/high.gltf-7fc61ea275b2ffa41d78db5b55e5094d.scn"
+path="res://.import/low_anims_new.gltf-665a7b59e936162507f093c6c974425e.scn"
 
 [deps]
 
-source_file="res://assets/models/player/glass/high.gltf"
-dest_files=[ "res://.import/high.gltf-7fc61ea275b2ffa41d78db5b55e5094d.scn" ]
+source_file="res://assets/models/player/v2/low/low_anims_new.gltf"
+dest_files=[ "res://.import/low_anims_new.gltf-665a7b59e936162507f093c6c974425e.scn" ]
 
 [params]
 

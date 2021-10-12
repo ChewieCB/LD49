@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/low.gltf-6e805491f2a464cc92942d099bd59579.scn"
+path="res://.import/low.gltf-531238f01e6a651140a8f3d013efa5d3.scn"
 
 [deps]
 
-source_file="res://assets/models/player/damaged/low.gltf"
-dest_files=[ "res://.import/low.gltf-6e805491f2a464cc92942d099bd59579.scn" ]
+source_file="res://assets/models/player/v1/damaged/low.gltf"
+dest_files=[ "res://.import/low.gltf-531238f01e6a651140a8f3d013efa5d3.scn" ]
 
 [params]
 
