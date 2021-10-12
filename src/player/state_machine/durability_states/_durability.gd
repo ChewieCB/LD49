@@ -127,9 +127,9 @@ func set_is_timer_active(value):
 
 func set_state_colour(value: Color):
 	state_colour = value
-	var material = _actor.debug_mesh.get_surface_material(0)
-	material.set_albedo(state_colour)
-	_actor.debug_mesh.set_surface_material(0, material)
+#	var material = _actor.debug_mesh.get_surface_material(0)
+#	material.set_albedo(state_colour)
+#	_actor.debug_mesh.set_surface_material(0, material)
 	
 	# Set the ui colour
 	_actor.durability_ui.color = state_colour

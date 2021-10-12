@@ -6,13 +6,13 @@
 [ext_resource path="res://src/environment/pressure_plate/PressurePlate.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/environment/pickup/Pickup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/environment/grates/Grate.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/materials/glass_01.tres" type="Material" id=7]
+[ext_resource path="res://src/environment/temp/sliding_platform/sliding_platform.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/levels/tutorial_level/tutorial_level.gd" type="Script" id=11]
 [ext_resource path="res://src/environment/pickup/ReversePickup.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Environment" id=1]
 background_mode = 2
-tonemap_mode = 2
+tonemap_mode = 3
 glow_enabled = true
 glow_intensity = 8.0
 glow_bloom = 0.4
@@ -161,7 +161,7 @@ height = 30.6
 depth = 76.0
 
 [node name="04_mantle_room" type="CSGBox" parent="Environment/RoomOutlines"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 161.7, 100, -35 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 161.7, 99.9, -35 )
 invert_faces = true
 width = 110.0
 height = 200.0
@@ -175,18 +175,25 @@ height = 60.0
 depth = 100.0
 
 [node name="04_mantle_room_alcove_02" type="CSGBox" parent="Environment/RoomOutlines"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 162, 92, -160 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 162, 102, -160 )
 invert_faces = true
 width = 100.0
-height = 60.0
+height = 80.0
 depth = 90.0
 
 [node name="04_mantle_room_alcove_05" type="CSGBox" parent="Environment/RoomOutlines"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 162, 92, -308 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 162, 102, -308 )
 invert_faces = true
 width = 100.0
-height = 60.0
+height = 80.0
 depth = 90.0
+
+[node name="04_mantle_room_alcove_06" type="CSGBox" parent="Environment/RoomOutlines"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 191, 124.6, -232 )
+invert_faces = true
+width = 60.0
+height = 35.0
+depth = 32.0
 
 [node name="04_mantle_room_alcove_03" type="CSGBox" parent="Environment/RoomOutlines"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 162, 121, 89 )
@@ -203,7 +210,7 @@ height = 92.0
 sides = 12
 
 [node name="pit_corridor" type="CSGBox" parent="Environment/RoomOutlines/04_mantle_room_alcove_03"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -106, -3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -106.1, -3 )
 invert_faces = true
 width = 50.0
 height = 30.0
@@ -224,27 +231,6 @@ use_collision = true
 radius = 16.0
 height = 24.0
 sides = 12
-
-[node name="PillarGlass" type="CSGCombiner" parent="Environment/01_entry_room_dec"]
-operation = 2
-use_collision = true
-
-[node name="CentralPillarWallHole" type="CSGCylinder" parent="Environment/01_entry_room_dec/PillarGlass"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.4635, 48, 50.0447 )
-operation = 1
-use_collision = true
-radius = 14.0
-height = 44.0
-sides = 12
-material = ExtResource( 7 )
-
-[node name="CentralPillarWall" type="CSGCylinder" parent="Environment/01_entry_room_dec/PillarGlass"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.4635, 45, 50.0447 )
-use_collision = true
-radius = 15.0
-height = 42.0
-sides = 12
-material = ExtResource( 7 )
 
 [node name="PillarBridge1" type="CSGBox" parent="Environment/01_entry_room_dec"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 22, 81 )
@@ -982,21 +968,21 @@ depth = 4.0
 transform = Transform( -1.07285e-07, 0, -1, 0, 1, 0, 1, 0, -1.07285e-07, -154, 24, 46 )
 
 [node name="frame_top" type="CSGBox" parent="Environment/01_entry_room_dec/01_door_frame3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33, 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.6, 2 )
 use_collision = true
-width = 16.8
+width = 23.0
 height = 6.0
 depth = 4.0
 
 [node name="frame_side_01" type="CSGBox" parent="Environment/01_entry_room_dec/01_door_frame3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4, 18, 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 18, 2 )
 use_collision = true
 width = 6.0
 height = 36.0
 depth = 4.0
 
 [node name="frame_side_02" type="CSGBox" parent="Environment/01_entry_room_dec/01_door_frame3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4, 18, 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 18, 2 )
 use_collision = true
 width = 6.0
 height = 36.0
@@ -1031,6 +1017,10 @@ depth = 4.0
 [node name="SlidingDoor_01" parent="Environment/01_entry_room_interactibles" instance=ExtResource( 2 )]
 transform = Transform( -1, 8.74228e-08, -8.74228e-08, -8.74228e-08, -1, -8.74228e-08, -8.74228e-08, -8.74228e-08, 1, -80, 75, -22 )
 trigger_path = NodePath("../PressurePlate_01")
+
+[node name="SlidingDoor_02" parent="Environment/01_entry_room_interactibles" instance=ExtResource( 2 )]
+transform = Transform( -7.54979e-08, 8.74228e-08, 1, -1.50996e-07, -1, 8.74228e-08, 1, -1.50996e-07, 7.54979e-08, -161, 99, 46 )
+trigger_path = NodePath("../../04_mantle_room_dec/PressurePlate_06")
 
 [node name="PressurePlate_01" parent="Environment/01_entry_room_interactibles" instance=ExtResource( 4 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -79.5, 0.200001, 9.8 )
@@ -1088,7 +1078,7 @@ light_energy = 0.5
 omni_range = 100.0
 
 [node name="OmniLight11" type="OmniLight" parent="Environment/01_entry_room_lighting"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -347.5, 88, -103 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -347.5, 109, -103 )
 light_color = Color( 0.917647, 0.498039, 0.0509804, 1 )
 light_energy = 0.5
 omni_range = 100.0
@@ -1105,6 +1095,12 @@ light_color = Color( 0.968627, 0.0745098, 0.0745098, 1 )
 light_energy = 0.3
 omni_range = 100.0
 
+[node name="OmniLight13" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -274.5, 129, -141 )
+light_color = Color( 0.968627, 0.0745098, 0.0745098, 1 )
+light_energy = 0.3
+omni_range = 75.0
+
 [node name="OmniLight12" type="OmniLight" parent="Environment/01_entry_room_lighting"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.5, 15, -115 )
 light_color = Color( 0.968627, 0.0745098, 0.0745098, 1 )
@@ -1114,6 +1110,12 @@ omni_range = 100.0
 [node name="OmniLight4" type="OmniLight" parent="Environment/01_entry_room_lighting"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 154, -106 )
 light_color = Color( 1, 0.764706, 0.356863, 1 )
+light_energy = 0.2
+omni_range = 150.0
+
+[node name="OmniLight14" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 168, 47 )
+light_color = Color( 0.556863, 1, 0.356863, 1 )
 light_energy = 0.2
 omni_range = 150.0
 
@@ -1127,20 +1129,13 @@ omni_range = 150.0
 
 [node name="repair_pickups" type="Spatial" parent="Environment/04_mantle_room_interactibles"]
 
-[node name="AddDurabilityPickup_02" parent="Environment/04_mantle_room_interactibles/repair_pickups" groups=[
-"pickups",
-] instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.5, 0.5, -66 )
-
-[node name="AddDurabilityPickup_03" parent="Environment/04_mantle_room_interactibles/repair_pickups" groups=[
-"pickups",
-] instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.5, 0.5, -66 )
-
 [node name="disrepair_pickups" type="Spatial" parent="Environment/04_mantle_room_interactibles"]
 
 [node name="RemoveDurabilityPickup_01" parent="Environment/04_mantle_room_interactibles/disrepair_pickups" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -192, 25, -299 )
+
+[node name="RemoveDurabilityPickup_02" parent="Environment/04_mantle_room_interactibles/disrepair_pickups" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 89.3, 98, -113.7 )
 
 [node name="04_mantle_room_dec" type="Spatial" parent="Environment"]
 
@@ -1164,6 +1159,34 @@ use_collision = true
 width = 40.0
 height = 24.0
 depth = 40.0
+
+[node name="platform_04" type="CSGBox" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -390, 71, -114.7 )
+use_collision = true
+width = 24.0
+height = 18.0
+depth = 60.0
+
+[node name="platform_07" type="CSGBox" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -346.804, 77, -121.896 )
+use_collision = true
+width = 24.0
+height = 32.0
+depth = 24.0
+
+[node name="platform_05" type="CSGBox" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -331.804, 80.1, -151.028 )
+use_collision = true
+width = 12.0
+height = 38.0
+depth = 12.0
+
+[node name="platform_06" type="CSGBox" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -319.804, 103.1, -151.028 )
+use_collision = true
+width = 36.0
+height = 8.0
+depth = 12.0
 
 [node name="statue_plinth_01" type="Spatial" parent="Environment/04_mantle_room_dec"]
 
@@ -1191,41 +1214,13 @@ use_collision = true
 radius = 12.0
 height = 8.0
 
-[node name="mid_platform_01" type="CSGCylinder" parent="Environment/04_mantle_room_dec"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80, 71, -42.5 )
-use_collision = true
-radius = 48.0
-height = 16.0
+[node name="SlidingPlatform_02" parent="Environment/04_mantle_room_dec" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -79.6, 110, -166 )
+trigger_path = NodePath("../PressurePlate_05")
 
-[node name="platform_side_01" type="CSGBox" parent="Environment/04_mantle_room_dec/mid_platform_01"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.5, 0, -44 )
-width = 20.0
-height = 16.0
-depth = 20.0
-
-[node name="platform_side_02" type="CSGBox" parent="Environment/04_mantle_room_dec/mid_platform_01"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.5, 0, 44 )
-width = 20.0
-height = 16.0
-depth = 20.0
-
-[node name="mid_platform_02" type="CSGCylinder" parent="Environment/04_mantle_room_dec"]
-transform = Transform( 7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -80, 109, -180.5 )
-use_collision = true
-radius = 48.0
-height = 16.0
-
-[node name="platform_side_01" type="CSGBox" parent="Environment/04_mantle_room_dec/mid_platform_02"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.5, 0, -44 )
-width = 20.0
-height = 16.0
-depth = 20.0
-
-[node name="platform_side_02" type="CSGBox" parent="Environment/04_mantle_room_dec/mid_platform_02"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.5, 0, 44 )
-width = 20.0
-height = 16.0
-depth = 20.0
+[node name="SlidingPlatform_03" parent="Environment/04_mantle_room_dec" instance=ExtResource( 8 )]
+transform = Transform( 7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -79.6, 74, -57 )
+trigger_path = NodePath("../PressurePlate_04")
 
 [node name="01_door_frame4" type="Spatial" parent="Environment/04_mantle_room_dec"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -250, 62, -87 )
@@ -1315,6 +1310,18 @@ weight_required = 1
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -195.5, 63.2, -110.2 )
 weight_required = 1
 
+[node name="PressurePlate_06" parent="Environment/04_mantle_room_dec" instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -79.5, 127.2, 108.8 )
+weight_required = 0
+
+[node name="PressurePlate_04" parent="Environment/04_mantle_room_dec" instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -267.5, 108.2, -141.2 )
+weight_required = 1
+
+[node name="PressurePlate_05" parent="Environment/04_mantle_room_dec" instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 18.1, 0.200001, -114.6 )
+weight_required = 0
+
 [node name="01_sky_grate" type="Spatial" parent="Environment/04_mantle_room_dec"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 7, -162 )
 
@@ -1395,6 +1402,136 @@ has_frame = false
 
 [node name="grate_33" parent="Environment/04_mantle_room_dec/01_sky_grate" instance=ExtResource( 6 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -96.5, 76, 31 )
+has_lock = false
+has_frame = false
+
+[node name="01_sky_grate2" type="Spatial" parent="Environment/04_mantle_room_dec"]
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 76, 56, -35 )
+
+[node name="grate_01" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5, 76, 53 )
+has_lock = false
+has_frame = false
+
+[node name="grate_02" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -74.5, 76, 53 )
+has_lock = false
+has_frame = false
+
+[node name="grate_03" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -63.5, 76, 53 )
+has_lock = false
+has_frame = false
+
+[node name="grate_04" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -96.5, 76, 53 )
+has_lock = false
+has_frame = false
+
+[node name="grate_08" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5, 76, 42 )
+has_lock = false
+has_frame = false
+
+[node name="grate_09" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -74.5, 76, 42 )
+has_lock = false
+has_frame = false
+
+[node name="grate_10" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -63.5, 76, 42 )
+has_lock = false
+has_frame = false
+
+[node name="grate_11" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -96.5, 76, 42 )
+has_lock = false
+has_frame = false
+
+[node name="grate_15" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5, 76, 64 )
+has_lock = false
+has_frame = false
+
+[node name="grate_18" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -96.5, 76, 64 )
+has_lock = false
+has_frame = false
+
+[node name="grate_16" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -74.5, 76, 64 )
+has_lock = false
+has_frame = false
+
+[node name="grate_17" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -63.5, 76, 64 )
+has_lock = false
+has_frame = false
+
+[node name="grate_29" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5, 76, 31 )
+has_lock = false
+has_frame = false
+
+[node name="grate_31" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -74.5, 76, 31 )
+has_lock = false
+has_frame = false
+
+[node name="grate_32" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -63.5, 76, 31 )
+has_lock = false
+has_frame = false
+
+[node name="grate_33" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -96.5, 76, 31 )
+has_lock = false
+has_frame = false
+
+[node name="01_sky_grate3" type="Spatial" parent="Environment/04_mantle_room_dec"]
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -179, 172, -62 )
+
+[node name="grate_01" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -89.9, 76, 47.7003 )
+has_lock = false
+has_frame = false
+
+[node name="grate_02" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -78.9, 76, 47.7003 )
+has_frame = false
+
+[node name="grate_03" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -67.9, 76, 47.7003 )
+has_lock = false
+has_frame = false
+
+[node name="grate_08" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -89.9, 76, 36.7 )
+has_lock = false
+has_frame = false
+
+[node name="grate_09" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -78.9, 76, 36.7 )
+has_lock = false
+has_frame = false
+
+[node name="grate_10" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -67.9, 76, 36.7 )
+has_lock = false
+has_frame = false
+
+[node name="grate_15" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -89.9, 76, 58.7003 )
+has_lock = false
+has_frame = false
+
+[node name="grate_16" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -78.9, 76, 58.7003 )
+has_lock = false
+has_frame = false
+
+[node name="grate_17" parent="Environment/04_mantle_room_dec/01_sky_grate3" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -67.9, 76, 58.7003 )
 has_lock = false
 has_frame = false
 

@@ -18,6 +18,10 @@ func enter(msg: Dictionary = {}):
 	#
 	audio_manager.transition_to(audio_manager.States.IDLE)
 	
+	# MESH
+	var skin = _actor.skin
+	skin.transition_to(skin.States.FALL)
+	
 	match msg:
 		{"was_on_floor": var _was_on_floor}:
 			was_on_floor = _was_on_floor

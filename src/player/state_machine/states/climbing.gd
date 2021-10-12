@@ -57,7 +57,7 @@ func climb():
 	
 	var climb_direction = get_climb_direction()
 	
-	var vertical_movement = _actor.global_transform.origin + Vector3(0, 3.8, 0)
+	var vertical_movement = _actor.global_transform.origin + Vector3(0, 2.0, 0) + _actor.climbing_rays.transform.origin
 	tween.interpolate_property(
 		_actor, 
 		"global_transform:origin", 
@@ -70,7 +70,7 @@ func climb():
 	tween.start()
 	
 	yield(tween, "tween_all_completed")
-	var forward_movement = _actor.global_transform.origin + (climb_direction * 2.0)
+	var forward_movement = _actor.global_transform.origin + (climb_direction * 2.4)
 	tween.interpolate_property(
 		_actor, 
 		"global_transform:origin", 

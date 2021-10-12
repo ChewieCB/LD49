@@ -5,7 +5,7 @@ var CAMERA_CONTROLS_ACTIVE = true setget set_CAMERA_CONTROLS_ACTIVE
 
 var SHOW_STATE_LABELS = false setget set_SHOW_STATE_LABELS
 var SHOW_DEBUG_TRAJECTORIES = false
-var DEBUG_POWERUPS = true
+var DEBUG_POWERUPS = false
 
 
 func set_CAMERA_CONTROLS_ACTIVE(value):

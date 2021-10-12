@@ -14,6 +14,8 @@ func enter(_msg: Dictionary = {}):
 	skin.transition_to(skin.States.IDLE)
 	
 	audio_manager.transition_to(audio_manager.States.IDLE)
+	
+	_actor.climbing_rays.transform.origin = _actor.climb_ray_pos_normal
 
 
 func unhandled_input(event: InputEvent):

@@ -23,8 +23,9 @@ func enter(msg: Dictionary = {}):
 	# MESH
 	var skin = _actor.skin
 	skin.transition_to(skin.States.DIE)
-	# TODO - add ragdoll in here when we get a rigged player mesh
-	# https://docs.godotengine.org/en/stable/tutorials/physics/ragdoll_system.html
+	# Ragdoll 
+	skin._start_ragdoll()
+	
 	#
 	emit_signal("dead")
 
@@ -33,7 +34,8 @@ func physics_process(delta: float):
 	_parent.physics_process(delta)
 
 
-#func exit():
+func exit():
+	skin._stop_ragdoll()
 #	# Re-enable player input
 #	GlobalFlags.PLAYER_CONTROLS_ACTIVE = true
 #	GlobalFlags.CAMERA_CONTROLS_ACTIVE = true

@@ -16,6 +16,8 @@ func enter(_msg: Dictionary = {}):
 	skin.transition_to(skin.States.JUMP)
 	#
 	audio_manager.transition_to(audio_manager.States.JUMP)
+	
+	_actor.climbing_rays.transform.origin = _actor.climb_ray_pos_jump
 
 
 func physics_process(delta: float):

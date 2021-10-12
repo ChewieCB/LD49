@@ -6,7 +6,7 @@ onready var mesh_low = $Armature/Skeleton/mesh_low
 onready var meshes = [mesh_high, mesh_medium, mesh_low]
 
 enum States { 
-	IDLE, RUN, JUMP, DOUBLE_JUMP,
+	IDLE, RUN, JUMP, DOUBLE_JUMP, FALL,
 	LAND_SOFT, LAND_MEDIUM, LAND_HARD, 
 	CLIMB, 
 	DASH_AIM, DASH, 
@@ -39,6 +39,8 @@ func transition_to(state_id: int):
 		States.RUN:
 			_playback.travel("running")
 		States.JUMP:
+			_playback.travel("falling")
+		States.FALL:
 			_playback.travel("falling")
 		States.DOUBLE_JUMP:
 			_playback.travel("double-jumping")
@@ -79,4 +81,14 @@ func _switch_player_mesh(mesh_index):
 	
 	# TODO - add some sort of juice here, a particle effect or something
 	pass
+
+
+func _start_ragdoll():
+	$Armature/Skeleton.physical_bones_start_simulation()
+
+
+func _stop_ragdoll():
+	$Armature/Skeleton.physical_bones_stop_simulation()
+	
+
 
