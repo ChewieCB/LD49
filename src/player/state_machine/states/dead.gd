@@ -19,7 +19,10 @@ func enter(msg: Dictionary = {}):
 #	_parent.move_direction = Vector3.ZERO
 	#
 	audio_manager.transition_to(audio_manager.States.DIE)
-#	skin.transition_to(skin.States.DROWN)
+	
+	# MESH
+	var skin = _actor.skin
+	skin.transition_to(skin.States.DIE)
 	# TODO - add ragdoll in here when we get a rigged player mesh
 	# https://docs.godotengine.org/en/stable/tutorials/physics/ragdoll_system.html
 	#

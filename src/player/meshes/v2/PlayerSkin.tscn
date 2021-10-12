@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=100 format=2]
 
 [ext_resource path="res://assets/models/player/v2/medium/1_002.material" type="Material" id=1]
 [ext_resource path="res://assets/models/player/v2/medium/2_002.material" type="Material" id=2]
@@ -5456,6 +5456,9 @@ node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "dash-start" ]
 [sub_resource type="AnimationNodeAnimation" id=28]
 animation = "climbing"
 
+[sub_resource type="AnimationNodeAnimation" id=73]
+animation = "air-dash-start"
+
 [sub_resource type="AnimationNodeAnimation" id=33]
 animation = "dying"
 
@@ -5483,7 +5486,7 @@ animation = "land-medium"
 animation = "jump-running"
 
 [sub_resource type="AnimationNodeBlendTree" id=42]
-graph_offset = Vector2( -338, 5 )
+graph_offset = Vector2( -336, 25 )
 nodes/TimeScale/node = SubResource( 40 )
 nodes/TimeScale/position = Vector2( 220, 120 )
 nodes/jump/node = SubResource( 41 )
@@ -5538,7 +5541,7 @@ auto_advance = true
 xfade_time = 0.3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=55]
-xfade_time = 0.2
+xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=56]
 switch_mode = 2
@@ -5549,22 +5552,23 @@ xfade_time = 0.1
 xfade_time = 0.3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=58]
-xfade_time = 0.4
+xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=59]
 switch_mode = 2
+auto_advance = true
 xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=60]
 switch_mode = 2
 auto_advance = true
-xfade_time = 0.2
+xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=61]
-xfade_time = 0.2
+xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=62]
-xfade_time = 0.2
+xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=63]
 xfade_time = 0.3
@@ -5601,15 +5605,82 @@ xfade_time = 0.2
 [sub_resource type="AnimationNodeStateMachineTransition" id=72]
 xfade_time = 0.2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=74]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=75]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.2
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=77]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.1
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=78]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.1
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=79]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=80]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=81]
+switch_mode = 2
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=82]
+switch_mode = 2
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=83]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=84]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=85]
+xfade_time = 0.1
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=86]
+xfade_time = 0.1
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=87]
+xfade_time = 0.05
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=88]
+xfade_time = 0.05
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=89]
+xfade_time = 0.15
+
 [sub_resource type="AnimationNodeStateMachine" id=67]
 states/air-dash-aim/node = SubResource( 23 )
-states/air-dash-aim/position = Vector2( 1038, 368 )
+states/air-dash-aim/position = Vector2( 1038, 404 )
 states/air-dash-mid/node = SubResource( 24 )
-states/air-dash-mid/position = Vector2( 1038, 523 )
+states/air-dash-mid/position = Vector2( 1038, 629 )
 states/air-dash-start/node = SubResource( 27 )
-states/air-dash-start/position = Vector2( 1038, 450 )
+states/air-dash-start/position = Vector2( 1038, 513 )
 states/climbing/node = SubResource( 28 )
 states/climbing/position = Vector2( 346, 203 )
+states/double-jumping/node = SubResource( 73 )
+states/double-jumping/position = Vector2( 210, 404 )
 states/dying/node = SubResource( 33 )
 states/dying/position = Vector2( 469, -17 )
 states/falling/node = SubResource( 34 )
@@ -5619,11 +5690,11 @@ states/idle/position = Vector2( 501, 125 )
 states/jumping-to-climbing/node = SubResource( 36 )
 states/jumping-to-climbing/position = Vector2( 210, 303 )
 states/land-hard/node = SubResource( 37 )
-states/land-hard/position = Vector2( 829, 523 )
+states/land-hard/position = Vector2( 838, 629 )
 states/land-medium/node = SubResource( 38 )
-states/land-medium/position = Vector2( 664, 523 )
+states/land-medium/position = Vector2( 669, 629 )
 states/land-soft/node = SubResource( 39 )
-states/land-soft/position = Vector2( 501, 523 )
+states/land-soft/position = Vector2( 501, 629 )
 states/running/node = SubResource( 45 )
 states/running/position = Vector2( 829, 125 )
 states/running-jumpstart/node = SubResource( 42 )
@@ -5632,9 +5703,9 @@ states/standing-jump-start/node = SubResource( 48 )
 states/standing-jump-start/position = Vector2( 501, 303 )
 states/t-pose/node = SubResource( 49 )
 states/t-pose/position = Vector2( 346, 87 )
-transitions = [ "t-pose", "idle", SubResource( 50 ), "idle", "dying", SubResource( 51 ), "idle", "running", SubResource( 52 ), "running", "idle", SubResource( 53 ), "climbing", "idle", SubResource( 54 ), "falling", "land-medium", SubResource( 55 ), "jumping-to-climbing", "climbing", SubResource( 56 ), "idle", "standing-jump-start", SubResource( 57 ), "running", "running-jumpstart", SubResource( 58 ), "standing-jump-start", "falling", SubResource( 59 ), "running-jumpstart", "falling", SubResource( 60 ), "falling", "land-soft", SubResource( 61 ), "falling", "land-hard", SubResource( 62 ), "falling", "jumping-to-climbing", SubResource( 63 ), "land-soft", "idle", SubResource( 64 ), "land-medium", "idle", SubResource( 65 ), "land-hard", "idle", SubResource( 66 ), "falling", "air-dash-aim", SubResource( 68 ), "air-dash-aim", "air-dash-start", SubResource( 69 ), "air-dash-start", "air-dash-mid", SubResource( 70 ), "air-dash-mid", "land-hard", SubResource( 71 ), "air-dash-mid", "falling", SubResource( 72 ) ]
+transitions = [ "t-pose", "idle", SubResource( 50 ), "idle", "dying", SubResource( 51 ), "idle", "running", SubResource( 52 ), "running", "idle", SubResource( 53 ), "climbing", "idle", SubResource( 54 ), "falling", "land-medium", SubResource( 55 ), "jumping-to-climbing", "climbing", SubResource( 56 ), "idle", "standing-jump-start", SubResource( 57 ), "running", "running-jumpstart", SubResource( 58 ), "standing-jump-start", "falling", SubResource( 59 ), "running-jumpstart", "falling", SubResource( 60 ), "falling", "land-soft", SubResource( 61 ), "falling", "land-hard", SubResource( 62 ), "falling", "jumping-to-climbing", SubResource( 63 ), "land-soft", "idle", SubResource( 64 ), "land-medium", "idle", SubResource( 65 ), "land-hard", "idle", SubResource( 66 ), "falling", "air-dash-aim", SubResource( 68 ), "air-dash-aim", "air-dash-start", SubResource( 69 ), "air-dash-start", "air-dash-mid", SubResource( 70 ), "air-dash-mid", "land-hard", SubResource( 71 ), "air-dash-mid", "falling", SubResource( 72 ), "falling", "double-jumping", SubResource( 74 ), "double-jumping", "falling", SubResource( 75 ), "running-jumpstart", "idle", SubResource( 76 ), "standing-jump-start", "idle", SubResource( 77 ), "running-jumpstart", "running", SubResource( 78 ), "standing-jump-start", "double-jumping", SubResource( 79 ), "running-jumpstart", "double-jumping", SubResource( 80 ), "double-jumping", "land-soft", SubResource( 81 ), "double-jumping", "land-medium", SubResource( 82 ), "running-jumpstart", "air-dash-aim", SubResource( 83 ), "standing-jump-start", "air-dash-aim", SubResource( 84 ), "double-jumping", "idle", SubResource( 85 ), "double-jumping", "running", SubResource( 86 ), "falling", "idle", SubResource( 87 ), "falling", "running", SubResource( 88 ), "air-dash-mid", "double-jumping", SubResource( 89 ) ]
 start_node = "t-pose"
-graph_offset = Vector2( 83, -108.896 )
+graph_offset = Vector2( 66, 211.104 )
 
 [node name="PlayerSkin" type="Spatial"]
 script = ExtResource( 13 )
@@ -5940,7 +6011,3 @@ parameters/air-dash-start/TimeScale/scale = 1.4
 parameters/running/running_timescale/scale = 1.0
 parameters/running-jumpstart/TimeScale/scale = 1.0
 parameters/standing-jump-start/TimeScale/scale = 1.0
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 8, 15 )
-current = true
