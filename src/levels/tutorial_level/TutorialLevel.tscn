@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/player/PlayerRig.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/doors/slide_door/SlidingDoor.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/environment/pressure_plate/PressurePlate.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/environment/pickup/Pickup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/environment/grates/Grate.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/environment/dev/win_zone/WinZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/environment/temp/sliding_platform/sliding_platform.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/levels/tutorial_level/tutorial_level.gd" type="Script" id=11]
 [ext_resource path="res://src/environment/pickup/ReversePickup.tscn" type="PackedScene" id=12]
@@ -62,7 +63,7 @@ depth = 134.1
 [node name="02_room_additions" type="CSGCombiner" parent="Environment/RoomOutlines"]
 
 [node name="01_sky_hole" type="CSGCylinder" parent="Environment/RoomOutlines/02_room_additions"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0447426, 125, -35.4635 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0447426, 133, -35.4635 )
 invert_faces = true
 radius = 20.0
 height = 100.0
@@ -217,11 +218,11 @@ height = 30.0
 depth = 34.0
 
 [node name="04_mantle_room_alcove_04" type="CSGBox" parent="Environment/RoomOutlines"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 156, -35 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 32, 164.115, 6.00004 )
 invert_faces = true
-width = 200.0
+width = 130.0
 height = 60.0
-depth = 100.0
+depth = 150.0
 
 [node name="01_entry_room_dec" type="Spatial" parent="Environment"]
 
@@ -1033,6 +1034,9 @@ weight_required = 1
 ] instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 24.5, 50 )
 
+[node name="WinZone" parent="Environment/01_entry_room_interactibles" instance=ExtResource( 7 )]
+transform = Transform( 27.3, 0, 0, 0, 20.8, 0, 0, 0, 13.2, -207, 39, 47 )
+
 [node name="01_entry_room_lighting" type="Spatial" parent="Environment"]
 
 [node name="SkyLight" type="SpotLight" parent="Environment/01_entry_room_lighting"]
@@ -1114,10 +1118,16 @@ light_energy = 0.2
 omni_range = 150.0
 
 [node name="OmniLight14" type="OmniLight" parent="Environment/01_entry_room_lighting"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 168, 47 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5, 176, 18 )
 light_color = Color( 0.556863, 1, 0.356863, 1 )
 light_energy = 0.2
 omni_range = 150.0
+
+[node name="OmniLight15" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -190.5, 43, 46 )
+light_color = Color( 0.556863, 1, 0.356863, 1 )
+light_energy = 0.2
+omni_range = 80.0
 
 [node name="OmniLight3" type="OmniLight" parent="Environment/01_entry_room_lighting"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 161, 50 )
@@ -1209,7 +1219,7 @@ height = 8.0
 transform = Transform( 7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -135, 58, -34 )
 
 [node name="Plinth" type="CSGCylinder" parent="Environment/04_mantle_room_dec/statue_plinth_03"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 36, -226 )
+transform = Transform( 1, 0.000233314, 0.000520966, -0.000233583, 1, 0.000487169, -0.000520846, -0.000487298, 1, -79.5, 36, -226 )
 use_collision = true
 radius = 12.0
 height = 8.0
@@ -1311,7 +1321,7 @@ transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -195.5, 63.2, -110.2 )
 weight_required = 1
 
 [node name="PressurePlate_06" parent="Environment/04_mantle_room_dec" instance=ExtResource( 4 )]
-transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -79.5, 127.2, 108.8 )
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -1.5, 135.2, 49.8 )
 weight_required = 0
 
 [node name="PressurePlate_04" parent="Environment/04_mantle_room_dec" instance=ExtResource( 4 )]
@@ -1534,6 +1544,18 @@ has_frame = false
 transform = Transform( 2, 0, 0, 0, 2, -1.67038e-22, 0, -1.67038e-22, 2, -67.9, 76, 58.7003 )
 has_lock = false
 has_frame = false
+
+[node name="04_mantle_room_alcove_wall" type="CSGBox" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 164.115, -41.7 )
+width = 70.0
+height = 60.0
+depth = 30.0
+
+[node name="04_mantle_room_alcove_wall2" type="CSGBox" parent="Environment/04_mantle_room_dec"]
+transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -79, 164.115, 12.4 )
+width = 50.0
+height = 60.0
+depth = 10.0
 
 [node name="PlayerRig" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 50 )
