@@ -1,6 +1,7 @@
 extends Spatial
 
-onready var fadeout = $"../GUI/Fadeout"
+export (NodePath) var fadeout_path
+onready var fadeout = get_node(fadeout_path)
 
 export (String) var next_level_path
 

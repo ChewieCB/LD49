@@ -19,9 +19,12 @@ func _ready():
 	#
 	if trigger_path:
 		trigger = get_node(trigger_path)
-		trigger.connect("activated", self, "_open_door")
-		trigger.connect("deactivated", self, "_close_door")
-
+		if is_closed:
+			trigger.connect("activated", self, "_open_door")
+			trigger.connect("deactivated", self, "_close_door")
+		else:
+			trigger.connect("activated", self, "_close_door")
+			trigger.connect("deactivated", self, "_open_door")
 
 func _open_door():
 	animation_player.play("open")

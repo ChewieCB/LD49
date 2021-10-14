@@ -1,15 +1,78 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/player/PlayerRig.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/doors/slide_door/SlidingDoor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/ui/game_over/GameOverScreen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/environment/pressure_plate/PressurePlate.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/environment/pickup/Pickup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/environment/temp/sliding_platform/sliding_platform.gd" type="Script" id=5]
 [ext_resource path="res://src/environment/grates/Grate.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/environment/dev/win_zone/WinZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/environment/temp/sliding_platform/sliding_platform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/ui/fadeout/Fadeout.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/levels/tutorial_level/tutorial_level.gd" type="Script" id=11]
 [ext_resource path="res://src/environment/pickup/ReversePickup.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Animation" id=2]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/path = NodePath("platform:transform")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.86607, 1 ),
+"update": 0,
+"values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "default_closed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("platform:transform")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "default_open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("platform:transform")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/path = NodePath("platform:transform")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.517632, 1 ),
+"update": 0,
+"values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, 0 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 ) ]
+}
 
 [sub_resource type="Environment" id=1]
 background_mode = 2
@@ -24,6 +87,8 @@ script = ExtResource( 11 )
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="GameOver" parent="GUI" instance=ExtResource( 3 )]
+
+[node name="Fadeout" parent="GUI" instance=ExtResource( 9 )]
 
 [node name="Environment" type="Spatial" parent="."]
 
@@ -204,14 +269,14 @@ height = 60.0
 depth = 90.0
 
 [node name="pit_tube" type="CSGCylinder" parent="Environment/RoomOutlines/04_mantle_room_alcove_03"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -75.1, -3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -51.1, -3 )
 invert_faces = true
 radius = 20.0
 height = 92.0
 sides = 12
 
 [node name="pit_corridor" type="CSGBox" parent="Environment/RoomOutlines/04_mantle_room_alcove_03"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -106.1, -3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -82.1, -3 )
 invert_faces = true
 width = 50.0
 height = 30.0
@@ -1029,13 +1094,9 @@ weight_required = 1
 
 [node name="repair_pickups" type="Spatial" parent="Environment/01_entry_room_interactibles"]
 
-[node name="AddDurabilityPickup_01" parent="Environment/01_entry_room_interactibles/repair_pickups" groups=[
-"pickups",
-] instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 24.5, 50 )
-
 [node name="WinZone" parent="Environment/01_entry_room_interactibles" instance=ExtResource( 7 )]
 transform = Transform( 27.3, 0, 0, 0, 20.8, 0, 0, 0, 13.2, -207, 39, 47 )
+fadeout_path = NodePath("../../../GUI/Fadeout")
 
 [node name="01_entry_room_lighting" type="Spatial" parent="Environment"]
 
@@ -1106,7 +1167,7 @@ light_energy = 0.3
 omni_range = 75.0
 
 [node name="OmniLight12" type="OmniLight" parent="Environment/01_entry_room_lighting"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.5, 15, -115 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.5, 39, -115 )
 light_color = Color( 0.968627, 0.0745098, 0.0745098, 1 )
 light_energy = 0.3
 omni_range = 100.0
@@ -1124,10 +1185,16 @@ light_energy = 0.2
 omni_range = 150.0
 
 [node name="OmniLight15" type="OmniLight" parent="Environment/01_entry_room_lighting"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -190.5, 43, 46 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -198.5, 43, 46 )
 light_color = Color( 0.556863, 1, 0.356863, 1 )
 light_energy = 0.2
-omni_range = 80.0
+omni_range = 50.0
+
+[node name="OmniLight16" type="OmniLight" parent="Environment/01_entry_room_lighting"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -145.5, 40, 46 )
+light_color = Color( 0.556863, 1, 0.356863, 1 )
+light_energy = 0.2
+omni_range = 25.0
 
 [node name="OmniLight3" type="OmniLight" parent="Environment/01_entry_room_lighting"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5, 161, 50 )
@@ -1232,6 +1299,27 @@ trigger_path = NodePath("../PressurePlate_05")
 transform = Transform( 7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -79.6, 74, -57 )
 trigger_path = NodePath("../PressurePlate_04")
 
+[node name="SlidingPlatform_04" type="Spatial" parent="Environment/04_mantle_room_dec"]
+transform = Transform( -1, 0, 2.23517e-07, 0, 1, 0, -2.23517e-07, 0, -1, -158.6, 121, 54 )
+script = ExtResource( 5 )
+trigger_path = NodePath("../PressurePlate_06")
+
+[node name="platform" type="CSGCombiner" parent="Environment/04_mantle_room_dec/SlidingPlatform_04"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, 0 )
+use_collision = true
+
+[node name="cut" type="CSGBox" parent="Environment/04_mantle_room_dec/SlidingPlatform_04/platform"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 0, 0 )
+width = 64.0
+height = 16.0
+depth = 96.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Environment/04_mantle_room_dec/SlidingPlatform_04"]
+anims/close = SubResource( 2 )
+anims/default_closed = SubResource( 3 )
+anims/default_open = SubResource( 4 )
+anims/open = SubResource( 5 )
+
 [node name="01_door_frame4" type="Spatial" parent="Environment/04_mantle_room_dec"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -250, 62, -87 )
 
@@ -1329,7 +1417,7 @@ transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -267.5, 108.2, -141.2 )
 weight_required = 1
 
 [node name="PressurePlate_05" parent="Environment/04_mantle_room_dec" instance=ExtResource( 4 )]
-transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 18.1, 0.200001, -114.6 )
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 18.1, 24.2, -114.6 )
 weight_required = 0
 
 [node name="01_sky_grate" type="Spatial" parent="Environment/04_mantle_room_dec"]
@@ -1416,7 +1504,7 @@ has_lock = false
 has_frame = false
 
 [node name="01_sky_grate2" type="Spatial" parent="Environment/04_mantle_room_dec"]
-transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 76, 56, -35 )
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 76, 80, -35 )
 
 [node name="grate_01" parent="Environment/04_mantle_room_dec/01_sky_grate2" instance=ExtResource( 6 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5, 76, 53 )
