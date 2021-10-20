@@ -19,12 +19,11 @@ func enter(_msg: Dictionary = {}):
 	# Allow wider aim range
 	_actor.camera_pivot.is_aiming = true
 	# Increase camera FOV
-	# TODO - add in FOV slider support with this
 	_actor.tween.interpolate_property(
 		_actor.camera,
 		"fov",
-		_actor.camera.fov,
-		_actor.camera.fov - 10,
+		LocalSettings.FOV,
+		LocalSettings.FOV + 15,
 		0.2,
 		Tween.TRANS_EXPO,
 		Tween.EASE_IN_OUT
@@ -97,7 +96,7 @@ func exit():
 		_actor.camera,
 		"fov",
 		_actor.camera.fov,
-		_actor.camera.fov + 10,
+		LocalSettings.FOV,
 		0.2,
 		Tween.TRANS_EXPO,
 		Tween.EASE_IN_OUT
