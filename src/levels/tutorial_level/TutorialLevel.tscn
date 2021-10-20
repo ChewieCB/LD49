@@ -12,7 +12,7 @@
 [ext_resource path="res://src/levels/tutorial_level/tutorial_level.gd" type="Script" id=11]
 [ext_resource path="res://src/environment/pickup/ReversePickup.tscn" type="PackedScene" id=12]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "close"
 tracks/0/type = "value"
 tracks/0/path = NodePath("platform:transform")
@@ -27,7 +27,7 @@ tracks/0/keys = {
 "values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "default_closed"
 length = 0.1
 tracks/0/type = "value"
@@ -43,7 +43,7 @@ tracks/0/keys = {
 "values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "default_open"
 length = 0.1
 tracks/0/type = "value"
@@ -59,7 +59,7 @@ tracks/0/keys = {
 "values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "open"
 tracks/0/type = "value"
 tracks/0/path = NodePath("platform:transform")
@@ -74,7 +74,7 @@ tracks/0/keys = {
 "values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, 0 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Environment" id=1]
+[sub_resource type="Environment" id=5]
 background_mode = 2
 tonemap_mode = 3
 glow_enabled = true
@@ -1315,10 +1315,10 @@ height = 16.0
 depth = 96.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Environment/04_mantle_room_dec/SlidingPlatform_04"]
-anims/close = SubResource( 2 )
-anims/default_closed = SubResource( 3 )
-anims/default_open = SubResource( 4 )
-anims/open = SubResource( 5 )
+anims/close = SubResource( 1 )
+anims/default_closed = SubResource( 2 )
+anims/default_open = SubResource( 3 )
+anims/open = SubResource( 4 )
 
 [node name="01_door_frame4" type="Spatial" parent="Environment/04_mantle_room_dec"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -250, 62, -87 )
@@ -1649,4 +1649,4 @@ depth = 10.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 50 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
+environment = SubResource( 5 )
