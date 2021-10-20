@@ -24,7 +24,7 @@ func enter(msg: Dictionary = {}):
 	var skin = _actor.skin
 	skin.transition_to(skin.States.DIE)
 	# Ragdoll 
-	skin._start_ragdoll()
+#	skin._start_ragdoll()
 	
 	#
 	emit_signal("dead")

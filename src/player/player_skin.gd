@@ -28,8 +28,8 @@ func _ready():
 	_playback = animation_tree["parameters/playback"]
 	_playback.start("t-pose")
 	
-	# Start with normal mesh
-	_switch_player_mesh(1)
+	# Start with solid mesh
+	_switch_player_mesh(0)
 
 
 func transition_to(state_id: int):
@@ -83,12 +83,11 @@ func _switch_player_mesh(mesh_index):
 	pass
 
 
-func _start_ragdoll():
-	$Armature/Skeleton.physical_bones_start_simulation()
-
-
-func _stop_ragdoll():
-	$Armature/Skeleton.physical_bones_stop_simulation()
-	
+#func _start_ragdoll():
+#	$Armature/Skeleton.physical_bones_start_simulation()
+#
+#
+#func _stop_ragdoll():
+#	$Armature/Skeleton.physical_bones_stop_simulation()
 
 

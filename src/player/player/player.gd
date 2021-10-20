@@ -6,8 +6,6 @@ class_name PlayerController
 
 onready var default_collider = $CollisionShape
 
-onready var debug_mesh = $DEBUG_MESH
-
 # Climbing raycasts
 onready var climbing_rays = $ClimbingRayCasts
 onready var body_rays = $ClimbingRayCasts/BodyRays
@@ -68,10 +66,6 @@ onready var durability_ui = $DurabilityUI/Viewport/DurabilityMeter
 
 var pickup_count =  0 setget set_pickup_counter
 var reverse_pickup_count =  0 setget set_reverse_pickup_counter
-
-onready var solid_mesh = $DamageMeshes/Solid
-onready var damaged_mesh = $DamageMeshes/Damaged
-onready var eroded_mesh = $DamageMeshes/Eroded
 
 
 func _ready():
