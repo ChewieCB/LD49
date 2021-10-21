@@ -35,7 +35,8 @@ func physics_process(delta: float):
 
 
 func exit():
-	skin._stop_ragdoll()
+	pass
+#	skin._stop_ragdoll()
 #	# Re-enable player input
 #	GlobalFlags.PLAYER_CONTROLS_ACTIVE = true
 #	GlobalFlags.CAMERA_CONTROLS_ACTIVE = true
