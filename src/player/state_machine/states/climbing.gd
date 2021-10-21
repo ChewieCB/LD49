@@ -4,6 +4,20 @@ extends State
 export (float) var vertical_move_time = 0.6
 export (float) var horizontal_move_time = 0.4
 
+var climb_direction
+var tween
+
+
+func _ready():
+	yield(owner, "ready")
+	
+	skin = _actor.skin
+	skin.connect("climb_up", self, "climb_up")
+	skin.connect("climb_across", self, "climb_across")
+	skin.connect("climb_end", self, "_exit_climb")
+	
+	tween = _actor.tween
+	
 
 func enter(_msg: Dictionary = {}):
 	GlobalFlags.PLAYER_CONTROLS_ACTIVE = false
@@ -12,10 +26,10 @@ func enter(_msg: Dictionary = {}):
 #	_parent.gravity = 0.0
 	_parent.enter()
 	
-	climb()
+	climb_direction = get_climb_direction()
 	
 	# MESH
-	var skin = _actor.skin
+	skin = _actor.skin
 	skin.transition_to(skin.States.CLIMB)
 
 	#
@@ -27,6 +41,8 @@ func enter(_msg: Dictionary = {}):
 
 
 func physics_process(_delta):
+	var velocity = _actor.move_and_slide(skin.root_motion_velocity, Vector3.UP, true, 4, 0.785398, false)
+	
 	if Input.is_action_just_pressed("p1_repair"):
 		if _actor.pickup_count > 0:
 			_actor.pickup_count -= 1
@@ -52,12 +68,10 @@ func grab_ledge():
 	pass
 
 
-func climb():
-	var tween = _actor.tween
+func climb_up():
+	tween.stop_all()
 	
-	var climb_direction = get_climb_direction()
-	
-	var vertical_movement = _actor.global_transform.origin + Vector3(0, 2.0, 0) + _actor.climbing_rays.transform.origin
+	var vertical_movement = _actor.global_transform.origin + Vector3(0, 2.2, 0) + _actor.climbing_rays.transform.origin
 	tween.interpolate_property(
 		_actor, 
 		"global_transform:origin", 
@@ -65,12 +79,13 @@ func climb():
 		vertical_movement,
 		vertical_move_time * _parent.climb_speed_modifier, 
 		Tween.TRANS_CUBIC, 
-		Tween.EASE_IN
+		Tween.EASE_IN_OUT
 	)
 	tween.start()
-	
-	yield(tween, "tween_all_completed")
-	var forward_movement = _actor.global_transform.origin + (climb_direction * 2.4)
+
+func climb_across():
+#	yield(tween, "tween_all_completed")
+	var forward_movement = _actor.global_transform.origin + (climb_direction * 4.0)
 	tween.interpolate_property(
 		_actor, 
 		"global_transform:origin", 
@@ -81,6 +96,7 @@ func climb():
 		Tween.EASE_OUT
 	)
 	tween.start()
+	
 	yield(tween, "tween_all_completed")
 	_state_machine.transition_to("Movement/Falling", {"was_on_floor": false})
 

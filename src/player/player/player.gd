@@ -10,11 +10,10 @@ onready var default_collider = $CollisionShape
 onready var climbing_rays = $ClimbingRayCasts
 onready var body_rays = $ClimbingRayCasts/BodyRays
 onready var head_rays = $ClimbingRayCasts/HeadRays
-onready var foot_ray = $ClimbingRayCasts/FootRayCast
 #
 export (Vector3) var climb_ray_pos_normal = Vector3(0, 3.3, 0)
-export (Vector3) var climb_ray_pos_jump = Vector3(0, 4.8, 0)
-export (Vector3) var climb_ray_pos_double_jump = Vector3(0, 7.3, 0)
+export (Vector3) var climb_ray_pos_jump = Vector3(0, 3.6, 0)
+export (Vector3) var climb_ray_pos_double_jump = Vector3(0, 4.3, 0)
 
 # Triggerable raycast
 onready var trigger_ray = $TriggerRaycast
@@ -82,7 +81,20 @@ func _process(_delta):
 	reverse_pickup_count = reverse_pickup_counter.pickup_count
 
 
+func _physics_process(_delta):
+	# Point hand raycasts staight forward
+	skin.left_hand_attach.look_at(self.transform.basis.z, Vector3.UP)
+	skin.right_hand_attach.look_at(self.transform.basis.z, Vector3.UP)
+
+
 func can_mantle():
+	var hand_ray_count = 0
+	for _ray in skin.hand_rays:
+		if _ray.is_colliding():
+			hand_ray_count += 1
+	if hand_ray_count == 0:
+		return false
+	
 	var body_ray_count = 0
 	for _ray in body_rays.get_children():
 		if _ray.is_colliding():

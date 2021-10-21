@@ -1,5 +1,17 @@
 extends Spatial
 
+signal climb_up
+signal climb_across
+signal climb_end
+
+onready var skeleton = $Armature/Skeleton
+onready var left_hand_attach = $Armature/Skeleton/LHBoneAttach
+onready var left_hand_ray = $Armature/Skeleton/LHBoneAttach/LHRayCast
+onready var right_hand_attach = $Armature/Skeleton/RHBoneAttach
+onready var right_hand_ray = $Armature/Skeleton/RHBoneAttach/RHRayCast
+#
+onready var hand_rays = [left_hand_ray, right_hand_ray]
+
 onready var mesh_high = $Armature/Skeleton/mesh_high
 onready var mesh_medium = $Armature/Skeleton/mesh_medium
 onready var mesh_low = $Armature/Skeleton/mesh_low
@@ -14,9 +26,11 @@ enum States {
 }
 
 onready var animation_player: AnimationPlayer = $AnimationPlayer
-onready var transition_player: AnimationPlayer = $TransitionAnimationPlayer
 onready var animation_tree: AnimationTree = $AnimationTree
 onready var _playback = animation_tree["parameters/playback"]
+
+var root_motion
+var root_motion_velocity
 
 
 func _ready():
@@ -30,6 +44,11 @@ func _ready():
 	
 	# Start with solid mesh
 	_switch_player_mesh(0)
+
+
+func _physics_process(delta):
+	root_motion = animation_tree.get_root_motion_transform()
+	root_motion_velocity = root_motion.origin / delta
 
 
 func transition_to(state_id: int):
@@ -90,4 +109,10 @@ func _switch_player_mesh(mesh_index):
 #func _stop_ragdoll():
 #	$Armature/Skeleton.physical_bones_stop_simulation()
 
+func _climb_up():
+	emit_signal("climb_up")
+
+
+func _climb_across():
+	emit_signal("climb_across")
 

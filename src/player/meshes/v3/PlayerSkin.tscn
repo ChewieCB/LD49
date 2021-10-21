@@ -1168,6 +1168,7 @@ tracks/40/keys = PoolRealArray( 0.1, 1, 0.0764295, 4.2361, 0.545304, 0, 0, 0, 1,
 [sub_resource type="Animation" id=6]
 resource_name = "climb"
 length = 1.16667
+step = 0.01
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
 tracks/0/interp = 1
@@ -1453,8 +1454,25 @@ tracks/40/path = NodePath("Armature/Skeleton:RootMotion")
 tracks/40/interp = 1
 tracks/40/loop_wrap = true
 tracks/40/imported = true
-tracks/40/enabled = false
+tracks/40/enabled = true
 tracks/40/keys = PoolRealArray( 0, 1, 0, 0, 1.19209e-07, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0, 0, 1.19209e-07, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, 0.0132315, 0.551423, -0.27593, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, -0.0464127, 2.26275, 0.294539, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, -0.236129, 4.0049, 0.538682, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, -0.295142, 4.86528, 0.546388, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, -0.353816, 5.51841, 0.54148, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, -0.371364, 5.85402, 0.555291, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, -0.371526, 6.12646, 0.591316, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, -0.375831, 6.35838, 0.69081, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, -0.360344, 6.57072, 0.871829, 0, 0, 0, 1, 1, 1, 1, 0.933333, 1, -0.305585, 6.91467, 1.51883, 0, 0, 0, 1, 1, 1, 1, 1, 1, -0.340441, 7.00741, 1.82901, 0, 0, 0, 1, 1, 1, 1, 1.06667, 1, -0.38675, 6.89901, 2.07151, 0, 0, 0, 1, 1, 1, 1, 1.13333, 1, -0.395031, 6.67141, 2.22928, 0, 0, 0, 1, 1, 1, 1, 1.16667, 1, -0.412963, 6.55885, 2.26224, 0, 0, 0, 1, 1, 1, 1 )
+tracks/41/type = "method"
+tracks/41/path = NodePath(".")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/keys = {
+"times": PoolRealArray( 0.13, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_climb_up"
+}, {
+"args": [  ],
+"method": "_climb_across"
+} ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "dash-aim-start"
@@ -4925,7 +4943,7 @@ states/t-pose/node = SubResource( 31 )
 states/t-pose/position = Vector2( 298, -13 )
 transitions = [ "idle", "running", SubResource( 32 ), "running", "idle", SubResource( 33 ), "running", "jump-running", SubResource( 34 ), "idle", "jump-standing", SubResource( 35 ), "jump-standing", "idle", SubResource( 36 ), "jump-running", "running", SubResource( 37 ), "jump-running", "falling", SubResource( 38 ), "jump-standing", "falling", SubResource( 39 ), "jump-standing", "climbing", SubResource( 40 ), "climbing", "idle", SubResource( 41 ), "climbing", "running", SubResource( 42 ), "jump-running", "idle", SubResource( 43 ), "jump-standing", "running", SubResource( 44 ), "falling", "climbing", SubResource( 45 ), "falling", "idle", SubResource( 46 ), "falling", "running", SubResource( 47 ), "jump-running", "climbing", SubResource( 48 ), "jump-running", "air-dash-aim", SubResource( 49 ), "jump-standing", "air-dash-aim", SubResource( 50 ), "falling", "air-dash-aim", SubResource( 51 ), "air-dash-mid", "falling", SubResource( 52 ), "air-dash-mid", "running", SubResource( 53 ), "air-dash-mid", "climbing", SubResource( 54 ), "air-dash-mid", "idle", SubResource( 55 ), "idle", "dying", SubResource( 56 ), "running", "dying", SubResource( 57 ), "jump-standing", "dying", SubResource( 58 ), "jump-running", "dying", SubResource( 59 ), "climbing", "dying", SubResource( 60 ), "falling", "dying", SubResource( 61 ), "air-dash-aim", "dying", SubResource( 62 ), "air-dash-mid", "dying", SubResource( 63 ), "air-dash-aim", "falling", SubResource( 64 ), "jump-standing", "double-jumping", SubResource( 65 ), "falling", "double-jumping", SubResource( 66 ), "double-jumping", "climbing", SubResource( 67 ), "jump-running", "double-jumping", SubResource( 68 ), "double-jumping", "falling", SubResource( 69 ), "air-dash-mid", "double-jumping", SubResource( 70 ), "air-dash-aim", "air-dash-start", SubResource( 71 ), "air-dash-start", "air-dash-mid", SubResource( 72 ) ]
 start_node = "idle"
-graph_offset = Vector2( 31, 94 )
+graph_offset = Vector2( 53, 37 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=74]
 
@@ -5205,6 +5223,24 @@ material/9 = null
 
 [node name="mesh_low" parent="Armature/Skeleton" instance=ExtResource( 12 )]
 visible = false
+
+[node name="LHBoneAttach" type="BoneAttachment" parent="Armature/Skeleton"]
+transform = Transform( 0.120163, 0.386895, -0.914261, 0.133188, -0.918892, -0.371348, -0.983779, -0.0771469, -0.161948, 0.644593, 4.32695, 0.408471 )
+bone_name = "LeftArm"
+
+[node name="LHRayCast" type="RayCast" parent="Armature/Skeleton/LHBoneAttach"]
+transform = Transform( 0.159998, 0.0821153, -0.983696, -0.043736, -0.994966, -0.0901684, -0.986147, 0.0574483, -0.155601, -0.0122543, -0.000388622, 0.00984883 )
+enabled = true
+cast_to = Vector3( 0, 0, 3 )
+
+[node name="RHBoneAttach" type="BoneAttachment" parent="Armature/Skeleton"]
+transform = Transform( -0.65398, -0.136347, 0.744123, -0.411772, -0.760994, -0.50133, 0.634627, -0.63427, 0.441531, -0.611281, 4.3117, 0.0219993 )
+bone_name = "RightArm"
+
+[node name="RHRayCast" type="RayCast" parent="Armature/Skeleton/RHBoneAttach"]
+transform = Transform( 0.311846, 0.622726, 0.717613, -0.0177459, 0.758961, -0.650894, -0.949965, 0.190245, 0.247731, -0.0274174, -0.0011692, -0.0165052 )
+enabled = true
+cast_to = Vector3( 0, 0, 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/air-dash-end = SubResource( 3 )

@@ -133,12 +133,6 @@ func calculate_movement_direction(input_direction, delta):
 			movement_angle,
 			0.2
 		)
-#		for element in _actor.rotateable:
-#			element.rotation.y = lerp_angle(
-#				element.rotation.y,
-#				movement_angle,
-#				0.2
-#			)
 
 	return move_direction 
 
