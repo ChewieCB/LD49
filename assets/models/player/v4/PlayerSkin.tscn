@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://assets/models/player/v4/core light 2_001.material" type="Material" id=1]
 [ext_resource path="res://assets/models/player/v4/3_001.material" type="Material" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://assets/models/player/v4/4_001.material" type="Material" id=9]
 [ext_resource path="res://assets/models/player/v4/core light 1_001.material" type="Material" id=10]
 [ext_resource path="res://src/player/player_skin.gd" type="Script" id=11]
+[ext_resource path="res://src/player/meshes/v4/PlayerMeshDamaged.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/player/meshes/v4/PlayerMeshSolid.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Mesh"
@@ -580,7 +582,7 @@ tracks/40/imported = true
 tracks/40/enabled = false
 tracks/40/keys = PoolRealArray( 0, 1, 0.0982304, 0.913743, 0.0217119, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0.0982304, 0.913743, 0.0217119, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, 0.0957052, 0.907934, 0.031238, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0.0899222, 0.902725, 0.0405405, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, 0.0806264, 0.901374, 0.0507871, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0.0669011, 0.9013, 0.0605868, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 0.0475231, 0.902224, 0.0721132, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, 0.0368936, 0.889967, 0.0772203, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, 0.0257409, 0.859252, 0.0909019, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, 0.0134871, 0.811229, 0.12009, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, 0.000791665, 0.767378, 0.173011, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, -0.00356019, 0.724577, 0.245932, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0.000617129, 0.712915, 0.357466, 0, 0, 0, 1, 1, 1, 1, 0.866667, 1, 0.000148399, 0.740977, 0.47856, 0, 0, 0, 1, 1, 1, 1, 1, 1, -0.0191113, 0.883829, 0.826363, 0, 0, 0, 1, 1, 1, 1, 1.06667, 1, -0.0240932, 0.923637, 0.986281, 0, 0, 0, 1, 1, 1, 1, 1.2, 1, -0.033701, 0.877564, 1.29034, 0, 0, 0, 1, 1, 1, 1, 1.26667, 1, -0.0409867, 0.807185, 1.44783, 0, 0, 0, 1, 1, 1, 1, 1.33333, 1, -0.0475515, 0.698238, 1.59735, 0, 0, 0, 1, 1, 1, 1, 1.46667, 1, -0.0511014, 0.336177, 1.8685, 0, 0, 0, 1, 1, 1, 1, 1.6, 1, -0.0376122, -0.217899, 2.14789, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, -0.0278829, -0.410726, 2.24114, 0, 0, 0, 1, 1, 1, 1, 1.73333, 1, -0.0294715, -0.546548, 2.3251, 0, 0, 0, 1, 1, 1, 1, 1.8, 1, -0.0281959, -0.598112, 2.3621, 0, 0, 0, 1, 1, 1, 1, 1.86667, 1, -0.0286105, -0.604276, 2.37928, 0, 0, 0, 1, 1, 1, 1, 1.93333, 1, -0.0335557, -0.562043, 2.39425, 0, 0, 0, 1, 1, 1, 1, 2, 1, -0.0417146, -0.483792, 2.4068, 0, 0, 0, 1, 1, 1, 1, 2.13333, 1, -0.0445309, -0.288511, 2.43948, 0, 0, 0, 1, 1, 1, 1, 2.2, 1, -0.046912, -0.205083, 2.46462, 0, 0, 0, 1, 1, 1, 1, 2.26667, 1, -0.0538669, -0.142762, 2.49077, 0, 0, 0, 1, 1, 1, 1, 2.33333, 1, -0.0653003, -0.103053, 2.51583, 0, 0, 0, 1, 1, 1, 1, 2.4, 1, -0.0772079, -0.0788159, 2.5355, 0, 0, 0, 1, 1, 1, 1, 2.46667, 1, -0.0857668, -0.0673602, 2.5505, 0, 0, 0, 1, 1, 1, 1, 2.53333, 1, -0.0938588, -0.0625526, 2.56247, 0, 0, 0, 1, 1, 1, 1, 2.6, 1, -0.100465, -0.060239, 2.56913, 0, 0, 0, 1, 1, 1, 1, 2.66667, 1, -0.104584, -0.0596929, 2.57014, 0, 0, 0, 1, 1, 1, 1, 2.73333, 1, -0.107176, -0.0606489, 2.57333, 0, 0, 0, 1, 1, 1, 1, 2.86667, 1, -0.110067, -0.0602251, 2.58027, 0, 0, 0, 1, 1, 1, 1, 3, 1, -0.111061, -0.060885, 2.58738, 0, 0, 0, 1, 1, 1, 1, 3.06667, 1, -0.11096, -0.0606891, 2.5885, 0, 0, 0, 1, 1, 1, 1, 3.13333, 1, -0.110789, -0.0608554, 2.58881, 0, 0, 0, 1, 1, 1, 1, 3.2, 1, -0.110709, -0.0609487, 2.58916, 0, 0, 0, 1, 1, 1, 1, 3.26667, 1, -0.110302, -0.0608673, 2.5887, 0, 0, 0, 1, 1, 1, 1, 3.33333, 1, -0.109871, -0.0608574, 2.58756, 0, 0, 0, 1, 1, 1, 1, 3.4, 1, -0.109071, -0.0610193, 2.58657, 0, 0, 0, 1, 1, 1, 1, 3.46667, 1, -0.108192, -0.0611986, 2.58595, 0, 0, 0, 1, 1, 1, 1, 3.5, 1, -0.107849, -0.0612024, 2.58549, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=60]
+[sub_resource type="Animation" id=4]
 resource_name = "air-dash-aim"
 length = 0.001
 loop = true
@@ -873,7 +875,7 @@ tracks/40/imported = true
 tracks/40/enabled = false
 tracks/40/keys = PoolRealArray( 0, 1, 0.0982304, 0.913743, 0.0217119, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=61]
+[sub_resource type="Animation" id=5]
 resource_name = "air-dash-start"
 length = 0.93
 step = 0.005
@@ -1165,8 +1167,7 @@ tracks/40/imported = true
 tracks/40/enabled = false
 tracks/40/keys = PoolRealArray( 0, 1, 0.0257409, 0.859252, 0.0909019, 0, 0, 0, 1, 1, 1, 1, 0.03, 1, 0.0134871, 0.811229, 0.12009, 0, 0, 0, 1, 1, 1, 1, 0.065, 1, 0.000791665, 0.767378, 0.173011, 0, 0, 0, 1, 1, 1, 1, 0.1, 1, -0.00356019, 0.724577, 0.245932, 0, 0, 0, 1, 1, 1, 1, 0.135, 1, 0.000617129, 0.712915, 0.357466, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0.000148399, 0.740977, 0.47856, 0, 0, 0, 1, 1, 1, 1, 0.355, 1, -0.0191113, 0.883829, 0.826363, 0, 0, 0, 1, 1, 1, 1, 0.445, 1, -0.0240932, 0.923637, 0.986281, 0, 0, 0, 1, 1, 1, 1, 0.605, 1, -0.033701, 0.877564, 1.29034, 0, 0, 0, 1, 1, 1, 1, 0.67, 1, -0.0409867, 0.807185, 1.44783, 0, 0, 0, 1, 1, 1, 1, 0.74, 1, -0.0475515, 0.698238, 1.59735, 0, 0, 0, 1, 1, 1, 1, 0.87, 1, -0.0511014, 0.336177, 1.8685, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=4]
-resource_name = "climb"
+[sub_resource type="Animation" id=6]
 length = 1.16667
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
@@ -1456,8 +1457,7 @@ tracks/40/imported = true
 tracks/40/enabled = true
 tracks/40/keys = PoolRealArray( 0, 1, -0.00689373, -0.425946, 0.0429658, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, -0.00689373, -0.425946, 0.0429658, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, -0.00501696, -0.292855, -0.0228494, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, -0.0202776, 0.123024, 0.117361, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, -0.0634386, 0.546184, 0.181617, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, -0.0768204, 0.753685, 0.184493, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, -0.0910018, 0.911232, 0.183871, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, -0.095768, 1.05945, 0.197049, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, -0.0970168, 1.11607, 0.22285, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, -0.0933712, 1.16796, 0.269367, 0, 0, 0, 1, 1, 1, 1, 0.933333, 1, -0.0827258, 1.25165, 0.423131, 0, 0, 0, 1, 1, 1, 1, 1, 1, -0.091144, 1.27393, 0.498097, 0, 0, 0, 1, 1, 1, 1, 1.06667, 1, -0.102078, 1.24846, 0.557706, 0, 0, 0, 1, 1, 1, 1, 1.13333, 1, -0.104228, 1.19458, 0.596429, 0, 0, 0, 1, 1, 1, 1, 1.16667, 1, -0.108441, 1.16779, 0.60479, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "death"
+[sub_resource type="Animation" id=7]
 length = 3.66667
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
@@ -1747,8 +1747,7 @@ tracks/40/imported = true
 tracks/40/enabled = true
 tracks/40/keys = PoolRealArray( 0, 1, -0.0265024, -0.15672, 0.00658274, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, -0.0265024, -0.15672, 0.00658274, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, -0.0679259, -0.136271, 0.0289817, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, -0.0636903, -0.114278, 0.0549558, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, -0.0387051, -0.0967941, 0.0710558, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, -0.0293583, -0.0894915, 0.079217, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, -0.0289417, -0.0870736, 0.0829322, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, -0.0324087, -0.0860321, 0.085102, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, -0.0469826, -0.0847076, 0.0854365, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, -0.0498312, -0.0851702, 0.0834793, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, -0.0495971, -0.0863845, 0.0809894, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, -0.0506184, -0.0878618, 0.0792173, 0, 0, 0, 1, 1, 1, 1, 0.866667, 1, -0.0535522, -0.0895556, 0.0778142, 0, 0, 0, 1, 1, 1, 1, 0.933333, 1, -0.0587806, -0.0903398, 0.0756763, 0, 0, 0, 1, 1, 1, 1, 1, 1, -0.0649081, -0.0935565, 0.0704081, 0, 0, 0, 1, 1, 1, 1, 1.06667, 1, -0.0694298, -0.0989867, 0.0636134, 0, 0, 0, 1, 1, 1, 1, 1.13333, 1, -0.072435, -0.105306, 0.054966, 0, 0, 0, 1, 1, 1, 1, 1.2, 1, -0.0732774, -0.112555, 0.038, 0, 0, 0, 1, 1, 1, 1, 1.4, 1, -0.0641323, -0.136008, -0.034996, 0, 0, 0, 1, 1, 1, 1, 1.53333, 1, -0.0505726, -0.168736, -0.096516, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, -0.0474218, -0.237494, -0.169321, 0, 0, 0, 1, 1, 1, 1, 1.73333, 1, -0.0452271, -0.282963, -0.210763, 0, 0, 0, 1, 1, 1, 1, 1.8, 1, -0.0427105, -0.340852, -0.261409, 0, 0, 0, 1, 1, 1, 1, 1.93333, 1, -0.0351443, -0.493744, -0.396991, 0, 0, 0, 1, 1, 1, 1, 2.06667, 1, -0.0339516, -0.728236, -0.548542, 0, 0, 0, 1, 1, 1, 1, 2.13333, 1, -0.0348304, -0.879413, -0.63444, 0, 0, 0, 1, 1, 1, 1, 2.2, 1, -0.0444544, -0.924767, -0.684016, 0, 0, 0, 1, 1, 1, 1, 2.26667, 1, -0.033316, -0.885688, -0.735955, 0, 0, 0, 1, 1, 1, 1, 2.33333, 1, -0.0385807, -0.836586, -0.806807, 0, 0, 0, 1, 1, 1, 1, 2.4, 1, -0.0463125, -0.801138, -0.864482, 0, 0, 0, 1, 1, 1, 1, 2.46667, 1, -0.0567678, -0.782335, -0.914412, 0, 0, 0, 1, 1, 1, 1, 2.53333, 1, -0.0749593, -0.780602, -0.950099, 0, 0, 0, 1, 1, 1, 1, 2.6, 1, -0.0932517, -0.788795, -0.968314, 0, 0, 0, 1, 1, 1, 1, 2.66667, 1, -0.111262, -0.807134, -0.970167, 0, 0, 0, 1, 1, 1, 1, 2.73333, 1, -0.124781, -0.833174, -0.965558, 0, 0, 0, 1, 1, 1, 1, 2.8, 1, -0.134647, -0.856183, -0.956126, 0, 0, 0, 1, 1, 1, 1, 2.86667, 1, -0.139845, -0.881208, -0.936837, 0, 0, 0, 1, 1, 1, 1, 2.93333, 1, -0.149142, -0.902273, -0.9256, 0, 0, 0, 1, 1, 1, 1, 3, 1, -0.154794, -0.911874, -0.908015, 0, 0, 0, 1, 1, 1, 1, 3.06667, 1, -0.164221, -0.905088, -0.896024, 0, 0, 0, 1, 1, 1, 1, 3.13333, 1, -0.167642, -0.906886, -0.894533, 0, 0, 0, 1, 1, 1, 1, 3.2, 1, -0.165595, -0.913715, -0.904627, 0, 0, 0, 1, 1, 1, 1, 3.26667, 1, -0.155828, -0.921165, -0.91584, 0, 0, 0, 1, 1, 1, 1, 3.33333, 1, -0.156456, -0.921365, -0.916616, 0, 0, 0, 1, 1, 1, 1, 3.4, 1, -0.155823, -0.922219, -0.917594, 0, 0, 0, 1, 1, 1, 1, 3.46667, 1, -0.158662, -0.92417, -0.914195, 0, 0, 0, 1, 1, 1, 1, 3.53333, 1, -0.160629, -0.925112, -0.910998, 0, 0, 0, 1, 1, 1, 1, 3.6, 1, -0.160712, -0.924721, -0.910346, 0, 0, 0, 1, 1, 1, 1, 3.66667, 1, -0.160358, -0.925355, -0.910509, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=6]
-resource_name = "double-jump"
+[sub_resource type="Animation" id=8]
 length = 0.9
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
@@ -2038,8 +2037,7 @@ tracks/40/imported = true
 tracks/40/enabled = false
 tracks/40/keys = PoolRealArray( 0, 1, 0, 0, 2.861, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0, 1.066, 3.275, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 0, 1.354, 4.382, 0, 0, 0, 1, 1, 1, 1, 0.5, 1, 0, 1.138, 4.864, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, 0, 0.86, 5.329, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0.393, 5.867, 0, 0, 0, 1, 1, 1, 1, 0.9, 1, 0, -0.062, 6.277, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, -0.262, 6.497, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=7]
-resource_name = "edge"
+[sub_resource type="Animation" id=9]
 length = 2.5
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
@@ -2329,8 +2327,7 @@ tracks/40/imported = true
 tracks/40/enabled = false
 tracks/40/keys = PoolRealArray( 0, 1, 0.000449648, 0.746863, 0.0250337, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0.000449648, 0.746863, 0.0250337, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, -0.00566016, 0.737545, 0.0220293, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, -0.00818635, 0.667817, 0.0036273, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, -0.0191368, 0.521565, -0.146092, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, -0.0217786, 0.491461, -0.225343, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, -0.0194291, 0.498273, -0.289871, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, -0.011226, 0.50057, -0.311993, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, -0.00401761, 0.503147, -0.314951, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, 0.000403707, 0.515409, -0.309236, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, -0.00216104, 0.511869, -0.300105, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, -0.00265632, 0.497543, -0.297826, 0, 0, 0, 1, 1, 1, 1, 0.866667, 1, 0.000340458, 0.499849, -0.30691, 0, 0, 0, 1, 1, 1, 1, 0.933333, 1, 0.0106095, 0.499711, -0.321989, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0.0208136, 0.486758, -0.338028, 0, 0, 0, 1, 1, 1, 1, 1.06667, 1, 0.0344377, 0.469866, -0.346884, 0, 0, 0, 1, 1, 1, 1, 1.13333, 1, 0.0406802, 0.461055, -0.355639, 0, 0, 0, 1, 1, 1, 1, 1.2, 1, 0.0403158, 0.473628, -0.362796, 0, 0, 0, 1, 1, 1, 1, 1.33333, 1, 0.0304347, 0.569882, -0.393568, 0, 0, 0, 1, 1, 1, 1, 1.4, 1, 0.0250183, 0.609015, -0.398338, 0, 0, 0, 1, 1, 1, 1, 1.46667, 1, 0.017583, 0.630766, -0.396624, 0, 0, 0, 1, 1, 1, 1, 1.6, 1, 0.00339265, 0.658421, -0.392719, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, -0.000194988, 0.668015, -0.388497, 0, 0, 0, 1, 1, 1, 1, 1.73333, 1, -0.00159481, 0.675301, -0.377612, 0, 0, 0, 1, 1, 1, 1, 1.8, 1, -0.00165961, 0.686015, -0.361382, 0, 0, 0, 1, 1, 1, 1, 1.86667, 1, 0.00234727, 0.697594, -0.341012, 0, 0, 0, 1, 1, 1, 1, 1.93333, 1, 0.00833371, 0.704275, -0.31939, 0, 0, 0, 1, 1, 1, 1, 2, 1, 0.0177363, 0.706898, -0.299082, 0, 0, 0, 1, 1, 1, 1, 2.13333, 1, 0.0332696, 0.720163, -0.267543, 0, 0, 0, 1, 1, 1, 1, 2.2, 1, 0.0381519, 0.729, -0.253659, 0, 0, 0, 1, 1, 1, 1, 2.26667, 1, 0.0394115, 0.735379, -0.243719, 0, 0, 0, 1, 1, 1, 1, 2.33333, 1, 0.0399588, 0.74179, -0.239133, 0, 0, 0, 1, 1, 1, 1, 2.4, 1, 0.0392606, 0.746316, -0.239538, 0, 0, 0, 1, 1, 1, 1, 2.46667, 1, 0.0378803, 0.749483, -0.24074, 0, 0, 0, 1, 1, 1, 1, 2.5, 1, 0.0372149, 0.750401, -0.241653, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=8]
-resource_name = "fall"
+[sub_resource type="Animation" id=10]
 length = 0.733333
 loop = true
 tracks/0/type = "transform"
@@ -2621,8 +2618,7 @@ tracks/40/imported = true
 tracks/40/enabled = false
 tracks/40/keys = PoolRealArray( 0, 1, -0.0220315, -0.158344, 0.0207013, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, -0.0220315, -0.158344, 0.0207013, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, -0.0225263, -0.158391, 0.0199921, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, -0.0231309, -0.158369, 0.0191085, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, -0.0235306, -0.158561, 0.018382, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, -0.0236296, -0.15888, 0.0180407, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, -0.0234635, -0.159328, 0.0182188, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, -0.0231307, -0.159801, 0.0188093, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, -0.0227022, -0.160127, 0.0195751, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, -0.0222558, -0.160167, 0.0202651, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, -0.0219525, -0.15942, 0.0207573, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, -0.0219123, -0.158226, 0.0208948, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=9]
-resource_name = "idle"
+[sub_resource type="Animation" id=11]
 length = 2.0
 loop = true
 tracks/0/type = "transform"
@@ -2913,8 +2909,7 @@ tracks/40/imported = true
 tracks/40/enabled = false
 tracks/40/keys = PoolRealArray( 0, 1, -0.0146076, -0.0987946, 0.00411141, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=10]
-resource_name = "jump"
+[sub_resource type="Animation" id=12]
 length = 1.03333
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
@@ -3204,8 +3199,7 @@ tracks/40/imported = true
 tracks/40/enabled = false
 tracks/40/keys = PoolRealArray( 0, 1, -0.00348294, -0.110429, 0.171751, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, -0.00348294, -0.110429, 0.171751, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, -0.0100726, 0.46454, 0.805662, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, -0.0211641, 0.869086, 1.38898, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, -0.0194278, 0.932291, 1.68423, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, -0.0225276, 0.848056, 2.00251, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, -0.0381403, 0.305184, 2.65428, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, -0.0267391, -0.174129, 3.21216, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, -0.00671864, -0.221826, 3.49201, 0, 0, 0, 1, 1, 1, 1, 0.866667, 1, -0.00779736, -0.186317, 3.78073, 0, 0, 0, 1, 1, 1, 1, 1.03333, 1, 0.00122012, -0.240468, 4.46437, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=11]
-resource_name = "jump-backwards"
+[sub_resource type="Animation" id=13]
 length = 0.966667
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
@@ -3495,8 +3489,7 @@ tracks/40/imported = true
 tracks/40/enabled = false
 tracks/40/keys = PoolRealArray( 0, 1, -0.0118854, -0.192006, -0.0747256, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, -0.0118854, -0.192006, -0.0747256, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, -0.0696684, -0.0983624, -0.291032, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, -0.101633, 0.154894, -0.44726, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, -0.0715965, 0.350617, -0.595366, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, -0.0446713, 0.449268, -0.817791, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 0.00423822, 0.406762, -1.1171, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, 0.0342149, 0.282793, -1.40482, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, 0.0378845, 0.093864, -1.66285, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, 0.00694823, -0.126543, -1.84455, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, -0.0273457, -0.267942, -1.98488, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, -0.0541952, -0.278229, -2.124, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, -0.0517962, -0.178796, -2.24587, 0, 0, 0, 1, 1, 1, 1, 0.866667, 1, -0.0261479, -0.143716, -2.40415, 0, 0, 0, 1, 1, 1, 1, 0.933333, 1, -0.00265183, -0.185333, -2.56659, 0, 0, 0, 1, 1, 1, 1, 0.966667, 1, 0.00412973, -0.17198, -2.6598, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=12]
-resource_name = "jump-end"
+[sub_resource type="Animation" id=14]
 length = 0.4
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
@@ -3786,8 +3779,7 @@ tracks/40/imported = true
 tracks/40/enabled = false
 tracks/40/keys = PoolRealArray( 0, 1, -0.0116124, -0.151936, 0.0450977, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, -0.0116124, -0.151936, 0.0450977, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, -0.000633697, -0.147533, 0.0617367, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, -0.00131783, -0.127992, 0.101901, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, -0.00788444, -0.0938656, 0.156565, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0.0157617, -0.0954919, 0.124987, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 0.0411524, -0.0989262, 0.0830766, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=13]
-resource_name = "jump-start"
+[sub_resource type="Animation" id=15]
 length = 0.266667
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
@@ -4077,8 +4069,7 @@ tracks/40/imported = true
 tracks/40/enabled = false
 tracks/40/keys = PoolRealArray( 0, 1, 0, -0.112, 0, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0, -0.112, 0, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, 0, -0.14, 0, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0, -0.149, 0, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, 0, -0.153, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=14]
-resource_name = "run-backwards-loop"
+[sub_resource type="Animation" id=16]
 length = 0.666667
 loop = true
 tracks/0/type = "transform"
@@ -4362,8 +4353,7 @@ tracks/39/imported = true
 tracks/39/enabled = true
 tracks/39/keys = PoolRealArray( 0, 1, -0.00105446, -0.180742, -0.0767581, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, -0.00105446, -0.180742, -0.0767581, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0.00281059, -0.117398, -0.509075, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, 0.0122927, -0.113905, -0.748132, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 0.030958, -0.19036, -1.19733, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, 0.0118294, -0.104765, -1.65375, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, 0.00412983, -0.17198, -2.12033, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=15]
-resource_name = "run-forwards-loop"
+[sub_resource type="Animation" id=17]
 length = 0.667
 loop = true
 step = 0.001
@@ -4655,8 +4645,7 @@ tracks/40/imported = true
 tracks/40/enabled = true
 tracks/40/keys = PoolRealArray( 0, 1, 0, 0, 0.247, 0, 0, 0, 1, 1, 1, 1, 0.066, 1, 0, 0, 0.247, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0, 0, 1.037, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0, 0, 1.865, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 0, 0, 2.361, 0, 0, 0, 1, 1, 1, 1, 0.534, 1, 0, 0, 3.139, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, 0, 0, 4, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=16]
-resource_name = "slide"
+[sub_resource type="Animation" id=18]
 length = 1.56667
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
@@ -4946,8 +4935,7 @@ tracks/40/imported = true
 tracks/40/enabled = true
 tracks/40/keys = PoolRealArray( 0, 1, 0.0186972, -0.110995, 0.244833, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0.0186972, -0.110995, 0.244833, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, 0.022056, -0.145448, 0.70148, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, 0.0475328, -0.592263, 1.50375, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0.0819381, -0.776742, 1.92266, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, 0.0890125, -0.81395, 2.69262, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, 0.136828, -0.752432, 4.10112, 0, 0, 0, 1, 1, 1, 1, 0.866667, 1, 0.139782, -0.643623, 4.67887, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0.0324196, -0.547755, 5.16508, 0, 0, 0, 1, 1, 1, 1, 1.13333, 1, -0.0180632, -0.43206, 5.55115, 0, 0, 0, 1, 1, 1, 1, 1.2, 1, -0.0241939, -0.365862, 5.72219, 0, 0, 0, 1, 1, 1, 1, 1.4, 1, -0.0393859, -0.154554, 6.41262, 0, 0, 0, 1, 1, 1, 1, 1.53333, 1, -0.00722626, -0.136942, 6.99956, 0, 0, 0, 1, 1, 1, 1, 1.56667, 1, -0.00164946, -0.142577, 7.16092, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=17]
-resource_name = "strafe-left-loop"
+[sub_resource type="Animation" id=19]
 length = 0.7
 loop = true
 tracks/0/type = "transform"
@@ -5238,8 +5226,7 @@ tracks/40/imported = true
 tracks/40/enabled = true
 tracks/40/keys = PoolRealArray( 0, 1, 0.141706, -0.191479, 0.00370526, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0.141706, -0.191479, 0.00370526, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0.795845, -0.124065, -0.0110467, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 1.39312, -0.18184, -0.0131832, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, 2.09199, -0.145046, -0.0154048, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, 2.74133, -0.125346, -0.00565797, 0, 0, 0, 1, 1, 1, 1, 0.7, 1, 3.20501, -0.186176, 0.0060817, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=18]
-resource_name = "strafe-right-loop"
+[sub_resource type="Animation" id=20]
 length = 0.7
 loop = true
 tracks/0/type = "transform"
@@ -5530,8 +5517,7 @@ tracks/40/imported = true
 tracks/40/enabled = true
 tracks/40/keys = PoolRealArray( 0, 1, -0.16251, -0.187529, 0.0075376, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, -0.16251, -0.187529, 0.0075376, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, -1.1925, -0.124363, 0.0110515, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, -1.80523, -0.191069, 0.0238543, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, -2.46866, -0.12938, 0.00905252, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, -3.06606, -0.174613, 0.00597441, 0, 0, 0, 1, 1, 1, 1, 0.7, 1, -3.21338, -0.186154, 0.00679016, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=19]
-resource_name = "t-pose"
+[sub_resource type="Animation" id=21]
 length = 0.0666667
 loop = true
 tracks/0/type = "transform"
@@ -5885,8 +5871,7 @@ tracks/49/imported = true
 tracks/49/enabled = true
 tracks/49/keys = PoolRealArray( 0, 1, -1.42109e-14, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, -1.42109e-14, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=20]
-resource_name = "turn-left"
+[sub_resource type="Animation" id=22]
 length = 0.966667
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
@@ -6176,8 +6161,7 @@ tracks/40/imported = true
 tracks/40/enabled = true
 tracks/40/keys = PoolRealArray( 0, 1, 0.00131447, -0.0168458, 0.0133564, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0.00131447, -0.0168458, 0.0133564, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, -0.0037535, -0.0223694, -0.00494587, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, -0.0153566, -0.0213437, -0.0272621, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, -0.039132, -0.0350264, -0.0712463, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, -0.0416705, -0.0330614, -0.0890277, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, -0.0369204, -0.0361326, -0.104571, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, -0.0351488, -0.0460562, -0.114387, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, -0.0336656, -0.0421768, -0.115169, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, -0.0285988, -0.0321325, -0.10661, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, -0.0191568, -0.0254961, -0.0914209, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, -0.003408, -0.0305332, -0.0693178, 0, 0, 0, 1, 1, 1, 1, 0.866667, 1, 0.0110838, -0.0294373, -0.049556, 0, 0, 0, 1, 1, 1, 1, 0.933333, 1, 0.0198486, -0.0177785, -0.0306734, 0, 0, 0, 1, 1, 1, 1, 0.966667, 1, 0.0214968, -0.0132222, -0.0208471, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=21]
-resource_name = "turn-right"
+[sub_resource type="Animation" id=23]
 length = 1.03333
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
@@ -6467,156 +6451,130 @@ tracks/40/imported = true
 tracks/40/enabled = true
 tracks/40/keys = PoolRealArray( 0, 1, 0.0112687, -0.0183947, 0.020566, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0.0112687, -0.0183947, 0.020566, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, 0.0260311, -0.0198666, 0.020923, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0.0374446, -0.0221189, 0.0184896, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, 0.0421545, -0.0220935, 0.016171, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0.0412715, -0.0194453, 0.0156479, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 0.0336496, -0.0138805, 0.0149765, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, 0.0173341, -0.0101119, 0.0115623, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, -0.00570794, -0.0112032, 0.00162971, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, -0.0278808, -0.0254281, -0.00918162, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, -0.0462206, -0.0418565, -0.0143766, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, -0.0665705, -0.0450165, -0.014239, 0, 0, 0, 1, 1, 1, 1, 0.866667, 1, -0.109058, -0.0325731, -0.00357604, 0, 0, 0, 1, 1, 1, 1, 1, 1, -0.149045, -0.0227059, 0.0169481, 0, 0, 0, 1, 1, 1, 1, 1.03333, 1, -0.157104, -0.0202669, 0.0223938, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="AnimationNodeBlend2" id=65]
+[sub_resource type="AnimationNodeBlend2" id=24]
 filter_enabled = true
 filters = [ "Armature/Skeleton:LeftFoot", "Armature/Skeleton:LeftLeg", "Armature/Skeleton:LeftToeBase", "Armature/Skeleton:LeftToe_End", "Armature/Skeleton:LeftUpLeg", "Armature/Skeleton:RightFoot", "Armature/Skeleton:RightLeg", "Armature/Skeleton:RightToeBase", "Armature/Skeleton:RightToe_End", "Armature/Skeleton:RightUpLeg", "Armature/Skeleton:Spine" ]
 
-[sub_resource type="AnimationNodeTimeSeek" id=66]
+[sub_resource type="AnimationNodeTimeSeek" id=25]
 
-[sub_resource type="AnimationNodeTimeScale" id=67]
-
-[sub_resource type="AnimationNodeAnimation" id=68]
-animation = "air-dash-aim"
-
-[sub_resource type="AnimationNodeAnimation" id=69]
-animation = "double-jump"
-
-[sub_resource type="AnimationNodeBlendTree" id=70]
-graph_offset = Vector2( -209, -25 )
-nodes/Blend2/node = SubResource( 65 )
-nodes/Blend2/position = Vector2( 460, 100 )
-nodes/Seek/node = SubResource( 66 )
-nodes/Seek/position = Vector2( 260, 260 )
-nodes/TimeScale/node = SubResource( 67 )
-nodes/TimeScale/position = Vector2( 80, 280 )
-nodes/air-dash-aim/node = SubResource( 68 )
-nodes/air-dash-aim/position = Vector2( 80, 100 )
-nodes/curl/node = SubResource( 69 )
-nodes/curl/position = Vector2( -140, 280 )
-nodes/output/position = Vector2( 740, 100 )
-node_connections = [ "output", 0, "Blend2", "Seek", 0, "TimeScale", "TimeScale", 0, "curl", "Blend2", 0, "air-dash-aim", "Blend2", 1, "Seek" ]
-
-[sub_resource type="AnimationNodeAnimation" id=63]
-animation = "air-dash-start"
-
-[sub_resource type="AnimationNodeAnimation" id=22]
-animation = "climb"
-
-[sub_resource type="AnimationNodeAnimation" id=23]
-animation = "double-jump"
-
-[sub_resource type="AnimationNodeAnimation" id=24]
-animation = "fall"
-
-[sub_resource type="AnimationNodeAnimation" id=25]
-animation = "idle"
-
-[sub_resource type="AnimationNodeAnimation" id=26]
-animation = "jump-backwards"
+[sub_resource type="AnimationNodeTimeScale" id=26]
 
 [sub_resource type="AnimationNodeAnimation" id=27]
-animation = "jump"
+animation = "air-dash-aim"
 
 [sub_resource type="AnimationNodeAnimation" id=28]
+animation = "double-jump"
+
+[sub_resource type="AnimationNodeBlendTree" id=29]
+graph_offset = Vector2( -209, -25 )
+nodes/Blend2/node = SubResource( 24 )
+nodes/Blend2/position = Vector2( 460, 100 )
+nodes/Seek/node = SubResource( 25 )
+nodes/Seek/position = Vector2( 260, 260 )
+nodes/TimeScale/node = SubResource( 26 )
+nodes/TimeScale/position = Vector2( 80, 280 )
+nodes/air-dash-aim/node = SubResource( 27 )
+nodes/air-dash-aim/position = Vector2( 80, 100 )
+nodes/curl/node = SubResource( 28 )
+nodes/curl/position = Vector2( -140, 280 )
+nodes/output/position = Vector2( 740, 100 )
+node_connections = [ "output", 0, "Blend2", "Blend2", 0, "air-dash-aim", "Blend2", 1, "Seek", "Seek", 0, "TimeScale", "TimeScale", 0, "curl" ]
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "air-dash-start"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "climb"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "double-jump"
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "fall"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "jump-backwards"
+
+[sub_resource type="AnimationNodeAnimation" id=36]
+animation = "jump"
+
+[sub_resource type="AnimationNodeAnimation" id=37]
 animation = "jump-start"
 
-[sub_resource type="AnimationNodeBlendSpace1D" id=29]
-blend_point_0/node = SubResource( 26 )
+[sub_resource type="AnimationNodeBlendSpace1D" id=38]
+blend_point_0/node = SubResource( 35 )
 blend_point_0/pos = -1.0
-blend_point_1/node = SubResource( 27 )
+blend_point_1/node = SubResource( 36 )
 blend_point_1/pos = 1.0
-blend_point_2/node = SubResource( 28 )
+blend_point_2/node = SubResource( 37 )
 blend_point_2/pos = 0.0
 
-[sub_resource type="AnimationNodeBlendTree" id=30]
+[sub_resource type="AnimationNodeBlendTree" id=39]
 graph_offset = Vector2( -146, 7 )
-nodes/jump_blend/node = SubResource( 29 )
+nodes/jump_blend/node = SubResource( 38 )
 nodes/jump_blend/position = Vector2( 40, 140 )
 node_connections = [ "output", 0, "jump_blend" ]
 
-[sub_resource type="AnimationNodeAnimation" id=31]
+[sub_resource type="AnimationNodeAnimation" id=40]
 animation = "run-forwards-loop"
 
-[sub_resource type="AnimationNodeAnimation" id=32]
+[sub_resource type="AnimationNodeAnimation" id=41]
 animation = "run-backwards-loop"
 
-[sub_resource type="AnimationNodeAnimation" id=33]
+[sub_resource type="AnimationNodeAnimation" id=42]
 animation = "strafe-right-loop"
 
-[sub_resource type="AnimationNodeAnimation" id=34]
+[sub_resource type="AnimationNodeAnimation" id=43]
 animation = "strafe-left-loop"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=36]
-blend_point_0/node = SubResource( 31 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=44]
+blend_point_0/node = SubResource( 40 )
 blend_point_0/pos = Vector2( 0, 1 )
-blend_point_1/node = SubResource( 32 )
+blend_point_1/node = SubResource( 41 )
 blend_point_1/pos = Vector2( 0, -1 )
-blend_point_2/node = SubResource( 33 )
+blend_point_2/node = SubResource( 42 )
 blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 34 )
+blend_point_3/node = SubResource( 43 )
 blend_point_3/pos = Vector2( -1, 0 )
 
-[sub_resource type="AnimationNodeTimeScale" id=37]
+[sub_resource type="AnimationNodeTimeScale" id=45]
 
-[sub_resource type="AnimationNodeBlendTree" id=38]
+[sub_resource type="AnimationNodeBlendTree" id=46]
 graph_offset = Vector2( -194, -21 )
 nodes/output/position = Vector2( 440, 140 )
-nodes/run_blend/node = SubResource( 36 )
+nodes/run_blend/node = SubResource( 44 )
 nodes/run_blend/position = Vector2( -20, 120 )
-nodes/run_speed/node = SubResource( 37 )
+nodes/run_speed/node = SubResource( 45 )
 nodes/run_speed/position = Vector2( 240, 140 )
 node_connections = [ "output", 0, "run_speed", "run_speed", 0, "run_blend" ]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=39]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=40]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=41]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=42]
-xfade_time = 0.1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=43]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=44]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=45]
-switch_mode = 2
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=46]
-xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=47]
 xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=48]
-xfade_time = 0.1
+xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=49]
-switch_mode = 2
-xfade_time = 0.1
+xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=50]
 xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=51]
-xfade_time = 0.1
+xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=52]
 xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=53]
-xfade_time = 0.1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=54]
 switch_mode = 2
 xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=54]
+xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=55]
 xfade_time = 0.1
@@ -6625,19 +6583,57 @@ xfade_time = 0.1
 xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=57]
+switch_mode = 2
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=58]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=59]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=60]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=61]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=62]
+switch_mode = 2
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=63]
 xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=64]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=65]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=66]
 xfade_time = 0.25
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=67]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=68]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=69]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=70]
+xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=71]
 xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=72]
-xfade_time = 0.2
+xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=73]
-xfade_time = 0.1
+xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=74]
 xfade_time = 0.1
@@ -6646,42 +6642,30 @@ xfade_time = 0.1
 xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=76]
-xfade_time = 0.1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=77]
 xfade_time = 0.2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=78]
-xfade_time = 0.1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=79]
-xfade_time = 0.1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=80]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachine" id=58]
-states/air-dash-aim/node = SubResource( 70 )
+[sub_resource type="AnimationNodeStateMachine" id=77]
+states/air-dash-aim/node = SubResource( 29 )
 states/air-dash-aim/position = Vector2( 635, 225 )
-states/air-dash-start/node = SubResource( 63 )
+states/air-dash-start/node = SubResource( 30 )
 states/air-dash-start/position = Vector2( 635, 319 )
-states/climb/node = SubResource( 22 )
+states/climb/node = SubResource( 31 )
 states/climb/position = Vector2( -75, 125 )
-states/double-jump/node = SubResource( 23 )
+states/double-jump/node = SubResource( 32 )
 states/double-jump/position = Vector2( 85, 214 )
-states/fall/node = SubResource( 24 )
+states/fall/node = SubResource( 33 )
 states/fall/position = Vector2( 353, 319 )
-states/idle/node = SubResource( 25 )
+states/idle/node = SubResource( 34 )
 states/idle/position = Vector2( 251, 86 )
-states/jump/node = SubResource( 30 )
+states/jump/node = SubResource( 39 )
 states/jump/position = Vector2( 353, 225 )
-states/running/node = SubResource( 38 )
+states/running/node = SubResource( 46 )
 states/running/position = Vector2( 463, 86 )
-transitions = [ "idle", "running", SubResource( 39 ), "running", "idle", SubResource( 40 ), "idle", "jump", SubResource( 41 ), "running", "jump", SubResource( 42 ), "jump", "idle", SubResource( 43 ), "jump", "running", SubResource( 44 ), "jump", "fall", SubResource( 45 ), "fall", "idle", SubResource( 46 ), "fall", "running", SubResource( 47 ), "jump", "double-jump", SubResource( 48 ), "double-jump", "fall", SubResource( 49 ), "fall", "double-jump", SubResource( 50 ), "double-jump", "idle", SubResource( 51 ), "double-jump", "running", SubResource( 52 ), "double-jump", "climb", SubResource( 53 ), "climb", "idle", SubResource( 54 ), "climb", "running", SubResource( 55 ), "jump", "climb", SubResource( 56 ), "fall", "climb", SubResource( 57 ), "air-dash-start", "fall", SubResource( 64 ), "jump", "air-dash-aim", SubResource( 71 ), "air-dash-aim", "air-dash-start", SubResource( 72 ), "fall", "air-dash-aim", SubResource( 73 ), "air-dash-aim", "fall", SubResource( 74 ), "air-dash-start", "running", SubResource( 75 ), "air-dash-start", "idle", SubResource( 76 ), "double-jump", "air-dash-aim", SubResource( 77 ), "air-dash-start", "double-jump", SubResource( 78 ), "air-dash-start", "jump", SubResource( 79 ), "air-dash-start", "climb", SubResource( 80 ) ]
+transitions = [ "idle", "running", SubResource( 47 ), "running", "idle", SubResource( 48 ), "idle", "jump", SubResource( 49 ), "running", "jump", SubResource( 50 ), "jump", "idle", SubResource( 51 ), "jump", "running", SubResource( 52 ), "jump", "fall", SubResource( 53 ), "fall", "idle", SubResource( 54 ), "fall", "running", SubResource( 55 ), "jump", "double-jump", SubResource( 56 ), "double-jump", "fall", SubResource( 57 ), "fall", "double-jump", SubResource( 58 ), "double-jump", "idle", SubResource( 59 ), "double-jump", "running", SubResource( 60 ), "double-jump", "climb", SubResource( 61 ), "climb", "idle", SubResource( 62 ), "climb", "running", SubResource( 63 ), "jump", "climb", SubResource( 64 ), "fall", "climb", SubResource( 65 ), "air-dash-start", "fall", SubResource( 66 ), "jump", "air-dash-aim", SubResource( 67 ), "air-dash-aim", "air-dash-start", SubResource( 68 ), "fall", "air-dash-aim", SubResource( 69 ), "air-dash-aim", "fall", SubResource( 70 ), "air-dash-start", "running", SubResource( 71 ), "air-dash-start", "idle", SubResource( 72 ), "double-jump", "air-dash-aim", SubResource( 73 ), "air-dash-start", "double-jump", SubResource( 74 ), "air-dash-start", "jump", SubResource( 75 ), "air-dash-start", "climb", SubResource( 76 ) ]
 start_node = "idle"
-graph_offset = Vector2( -220, -132 )
+graph_offset = Vector2( -232, 6 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=59]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=78]
 
 [node name="PlayerSkin" type="Spatial"]
 script = ExtResource( 11 )
@@ -6940,7 +6924,10 @@ bones/49/rest = Transform( 1, -3.1665e-07, -4.58304e-06, 3.1665e-07, 1, 5.86726e
 bones/49/enabled = true
 bones/49/bound_children = [  ]
 
-[node name="Mesh" type="MeshInstance" parent="Armature/Skeleton"]
+[node name="PlayerMeshSolid" parent="Armature/Skeleton" instance=ExtResource( 13 )]
+
+[node name="PlayerMeshNormal" type="MeshInstance" parent="Armature/Skeleton"]
+visible = false
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
 material/0 = null
@@ -6954,35 +6941,38 @@ material/7 = null
 material/8 = null
 material/9 = null
 
+[node name="PlayerMeshDamaged" parent="Armature/Skeleton" instance=ExtResource( 12 )]
+visible = false
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/air-dash = SubResource( 3 )
-anims/air-dash-aim = SubResource( 60 )
-anims/air-dash-start = SubResource( 61 )
-anims/climb = SubResource( 4 )
-anims/death = SubResource( 5 )
-anims/double-jump = SubResource( 6 )
-anims/edge = SubResource( 7 )
-anims/fall = SubResource( 8 )
-anims/idle = SubResource( 9 )
-anims/jump = SubResource( 10 )
-anims/jump-backwards = SubResource( 11 )
-anims/jump-end = SubResource( 12 )
-anims/jump-start = SubResource( 13 )
-anims/run-backwards-loop = SubResource( 14 )
-anims/run-forwards-loop = SubResource( 15 )
-anims/slide = SubResource( 16 )
-anims/strafe-left-loop = SubResource( 17 )
-anims/strafe-right-loop = SubResource( 18 )
-anims/t-pose = SubResource( 19 )
-anims/turn-left = SubResource( 20 )
-anims/turn-right = SubResource( 21 )
+anims/air-dash-aim = SubResource( 4 )
+anims/air-dash-start = SubResource( 5 )
+anims/climb = SubResource( 6 )
+anims/death = SubResource( 7 )
+anims/double-jump = SubResource( 8 )
+anims/edge = SubResource( 9 )
+anims/fall = SubResource( 10 )
+anims/idle = SubResource( 11 )
+anims/jump = SubResource( 12 )
+anims/jump-backwards = SubResource( 13 )
+anims/jump-end = SubResource( 14 )
+anims/jump-start = SubResource( 15 )
+anims/run-backwards-loop = SubResource( 16 )
+anims/run-forwards-loop = SubResource( 17 )
+anims/slide = SubResource( 18 )
+anims/strafe-left-loop = SubResource( 19 )
+anims/strafe-right-loop = SubResource( 20 )
+anims/t-pose = SubResource( 21 )
+anims/turn-left = SubResource( 22 )
+anims/turn-right = SubResource( 23 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 58 )
+tree_root = SubResource( 77 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 root_motion_track = NodePath("Armature/Skeleton:RootMotion")
-parameters/playback = SubResource( 59 )
+parameters/playback = SubResource( 78 )
 parameters/air-dash-aim/Blend2/blend_amount = 1.0
 parameters/air-dash-aim/Seek/seek_position = -1.0
 parameters/air-dash-aim/TimeScale/scale = 0.0

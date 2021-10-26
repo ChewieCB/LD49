@@ -149,8 +149,6 @@ func calculate_movement_direction_with_root_motion(delta):
 	var root_transform = _actor.skin.animation_tree.get_root_motion_transform()
 	var root_velocity = root_transform.origin / delta
 	root_velocity = Vector3(-root_velocity.z, 0, -root_velocity.x)
-#	print(root_transform)
-	print(root_velocity)
 	
 	# We calculate a move direction vector relative to the camera,
 	# the basis stores the (right, up, -forwards) vectors of our camera.

@@ -1,8 +1,8 @@
 extends Spatial
 
-onready var mesh_high = $Armature/Skeleton/mesh_high
-onready var mesh_medium = $Armature/Skeleton/mesh_medium
-onready var mesh_low = $Armature/Skeleton/mesh_low
+onready var mesh_high = $Armature/Skeleton/PlayerMeshSolid
+onready var mesh_medium = $Armature/Skeleton/PlayerMeshNormal
+onready var mesh_low = $Armature/Skeleton/PlayerMeshDamaged
 onready var meshes = [mesh_high, mesh_medium, mesh_low]
 
 enum States { 
@@ -65,25 +65,22 @@ func transition_to(state_id: int):
 
 
 func _switch_player_mesh(mesh_index):
-	pass
-#	var new_mesh
-#	match mesh_index:
-#		0:
-#			new_mesh = mesh_high
-#		1:
-#			new_mesh = mesh_medium
-#		2:
-#			new_mesh = mesh_low
-#
-#	for _mesh in meshes:
-#		if _mesh == new_mesh:
-#			_mesh.visible = true
-#		else:
-#			_mesh.visible = false
-#
-#	# TODO - add some sort of juice here, a particle effect or something
-#	pass
+	var new_mesh
+	match mesh_index:
+		0:
+			new_mesh = mesh_high
+		1:
+			new_mesh = mesh_medium
+		2:
+			new_mesh = mesh_low
 
+	for _mesh in meshes:
+		if _mesh == new_mesh:
+			_mesh.visible = true
+		else:
+			_mesh.visible = false
+
+	# TODO - add some sort of juice here, a particle effect or something
 
 #func _start_ragdoll():
 #	$Armature/Skeleton.physical_bones_start_simulation()
