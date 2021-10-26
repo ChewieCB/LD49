@@ -3,8 +3,14 @@ extends State
 
 export var jump_velocity = 35
 
+var skin_direction = 0
+
+# FIXME - remove ROOT MOTION from jumping, it's really hard to control and
+# prevents sideways jumps :/
+
 
 func enter(_msg: Dictionary = {}):
+	_parent.using_root_motion = false
 	_parent.enter()
 #	_parent.velocity.x *= 2
 #	_parent.velocity.z *= 2
@@ -22,6 +28,14 @@ func enter(_msg: Dictionary = {}):
 
 func physics_process(delta: float):
 	_parent.physics_process(delta)
+	
+	# Apply input direction to skin
+	var input_direction = - _parent.input_direction.z
+	skin_direction = lerp(skin_direction, input_direction, 0.1)
+	_actor.skin.animation_tree.set(
+		"parameters/jump/jump_blend/blend_position", 
+		skin_direction
+	)
 	
 	if _actor.is_on_ceiling():
 		_parent.velocity.y = 0

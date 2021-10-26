@@ -11,6 +11,7 @@ export var jump_impulse = 30
 
 
 func enter(msg: Dictionary = {}):
+	_parent.using_root_motion = false
 	_parent.enter()
 	_parent.max_speed = max_speed
 	_parent.move_speed = move_speed
