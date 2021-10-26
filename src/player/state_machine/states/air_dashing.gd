@@ -11,6 +11,7 @@ var dash_velocity
 
 
 func enter(msg: Dictionary = {}):
+	_parent.using_root_motion = false
 	audio_manager.transition_to(audio_manager.States.AIR_DASH)
 	
 	# MESH

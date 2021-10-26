@@ -23,6 +23,9 @@ var velocity := Vector3.ZERO
 var input_direction = Vector3.ZERO
 var move_direction = Vector3.ZERO
 
+# Flag for each child state to set to allow root motion for specific animations
+var using_root_motion = false
+
 
 func _ready():
 	yield(owner, "ready")
@@ -91,7 +94,11 @@ func physics_process(delta: float):
 	else:
 		input_direction = Vector3.ZERO
 	
-	move_direction = calculate_movement_direction(input_direction, delta)
+	# Determine if we're using root motion-based movemment or not
+	if using_root_motion and input_direction != Vector3.ZERO:
+		move_direction = calculate_movement_direction_with_root_motion(delta)
+	else:
+		move_direction = calculate_movement_direction(input_direction, delta)
 	
 	velocity = calculate_velocity(velocity, move_direction, delta)
 	velocity = _actor.move_and_slide(velocity, Vector3.UP, true, 4, 0.785398, false)
@@ -113,8 +120,6 @@ func calculate_movement_direction(input_direction, delta):
 	
 	# We calculate a move direction vector relative to the camera,
 	# the basis stores the (right, up, -forwards) vectors of our camera.
-	#
-	# FIXME - ugh these alignments are a MESS
 	forwards = input_direction.z * _actor.transform.basis.x
 	right = input_direction.x * - _actor.transform.basis.z
 	move_direction = forwards + right
@@ -133,14 +138,42 @@ func calculate_movement_direction(input_direction, delta):
 			movement_angle,
 			0.2
 		)
-#		for element in _actor.rotateable:
-#			element.rotation.y = lerp_angle(
-#				element.rotation.y,
-#				movement_angle,
-#				0.2
-#			)
 
-	return move_direction 
+	return move_direction
+
+
+func calculate_movement_direction_with_root_motion(delta):
+	var forwards := Vector3.ZERO
+	var right := Vector3.ZERO
+	
+	var root_transform = _actor.skin.animation_tree.get_root_motion_transform()
+	var root_velocity = root_transform.origin / delta
+	root_velocity = Vector3(-root_velocity.z, 0, -root_velocity.x)
+#	print(root_transform)
+	print(root_velocity)
+	
+	# We calculate a move direction vector relative to the camera,
+	# the basis stores the (right, up, -forwards) vectors of our camera.
+	forwards = root_velocity.x * _actor.transform.basis.x
+	right = root_velocity.z * - _actor.transform.basis.z
+	move_direction = forwards + right
+	
+	if move_direction.length() > 1.0:
+		move_direction = move_direction.normalized()
+		move_direction.y = 0
+
+	# Rotation
+	if move_direction != Vector3.ZERO:
+		# Get the angle in the y-axis via atan2
+		var movement_angle = atan2(move_direction.x, move_direction.z) + PI
+		# lerp_angle prevents the flip-flopping between 0 and 360 degrees
+		_actor.rotation.y = lerp_angle(
+			_actor.rotation.y,
+			movement_angle,
+			0.2
+		)
+
+	return move_direction
 
 
 func calculate_velocity(velocity_current: Vector3, move_direction: Vector3, delta: float):

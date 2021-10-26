@@ -39,11 +39,11 @@ func transition_to(state_id: int):
 		States.RUN:
 			_playback.travel("running")
 		States.JUMP:
-			_playback.travel("falling")
+			_playback.travel("fall")
 		States.FALL:
-			_playback.travel("falling")
+			_playback.travel("fall")
 		States.DOUBLE_JUMP:
-			_playback.travel("double-jumping")
+			_playback.travel("double-jump")
 		States.LAND_SOFT:
 			_playback.travel("land-soft")
 		States.LAND_MEDIUM:
@@ -51,7 +51,7 @@ func transition_to(state_id: int):
 		States.LAND_HARD:
 			_playback.travel("land-hard")
 		States.CLIMB:
-			_playback.travel("climbing")
+			_playback.travel("climb")
 		States.DASH_AIM:
 			_playback.travel("air-dash-aim")
 		States.DASH:
@@ -60,27 +60,29 @@ func transition_to(state_id: int):
 			# TODO - add ragdoll
 			_playback.travel("dying")
 		_:
-			_playback.travel("t-pose")
+			pass
+#			_playback.travel("t-pose")
 
 
 func _switch_player_mesh(mesh_index):
-	var new_mesh
-	match mesh_index:
-		0:
-			new_mesh = mesh_high
-		1:
-			new_mesh = mesh_medium
-		2:
-			new_mesh = mesh_low
-	
-	for _mesh in meshes:
-		if _mesh == new_mesh:
-			_mesh.visible = true
-		else:
-			_mesh.visible = false
-	
-	# TODO - add some sort of juice here, a particle effect or something
 	pass
+#	var new_mesh
+#	match mesh_index:
+#		0:
+#			new_mesh = mesh_high
+#		1:
+#			new_mesh = mesh_medium
+#		2:
+#			new_mesh = mesh_low
+#
+#	for _mesh in meshes:
+#		if _mesh == new_mesh:
+#			_mesh.visible = true
+#		else:
+#			_mesh.visible = false
+#
+#	# TODO - add some sort of juice here, a particle effect or something
+#	pass
 
 
 #func _start_ragdoll():

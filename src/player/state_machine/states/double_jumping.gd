@@ -5,6 +5,7 @@ export var jump_velocity = 25
 
 
 func enter(_msg: Dictionary = {}):
+	_parent.using_root_motion = false
 	_parent.enter()
 #	_parent.velocity.x *= 2
 #	_parent.velocity.z *= 2

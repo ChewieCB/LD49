@@ -5,7 +5,9 @@ extends State
 
 func enter(_msg: Dictionary = {}):
 	_parent.velocity = Vector3.ZERO
+	_parent.using_root_motion = false
 	_parent.enter()
+	
 	_actor.has_jumped = false
 	_actor.has_dashed = false
 	
@@ -24,6 +26,7 @@ func unhandled_input(event: InputEvent):
 
 func physics_process(delta: float):
 	_parent.physics_process(delta)
+	
 	if _actor.is_on_floor():
 		# Stationary Jumping
 		if Input.is_action_pressed("p1_jump"):
