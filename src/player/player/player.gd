@@ -18,20 +18,9 @@ export (Vector3) var climb_ray_pos_double_jump = Vector3(0, 7.3, 0)
 
 # Triggerable raycast
 onready var trigger_ray = $TriggerRaycast
-#onready var slope_raycast = $SlopeRayCast
-#onready var impassable_raycast = $Collision/ImpassableRayCast
-#onready var knockback_raycasts = $Collision/KnockbackRayCasts.get_children()
 
 #onready var skin = $Collision/LlamaSkin
 onready var tween = $Tween
-
-# Array of all things that should rotate
-#onready var rotateable = [
-#	collision,
-#	default_collider,
-##	slope_raycast,
-##	impassable_raycast,
-#]
 
 onready var camera_pivot = get_node("../CameraPivot")
 onready var camera = get_node("../CameraPivot/Camera")

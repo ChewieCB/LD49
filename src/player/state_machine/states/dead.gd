@@ -14,6 +14,7 @@ func enter(msg: Dictionary = {}):
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	#
+	_parent.using_root_motion = true
 	_parent.enter()
 	_parent.input_direction = Vector3.ZERO
 #	_parent.move_direction = Vector3.ZERO

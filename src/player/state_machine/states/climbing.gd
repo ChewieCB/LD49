@@ -8,6 +8,7 @@ export (float) var horizontal_move_time = 0.4
 func enter(_msg: Dictionary = {}):
 	GlobalFlags.PLAYER_CONTROLS_ACTIVE = false
 	
+	_parent.using_root_motion = true
 	_parent.velocity = Vector3.ZERO
 #	_parent.gravity = 0.0
 	_parent.enter()
