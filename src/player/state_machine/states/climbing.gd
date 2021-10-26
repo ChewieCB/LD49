@@ -4,6 +4,8 @@ extends State
 export (float) var vertical_move_time = 0.6
 export (float) var horizontal_move_time = 0.4
 
+var climb_direction
+
 
 func enter(_msg: Dictionary = {}):
 	GlobalFlags.PLAYER_CONTROLS_ACTIVE = false
@@ -56,7 +58,7 @@ func grab_ledge():
 func climb():
 	var tween = _actor.tween
 	
-	var climb_direction = get_climb_direction()
+	climb_direction = get_climb_direction()
 	
 	var vertical_movement = _actor.global_transform.origin + Vector3(0, 2.0, 0) + _actor.climbing_rays.transform.origin
 	tween.interpolate_property(
