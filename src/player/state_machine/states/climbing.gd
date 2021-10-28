@@ -57,9 +57,9 @@ func grab_ledge():
 func climb():
 	var tween = _actor.tween
 	
-#	var climb_height = _actor.skin.high_vert.y
+	var climb_height = _actor.skin.high_vert.y - _actor.global_transform.origin.y
 	
-	var vertical_movement = _actor.global_transform.origin + Vector3(0, 0.5, 0) + _actor.climbing_rays.transform.origin
+	var vertical_movement = _actor.global_transform.origin + Vector3(0, climb_height, 0)
 	tween.interpolate_property(
 		_actor, 
 		"global_transform:origin", 
