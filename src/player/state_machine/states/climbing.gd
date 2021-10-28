@@ -106,6 +106,8 @@ func find_vertical_edge(climb_direction):
 		_actor.skin.chest_ray_1,
 		_actor.skin.chest_ray_2
 	]
+	# Add the actual climbing raycasts as well for good measure/fallback
+	climb_rays.append_array(_actor.body_rays.get_children())
 	var collision_rays = []
 	for ray in climb_rays:
 		if ray.is_colliding():
