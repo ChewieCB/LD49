@@ -2176,7 +2176,7 @@ operation = 2
 use_collision = true
 
 [node name="cut2" type="CSGBox" parent="05_room_interactibles/SlidingPlatform2/platform"]
-transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, -7.5, 19.3485, 5.75735 )
+transform = Transform( 1, 0, -9.85523e-19, 0, 1, -2.98023e-08, -3.05501e-17, 2.98023e-08, 1, -7.5, 19.3485, 5.75735 )
 width = 86.0
 height = 16.0
 depth = 130.0
