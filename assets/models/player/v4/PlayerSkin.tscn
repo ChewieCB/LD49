@@ -1169,6 +1169,7 @@ tracks/40/keys = PoolRealArray( 0, 1, 0.0257409, 0.859252, 0.0909019, 0, 0, 0, 1
 
 [sub_resource type="Animation" id=6]
 length = 1.16667
+step = 0.001
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
 tracks/0/interp = 1
@@ -1456,6 +1457,23 @@ tracks/40/loop_wrap = true
 tracks/40/imported = true
 tracks/40/enabled = true
 tracks/40/keys = PoolRealArray( 0, 1, -0.00689373, -0.425946, 0.0429658, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, -0.00689373, -0.425946, 0.0429658, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, -0.00501696, -0.292855, -0.0228494, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, -0.0202776, 0.123024, 0.117361, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, -0.0634386, 0.546184, 0.181617, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, -0.0768204, 0.753685, 0.184493, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, -0.0910018, 0.911232, 0.183871, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, -0.095768, 1.05945, 0.197049, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, -0.0970168, 1.11607, 0.22285, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, -0.0933712, 1.16796, 0.269367, 0, 0, 0, 1, 1, 1, 1, 0.933333, 1, -0.0827258, 1.25165, 0.423131, 0, 0, 0, 1, 1, 1, 1, 1, 1, -0.091144, 1.27393, 0.498097, 0, 0, 0, 1, 1, 1, 1, 1.06667, 1, -0.102078, 1.24846, 0.557706, 0, 0, 0, 1, 1, 1, 1, 1.13333, 1, -0.104228, 1.19458, 0.596429, 0, 0, 0, 1, 1, 1, 1, 1.16667, 1, -0.108441, 1.16779, 0.60479, 0, 0, 0, 1, 1, 1, 1 )
+tracks/41/type = "method"
+tracks/41/path = NodePath(".")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/keys = {
+"times": PoolRealArray( 0, 0.732 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_start_hand_ik"
+}, {
+"args": [  ],
+"method": "_stop_hand_ik"
+} ]
+}
 
 [sub_resource type="Animation" id=7]
 length = 3.66667
@@ -6944,6 +6962,28 @@ material/9 = null
 [node name="PlayerMeshDamaged" parent="Armature/Skeleton" instance=ExtResource( 12 )]
 visible = false
 
+[node name="LeftHandIK" type="SkeletonIK" parent="Armature/Skeleton"]
+process_priority = 1
+root_bone = "LeftShoulder"
+tip_bone = "LeftHand"
+use_magnet = true
+target_node = NodePath("../../../LeftHandIKTarget")
+
+[node name="RightHandIK" type="SkeletonIK" parent="Armature/Skeleton"]
+process_priority = 1
+root_bone = "RightShoulder"
+tip_bone = "RightHand"
+use_magnet = true
+target_node = NodePath("../../../RightHandIKTarget")
+
+[node name="LeftHandAttach" type="BoneAttachment" parent="Armature/Skeleton"]
+transform = Transform( 0.204205, 0.978893, 0.00830224, 0.0755283, -0.00729923, -0.997117, -0.97601, 0.204243, -0.0754247, 0.812029, 1.53186, -0.0690227 )
+bone_name = "LeftHand"
+
+[node name="RightHandAttach" type="BoneAttachment" parent="Armature/Skeleton"]
+transform = Transform( 0.193058, -0.981119, -0.0114574, -0.0654033, -0.00121652, -0.99786, 0.979006, 0.193394, -0.0644034, -0.811962, 1.53186, -0.0669378 )
+bone_name = "RightHand"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/air-dash = SubResource( 3 )
 anims/air-dash-aim = SubResource( 4 )
@@ -6970,7 +7010,6 @@ anims/turn-right = SubResource( 23 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 77 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 root_motion_track = NodePath("Armature/Skeleton:RootMotion")
 parameters/playback = SubResource( 78 )
 parameters/air-dash-aim/Blend2/blend_amount = 1.0
@@ -6979,3 +7018,29 @@ parameters/air-dash-aim/TimeScale/scale = 0.0
 parameters/jump/jump_blend/blend_position = 0.0
 parameters/running/run_blend/blend_position = Vector2( -0.991525, 1 )
 parameters/running/run_speed/scale = 1.0
+
+[node name="LeftHandIKTarget" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0.405115, 1.7476, 0.62164 )
+
+[node name="RightHandIKTarget" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -0.297102, 1.7476, 0.62164 )
+
+[node name="LeftHandRayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.812029, 1.53186, -0.0690226 )
+enabled = true
+cast_to = Vector3( 0, 0, 1 )
+
+[node name="RightHandRayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 1, -0.811962, 1.53186, -0.0669379 )
+enabled = true
+cast_to = Vector3( 0, 0, 1 )
+
+[node name="ChestRayCast1" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41065, 0 )
+enabled = true
+cast_to = Vector3( 0, 0, 1 )
+
+[node name="ChestRayCast2" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29247, 0 )
+enabled = true
+cast_to = Vector3( 0, 0, 1 )
