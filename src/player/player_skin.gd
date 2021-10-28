@@ -18,6 +18,9 @@ onready var right_hand_attach = $Armature/Skeleton/RightHandAttach
 onready var left_hand_ray = $LeftHandRayCast
 onready var right_hand_ray = $RightHandRayCast
 
+onready var chest_ray_1 = $ChestRayCast1
+onready var chest_ray_2 = $ChestRayCast2
+
 enum States { 
 	IDLE, RUN, JUMP, DOUBLE_JUMP, FALL,
 	LAND_SOFT, LAND_MEDIUM, LAND_HARD, 
@@ -35,10 +38,7 @@ var hand_ik_active = false
 var cached_intersection_point_left
 var cached_intersection_point_right
 
-var climbing_mesh
 var high_vert = Vector3.ZERO
-
-var debug_meshes = []
 
 
 func _ready():
@@ -55,10 +55,7 @@ func _ready():
 
 
 func _physics_process(_delta):
-#	$Armature/Skeleton/LeftHandAttach.rotation_degrees = Vector3.ZERO
-#	$Armature/Skeleton/RightHandAttach.rotation_degrees = Vector3.ZERO
-#	left_hand_ray.transform.basis = Basis.IDENTITY
-#	right_hand_ray.transform.basis = Basis.IDENTITY
+	# Sync the raycast positions to their respective bone attachments
 	left_hand_ray.transform.origin = left_hand_attach.transform.origin
 	right_hand_ray.transform.origin = right_hand_attach.transform.origin
 	
@@ -130,12 +127,7 @@ func get_hand_positions():
 	var intersection_point_left = to_local(cached_intersection_point_left)
 	var intersection_point_right = to_local(cached_intersection_point_right)
 	
-	# Find the edge to place the vertical positions
-	if climbing_mesh:
-		var mesh_aabb = climbing_mesh.get_aabb()
-		# Find the vertices of the mesh
-		high_vert = mesh_aabb.size
-
+	if high_vert:
 		intersection_point_left.y = to_local(high_vert).y
 		intersection_point_right.y = to_local(high_vert).y
 	
@@ -145,29 +137,28 @@ func get_hand_positions():
 
 
 func _start_hand_ik():
-	# TODO - set IK target to wall
-	climbing_mesh = left_hand_ray.get_collider()
-	climbing_mesh = right_hand_ray.get_collider()
 	# Store the initial collision point (a GLOBAL position) to reference later
 	# so we can have a fixed point relative to the scene.
 	cached_intersection_point_left = left_hand_ray.get_collision_point()
 	cached_intersection_point_right = right_hand_ray.get_collision_point()
+	
 	hand_ik_active = true
 	
 	# DEBUG - draw sphere meshes here to show the climb point
-	var global_debug_pos = [
-		Vector3(
-			cached_intersection_point_left.x,
-			high_vert.y,
-			cached_intersection_point_left.z
-		),
-		Vector3(
-			cached_intersection_point_right.x,
-			high_vert.y,
-			cached_intersection_point_right.z
-		)
-	]
-	_generate_ik_debug(global_debug_pos)
+	if high_vert:
+		var global_debug_pos  = [
+			Vector3(
+				cached_intersection_point_left.x,
+				high_vert.y,
+				cached_intersection_point_left.z
+			),
+			Vector3(
+				cached_intersection_point_right.x,
+				high_vert.y,
+				cached_intersection_point_right.z
+			)
+		]
+		get_parent()._generate_ik_debug(global_debug_pos)
 	
 	left_hand_ik.start()
 	right_hand_ik.start()
@@ -179,40 +170,8 @@ func _stop_hand_ik():
 	right_hand_ik.stop()
 	
 	# Remove any debug meshes
-	_clear_ik_debug()
+	get_parent()._clear_ik_debug()
 	
 	# Clear overrides to reset to animation rest poses
 	skeleton.clear_bones_global_pose_override()
 
-
-func _generate_ik_debug(debug_positions: Array):
-	# Get the scene root
-	var root = get_tree().root.get_children()[0]
-	
-	# Create a debug sphere
-	var debug_sphere = SphereMesh.new()
-	debug_sphere.height = 1
-	debug_sphere.radius = 0.5
-	 # Bright red material (unshaded).
-	var material = SpatialMaterial.new()
-	material.albedo_color = Color(1, 0, 0)
-	material.flags_unshaded = true
-	debug_sphere.surface_set_material(0, material)
-	
-	# Generate a mesh for each hand hold point in the array
-	for position in debug_positions:
-		var debug_mesh = MeshInstance.new()
-		debug_mesh.mesh = debug_sphere
-		debug_mesh.global_transform.origin = position
-		
-		root.add_child(debug_mesh)
-		debug_meshes.append(debug_mesh)
-
-
-func _clear_ik_debug():
-	var root = get_tree().root.get_children()[0]
-	
-	for mesh in debug_meshes:
-		mesh.queue_free()
-		root.remove_child(mesh)
-		debug_meshes.erase(mesh)

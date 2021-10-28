@@ -56,6 +56,9 @@ onready var durability_ui = $DurabilityUI/Viewport/DurabilityMeter
 var pickup_count =  0 setget set_pickup_counter
 var reverse_pickup_count =  0 setget set_reverse_pickup_counter
 
+var space_state
+var debug_meshes = []
+
 
 func _ready():
 #	yield(fadeout.animation_player, "animation_finished")
@@ -69,6 +72,10 @@ func _ready():
 func _process(_delta):
 	pickup_count = pickup_counter.pickup_count
 	reverse_pickup_count = reverse_pickup_counter.pickup_count
+
+
+func _physics_process(_delta):
+	space_state = get_world().direct_space_state
 
 
 func can_mantle():
@@ -94,3 +101,37 @@ func set_pickup_counter(value):
 func set_reverse_pickup_counter(value):
 	reverse_pickup_count = value
 	reverse_pickup_counter.set_pickup_count(reverse_pickup_count)
+
+
+func _generate_ik_debug(debug_positions: Array, colour: Color = Color.red):
+	# Get the scene root
+	var root = get_tree().root.get_children()[0]
+	
+	# Create a debug sphere
+	var debug_sphere = SphereMesh.new()
+	debug_sphere.height = 0.25
+	debug_sphere.radius = 0.125
+	 # Bright red material (unshaded).
+	var material = SpatialMaterial.new()
+	material.albedo_color = colour
+	material.flags_unshaded = true
+	debug_sphere.surface_set_material(0, material)
+	
+	# Generate a mesh for each hand hold point in the array
+	for position in debug_positions:
+		var debug_mesh = MeshInstance.new()
+		debug_mesh.mesh = debug_sphere
+		debug_mesh.global_transform.origin = position
+		
+		root.add_child(debug_mesh)
+		debug_meshes.append(debug_mesh)
+
+
+func _clear_ik_debug():
+	var root = get_tree().root.get_children()[0]
+	
+	for mesh in debug_meshes:
+		mesh.queue_free()
+		root.remove_child(mesh)
+		debug_meshes.erase(mesh)
+

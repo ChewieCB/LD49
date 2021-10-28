@@ -1464,7 +1464,7 @@ tracks/41/loop_wrap = true
 tracks/41/imported = false
 tracks/41/enabled = true
 tracks/41/keys = {
-"times": PoolRealArray( 0, 1.168 ),
+"times": PoolRealArray( 0, 0.732 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -6966,20 +6966,22 @@ visible = false
 process_priority = 1
 root_bone = "LeftShoulder"
 tip_bone = "LeftHand"
+use_magnet = true
 target_node = NodePath("../../../LeftHandIKTarget")
 
 [node name="RightHandIK" type="SkeletonIK" parent="Armature/Skeleton"]
 process_priority = 1
 root_bone = "RightShoulder"
 tip_bone = "RightHand"
+use_magnet = true
 target_node = NodePath("../../../RightHandIKTarget")
 
 [node name="LeftHandAttach" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.73888, -0.638163, 0.216342, -0.261417, -0.567389, -0.780853, 0.621062, 0.520401, -0.586058, 0.0843562, 2.06785, 0.949456 )
+transform = Transform( 0.204205, 0.978893, 0.00830224, 0.0755283, -0.00729923, -0.997117, -0.97601, 0.204243, -0.0754247, 0.812029, 1.53186, -0.0690227 )
 bone_name = "LeftHand"
 
 [node name="RightHandAttach" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.949494, 0.247511, -0.192873, -0.188553, -0.041277, -0.981195, -0.250818, 0.968007, 0.00747556, -0.33535, 1.9062, 0.992625 )
+transform = Transform( 0.193058, -0.981119, -0.0114574, -0.0654033, -0.00121652, -0.99786, 0.979006, 0.193394, -0.0644034, -0.811962, 1.53186, -0.0669378 )
 bone_name = "RightHand"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -7030,5 +7032,15 @@ cast_to = Vector3( 0, 0, 1 )
 
 [node name="RightHandRayCast" type="RayCast" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 1, -0.811962, 1.53186, -0.0669379 )
+enabled = true
+cast_to = Vector3( 0, 0, 1 )
+
+[node name="ChestRayCast1" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41065, 0 )
+enabled = true
+cast_to = Vector3( 0, 0, 1 )
+
+[node name="ChestRayCast2" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29247, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, 1 )
