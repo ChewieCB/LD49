@@ -66,6 +66,12 @@ func physics_process(delta: float):
 		"parameters/running/run_blend/blend_position", 
 		skin_direction
 	)
+	# TODO - only apply this on change, add a setter or signal
+	# Apply timescale to blend space
+	_actor.skin.animation_tree.set(
+		"parameters/running/run_speed/scale", 
+		_parent.move_speed_modifier - 0.2
+	)
 	
 	# Idle
 	if _parent.input_direction == Vector3.ZERO:

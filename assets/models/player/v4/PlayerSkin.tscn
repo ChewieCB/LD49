@@ -6561,7 +6561,7 @@ blend_point_3/pos = Vector2( -1, 0 )
 [sub_resource type="AnimationNodeTimeScale" id=45]
 
 [sub_resource type="AnimationNodeBlendTree" id=46]
-graph_offset = Vector2( -194, -21 )
+graph_offset = Vector2( -276, 32 )
 nodes/output/position = Vector2( 440, 140 )
 nodes/run_blend/node = SubResource( 44 )
 nodes/run_blend/position = Vector2( -20, 120 )
@@ -6681,7 +6681,7 @@ states/running/node = SubResource( 46 )
 states/running/position = Vector2( 463, 86 )
 transitions = [ "idle", "running", SubResource( 47 ), "running", "idle", SubResource( 48 ), "idle", "jump", SubResource( 49 ), "running", "jump", SubResource( 50 ), "jump", "idle", SubResource( 51 ), "jump", "running", SubResource( 52 ), "jump", "fall", SubResource( 53 ), "fall", "idle", SubResource( 54 ), "fall", "running", SubResource( 55 ), "jump", "double-jump", SubResource( 56 ), "double-jump", "fall", SubResource( 57 ), "fall", "double-jump", SubResource( 58 ), "double-jump", "idle", SubResource( 59 ), "double-jump", "running", SubResource( 60 ), "double-jump", "climb", SubResource( 61 ), "climb", "idle", SubResource( 62 ), "climb", "running", SubResource( 63 ), "jump", "climb", SubResource( 64 ), "fall", "climb", SubResource( 65 ), "air-dash-start", "fall", SubResource( 66 ), "jump", "air-dash-aim", SubResource( 67 ), "air-dash-aim", "air-dash-start", SubResource( 68 ), "fall", "air-dash-aim", SubResource( 69 ), "air-dash-aim", "fall", SubResource( 70 ), "air-dash-start", "running", SubResource( 71 ), "air-dash-start", "idle", SubResource( 72 ), "double-jump", "air-dash-aim", SubResource( 73 ), "air-dash-start", "double-jump", SubResource( 74 ), "air-dash-start", "jump", SubResource( 75 ), "air-dash-start", "climb", SubResource( 76 ) ]
 start_node = "idle"
-graph_offset = Vector2( -232, 6 )
+graph_offset = Vector2( -209, 29 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=78]
 
