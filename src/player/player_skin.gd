@@ -21,8 +21,13 @@ onready var right_hand_ray = $RightHandRayCast
 onready var chest_ray_1 = $ChestRayCast1
 onready var chest_ray_2 = $ChestRayCast2
 
+onready var left_foot_attach = $Armature/Skeleton/LeftFootAttach
+onready var right_foot_attach = $Armature/Skeleton/RightFootAttach
+var highest_foot = left_foot_attach
+
 enum States { 
 	IDLE, RUN, JUMP, DOUBLE_JUMP, FALL,
+	SLIDE,
 	LAND_SOFT, LAND_MEDIUM, LAND_HARD, 
 	CLIMB, 
 	DASH_AIM, DASH, 
@@ -30,7 +35,6 @@ enum States {
 }
 
 onready var animation_player: AnimationPlayer = $AnimationPlayer
-onready var transition_player: AnimationPlayer = $TransitionAnimationPlayer
 onready var animation_tree: AnimationTree = $AnimationTree
 onready var _playback = animation_tree["parameters/playback"]
 
@@ -61,6 +65,12 @@ func _physics_process(_delta):
 	
 	if hand_ik_active:
 		get_hand_positions()
+	
+	# Check which foot is higher
+	if left_foot_attach.global_transform.origin.y < right_foot_attach.global_transform.origin.y:
+		highest_foot = left_foot_attach
+	else:
+		highest_foot = right_foot_attach
 
 
 func transition_to(state_id: int):
@@ -75,6 +85,8 @@ func transition_to(state_id: int):
 			_playback.travel("fall")
 		States.DOUBLE_JUMP:
 			_playback.travel("double-jump")
+		States.SLIDE:
+			_playback.travel("slide")
 		States.LAND_SOFT:
 			_playback.travel("land-soft")
 		States.LAND_MEDIUM:
@@ -145,20 +157,20 @@ func _start_hand_ik():
 	hand_ik_active = true
 	
 	# DEBUG - draw sphere meshes here to show the climb point
-	if high_vert:
-		var global_debug_pos  = [
-			Vector3(
-				cached_intersection_point_left.x,
-				high_vert.y,
-				cached_intersection_point_left.z
-			),
-			Vector3(
-				cached_intersection_point_right.x,
-				high_vert.y,
-				cached_intersection_point_right.z
-			)
-		]
-		get_parent()._generate_ik_debug(global_debug_pos)
+#	if high_vert:
+#		var global_debug_pos  = [
+#			Vector3(
+#				cached_intersection_point_left.x,
+#				high_vert.y,
+#				cached_intersection_point_left.z
+#			),
+#			Vector3(
+#				cached_intersection_point_right.x,
+#				high_vert.y,
+#				cached_intersection_point_right.z
+#			)
+#		]
+#		get_parent()._generate_ik_debug(global_debug_pos)
 	
 	left_hand_ik.start()
 	right_hand_ik.start()

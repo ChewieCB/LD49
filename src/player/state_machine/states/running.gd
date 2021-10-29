@@ -55,6 +55,9 @@ func unhandled_input(event: InputEvent):
 func physics_process(delta: float):
 	_parent.physics_process(delta)
 	
+	if Input.is_action_just_pressed("p1_slide"):
+		_state_machine.transition_to("Movement/Sliding")
+	
 	# Apply input direction to skin
 	var input_direction = Vector2(
 		_parent.input_direction.x,

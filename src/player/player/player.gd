@@ -5,6 +5,7 @@ class_name PlayerController
 #onready var fadeout = $"../../GUI/Fadeout"
 
 onready var default_collider = $CollisionShape
+onready var base_collider = $CollisionShape2
 
 # Climbing raycasts
 onready var climbing_rays = $ClimbingRayCasts

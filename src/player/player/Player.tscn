@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://src/player/player/player.gd" type="Script" id=1]
 [ext_resource path="res://src/player/StatusLabels.tscn" type="PackedScene" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://assets/audio/sfx/player/dash/dash1_sandy.wav" type="AudioStream" id=35]
 [ext_resource path="res://assets/audio/sfx/player/decay.wav" type="AudioStream" id=36]
 [ext_resource path="res://assets/models/player/v4/PlayerSkin.tscn" type="PackedScene" id=37]
+[ext_resource path="res://src/player/state_machine/states/sliding.gd" type="Script" id=38]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 1.2
@@ -60,7 +61,7 @@ climb_ray_pos_double_jump = Vector3( 0, 5, 0 )
 [node name="PlayerUI" parent="GUI" instance=ExtResource( 15 )]
 
 [node name="PlayerSkin" parent="." instance=ExtResource( 37 )]
-transform = Transform( -1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 0, -0.4, 0 )
+transform = Transform( -1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 0, -0.2, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.1, 3.9, 0 )
@@ -82,6 +83,9 @@ script = ExtResource( 5 )
 
 [node name="Running" type="Node" parent="StateMachine/Movement"]
 script = ExtResource( 6 )
+
+[node name="Sliding" type="Node" parent="StateMachine/Movement"]
+script = ExtResource( 38 )
 
 [node name="Jumping" type="Node" parent="StateMachine/Movement"]
 script = ExtResource( 7 )

@@ -1987,6 +1987,27 @@ width = 20.0
 height = 28.0
 depth = 44.0
 
+[node name="CSGBox5" type="CSGBox" parent="Environment/05_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -298, -12, 307 )
+use_collision = true
+width = 88.0
+height = 12.0
+depth = 14.0
+
+[node name="CSGBox6" type="CSGBox" parent="Environment/05_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -298, -12, 350 )
+use_collision = true
+width = 88.0
+height = 12.0
+depth = 14.0
+
+[node name="CSGBox7" type="CSGBox" parent="Environment/05_room_dec"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -298, -12, 393 )
+use_collision = true
+width = 88.0
+height = 12.0
+depth = 14.0
+
 [node name="CSGBox2" type="CSGBox" parent="Environment/05_room_dec"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -260, 7, 46 )
 use_collision = true
@@ -2352,7 +2373,7 @@ anims/open = SubResource( 16 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -316, 55.9, -31 )
 
 [node name="PlayerRig" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.4, 50 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -298, -22.6, 279 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 17 )
