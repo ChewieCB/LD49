@@ -4372,7 +4372,7 @@ tracks/39/enabled = true
 tracks/39/keys = PoolRealArray( 0, 1, -0.00105446, -0.180742, -0.0767581, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, -0.00105446, -0.180742, -0.0767581, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0.00281059, -0.117398, -0.509075, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, 0.0122927, -0.113905, -0.748132, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 0.030958, -0.19036, -1.19733, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, 0.0118294, -0.104765, -1.65375, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, 0.00412983, -0.17198, -2.12033, 0, 0, 0, 1, 1, 1, 1 )
 
 [sub_resource type="Animation" id=17]
-length = 0.667
+length = 0.67
 loop = true
 step = 0.001
 tracks/0/type = "transform"
@@ -4661,7 +4661,7 @@ tracks/40/interp = 1
 tracks/40/loop_wrap = true
 tracks/40/imported = true
 tracks/40/enabled = true
-tracks/40/keys = PoolRealArray( 0, 1, 0, 0, 0.247, 0, 0, 0, 1, 1, 1, 1, 0.066, 1, 0, 0, 0.247, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0, 0, 1.037, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0, 0, 1.865, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 0, 0, 2.361, 0, 0, 0, 1, 1, 1, 1, 0.534, 1, 0, 0, 3.139, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, 0, 0, 4, 0, 0, 0, 1, 1, 1, 1 )
+tracks/40/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, 0, 0, 4, 0, 0, 0, 1, 1, 1, 1 )
 
 [sub_resource type="Animation" id=18]
 length = 1.56667
@@ -6561,7 +6561,7 @@ blend_point_3/pos = Vector2( -1, 0 )
 [sub_resource type="AnimationNodeTimeScale" id=45]
 
 [sub_resource type="AnimationNodeBlendTree" id=46]
-graph_offset = Vector2( -276, 32 )
+graph_offset = Vector2( -142, -45 )
 nodes/output/position = Vector2( 440, 140 )
 nodes/run_blend/node = SubResource( 44 )
 nodes/run_blend/position = Vector2( -20, 120 )
@@ -6681,7 +6681,7 @@ states/running/node = SubResource( 46 )
 states/running/position = Vector2( 463, 86 )
 transitions = [ "idle", "running", SubResource( 47 ), "running", "idle", SubResource( 48 ), "idle", "jump", SubResource( 49 ), "running", "jump", SubResource( 50 ), "jump", "idle", SubResource( 51 ), "jump", "running", SubResource( 52 ), "jump", "fall", SubResource( 53 ), "fall", "idle", SubResource( 54 ), "fall", "running", SubResource( 55 ), "jump", "double-jump", SubResource( 56 ), "double-jump", "fall", SubResource( 57 ), "fall", "double-jump", SubResource( 58 ), "double-jump", "idle", SubResource( 59 ), "double-jump", "running", SubResource( 60 ), "double-jump", "climb", SubResource( 61 ), "climb", "idle", SubResource( 62 ), "climb", "running", SubResource( 63 ), "jump", "climb", SubResource( 64 ), "fall", "climb", SubResource( 65 ), "air-dash-start", "fall", SubResource( 66 ), "jump", "air-dash-aim", SubResource( 67 ), "air-dash-aim", "air-dash-start", SubResource( 68 ), "fall", "air-dash-aim", SubResource( 69 ), "air-dash-aim", "fall", SubResource( 70 ), "air-dash-start", "running", SubResource( 71 ), "air-dash-start", "idle", SubResource( 72 ), "double-jump", "air-dash-aim", SubResource( 73 ), "air-dash-start", "double-jump", SubResource( 74 ), "air-dash-start", "jump", SubResource( 75 ), "air-dash-start", "climb", SubResource( 76 ) ]
 start_node = "idle"
-graph_offset = Vector2( -209, 29 )
+graph_offset = Vector2( -284, -15 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=78]
 
@@ -6977,11 +6977,11 @@ use_magnet = true
 target_node = NodePath("../../../RightHandIKTarget")
 
 [node name="LeftHandAttach" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.204205, 0.978893, 0.00830224, 0.0755283, -0.00729923, -0.997117, -0.97601, 0.204243, -0.0754247, 0.812029, 1.53186, -0.0690227 )
+transform = Transform( 0.82416, -0.00950434, -0.566276, -0.477179, -0.550206, -0.685254, -0.305056, 0.834975, -0.457993, 0.302087, 0.973189, 0.224128 )
 bone_name = "LeftHand"
 
 [node name="RightHandAttach" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.193058, -0.981119, -0.0114574, -0.0654033, -0.00121652, -0.99786, 0.979006, 0.193394, -0.0644034, -0.811962, 1.53186, -0.0669378 )
+transform = Transform( -0.0846389, -0.228361, 0.969891, 0.493971, -0.854966, -0.158196, 0.86535, 0.465708, 0.185167, -0.287455, 0.973088, -0.240732 )
 bone_name = "RightHand"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -7010,13 +7010,14 @@ anims/turn-right = SubResource( 23 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 77 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 root_motion_track = NodePath("Armature/Skeleton:RootMotion")
 parameters/playback = SubResource( 78 )
 parameters/air-dash-aim/Blend2/blend_amount = 1.0
 parameters/air-dash-aim/Seek/seek_position = -1.0
 parameters/air-dash-aim/TimeScale/scale = 0.0
 parameters/jump/jump_blend/blend_position = 0.0
-parameters/running/run_blend/blend_position = Vector2( -0.991525, 1 )
+parameters/running/run_blend/blend_position = Vector2( 0, 1 )
 parameters/running/run_speed/scale = 1.0
 
 [node name="LeftHandIKTarget" type="Position3D" parent="."]

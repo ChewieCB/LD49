@@ -10,7 +10,7 @@ var skin_direction = Vector2.ZERO
 
 
 func enter(_msg: Dictionary = {}):
-	_parent.using_root_motion = true
+	_parent.using_root_motion = false
 	_parent.enter()
 	_parent.max_speed = max_speed
 	_parent.move_speed = move_speed
