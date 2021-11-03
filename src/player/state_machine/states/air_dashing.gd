@@ -10,7 +10,7 @@ export (float) var dash_time = 0.3
 var dash_velocity
 
 
-func enter(msg: Dictionary = {}):
+func enter(_msg: Dictionary = {}):
 	_parent.using_root_motion = false
 	audio_manager.transition_to(audio_manager.States.AIR_DASH, 1)
 	

@@ -15,6 +15,7 @@ func _ready():
 func _on_RepairPickup_body_entered(body):
 	if body is PlayerController:
 		emit_signal("pickup_collected")
-		body.audio_manager.transition_to(body.audio_manager.States.COLLECTED)
+		body.audio_manager.transition_to(body.audio_manager.States.COLLECTED, 1)
+		animation_player.play("null")
 		orb.queue_free()
 

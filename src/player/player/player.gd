@@ -45,7 +45,6 @@ const SNAP_LENGTH = 32
 # Audio
 onready var audio_manager = $AudioManager
 
-
 # UI
 onready var ui = $GUI/PlayerUI
 onready var pickup_counter = ui.get_node("MarginContainer/GridContainer/HBoxContainer/CenterContainer3/PickupCounter")

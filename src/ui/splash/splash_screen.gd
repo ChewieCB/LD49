@@ -19,5 +19,5 @@ func _ready():
 	yield(fadeout.animation_player, "animation_finished")
 	yield(get_tree().create_timer(0.1), "timeout")
 	
-	get_tree().change_scene(main_menu)
+	var _ret = get_tree().change_scene(main_menu)
 

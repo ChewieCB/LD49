@@ -95,7 +95,7 @@ func get_climb_direction():
 	return Vector3.ZERO
 
 
-func find_vertical_edge(climb_direction):
+func find_vertical_edge(climb_dir):
 	var edge_vert
 	
 	# Find out which raycasts are already colliding, we can use these
@@ -123,7 +123,7 @@ func find_vertical_edge(climb_direction):
 	
 	# Create a new, movable raycast from the highest current colliding ray
 	var ray_start = highest_ray.global_transform.origin
-	var ray_end = ray_start + climb_direction * 4
+	var ray_end = ray_start + climb_dir * 4
 	var edge_finder_raycast = _actor.space_state.intersect_ray(
 		ray_start,
 		ray_end

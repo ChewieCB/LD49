@@ -34,7 +34,7 @@ func _ready():
 		self,
 		"_apply_movement_modifiers"
 	)
-	self.connect("main_menu", DynamicMusicManager, "main_menu")
+	var _ret = self.connect("main_menu", DynamicMusicManager, "main_menu")
 
 
 #func enter(_msg: Dictionary = {}):
@@ -50,11 +50,11 @@ func physics_process(delta: float):
 		
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		var main_menu_path = "res://src/ui/main_menu/Menu.tscn"
-		get_tree().change_scene(main_menu_path)
+		var _ret = get_tree().change_scene(main_menu_path)
 	
 	# Debug Reset
 	if Input.is_action_pressed("reset"):
-		get_tree().reload_current_scene()
+		var _ret = get_tree().reload_current_scene()
 	elif Input.is_action_pressed("quit"):
 		get_tree().quit()
 	
@@ -115,14 +115,14 @@ func get_input_direction():
 	return input_vector
 
 
-func calculate_movement_direction(input_direction, delta):
+func calculate_movement_direction(input_dir, _delta):
 	var forwards := Vector3.ZERO
 	var right := Vector3.ZERO
 	
 	# We calculate a move direction vector relative to the camera,
 	# the basis stores the (right, up, -forwards) vectors of our camera.
-	forwards = input_direction.z * _actor.transform.basis.x
-	right = input_direction.x * - _actor.transform.basis.z
+	forwards = input_dir.z * _actor.transform.basis.x
+	right = input_dir.x * - _actor.transform.basis.z
 	move_direction = forwards + right
 	
 	if move_direction.length() > 1.0:
@@ -175,8 +175,8 @@ func calculate_movement_direction_with_root_motion(delta):
 	return move_direction
 
 
-func calculate_velocity(velocity_current: Vector3, move_direction: Vector3, delta: float):
-	var velocity_new = move_direction * (move_speed * move_speed_modifier)
+func calculate_velocity(velocity_current: Vector3, move_dir: Vector3, delta: float):
+	var velocity_new = move_dir * (move_speed * move_speed_modifier)
 	if velocity_new.length() > max_speed:
 		velocity_new = velocity_new.normalized() * max_speed
 	velocity_new.y = velocity_current.y + (gravity * gravity_modifier) * delta
@@ -184,7 +184,7 @@ func calculate_velocity(velocity_current: Vector3, move_direction: Vector3, delt
 	return velocity_new
 
 
-func _apply_movement_modifiers(new_state):
+func _apply_movement_modifiers(_new_state):
 	# Apply movement modifiers from the player's durability state
 	var current_durability_state = _actor.durability_state_machine.state
 	
