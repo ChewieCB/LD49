@@ -25,7 +25,7 @@ func enter(_msg: Dictionary = {}):
 	climb()
 
 	#
-	audio_manager.transition_to(audio_manager.States.CLIMB)
+	audio_manager.transition_to(audio_manager.States.CLIMB, 1)
 
 
 func physics_process(_delta):

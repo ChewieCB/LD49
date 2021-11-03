@@ -19,7 +19,7 @@ func enter(msg: Dictionary = {}):
 	_parent.input_direction = Vector3.ZERO
 #	_parent.move_direction = Vector3.ZERO
 	#
-	audio_manager.transition_to(audio_manager.States.DIE)
+	audio_manager.transition_to(audio_manager.States.DIE, 1)
 	
 	# MESH
 	var skin = _actor.skin

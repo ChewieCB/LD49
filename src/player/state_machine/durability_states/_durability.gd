@@ -1,5 +1,7 @@
 extends State
 
+signal decay_state_changed
+
 #
 var move_speed_modifier = null
 var climb_speed_modifier = null
@@ -62,15 +64,14 @@ func _reduce_durability():
 		_:
 			push_error("Invalid durability state!")
 	
-	audio_manager.transition_to(audio_manager.States.DECAY)
-	# If the player is running we want to swap the sounds out
-	if _actor.state_machine.state.get_index() == 1:
-		audio_manager.transition_walking_sfx(new_state_index)
+	audio_manager.transition_to(audio_manager.States.DECAY, 1)
 	
 	if is_timer_active:
 		reset_timer()
 	
 	_state_machine.transition_to(new_state_name)
+	
+	emit_signal("decay_state_changed")
 
 
 func _increase_durability():
@@ -98,11 +99,14 @@ func _increase_durability():
 		reset_timer()
 	
 	_state_machine.transition_to(new_state_name)
+	
+	emit_signal("decay_state_changed")
 
 
 func reset_timer():
 	decay_timer.wait_time = max_wait_time
 	decay_timer.start()
+
 
 func _start_decay_timer():
 	# Reset the durability timer
@@ -127,12 +131,6 @@ func set_is_timer_active(value):
 
 func set_state_colour(value: Color):
 	state_colour = value
-#	var material = _actor.debug_mesh.get_surface_material(0)
-#	material.set_albedo(state_colour)
-#	_actor.debug_mesh.set_surface_material(0, material)
 	
 	# Set the ui colour
 	_actor.durability_ui.color = state_colour
-	
-
-	
