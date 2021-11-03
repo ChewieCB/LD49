@@ -76,7 +76,7 @@ func _process(delta):
 		var pitch_dir = mouse_delta.y
 		
 		#
-		var is_player_moving_camera = (mouse_delta != Vector2.ZERO)
+		var _is_player_moving_camera = (mouse_delta != Vector2.ZERO)
 	
 		# Rotate the camera pivot accordingly
 		camera_rotation = Vector3(0, yaw_dir, pitch_dir) * delta * LocalSettings.LOOK_SENSITIVITY

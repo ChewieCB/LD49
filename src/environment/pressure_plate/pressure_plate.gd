@@ -61,7 +61,7 @@ func _on_Area_body_entered(body):
 			activate()
 
 
-func _on_Area_body_exited(body):
+func _on_Area_body_exited(_body):
 	pass
 #	if body is PlayerController:
 #		deactivate()

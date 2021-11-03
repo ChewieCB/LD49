@@ -3,7 +3,7 @@ extends State
 signal dead
 
 
-func enter(msg: Dictionary = {}):
+func enter(_msg: Dictionary = {}):
 	# Disable player input
 	GlobalFlags.PLAYER_CONTROLS_ACTIVE = false
 	GlobalFlags.CAMERA_CONTROLS_ACTIVE = false

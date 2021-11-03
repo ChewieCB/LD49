@@ -31,7 +31,7 @@ func enter(_msg: Dictionary = {}):
 	_actor.tween.start()
 
 
-func physics_process(delta: float):
+func physics_process(_delta: float):
 	if _actor.is_on_ceiling():
 		_parent.velocity.y = 0
 	

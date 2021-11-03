@@ -19,13 +19,13 @@ var current_element
 func _ready():
 	get_tree().paused = false
 	
-	self.connect("next_level", DynamicMusicManager, "advance_level")
+	var _ret = self.connect("next_level", DynamicMusicManager, "advance_level")
 	
 	fadeout.fade_in(0.5)
 	animation_player.play("default")
 	set_current_menu(main_screen)
 	
-	Input.connect("joy_connection_changed", self, "controller_ui_focus")
+	_ret = Input.connect("joy_connection_changed", self, "controller_ui_focus")
 
 
 func _input(_event):
@@ -77,7 +77,7 @@ func controller_ui_focus(_device, connected):
 
 
 func transition_to_game():
-	get_tree().change_scene(game_start_path)
+	var _ret = get_tree().change_scene(game_start_path)
 
 
 func set_current_menu(menu_screen):
@@ -133,7 +133,7 @@ func _on_PlayButton_pressed():
 	fadeout.fade_out(0.5)
 	emit_signal("next_level")
 	yield(DynamicMusicManager, "bgm_changed")
-	get_tree().change_scene(game_start_path)
+	var _ret = get_tree().change_scene(game_start_path)
 	fadeout.fade_in(0.5)
 
 

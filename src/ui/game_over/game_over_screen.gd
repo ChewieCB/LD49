@@ -11,7 +11,7 @@ onready var player = get_node("../../PlayerRig/Player")
 
 
 func _ready():
-	self.connect("main_menu", DynamicMusicManager, "main_menu")
+	var _ret = self.connect("main_menu", DynamicMusicManager, "main_menu")
 	animation_player.play("default")
 
 
@@ -36,7 +36,7 @@ func _on_RetryButton_pressed():
 	animation_player.play("default")
 #	yield(fadeout.animation_player, "animation_finished")
 	yield(DynamicMusicManager.animation_player, "animation_finished")
-	get_tree().reload_current_scene()
+	var _ret = get_tree().reload_current_scene()
 
 
 func _on_QuitButton_pressed():
@@ -44,5 +44,5 @@ func _on_QuitButton_pressed():
 #	yield(fadeout.animation_player, "animation_finished")
 	emit_signal("main_menu")
 	yield(DynamicMusicManager, "bgm_changed")
-	get_tree().change_scene(main_menu_path)
+	var _ret = get_tree().change_scene(main_menu_path)
 

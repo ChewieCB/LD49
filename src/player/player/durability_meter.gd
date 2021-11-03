@@ -26,12 +26,12 @@ func _draw():
 	)
 
 
-func draw_durability_meter(position, size, width, current, color):
+func draw_durability_meter(position, size, width, _current, ui_color):
 	draw_arc(
 		position, size, 4.7, min_angle, 800, Color(0, 0, 0, 0.5), width, true
 	)
 	draw_arc(
-		position, size, 4.7, current_angle, 800, color, width, true
+		position, size, 4.7, current_angle, 800, ui_color, width, true
 	)
 
 
