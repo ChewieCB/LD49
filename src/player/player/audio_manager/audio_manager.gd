@@ -34,6 +34,7 @@ enum States {
 onready var player_audio = $PlayerAudio
 onready var aux_audio = $AuxAudio
 onready var powerup_audio = $PowerupAudio
+onready var sfx_players = [player_audio, aux_audio, powerup_audio]
 
 onready var audio_player = player_audio
 
@@ -95,19 +96,27 @@ func play_audio(state, sfx_player=0):
 func transition_walking_sfx(speed):
 	match speed:
 		0:
-			transition_to(States.MOVE_SLOW)
+			transition_to(States.MOVE_SLOW, 0)
 		1:
-			transition_to(States.MOVE_MEDIUM)
+			transition_to(States.MOVE_MEDIUM, 0)
 		2:
-			transition_to(States.MOVE_FAST)
+			transition_to(States.MOVE_FAST, 0)
 
 
-func stop_audio():
-	audio_player.stop()
-	audio_player.stream = null
+func stop_audio(sfx_player):
+	var _audio_player
+	match sfx_player:
+		0:
+			_audio_player = player_audio
+		1:
+			_audio_player = aux_audio
+		2:
+			_audio_player = powerup_audio
+	_audio_player.stop()
+	_audio_player.stream = null
 
 
-func transition_to(state, sfx_player=0):
-	stop_audio()
+func transition_to(state, sfx_player):
+	stop_audio(sfx_player)
 	play_audio(state, sfx_player)
 	emit_signal("transitioned", state)

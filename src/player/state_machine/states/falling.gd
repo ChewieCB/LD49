@@ -17,7 +17,7 @@ func enter(msg: Dictionary = {}):
 	_parent.move_speed = move_speed
 	_parent.jump_impulse = jump_impulse
 	#
-	audio_manager.transition_to(audio_manager.States.IDLE)
+	audio_manager.transition_to(audio_manager.States.IDLE, 0)
 	
 	# MESH
 	var skin = _actor.skin
@@ -42,11 +42,11 @@ func physics_process(delta: float):
 	if _actor.is_on_floor():
 		if _parent.input_direction == Vector3.ZERO:
 			# Idle
-			audio_manager.transition_to(audio_manager.States.LAND, 1)
+#			audio_manager.transition_to(audio_manager.States.LAND, 1)
 			_state_machine.transition_to("Movement/Idle")
 		else:
 			# Walking
-			audio_manager.transition_to(audio_manager.States.LAND, 1)
+#			audio_manager.transition_to(audio_manager.States.LAND, 1)
 			_state_machine.transition_to("Movement/Running")
 	else:
 		if Input.is_action_pressed("p1_jump"):
@@ -70,7 +70,6 @@ func physics_process(delta: float):
 
 
 func exit():
-#	audio_player.transition_to(audio_player.States.LAND)
 	_parent.exit()
 
 

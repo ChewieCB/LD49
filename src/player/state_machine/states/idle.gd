@@ -15,7 +15,7 @@ func enter(_msg: Dictionary = {}):
 	var skin = _actor.skin
 	skin.transition_to(skin.States.IDLE)
 	
-	audio_manager.transition_to(audio_manager.States.IDLE)
+	audio_manager.transition_to(audio_manager.States.IDLE, 0)
 	
 	_actor.climbing_rays.transform.origin = _actor.climb_ray_pos_normal
 
