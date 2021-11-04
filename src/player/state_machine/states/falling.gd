@@ -1,13 +1,17 @@
 extends State
 # State for when the player is falling
 
-onready var coyote_time = Timer.new()
+onready var coyote_time = $CoyoteTimer
 onready var was_on_floor = false
 
 export var max_speed = 100.0
 export var move_speed = 20.0
 export var gravity = -120.0
 export var jump_impulse = 30
+
+
+func _ready():
+	coyote_time.connect("timeout", self, "_on_coyote_time_timeout")
 
 
 func enter(msg: Dictionary = {}):
@@ -29,12 +33,8 @@ func enter(msg: Dictionary = {}):
 	# Add coyote timer if falling off a ledge
 	if was_on_floor:
 		coyote_time.one_shot = true
-		coyote_time.wait_time = 1.6
-		if not coyote_time.is_connected("timeout", self, "_on_coyote_time_timeout"):
-			coyote_time.connect("timeout", self, "_on_coyote_time_timeout")
-		if not coyote_time in get_children():
-			add_child(coyote_time)
-			coyote_time.start()
+		coyote_time.wait_time = _parent.move_speed_modifier
+		coyote_time.start()
 
 
 func physics_process(delta: float):
@@ -74,5 +74,6 @@ func exit():
 
 
 func _on_coyote_time_timeout():
-	remove_child(coyote_time)
+	pass
+#	remove_child(coyote_time)
 

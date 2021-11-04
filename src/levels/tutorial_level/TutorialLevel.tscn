@@ -2352,7 +2352,7 @@ anims/open = SubResource( 16 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -316, 55.9, -31 )
 
 [node name="PlayerRig" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.4, 50 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -167, 63.4, -113 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 17 )

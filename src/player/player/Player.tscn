@@ -101,6 +101,8 @@ one_shot = true
 [node name="Falling" type="Node" parent="StateMachine/Movement"]
 script = ExtResource( 8 )
 
+[node name="CoyoteTimer" type="Timer" parent="StateMachine/Movement/Falling"]
+
 [node name="Climbing" type="Node" parent="StateMachine/Movement"]
 script = ExtResource( 9 )
 
